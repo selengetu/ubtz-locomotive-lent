@@ -2645,7 +2645,57 @@
                     @endif</td>
             </tr>
 
-            
+                  <tr>
+                      <td> 13 </td>
+                      <td> Өртөөнд 120 минутаас илүү зогссон</td>
+                      <td>0</td>
+                      <td>
+                          @if(count($iluu) >0)
+                              @foreach($iluu as $n)
+                                  {{$n->too}} уд
+                              @endforeach
+                          @else
+                              0 уд
+                          @endif
+                          @if(count($iluumin) >0)
+                              @foreach($iluumin as $n)
+                                  {{$n->too}} мин
+                              @endforeach
+                          @else
+                              0 мин
+                          @endif
+                      </td>
+                      <td>0</td>
+                      <td> @if(count($iluu2) >0)
+                              @foreach($iluu2 as $n)
+                                  {{$n->too}} уд
+                              @endforeach
+                          @else
+                              0 уд
+                          @endif
+                          @if(count($iluumin2) >0)
+                              @foreach($iluumin2 as $n)
+                                  {{$n->too}} мин
+                              @endforeach
+                          @else
+                              0 мин
+                          @endif</td>
+                      <td>0</td>
+                      <td> @if(count($iluu3) >0)
+                              @foreach($iluu3 as $n)
+                                  {{$n->too}} уд
+                              @endforeach
+                          @else
+                              0 уд
+                          @endif
+                          @if(count($iluumin3) >0)
+                              @foreach($iluumin3 as $n)
+                                  {{$n->too}} мин
+                              @endforeach
+                          @else
+                              0 мин
+                          @endif</td>
+                  </tr>
           
             
           </tbody>
