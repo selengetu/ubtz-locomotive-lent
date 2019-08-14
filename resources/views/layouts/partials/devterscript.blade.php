@@ -130,16 +130,10 @@ $("#marshurtuu30").on('click','tr',function(e) {
              //create date format          
               var diff =(dt2.getTime() - dt1.getTime()) / 1000;
               diff /= 60;
-              if($('#techno_stat').val() == 84 || $('#techno_stat').val() == 484){
-                diff -=80;  
-                 }
-              if($('#techno_stat').val() == 76){
-                diff -=52;  
-                 }
               $("#techno_zogsson").val(diff);     
              
     }
-   $("#techno_timefin, #techno_stat").change(function(){
+   $("#techno_time ,#techno_timefin, #techno_stat").change(function(){
    calculateTime();
 
     
@@ -152,16 +146,11 @@ $("#marshurtuu30").on('click','tr',function(e) {
              //create date format          
               var diff =(dt2.getTime() - dt1.getTime()) / 1000;
               diff /= 60;
-              if($('#techno_statmodal').val() == 84 || $('#techno_statmodal').val() == 484){
-                diff -=80;  
-                 }
-              if($('#techno_statmodal').val() == 76){
-                diff -=52;  
-                 }
+
               $("#techno_zogssonmodal").val(diff);     
              
     }
-   $("#techno_timefinmodal, #techno_statmodal").change(function(){
+   $("#techno_timefinmodal, #techno_statmodal, #techno_time").change(function(){
    calculateTimemodal();
 
     

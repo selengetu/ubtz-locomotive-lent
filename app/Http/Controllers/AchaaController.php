@@ -1927,7 +1927,7 @@ FROM
             $det = new FaultDet;
             $det->fault_id = $faultmax;
             $det->tush_name = date("H:i:s", strtotime(Request::input('techno_timefin'))); 
-            $det->stoptime = Request::input('techno_zogsson'); 
+            $det->constkilo = Request::input('techno_zogsson');
             $det->save();
         
     }

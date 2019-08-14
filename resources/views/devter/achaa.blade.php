@@ -596,10 +596,11 @@
        </button>
 
 
-
-       <button class="btn btn-default btn-block  hidden" type="button"  onclick="myFunctiontechno()" style="color: #2976a6"> <i class="fa fa-check" id="marshtechnook"></i>
+                              @if( Auth::user()->depo_id == 2)
+       <button class="btn btn-default btn-block" type="button"  onclick="myFunctiontechno()" style="color: #2976a6"> <i class="fa fa-check" id="marshtechnook"></i>
                                   Технологит хугацаа
        </button>
+                              @endif
      <button class="btn btn-default btn-block" type="button" onclick="myFunctiontogtooson()" style="color: #2976a6">  <i class="fa fa-check" id="marshconstok"></i>
                                   Тогтоосон хурданд хүрээгүй
      </button>

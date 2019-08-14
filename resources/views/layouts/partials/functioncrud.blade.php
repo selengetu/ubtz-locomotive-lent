@@ -1302,7 +1302,7 @@
                 $('#techno_fault').val(qwe.fault_id);
                 $('#techno_timefinmodal').val(qwe.tush_name);
                 $('#techno_timemodal').val(qwe.fault_time);
-                 $('#techno_zogssonmodal').val(qwe.stoptime);
+                 $('#techno_zogssonmodal').val(qwe.constkilo);
 
          });
          

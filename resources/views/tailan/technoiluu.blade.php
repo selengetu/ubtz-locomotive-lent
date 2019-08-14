@@ -118,8 +118,8 @@
                                 <td>{{$achaas->deptime}}</td>
                                 <td>{{$achaas->tostationname}}</td>
                                  <td>{{$achaas->fault_time}}</td>
-                                <td>{{$achaas->stoptime}}</td>
-                                <td>{{$achaas->stoptime}}</td>
+                                <td>{{$achaas->tush_name}}</td>
+                                <td>{{$achaas->constkilo}}</td>
                      
                           </tr>
                              <?php $no++; ?>
@@ -203,8 +203,8 @@
                                 <td>{{$achaas->deptime}}</td>
                                 <td>{{$achaas->tostationname}}</td>
                                  <td>{{$achaas->fault_time}}</td>
-                                <td>{{$achaas->stoptime}}</td>
-                                <td>{{$achaas->stoptime}}</td>
+                                <td>{{$achaas->tush_name}}</td>
+                                <td>{{$achaas->constkilo}}</td>
                      
                           </tr>
                              <?php $no++; ?>

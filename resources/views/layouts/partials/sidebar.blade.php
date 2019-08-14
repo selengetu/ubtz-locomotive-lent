@@ -223,7 +223,16 @@
                             </a>
                      
                         </li>
+                                        @if( Auth::user()->depo_id == 2)
+                                        <li class="nav-item">
+                                            <a href="{{ route('technoiluu') }}" class="nav-link ">
 
+                                                <span class="title">Технологит хугацаанаас илүү</span>
+
+                                            </a>
+
+                                        </li>
+                                        @endif
                             <li class="nav-item">
                              <a href="{{ route('norm') }}" class="nav-link ">
                     

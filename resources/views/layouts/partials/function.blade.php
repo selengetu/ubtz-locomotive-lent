@@ -113,7 +113,7 @@
         "   <td class='m1'>" + qwe.fromstationname + "</td>" +
         "   <td class='m3'>" + qwe.fault_time+ "</td>" +  
         "   <td class='m3'>" + qwe.tush_name+ "</td>" +       
-        "   <td class='m3'>" + qwe.stoptime+ "</td>" +   
+        "   <td class='m3'>" + qwe.constkilo+ "</td>" +
          "   <td class='m1'> <a class='btn btn-xs btn-info' data-toggle='modal' data-target='#modaltechno' data-id=" + qwe.fault_id + " tag=" + qwe.fault_id + " onclick='updatetechno(" + qwe.fault_id + ")'><span class='glyphicon glyphicon-pencil'></span></a><a class='btn btn-xs btn-danger' tag=" + qwe.fault_id + " onclick='destroytechno(" + qwe.fault_id + ")' ><span class='glyphicon glyphicon-trash'></span></a> </td>" +              
         "</tr>";
         $("#marshtechno tbody").append(sHtmls);

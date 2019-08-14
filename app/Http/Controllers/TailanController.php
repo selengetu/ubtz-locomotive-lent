@@ -1731,7 +1731,7 @@ group by q2.depo_id,q2.marshyear, q2.marshmonth");
                         g.depocode,
                         s.statfullname as fromstationname,
                         count(f.fromstation) as count,
-                        substr(numtodsinterval(sum(SUBSTR(d.stoptime, 1, 2)*3600 + SUBSTR(d.stoptime, 4, 2)*60 + SUBSTR(d.stoptime, 7, 2)), 'SECOND'),12,  5) as sum
+                        sum(d.constkilo) as sum
                         from  ribbon t
                         inner join V_MARSHBRIG g on g.marshid=t.route_id
                         inner join ZUTGUUR.MARSHZUT e on e.marshid=t.route_id
@@ -2038,11 +2038,11 @@ group by q2.depo_id,q2.marshyear, q2.marshmonth");
             $query.=  " and t.depo_id in (1,5) ";
         }
 
-        $zurchil=DB::select("select t.translator_id, t.depo_id, u.name, sum(c.runkm) as runkm, to_char(c.depdatetime, 'YYYY/MM/DD') as depdatetime from
-(select distinct r.route_id, r.translator_id, r.depo_id from Ribbon r) t, ZUTGUUR.Calcmain c, USeRS u
+        $zurchil=DB::select("select t.translator_id, t.depo_id, u.name, sum(c.runkm) as runkm, to_char(t.translate_date, 'YYYY/MM/DD') as depdatetime from
+(select distinct r.route_id, r.translator_id, r.depo_id,r.translate_date from Ribbon r) t, ZUTGUUR.Calcmain c, USeRS u
 where t.route_id=c.marshid and u.id=t.translator_id and u.grand_type !=1 ".$query." 
-group by t.translator_id, t.depo_id, u.name,to_char(c.depdatetime, 'YYYY/MM/DD') 
-order by to_char(c.depdatetime, 'YYYY/MM/DD')
+group by t.translator_id, t.depo_id, u.name,to_char(t.translate_date, 'YYYY/MM/DD') 
+order by to_char(t.translate_date, 'YYYY/MM/DD') desc
               ");
 
         return view('tailan.normative')->with(['zurchil'=>$zurchil,'startdate'=>$startdate,'enddate'=>$enddate]);
