@@ -244,8 +244,9 @@
                           <td>{{$no}}</td>
                           <td>{{$dels->statfullname}}</td>
                           <td>{{$dels->locserial}} {{$dels->zutnumber}}</td>
-                          <td>{{$dels->starttime}}</td>
+
                           <td>{{$dels->arrtime}}</td>
+                          <td>{{$dels->deptime}}</td>
                           <td>{{$dels->ajillasantsag}}</td>
                           <td>{{$dels->route_id}}</td>
                           <td>{{$dels->endtime}}</td>
