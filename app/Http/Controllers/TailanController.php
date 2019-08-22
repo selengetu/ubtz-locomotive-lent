@@ -1809,8 +1809,8 @@ group by q2.depo_id,q2.marshyear, q2.marshmonth");
 
         }
         $achaa=DB::select('select  * from V_NAGON t where t.depocode = '.Auth::user()->depo_id. ' '.$query.'');
-
-        return view('tailan.niilberanhaaramj')->with(['achaa'=>$achaa,'startdate'=>$startdate,'enddate'=>$enddate]);
+        $train=DB::select('select distinct t.ROUTE_ID, t.TRAIN_NO from V_Ribbon t where t.depocode = '.Auth::user()->depo_id. ' '.$query.'');
+        return view('tailan.niilberanhaaramj')->with(['achaa'=>$achaa,'train'=>$train,'startdate'=>$startdate,'enddate'=>$enddate]);
     }
      public function hiiergesen()
     {

@@ -77,49 +77,43 @@
 
             <div class="table-container">
                 <button class="btn btn-info" id="buttonprint" onclick="printDiv()"><i class="fa fa-print" aria-hidden="true"></i>Хэвлэх</button>
-                <button class="btn btn-info" id="btnExport" onclick="tableToExcel('testTable', 'Export HTML Table to Excel')"><i class="fa fa-table" aria-hidden="true"></i> Excel </button>
+                <button class="btn btn-info" id="btnExport" onclick="ex()"><i class="fa fa-table" aria-hidden="true"></i> Excel </button>
                 <p><center><b> {{$startdate}} -аас {{$enddate}} -ны суудлын нөхөлтийн судалгаа</b></center> </p>
                 <div class="table-responsive">
                     <table class="table table-striped table-bordered table-hover"  id="example">
-                        <thead style="background-color: #81b5d5; color: #fff">
+                        <thead style="background-color: #4BD3C2; color: #fff">
                         <tr>
                             <?php $sum_sum = 0 ?>
                             <?php $sum_count = 0 ?>
                             <th> # </th>
+                            <th> Огноо</th>
                             <th> Марш</th>
-                            <th> Бригад </th>
                             <th> Машинч </th>
                             <th> Туслах </th>
                             <th>И/т №</th>
-                            <th>Х/х №</th>
-                            <th>Нөхөлт</th>
-                            <th> Ажилд ирсэн цаг</th>
-                            <th> Ажил дууссан цаг</th>
+                            <th>Г/т №</th>
+                            <th>Нөхөлтийн минут</th>
 
 
                         </tr>
                         </thead>
+
                         <tbody>
                         <?php $no = 1; ?>
                         @foreach($achaa as $achaas)
                             <tr >
                                 <td>{{$no}}</td>
+                                <td>{{date('Y-m-d', strtotime($achaas->arrtime))}}</td>
                                 <td>{{$achaas->marshid}}</td>
-
-                                <td>{{$achaas->brigcode}}</td>
                                 <td>{{$achaas->mashname}}</td>
                                 <td>{{$achaas->tuslname}}</td>
                                 <td>{{$achaas->seriname}} -  {{$achaas->zutnumber}}</td>
-                                <td>{{$achaas->speedcontrollerno}}</td>
-
-
+                                <td></td>
                                 <td>{{$achaas->patchmin}}</td>
-                                <td>{{date('Y-m-d H:i', strtotime($achaas->arrtime))}}</td>
-                                <td>{{date('Y-m-d H:i', strtotime($achaas->deptime))}}</td>
+
 
 
                             </tr>
-
                             <?php $sum_sum += (substr($achaas->patchmin ,3, 2))+(substr($achaas->patchmin , 0, 2)*60) ?>
                             <?php $no++; ?>
                         @endforeach
@@ -133,7 +127,7 @@
                     <center><b>Нийт: {{$no-1}} удаа {{$i5}} цаг</b></center>
                 </div>
                 <div id="printarea"  style=" display:none;" >
-                    <p><center><b> {{$startdate}} -аас {{$enddate}} -ны тогтоосон хурданд хүргэж жолоодоогүй судалгаа</b></center> </p>
+                    <p><center><b> {{$startdate}} -аас {{$enddate}} -ны суудлын нөхөлтийн судалгаа</b></center> </p>
                     <div class="table-responsive">
                         <table class="table table-striped table-bordered table-hover" id="testTable"  border="1" cellspacing="0">
                             <thead style="background-color: #4BD3C2; color: #fff">
@@ -141,17 +135,15 @@
                                 <?php $sum_sum = 0 ?>
                                 <?php $sum_count = 0 ?>
                                 <th> # </th>
+                                    <th> Огноо</th>
                                 <th> Марш</th>
-
-                                <th> Бригад </th>
                                 <th> Машинч </th>
                                 <th> Туслах </th>
                                 <th>И/т №</th>
-                                <th>Х/х №</th>
+                                    <th>Г/т №</th>
+                                <th>Нөхөлтийн минут</th>
 
-                                <th>Нөхөлт</th>
-                                <th> Ажилд ирсэн цаг</th>
-                                <th> Ажил дууссан цаг</th>
+
                             </tr>
                             </thead>
 
@@ -160,17 +152,18 @@
                             @foreach($achaa as $achaas)
                                 <tr >
                                     <td>{{$no}}</td>
+                                    <td>{{date('Y-m-d', strtotime($achaas->arrtime))}}</td>
                                     <td>{{$achaas->marshid}}</td>
-
-                                    <td>{{$achaas->brigcode}}</td>
                                     <td>{{$achaas->mashname}}</td>
                                     <td>{{$achaas->tuslname}}</td>
                                     <td>{{$achaas->seriname}} -  {{$achaas->zutnumber}}</td>
-                                    <td>{{$achaas->speedcontrollerno}}</td>
-
+                                    <td>@foreach($train as $trains)
+                                            @if($trains->route_id == $achaas->marshid)
+                                                {{$trains->train_no}}
+                                            @endif
+                                        @endforeach</td>
                                     <td>{{$achaas->patchmin}}</td>
-                                    <td>{{date('Y-m-d H:i', strtotime($achaas->arrtime))}}</td>
-                                    <td>{{date('Y-m-d H:i', strtotime($achaas->deptime))}}</td>
+
 
 
                                 </tr>
@@ -258,35 +251,14 @@
 
     </script>
     <script type="text/javascript">
-        var tableToExcel = (function () {
-            var uri = 'data:application/vnd.ms-excel;base64,'
-                , template = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40"><head><!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet><x:Name>{worksheet}</x:Name><x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions></x:ExcelWorksheet></x:ExcelWorksheets></x:ExcelWorkbook></xml><![endif]--></head><body>  <p><center><b> {{$startdate}} -аас {{$enddate}} -ны тогтоосон хурданд хүргэж жолоодоогүй судалгаа</b></center> </p><table border="1">{table}</table><span> ТАЙЛАН ГАРГАСАН: Тууз орчуулагч:</span><span style="margin-left: 180px"> {{ Auth::user()->name }}</span></body></html>'
-                , base64 = function (s) { return window.btoa(unescape(encodeURIComponent(s))) }
-                , format = function (s, c) { return s.replace(/{(\w+)}/g, function (m, p) { return c[p]; }) }
-            return function (table, name) {
-                if (!table.nodeType) table = document.getElementById(table)
-                var ctx = { worksheet: name || 'Worksheet', table: table.innerHTML }
-                var blob = new Blob([format(template, ctx)]);
-                var blobURL = window.URL.createObjectURL(blob);
+        function ex()
+        {
+            $("#printarea").table2excel({
 
-                if (ifIE()) {
-                    csvData = table.innerHTML;
-                    if (window.navigator.msSaveBlob) {
-                        var blob = new Blob([format(template, ctx)], {
-                            type: "text/html"
-                        });
-                        navigator.msSaveBlob(blob, '' + name + '.xls');
-                    }
-                }
-                else
-                    window.location.href = uri + base64(format(template, ctx))
-            }
-        })()
-
-        function ifIE() {
-            var isIE11 = navigator.userAgent.indexOf(".NET CLR") > -1;
-            var isIE11orLess = isIE11 || navigator.appVersion.indexOf("MSIE") != -1;
-            return isIE11orLess;
+                exclude: ".noExl",
+                name: "Worksheet Name",
+                filename: "Tuuz" //do not include extension
+            });
         }
     </script>
 @endsection
