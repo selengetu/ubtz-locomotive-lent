@@ -107,6 +107,7 @@
 
                             <th> Өртөө</th>
                             <th> Зогссон минут</th>
+                                <th>Шалтгаан</th>
                         </tr>
                         </thead>
 
@@ -128,6 +129,7 @@
                                 <td>{{$achaas->fromstationname}}</td>
                                 <td>{{$achaas->stoptime}} </td>
                                 <?php $sum_sum += (substr($achaas->stoptime ,3, 2))+(substr($achaas->stoptime , 0, 2)*60) ?>
+                                <td>{{$achaas->reason}} </td>
                             </tr>
                             <?php $no++; ?>
                         @endforeach
@@ -161,6 +163,7 @@
 
                             <th> Өртөө</th>
                             <th> Зогссон минут</th>
+                                <th>Шалтгаан</th>
                         </tr>
                         </thead>
 
@@ -182,6 +185,7 @@
                                 <td>{{$achaas->fromstationname}}</td>
                                 <td>{{$achaas->stoptime}} </td>
                                 <?php $sum_sum += (substr($achaas->stoptime ,3, 2))+(substr($achaas->stoptime , 0, 2)*60) ?>
+                                <td>{{$achaas->reason}} </td>
                             </tr>
                             <?php $no++; ?>
                         @endforeach
