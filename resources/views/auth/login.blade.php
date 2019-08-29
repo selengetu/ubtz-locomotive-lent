@@ -9,15 +9,13 @@
     <form class="form-horizontal" method="POST" action="{{ route('login') }}">
         {{ csrf_field() }}
 
-        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-
+        <div class="form-group{{ $errors->has('username') ? ' has-error' : '' }}">
             <div class="col-md-6">
-                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus placeholder="И-мейл">
-
-                @if ($errors->has('email'))
+                <input id="username" type="text" class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}" name="username" value="{{ old('username') }}" required autofocus placeholder="Нэвтрэх код">
+                @if ($errors->has('username'))
                     <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
+                <strong>{{ $errors->first('username') }}</strong>
+            </span>
                 @endif
             </div>
         </div>
@@ -121,7 +119,18 @@
         font-weight: 400;
         padding: 4px;
     }
-
+    .login input[type=text]{
+        width: 250px;
+        height: 30px;
+        background: #fff;
+        border: 1px solid rgba(255,255,255,0.6);
+        border-radius: 2px;
+        color: #2EB9A9;
+        font-family: 'Days';
+        font-size: 16px;
+        font-weight: 400;
+        padding: 4px;
+    }
     .login input[type=password]{
         width: 250px;
         height: 30px;
