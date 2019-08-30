@@ -81,6 +81,7 @@
                 <div class="dataTables_wrapper form-inline dt-bootstrap no-footer">
                     <table class="table table-striped table-bordered table-hover"  id="example">
                         <thead style="background-color: #81b5d5; color: #fff">
+                        <?php $sum_sum = 0 ?>
                         <tr>
 
                             <th> # </th>
@@ -105,6 +106,7 @@
                                 <td>{{$achaas->sel}}</td>
                                 <td>{{$achaas->a + $achaas->b + $achaas->c+ $achaas->d+ $achaas->e +$achaas->sel +$achaas->ach}}</td>
                             </tr>
+                            <?php $sum_sum += ($achaas->a + $achaas->b + $achaas->c+ $achaas->d+ $achaas->e +$achaas->sel +$achaas->ach) ?>
 
                             <?php $no++; ?>
                         @endforeach
@@ -114,7 +116,7 @@
                         </tbody>
 
                     </table>
-
+                    <center><b>Нийт : {{$sum_sum}} км</b></center>
                 </div>
             </div>
             <div id="printarea"  style=" display:none;" >
@@ -123,6 +125,7 @@
                 <div class="dataTables_wrapper form-inline dt-bootstrap no-footer">
                     <table class="table table-striped table-bordered table-hover" id="testTable"  border="1" cellspacing="0">
                         <thead style="background-color: #81b5d5; color: #fff">
+                        <?php $sum_sum = 0 ?>
                         <tr>
 
                             <th> # </th>
@@ -149,6 +152,7 @@
                             </tr>
 
                             <?php $no++; ?>
+                            <?php $sum_sum += ($achaas->a + $achaas->b + $achaas->c+ $achaas->d+ $achaas->e +$achaas->sel +$achaas->ach) ?>
                         @endforeach
 
 
@@ -156,7 +160,7 @@
                         </tbody>
 
                     </table>
-
+                    <center><b>Нийт : {{$sum_sum}} км</b></center>
                     <div class="row">
                         <div class="col-md-6" style="padding: 10px 100px"><span> ТАЙЛАН ГАРГАСАН: Тууз орчуулагч:</span><span style="margin-left: 180px"> {{ Auth::user()->name }}</span>
                         </div>

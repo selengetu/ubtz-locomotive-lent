@@ -2026,7 +2026,7 @@ group by q2.depo_id,q2.marshyear, q2.marshmonth");
             $query.=  " and t.depo_id =1 ";
         }
         if (Auth::user()->depo_id == 13) {
-            $query.=  "  t.depo_id =13 ";
+            $query.=  " and t.depo_id =13 ";
         }
         if (Auth::user()->depo_id == 2) {
             $query.=  " and t.depo_id =2 ";
