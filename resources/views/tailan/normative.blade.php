@@ -86,8 +86,10 @@
                             <th> # </th>
                             <th> Огноо</th>
                             <th> Нэр</th>
-                            <th> Км </th>
-
+                            <th> Ачаа(Км) </th>
+                            <th> Суудал(Км) </th>
+                            <th> Сэлгээ(Км) </th>
+                            <th> Нийт </th>
                         </tr>
                         </thead>
 
@@ -98,7 +100,10 @@
                                 <td>{{$no}}</td>
                                 <td>{{$achaas->depdatetime}}</td>
                                 <td>{{$achaas->name}}</td>
-                                <td>{{$achaas->runkm}}</td>
+                                <td>{{$achaas->a + $achaas->b + $achaas->c+ $achaas->d+ $achaas->e}}</td>
+                                <td>{{$achaas->ach}}</td>
+                                <td>{{$achaas->sel}}</td>
+                                <td>{{$achaas->a + $achaas->b + $achaas->c+ $achaas->d+ $achaas->e +$achaas->sel +$achaas->ach}}</td>
                             </tr>
 
                             <?php $no++; ?>
@@ -113,7 +118,7 @@
                 </div>
             </div>
             <div id="printarea"  style=" display:none;" >
-                <p><center><b> {{$startdate}} -аас {{$enddate}} -ны анхаарамжаар бууж суусан судалгаа</b></center> </p>
+                <p><center><b> {{$startdate}} -аас {{$enddate}} -ны норматив</b></center> </p>
                 <h5>Тайлан хэвлэсэн огноо: {{Carbon\Carbon::now()->format('Y-m-d H:i')}}</h5>
                 <div class="dataTables_wrapper form-inline dt-bootstrap no-footer">
                     <table class="table table-striped table-bordered table-hover" id="testTable"  border="1" cellspacing="0">
@@ -121,10 +126,12 @@
                         <tr>
 
                             <th> # </th>
-
+                            <th> Огноо</th>
                             <th> Нэр</th>
-                            <th> Км </th>
-
+                            <th> Ачаа(Км) </th>
+                            <th> Суудал(Км) </th>
+                            <th> Сэлгээ(Км) </th>
+                            <th> Нийт </th>
                         </tr>
                         </thead>
 
@@ -133,9 +140,12 @@
                         @foreach($zurchil as $achaas)
                             <tr>
                                 <td>{{$no}}</td>
-
+                                <td>{{$achaas->depdatetime}}</td>
                                 <td>{{$achaas->name}}</td>
-                                <td>{{$achaas->runkm}}</td>
+                                <td>{{$achaas->a + $achaas->b + $achaas->c+ $achaas->d+ $achaas->e}}</td>
+                                <td>{{$achaas->ach}}</td>
+                                <td>{{$achaas->sel}}</td>
+                                <td>{{$achaas->a + $achaas->b + $achaas->c+ $achaas->d+ $achaas->e +$achaas->sel +$achaas->ach}}</td>
                             </tr>
 
                             <?php $no++; ?>
