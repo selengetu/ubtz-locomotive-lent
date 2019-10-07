@@ -1133,7 +1133,7 @@ class TailanController extends Controller
                                         inner join ZUTGUUR.MARSHBRIG g on g.marshid=t.route_id
                                         inner join fault f on f.ribbon_id = t.ribbon_id
                                         inner join fault_det q on q.fault_id=f.fault_id
-                                        where g.marshyear=2019 and g.marshmonth in (1,2,3,4,5,6,7,8,9) and g.depocode=".Auth::user()->depo_id. " and f.fault_no=21 and t.workid is not null
+                                        where g.marshyear=2019 and g.marshmonth in (7,8,9) and g.depocode=".Auth::user()->depo_id. " and f.fault_no=21 and t.workid is not null
                                         ) q2");
     $uharsan =DB::select("select
                                     count(f.fault_no) as too
