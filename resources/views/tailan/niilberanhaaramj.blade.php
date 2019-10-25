@@ -109,16 +109,20 @@
                                 <td>{{$achaas->tuslname}}</td>
                                 <td>{{$achaas->seriname}} -  {{$achaas->zutnumber}}</td>
                                 <td></td>
-                                <td>{{$achaas->patchmin}}</td>
 
-
+                                <td>{{$achaas->patchmin}}@if($achaas->patchmin_speed == 0 ) (-) @endif</td>
 
                             </tr>
+
+                            @if($achaas->patchmin_speed == 1 )
                             <?php $sum_sum += (substr($achaas->patchmin ,3, 2))+(substr($achaas->patchmin , 0, 2)*60) ?>
+                            @elseif($achaas->patchmin_speed == 0 )
+                                <?php $sum_sum -= (substr($achaas->patchmin ,3, 2))+(substr($achaas->patchmin , 0, 2)*60)
+                                 ?>
+
+                            @endif
                             <?php $no++; ?>
                         @endforeach
-
-
 
                         </tbody>
 
@@ -162,12 +166,16 @@
                                                 {{$trains->train_no}}
                                             @endif
                                         @endforeach</td>
-                                    <td>{{$achaas->patchmin}}</td>
+                                    <td>{{$achaas->patchmin}} @if($achaas->patchmin_speed == 0 ) (-) @endif</td>
 
 
 
                                 </tr>
-                                <?php $sum_sum += (substr($achaas->patchmin ,3, 2))+(substr($achaas->patchmin , 0, 2)*60) ?>
+
+                                    <?php $sum_sum += (substr($achaas->patchmin ,3, 2))+(substr($achaas->patchmin , 0, 2)*60) ?>
+                                @if($achaas->patchmin_speed == 0 )
+                                    <?php $sum_sum -= (substr($achaas->patchmin ,3, 2))+(substr($achaas->patchmin , 0, 2)*60) ?>
+                                @endif
                                 <?php $no++; ?>
                             @endforeach
 

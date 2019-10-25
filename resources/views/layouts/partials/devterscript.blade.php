@@ -272,6 +272,7 @@ $("#marshurtuu30").on('click','tr',function(e) {
             marshstat(itag);
             $('#speednumber').val('');
             $('#patchmin').val('00:00');
+            $('#patch_type').val('1');
            $.get('getmarshzut/'+itag,function(data){
 
              $.each(data,function(i,qwe){
@@ -328,6 +329,7 @@ $("#marshurtuu30").on('click','tr',function(e) {
 
                   console.log(qwe);
                  $('#patchmin').val(qwe.patchmin);
+                 $('#patch_type').val(qwe.patchmin_speed).trigger('change');
                     $('#speednumber').val(qwe.speedcontrollerno);
                      $('.tdhurd').text(qwe.speedcontrollerno); 
 

@@ -1809,6 +1809,7 @@ group by q2.depo_id,q2.marshyear, q2.marshmonth");
 
         }
         $achaa=DB::select('select  * from V_NAGON t where t.depocode = '.Auth::user()->depo_id. ' '.$query.'');
+
         $train=DB::select('select distinct t.ROUTE_ID, t.TRAIN_NO from V_Ribbon t where t.depocode = '.Auth::user()->depo_id. ' '.$query.'');
         return view('tailan.niilberanhaaramj')->with(['achaa'=>$achaa,'train'=>$train,'startdate'=>$startdate,'enddate'=>$enddate]);
     }
@@ -2039,20 +2040,20 @@ group by q2.depo_id,q2.marshyear, q2.marshmonth");
         }
 
         $zurchil=DB::select("select * from
-(select t.translator_id, t.depo_id, u.name, substr(c.workcode,1,1) as wk, 
-sum(c.runkm) as runkm, to_char(t.translate_date, 'YYYY/MM/DD') as depdatetime from
-(select distinct r.route_id, r.translator_id, r.depo_id,r.translate_date from Ribbon r) t, 
-ZUTGUUR.Calcaddition c, USeRS u
-where t.route_id=c.marshid and u.id=t.translator_id and u.grand_type !=1 ".$query." 
-group by t.translator_id, t.depo_id, u.name,substr(c.workcode,1,1),to_char(t.translate_date, 'YYYY/MM/DD') 
-order by to_char(t.translate_date, 'YYYY/MM/DD'))
-PIVOT
-(
-  sum(runkm)
-  FOR wk IN (1 as ach ,2 as a,4 as b ,3 as c,5 as sel ,6 as d,9 as e)
-)
-order by depdatetime desc
-              ");
+                (select t.translator_id, t.depo_id, u.name, substr(c.workcode,1,1) as wk, 
+                sum(c.runkm) as runkm, to_char(t.translate_date, 'YYYY/MM/DD') as depdatetime from
+                (select distinct r.route_id, r.translator_id, r.depo_id,r.translate_date from Ribbon r) t, 
+                ZUTGUUR.Calcaddition c, USeRS u
+                where t.route_id=c.marshid and u.id=t.translator_id and u.grand_type !=1 ".$query." 
+                group by t.translator_id, t.depo_id, u.name,substr(c.workcode,1,1),to_char(t.translate_date, 'YYYY/MM/DD') 
+                order by to_char(t.translate_date, 'YYYY/MM/DD'))
+                PIVOT
+                (
+                  sum(runkm)
+                  FOR wk IN (1 as ach ,2 as a,4 as b ,3 as c,5 as sel ,6 as d,9 as e)
+                )
+                order by depdatetime desc
+                              ");
 
         return view('tailan.normative')->with(['zurchil'=>$zurchil,'startdate'=>$startdate,'enddate'=>$enddate]);
     }

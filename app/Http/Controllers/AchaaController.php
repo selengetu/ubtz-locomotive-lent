@@ -485,7 +485,7 @@ FROM
                 ->where('route_id', Request::input('tuuzmarsh'))->exists();
         if ($department == true) {
                 $department = DB::table('Ribbon')
-                ->where('route_id', Request::input('tuuzmarsh'))->update(['speedcontrollerno' =>Request::input('speednumber') ,'patchmin' =>date("H:i:s", strtotime(Request::input('patchmin'))) ,  'update_who' => Auth::user()->id,'updated_at' => Carbon::now()]);
+                ->where('route_id', Request::input('tuuzmarsh'))->update(['patchmin_speed' =>Request::input('patch_type') ,'speedcontrollerno' =>Request::input('speednumber') ,'patchmin' =>date("H:i:s", strtotime(Request::input('patchmin'))) ,  'update_who' => Auth::user()->id,'updated_at' => Carbon::now()]);
          }
          else 
          {

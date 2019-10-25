@@ -418,10 +418,19 @@
                 </div>
                
                   </div>
-                   
-                          <div class="col-md-3">
+                                                  <div class="col-md-1">
+                                                      <div class="form-group">
+                                                          <label for="name">Нөхөлт</label>
+                                                          <select class="select2 form-control" id="patch_type" name="patch_type">
+                                                              <option value="1">+</option>
+                                                              <option value="0">-</option>
+
+                                                          </select>
+                                                      </div>
+                                                  </div>
+                          <div class="col-md-2">
                            <div class="form-group">
-                      <label for="name">Нөхөлт</label>
+                      <label for="name">Минут</label>
                     <input class="form-control time" id="patchmin" name="patchmin" value="00:00" type="text" />
                       </div>
                         </div>
