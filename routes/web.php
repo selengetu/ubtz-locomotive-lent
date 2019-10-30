@@ -33,6 +33,7 @@ Route::post('/searchmachinistzurchil', 'MachinistController@searchzurchil')->nam
 Route::post('/searchmachinist', 'MachinistController@search')->name('searchmachinist');
 
 Route::match(['get', 'post'],'/haluunzogsolttailan', 'HaluunZogsoltController@tailan')->name('haluunzogsolttailan');
+Route::match(['get', 'post'],'/haluunzogsoltseri', 'HaluunZogsoltController@seri')->name('haluunzogsoltseri');
 Route::match(['get', 'post'],'/tuuzorchuulsan', 'TailanController@index')->name('tuuzorchuulsan');
 Route::match(['get', 'post'],'/dooshorson', 'TailanController@dooshorson')->name('dooshorson');
 

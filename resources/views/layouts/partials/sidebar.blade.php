@@ -57,18 +57,23 @@
                         <li class="nav-item  ">
                             <a href="" class="nav-link nav-toggle">
                                <i class="icon-bar-chart"></i>
-                                <span class="title">Халуун зогсолт</span>
+                                <span class="title">Халуун зогсолтын тайлан</span>
                                    <span class="arrow"></span>
                             </a>
                             <ul class="sub-menu">
                                 <li class="nav-item  ">
                                     <a href="{{ route('haluunzogsolttailan') }}" class="nav-link ">
-                                        <span class="title">Халуун зогсолтын тайлан</span>
+                                        <span class="title">Өртөө</span>
                                     </a>
                                 </li>
-                               
-                       
+
+                                <li class="nav-item  ">
+                                    <a href="{{ route('haluunzogsoltseri') }}" class="nav-link ">
+                                        <span class="title">Сери</span>
+                                    </a>
+                                </li>
                             </ul>
+
                         </li>
                              <li class="nav-item  ">
                             <a href="{{ route('attention') }}" class="nav-link nav-toggle">
