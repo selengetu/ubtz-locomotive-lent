@@ -1322,10 +1322,8 @@
                   <td> 1. Орох дохионы зогсолт. Суудал </td>
                   <td>0</td>
                   <td>
-                      @if(count($orohsuudal) >0)
-                          @foreach($orohsuudal as $n)
-                              {{$n->too}} уд
-                          @endforeach
+                      @if(count($orohachaa->suud) >0)
+                              {{$orohachaa->suud}} уд
                       @else
                           0 уд
                       @endif
@@ -1338,10 +1336,8 @@
                       @endif
                   </td>
                     <td>0</td>
-                    <td> @if(count($orohsuudal2) >0)
-                            @foreach($orohsuudal2 as $n)
-                                {{$n->too}} уд
-                            @endforeach
+                    <td> @if(count($orohachaa2->suud) >0)
+                            {{$orohachaa2->suud}} уд
                         @else
                             0 уд
                         @endif
@@ -1353,10 +1349,8 @@
                             0 мин
                         @endif</td>
                     <td>0</td>
-                    <td> @if(count($orohsuudal3) >0)
-                            @foreach($orohsuudal3 as $n)
-                                {{$n->too}} уд
-                            @endforeach
+                    <td> @if(count($orohachaa3->suud) >0)
+                            {{$orohachaa3->suud}} уд
                         @else
                             0 уд
                         @endif
@@ -1373,10 +1367,8 @@
                   <td> 2. Орох дохионы зогсолт. Ачаа </td>
                   <td>0</td>
                   <td>
-                      @if(count($orohachaa) >0)
-                          @foreach($orohachaa as $n)
-                              {{$n->too}} уд
-                          @endforeach
+                      @if(count($orohachaa->ach) >0)
+                          {{$orohachaa->ach}} уд
                       @else
                           0 уд
                       @endif
@@ -1389,10 +1381,8 @@
                       @endif
                   </td>
                     <td>0</td>
-                    <td>  @if(count($orohachaa2) >0)
-                            @foreach($orohachaa2 as $n)
-                                {{$n->too}} уд
-                            @endforeach
+                    <td>  @if(count($orohachaa2->ach) >0)
+                            {{$orohachaa2->ach}} уд
                         @else
                             0 уд
                         @endif
@@ -1404,10 +1394,8 @@
                             0мин
                         @endif</td>
                     <td>0</td>
-                    <td>  @if(count($orohachaa3) >0)
-                            @foreach($orohachaa3 as $n)
-                                {{$n->too}} уд
-                            @endforeach
+                    <td>   @if(count($orohachaa3->ach) >0)
+                            {{$orohachaa3->ach}} уд
                         @else
                             0 уд
                         @endif
@@ -1423,10 +1411,8 @@
                   <td> Нийт орох дохионы зогсолт </td>
                   <td>0</td>
                   <td>
-                      @if(count($orohniit) >0)
-                          @foreach($orohniit as $n)
-                              {{$n->too}} уд
-                          @endforeach
+                      @if(count($orohachaa->ach+$orohachaa->suud) >0)
+                          {{$orohachaa->ach+$orohachaa->suud}} уд
                       @else
                           0 уд
                       @endif
@@ -1439,10 +1425,8 @@
                       @endif
                   </td>
                     <td>0</td>
-                    <td>  @if(count($orohniit2) >0)
-                            @foreach($orohniit2 as $n)
-                                {{$n->too}} уд
-                            @endforeach
+                    <td> @if(count($orohachaa2->ach+$orohachaa2->suud) >0)
+                            {{$orohachaa2->ach+$orohachaa2->suud}} уд
                         @else
                             0 уд
                         @endif
@@ -1454,10 +1438,8 @@
                             0 мин
                         @endif</td>
                     <td>0</td>
-                    <td>  @if(count($orohniit3) >0)
-                            @foreach($orohniit3 as $n)
-                                {{$n->too}} уд
-                            @endforeach
+                    <td>  @if(count($orohachaa3->ach+$orohachaa3->suud) >0)
+                            {{$orohachaa3->ach+$orohachaa3->suud}} уд
                         @else
                             0 уд
                         @endif

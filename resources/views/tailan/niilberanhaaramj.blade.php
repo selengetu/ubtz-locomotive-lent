@@ -91,7 +91,6 @@
                             <th> Машинч </th>
                             <th> Туслах </th>
                             <th>И/т №</th>
-                            <th>Г/т №</th>
                             <th>Нөхөлтийн минут</th>
 
 
@@ -108,7 +107,7 @@
                                 <td>{{$achaas->mashname}}</td>
                                 <td>{{$achaas->tuslname}}</td>
                                 <td>{{$achaas->seriname}} -  {{$achaas->zutnumber}}</td>
-                                <td></td>
+
 
                                 <td>{{$achaas->patchmin}}@if($achaas->patchmin_speed == 0 ) (-) @endif</td>
 
@@ -144,7 +143,6 @@
                                 <th> Машинч </th>
                                 <th> Туслах </th>
                                 <th>И/т №</th>
-                                    <th>Г/т №</th>
                                 <th>Нөхөлтийн минут</th>
 
 
@@ -161,11 +159,6 @@
                                     <td>{{$achaas->mashname}}</td>
                                     <td>{{$achaas->tuslname}}</td>
                                     <td>{{$achaas->seriname}} -  {{$achaas->zutnumber}}</td>
-                                    <td>@foreach($train as $trains)
-                                            @if($trains->route_id == $achaas->marshid)
-                                                {{$trains->train_no}}
-                                            @endif
-                                        @endforeach</td>
                                     <td>{{$achaas->patchmin}} @if($achaas->patchmin_speed == 0 ) (-) @endif</td>
 
 
