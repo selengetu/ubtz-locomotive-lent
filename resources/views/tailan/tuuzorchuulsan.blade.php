@@ -98,72 +98,49 @@
             </tr>
           </thead>
           <tbody>
-                  <tr>          
+                  <tr>
                   <td rowspan="4" >1</td>
                   <td> 1.Суудал </td>
                   <td>0</td>
                   <td>
-                  @foreach($suudal as $s)
-                      {{$s->count}}
-                  @endforeach
+                      {{$achaa->suud}}
                   </td>
                       <td>0</td>
-                      <td> @foreach($suudal2 as $s)
-                              {{$s->count}}
-                          @endforeach</td>
+                      <td> {{$achaa2->suud}}</td>
                       <td>0</td>
-                      <td> @foreach($suudal3 as $s)
-                              {{$s->count}}
-                          @endforeach</td>
+                      <td>  {{$achaa3->suud}}</td>
                 </tr>
-                <tr>          
-                  
+                <tr>
+
                   <td> 2.Ачаа </td>
                   <td>0</td>
-                  <td>@foreach($achaa as $a)
-                          {{$a->count}}
-                      @endforeach</td>
+                  <td> {{$achaa->ach + $achaa->aj + $achaa->bteg  + $achaa->uz + $achaa->tur +$achaa->oros +$achaa->tsonh}}</td>
                     <td>0</td>
-                    <td>@foreach($achaa2 as $a)
-                            {{$a->count}}
-                        @endforeach</td>
+                    <td>{{$achaa2->ach + $achaa2->aj + $achaa2->bteg  + $achaa2->uz + $achaa2->tur +$achaa2->oros +$achaa2->tsonh}}</td>
                     <td>0</td>
-                    <td>@foreach($achaa3 as $a)
-                            {{$a->count}}
-                        @endforeach</td>
+                    <td>{{$achaa3->ach + $achaa3->aj + $achaa3->bteg  + $achaa3->uz + $achaa3->tur +$achaa3->oros +$achaa3->tsonh}}</td>
                 </tr>
-                <tr>          
-                  
+                <tr>
+
                   <td> 3.Сэлгээ </td>
                   <td>0</td>
-                  <td>
-                      @foreach($selgee as $se)
-                          {{$se->count}}
-                      @endforeach</td>
+                    <td>
+                        {{$achaa->sel}}
+                    </td>
                     <td>0</td>
-                    <td>  @foreach($selgee2 as $se)
-                            {{$se->count}}
-                        @endforeach</td>
+                    <td> {{$achaa2->sel}}</td>
                     <td>0</td>
-                    <td>  @foreach($selgee3 as $se)
-                            {{$se->count}}
-                        @endforeach</td>
+                    <td>{{$achaa3->sel}}</td>
                 </tr>
-                <tr>          
-                  
+                <tr>
+
                   <td>I.Нийт тууз </td>
                   <td>0</td>
-                  <td> @foreach($niit as $n)
-                    {{$n->count}}
-                    @endforeach</td></th>
+                    <td> {{$achaa->ach + $achaa->aj + $achaa->bteg + $achaa->uz + $achaa->tur +$achaa->oros +$achaa->tsonh +$achaa->sel+$achaa->suud }}</td>
                     <td>0</td>
-                    <td>@foreach($niit2 as $n)
-                            {{$n->count}}
-                        @endforeach</td>
+                    <td>{{$achaa2->ach + $achaa2->aj + $achaa2->bteg  + $achaa2->uz + $achaa2->tur +$achaa2->oros +$achaa2->tsonh +$achaa2->sel+$achaa2->suud}}</td>
                     <td>0</td>
-                    <td>@foreach($niit3 as $n)
-                            {{$n->count}}
-                        @endforeach</td>
+                    <td>{{$achaa3->ach + $achaa3->aj + $achaa3->bteg  + $achaa3->uz + $achaa3->tur +$achaa3->oros +$achaa3->tsonh +$achaa3->sel+$achaa3->suud}}</td>
                 </tr>
             
                 <tr>          
