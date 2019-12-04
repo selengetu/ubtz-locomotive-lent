@@ -58,6 +58,7 @@ Route::match(['get', 'post'],'/tuslamj', 'TailanController@tuslamj')->name('tusl
 Route::match(['get', 'post'],'/nagon', 'TailanController@nagon')->name('nagon');
 Route::match(['get', 'post'],'/norm', 'TailanController@norm')->name('norm');
 Route::match(['get', 'post'],'/all', 'DepoTailanController@index')->name('all');
+Route::match(['get', 'post'],'/refresh', 'AchaaController@refresh')->name('refresh');
 Route::get('/getmarshzut/{id?}',function($id = 0){	
 				$dt=DB::table('MARSHZUTGUUR')
                 ->where('marshid','=',$id)->get();

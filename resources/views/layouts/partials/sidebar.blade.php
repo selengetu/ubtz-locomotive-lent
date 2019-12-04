@@ -269,6 +269,14 @@
          </li>
      @endif
      <li class="nav-item  ">
+         <a href="{{ route('refresh') }}" class="nav-link nav-toggle">
+             <i class="icon-bar-chart"></i>
+             <span class="title">Маршрут шинэчлэх</span>
+             <span class="arrow"></span>
+         </a>
+
+     </li>
+     <li class="nav-item  ">
          <a href="{{ route('userfeed') }}" class="nav-link nav-toggle">
              <i class="icon-bar-chart"></i>
              <span class="title">САНАЛ ХҮСЭЛТ</span>

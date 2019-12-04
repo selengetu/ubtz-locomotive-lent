@@ -906,106 +906,58 @@ sum(sel) as sel , sum(uz) as uz , sum(tur) as tur , sum(oros) as oros ,  sum(tso
   FOR worktype IN (1 as suud, 2 as ach ,3 as aj,4 as bteg, 5 as sel ,6 as uz ,7 as tur, 8 as oros, 9 as tsonh )
 )")[0];
 
-    $orohachaamin =DB::select("select sum(substr(q2.stoptime,4,2)+((substr(q2.stoptime,1,2))*60)) as too from (select
-                                    
+    $orohachaamin =DB::select("select sum(suud) as suud ,sum(ach) as ach ,sum(aj) as aj ,sum(bteg) as bteg , 
+sum(sel) as sel , sum(uz) as uz , sum(tur) as tur , sum(oros) as oros ,  sum(tsonh) as tsonh from (select
                                         t.route_id,
-                                        t.workid,
-                                        q.stoptime
+                                       SUBSTR(workid, 1, 1) as worktype,
+                                       q.stoptime
                                         from  ribbon t
                                         inner join ZUTGUUR.MARSHBRIG g on g.marshid=t.route_id
                                         inner join fault f on f.ribbon_id = t.ribbon_id
                                         inner join fault_det q on q.fault_id=f.fault_id
-                                        where g.marshyear=".$year." and g.marshmonth = ".$month." and g.depocode=".Auth::user()->depo_id. " and f.fault_no=21 and SUBSTR(t.workid, 1, 1)!= 1
-                                        ) q2");
-    $orohachaamin2 =DB::select("select sum(substr(q2.stoptime,4,2)+((substr(q2.stoptime,1,2))*60)) as too from (select
-                                    
+                                       where g.marshyear=".$year." and g.marshmonth = ".$month." and g.depocode=".Auth::user()->depo_id. " and f.fault_no=21
+                                        ) q2
+                                        
+     PIVOT
+(
+  SUM(SUBSTR(stoptime, 1, 2)*60 + SUBSTR(stoptime, 4, 2))
+  FOR worktype IN (1 as suud, 2 as ach ,3 as aj,4 as bteg, 5 as sel ,6 as uz ,7 as tur, 8 as oros, 9 as tsonh )
+)")[0];
+    $orohachaamin2 =DB::select("select sum(suud) as suud ,sum(ach) as ach ,sum(aj) as aj ,sum(bteg) as bteg , 
+sum(sel) as sel , sum(uz) as uz , sum(tur) as tur , sum(oros) as oros ,  sum(tsonh) as tsonh from (select
                                         t.route_id,
-                                        t.workid,
-                                        q.stoptime
+                                       SUBSTR(workid, 1, 1) as worktype,
+                                       q.stoptime
                                         from  ribbon t
                                         inner join ZUTGUUR.MARSHBRIG g on g.marshid=t.route_id
                                         inner join fault f on f.ribbon_id = t.ribbon_id
                                         inner join fault_det q on q.fault_id=f.fault_id
-                                        where  g.marshyear=2019 and g.marshmonth between 1 and ".$month." and g.depocode=".Auth::user()->depo_id. " and f.fault_no=21 and SUBSTR(t.workid, 1, 1)!= 1
-                                        ) q2");
-    $orohachaamin3 =DB::select("select sum(substr(q2.stoptime,4,2)+((substr(q2.stoptime,1,2))*60)) as too from (select
-                                    
+                                       where g.marshyear=".$year." and g.marshmonth  between 1 and ".$month." and g.depocode=".Auth::user()->depo_id. " and f.fault_no=21
+                                        ) q2
+                                        
+     PIVOT
+(
+  SUM(SUBSTR(stoptime, 1, 2)*60 + SUBSTR(stoptime, 4, 2))
+  FOR worktype IN (1 as suud, 2 as ach ,3 as aj,4 as bteg, 5 as sel ,6 as uz ,7 as tur, 8 as oros, 9 as tsonh )
+)")[0];
+    $orohachaamin3 =DB::select("select sum(suud) as suud ,sum(ach) as ach ,sum(aj) as aj ,sum(bteg) as bteg , 
+sum(sel) as sel , sum(uz) as uz , sum(tur) as tur , sum(oros) as oros ,  sum(tsonh) as tsonh from (select
                                         t.route_id,
-                                        t.workid,
-                                        q.stoptime
+                                       SUBSTR(workid, 1, 1) as worktype,
+                                       q.stoptime
                                         from  ribbon t
                                         inner join ZUTGUUR.MARSHBRIG g on g.marshid=t.route_id
                                         inner join fault f on f.ribbon_id = t.ribbon_id
                                         inner join fault_det q on q.fault_id=f.fault_id
-                                        where  g.marshyear=2019 and g.marshmonth in ".$m." and g.depocode=".Auth::user()->depo_id. " and f.fault_no=21 and SUBSTR(t.workid, 1, 1)!= 1
-                                        ) q2");
+                                       where g.marshyear=".$year." and g.marshmonth  in ".$m." and g.depocode=".Auth::user()->depo_id. " and f.fault_no=21
+                                        ) q2
+                                        
+     PIVOT
+(
+  SUM(SUBSTR(stoptime, 1, 2)*60 + SUBSTR(stoptime, 4, 2))
+  FOR worktype IN (1 as suud, 2 as ach ,3 as aj,4 as bteg, 5 as sel ,6 as uz ,7 as tur, 8 as oros, 9 as tsonh )
+)")[0];
 
-    $orohsuudalmin =DB::select("select sum(substr(q2.stoptime,4,2)+((substr(q2.stoptime,1,2))*60)) as too from (select
-                                    
-                                        t.route_id,
-                                        t.workid,
-                                        q.stoptime
-                                        from  ribbon t
-                                        inner join ZUTGUUR.MARSHBRIG g on g.marshid=t.route_id
-                                        inner join fault f on f.ribbon_id = t.ribbon_id
-                                        inner join fault_det q on q.fault_id=f.fault_id
-                                        where g.marshyear=".$year." and g.marshmonth = ".$month." and g.depocode=".Auth::user()->depo_id. " and f.fault_no=21 and SUBSTR(t.workid, 1, 1)= 1
-                                       ) q2");
-    $orohsuudalmin2 =DB::select("select sum(substr(q2.stoptime,4,2)+((substr(q2.stoptime,1,2))*60)) as too from (select
-                                    
-                                        t.route_id,
-                                        t.workid,
-                                        q.stoptime
-                                        from  ribbon t
-                                        inner join ZUTGUUR.MARSHBRIG g on g.marshid=t.route_id
-                                        inner join fault f on f.ribbon_id = t.ribbon_id
-                                        inner join fault_det q on q.fault_id=f.fault_id
-                                        where g.marshyear=2019 and g.marshmonth between 1 and ".$month." and g.depocode=".Auth::user()->depo_id. " and f.fault_no=21 and SUBSTR(t.workid, 1, 1)= 1
-                                       ) q2");
-    $orohsuudalmin3 =DB::select("select sum(substr(q2.stoptime,4,2)+((substr(q2.stoptime,1,2))*60)) as too from (select
-                                    
-                                        t.route_id,
-                                        t.workid,
-                                        q.stoptime
-                                        from  ribbon t
-                                        inner join ZUTGUUR.MARSHBRIG g on g.marshid=t.route_id
-                                        inner join fault f on f.ribbon_id = t.ribbon_id
-                                        inner join fault_det q on q.fault_id=f.fault_id
-                                        where g.marshyear=2019 and g.marshmonth in ".$m." and g.depocode=".Auth::user()->depo_id. " and f.fault_no=21 and SUBSTR(t.workid, 1, 1)= 1
-                                       ) q2");
-    $orohniitmin =DB::select("select sum(substr(q2.stoptime,4,2)+((substr(q2.stoptime,1,2))*60)) as too from (select
-                                    
-                                        t.route_id,
-                                        t.workid,
-                                        q.stoptime
-                                        from  ribbon t
-                                        inner join ZUTGUUR.MARSHBRIG g on g.marshid=t.route_id
-                                        inner join fault f on f.ribbon_id = t.ribbon_id
-                                        inner join fault_det q on q.fault_id=f.fault_id
-                                        where g.marshyear=".$year." and g.marshmonth = ".$month." and g.depocode=".Auth::user()->depo_id. " and f.fault_no=21 and t.workid is not null
-                                        ) q2");
-    $orohniitmin2 =DB::select("select sum(substr(q2.stoptime,4,2)+((substr(q2.stoptime,1,2))*60)) as too from (select
-                                    
-                                        t.route_id,
-                                        t.workid,
-                                        q.stoptime
-                                        from  ribbon t
-                                        inner join ZUTGUUR.MARSHBRIG g on g.marshid=t.route_id
-                                        inner join fault f on f.ribbon_id = t.ribbon_id
-                                        inner join fault_det q on q.fault_id=f.fault_id
-                                        where g.marshyear=2019 and g.marshmonth between 1 and ".$month." and g.depocode=".Auth::user()->depo_id. " and f.fault_no=21 and t.workid is not null
-                                        ) q2");
-    $orohniitmin3 =DB::select("select sum(substr(q2.stoptime,4,2)+((substr(q2.stoptime,1,2))*60)) as too from (select
-                                    
-                                        t.route_id,
-                                        t.workid,
-                                        q.stoptime
-                                        from  ribbon t
-                                        inner join ZUTGUUR.MARSHBRIG g on g.marshid=t.route_id
-                                        inner join fault f on f.ribbon_id = t.ribbon_id
-                                        inner join fault_det q on q.fault_id=f.fault_id
-                                        where g.marshyear=2019 and g.marshmonth in ".$m." and g.depocode=".Auth::user()->depo_id. " and f.fault_no=21 and t.workid is not null
-                                        ) q2");
     $uharsan =DB::select("select
                                     count(f.fault_no) as too
                                     from  ribbon t
@@ -1387,9 +1339,9 @@ group by q2.depo_id,q2.marshyear, q2.marshmonth");
 (select distinct t.route_id, t.depo_id, g.marshyear, g.marshmonth ,t.locserial, t.zutnumber, t.patchmin from RIBBON t , ZUTGUUR.MARSHBRIG g
 where t.route_id = g.marshid and t.patchmin is not null and t.patchmin != '0' and t.patchmin != '00:00:00' and  g.marshyear=2019 and g.marshmonth in ".$m." and g.depocode=".Auth::user()->depo_id. ") q2     
 group by q2.depo_id,q2.marshyear, q2.marshmonth");
-    return view('tailan.tuuzorchuulsan')->with(['year'=>$year,'startdate'=>$startdate,'month'=>$month,'hurd'=>$hurd,'yaraltai'=>$yaraltai,'yaraltai35'=>$yaraltai35,'yaraltai36'=>$yaraltai36,'yaraltai37'=>$yaraltai37,'yaraltai38'=>$yaraltai38,'yaraltaimin'=>$yaraltaimin,'yaraltai35min'=>$yaraltai35min,'yaraltai36min'=>$yaraltai36min,'yaraltai37min'=>$yaraltai37min,'yaraltai38min'=>$yaraltai38min,'zurchil'=>$zurchil,'niitzurchil'=>$niitzurchil,'orohachaa'=>$orohachaa,'orohachaamin'=>$orohachaamin,'orohsuudalmin'=>$orohsuudalmin,'orohniitmin'=>$orohniitmin,'uharsan'=>$uharsan ,'uharsanmin'=>$uharsanmin,'hoorond'=>$hoorond,'hoorondmin'=>$hoorondmin,'techno'=>$techno,'technomin'=>$technomin,'iluu'=>$iluu,'iluumin'=>$iluumin,'tuslamjzam'=>$tuslamjzam,'tuslamjurtuu'=>$tuslamjurtuu,'tuslamjzammin'=>$tuslamjzammin,'tuslamjurtuumin'=>$tuslamjurtuumin, 'speed'=>$speed,'hotsrolt'=>$hotsrolt,'tormoz'=>$tormoz,'hurdniit'=>$hurdniit,'yaraltainiit'=>$yaraltainiit,'yaraltainiitmin'=>$yaraltainiitmin
-        ,'achaa2'=>$achaa2 ,'achaa'=>$achaa,'hurd2'=>$hurd2,'yaraltai2'=>$yaraltai2,'yaraltai352'=>$yaraltai352,'yaraltai362'=>$yaraltai362,'yaraltai372'=>$yaraltai372,'yaraltai382'=>$yaraltai382,'yaraltaimin2'=>$yaraltaimin2,'yaraltai35min2'=>$yaraltai35min2,'yaraltai36min2'=>$yaraltai36min2,'yaraltai37min2'=>$yaraltai37min2,'yaraltai38min2'=>$yaraltai38min2,'zurchil2'=>$zurchil2,'niitzurchil2'=>$niitzurchil2,'orohachaa2'=>$orohachaa2,'orohachaamin2'=>$orohachaamin2,'orohsuudalmin2'=>$orohsuudalmin2,'orohniitmin2'=>$orohniitmin2,'uharsan2'=>$uharsan2 ,'uharsanmin2'=>$uharsanmin2,'hoorond2'=>$hoorond2,'hoorondmin2'=>$hoorondmin2,'techno2'=>$techno2,'technomin2'=>$technomin2,'iluu2'=>$iluu2,'iluumin2'=>$iluumin2,'tuslamjzam2'=>$tuslamjzam2,'tuslamjurtuu2'=>$tuslamjurtuu2,'tuslamjzammin2'=>$tuslamjzammin2,'tuslamjurtuumin2'=>$tuslamjurtuumin2, 'speed2'=>$speed2,'hotsrolt2'=>$hotsrolt2,'tormoz2'=>$tormoz2,'hurdniit2'=>$hurdniit2,'yaraltainiit2'=>$yaraltainiit2,'yaraltainiitmin2'=>$yaraltainiitmin2
-        ,'achaa3'=>$achaa3,'hurd3'=>$hurd3,'yaraltai3'=>$yaraltai3,'yaraltai353'=>$yaraltai353,'yaraltai363'=>$yaraltai363,'yaraltai373'=>$yaraltai373,'yaraltai383'=>$yaraltai383,'yaraltaimin3'=>$yaraltaimin3,'yaraltai35min3'=>$yaraltai35min3,'yaraltai36min3'=>$yaraltai36min3,'yaraltai37min3'=>$yaraltai37min3,'yaraltai38min3'=>$yaraltai38min3,'zurchil3'=>$zurchil3,'niitzurchil3'=>$niitzurchil3,'orohachaa3'=>$orohachaa3,'orohachaamin3'=>$orohachaamin3,'orohsuudalmin3'=>$orohsuudalmin3,'orohniitmin3'=>$orohniitmin3,'uharsan3'=>$uharsan3 ,'uharsanmin3'=>$uharsanmin3,'hoorond3'=>$hoorond3,'hoorondmin3'=>$hoorondmin3,'techno3'=>$techno3,'technomin3'=>$technomin3,'iluu3'=>$iluu3,'iluumin3'=>$iluumin3,'tuslamjzam3'=>$tuslamjzam3,'tuslamjurtuu3'=>$tuslamjurtuu3,'tuslamjzammin3'=>$tuslamjzammin3,'tuslamjurtuumin3'=>$tuslamjurtuumin3, 'speed3'=>$speed3,'hotsrolt3'=>$hotsrolt3,'tormoz3'=>$tormoz3,'hurdniit3'=>$hurdniit3,'yaraltainiit3'=>$yaraltainiit3,'yaraltainiitmin3'=>$yaraltainiitmin3]);
+    return view('tailan.tuuzorchuulsan')->with(['year'=>$year,'startdate'=>$startdate,'month'=>$month,'hurd'=>$hurd,'yaraltai'=>$yaraltai,'yaraltai35'=>$yaraltai35,'yaraltai36'=>$yaraltai36,'yaraltai37'=>$yaraltai37,'yaraltai38'=>$yaraltai38,'yaraltaimin'=>$yaraltaimin,'yaraltai35min'=>$yaraltai35min,'yaraltai36min'=>$yaraltai36min,'yaraltai37min'=>$yaraltai37min,'yaraltai38min'=>$yaraltai38min,'zurchil'=>$zurchil,'niitzurchil'=>$niitzurchil,'orohachaa'=>$orohachaa,'orohachaamin'=>$orohachaamin,'uharsan'=>$uharsan ,'uharsanmin'=>$uharsanmin,'hoorond'=>$hoorond,'hoorondmin'=>$hoorondmin,'techno'=>$techno,'technomin'=>$technomin,'iluu'=>$iluu,'iluumin'=>$iluumin,'tuslamjzam'=>$tuslamjzam,'tuslamjurtuu'=>$tuslamjurtuu,'tuslamjzammin'=>$tuslamjzammin,'tuslamjurtuumin'=>$tuslamjurtuumin, 'speed'=>$speed,'hotsrolt'=>$hotsrolt,'tormoz'=>$tormoz,'hurdniit'=>$hurdniit,'yaraltainiit'=>$yaraltainiit,'yaraltainiitmin'=>$yaraltainiitmin
+        ,'achaa2'=>$achaa2 ,'achaa'=>$achaa,'hurd2'=>$hurd2,'yaraltai2'=>$yaraltai2,'yaraltai352'=>$yaraltai352,'yaraltai362'=>$yaraltai362,'yaraltai372'=>$yaraltai372,'yaraltai382'=>$yaraltai382,'yaraltaimin2'=>$yaraltaimin2,'yaraltai35min2'=>$yaraltai35min2,'yaraltai36min2'=>$yaraltai36min2,'yaraltai37min2'=>$yaraltai37min2,'yaraltai38min2'=>$yaraltai38min2,'zurchil2'=>$zurchil2,'niitzurchil2'=>$niitzurchil2,'orohachaa2'=>$orohachaa2,'orohachaamin2'=>$orohachaamin2,'uharsan2'=>$uharsan2 ,'uharsanmin2'=>$uharsanmin2,'hoorond2'=>$hoorond2,'hoorondmin2'=>$hoorondmin2,'techno2'=>$techno2,'technomin2'=>$technomin2,'iluu2'=>$iluu2,'iluumin2'=>$iluumin2,'tuslamjzam2'=>$tuslamjzam2,'tuslamjurtuu2'=>$tuslamjurtuu2,'tuslamjzammin2'=>$tuslamjzammin2,'tuslamjurtuumin2'=>$tuslamjurtuumin2, 'speed2'=>$speed2,'hotsrolt2'=>$hotsrolt2,'tormoz2'=>$tormoz2,'hurdniit2'=>$hurdniit2,'yaraltainiit2'=>$yaraltainiit2,'yaraltainiitmin2'=>$yaraltainiitmin2
+        ,'achaa3'=>$achaa3,'hurd3'=>$hurd3,'yaraltai3'=>$yaraltai3,'yaraltai353'=>$yaraltai353,'yaraltai363'=>$yaraltai363,'yaraltai373'=>$yaraltai373,'yaraltai383'=>$yaraltai383,'yaraltaimin3'=>$yaraltaimin3,'yaraltai35min3'=>$yaraltai35min3,'yaraltai36min3'=>$yaraltai36min3,'yaraltai37min3'=>$yaraltai37min3,'yaraltai38min3'=>$yaraltai38min3,'zurchil3'=>$zurchil3,'niitzurchil3'=>$niitzurchil3,'orohachaa3'=>$orohachaa3,'orohachaamin3'=>$orohachaamin3,'uharsan3'=>$uharsan3 ,'uharsanmin3'=>$uharsanmin3,'hoorond3'=>$hoorond3,'hoorondmin3'=>$hoorondmin3,'techno3'=>$techno3,'technomin3'=>$technomin3,'iluu3'=>$iluu3,'iluumin3'=>$iluumin3,'tuslamjzam3'=>$tuslamjzam3,'tuslamjurtuu3'=>$tuslamjurtuu3,'tuslamjzammin3'=>$tuslamjzammin3,'tuslamjurtuumin3'=>$tuslamjurtuumin3, 'speed3'=>$speed3,'hotsrolt3'=>$hotsrolt3,'tormoz3'=>$tormoz3,'hurdniit3'=>$hurdniit3,'yaraltainiit3'=>$yaraltainiit3,'yaraltainiitmin3'=>$yaraltainiitmin3]);
 }
    
     public function urtuu30()

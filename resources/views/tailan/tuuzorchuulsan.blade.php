@@ -1327,11 +1327,9 @@
                       @else
                           0 уд
                       @endif
-                       @if(count($orohsuudalmin) >0)
-                          @foreach($orohsuudalmin as $n)
-                              {{$n->too}} мин
-                          @endforeach
-                      @else
+                          @if(count($orohachaamin->suud) >0)
+                              {{$orohachaamin->suud}} мин
+                          @else
                           0 мин
                       @endif
                   </td>
@@ -1341,10 +1339,8 @@
                         @else
                             0 уд
                         @endif
-                        @if(count($orohsuudalmin2) >0)
-                            @foreach($orohsuudalmin2 as $n)
-                                {{$n->too}} мин
-                            @endforeach
+                        @if(count($orohachaamin2->suud) >0)
+                            {{$orohachaamin2->suud}} мин
                         @else
                             0 мин
                         @endif</td>
@@ -1354,10 +1350,8 @@
                         @else
                             0 уд
                         @endif
-                        @if(count($orohsuudalmin3) >0)
-                            @foreach($orohsuudalmin3 as $n)
-                                {{$n->too}} мин
-                            @endforeach
+                        @if(count($orohachaamin3->suud) >0)
+                            {{$orohachaamin3->suud}} мин
                         @else
                             0 мин
                         @endif</td>
@@ -1372,11 +1366,9 @@
                       @else
                           0 уд
                       @endif
-                        @if(count($orohachaamin) >0)
-                          @foreach($orohachaamin as $n)
-                              {{$n->too}} мин
-                          @endforeach
-                      @else
+                          @if(count($orohachaamin->ach) >0)
+                              {{$orohachaamin->ach}} мин
+                          @else
                           0мин
                       @endif
                   </td>
@@ -1386,10 +1378,8 @@
                         @else
                             0 уд
                         @endif
-                        @if(count($orohachaamin2) >0)
-                            @foreach($orohachaamin2 as $n)
-                                {{$n->too}} мин
-                            @endforeach
+                        @if(count($orohachaamin2->ach) >0)
+                            {{$orohachaamin2->ach}} мин
                         @else
                             0мин
                         @endif</td>
@@ -1399,10 +1389,8 @@
                         @else
                             0 уд
                         @endif
-                        @if(count($orohachaamin3) >0)
-                            @foreach($orohachaamin3 as $n)
-                                {{$n->too}} мин
-                            @endforeach
+                        @if(count($orohachaamin3->ach) >0)
+                            {{$orohachaamin3->ach}} мин
                         @else
                             0мин
                         @endif</td>
@@ -1416,11 +1404,9 @@
                       @else
                           0 уд
                       @endif
-                      @if(count($orohniitmin) >0)
-                          @foreach($orohniitmin as $n)
-                              {{$n->too}} мин
-                          @endforeach
-                      @else
+                          @if(count($orohachaamin->ach+$orohachaamin->suud) >0)
+                              {{$orohachaamin->ach+$orohachaamin->suud}}мин
+                          @else
                           0 мин
                       @endif
                   </td>
@@ -1430,10 +1416,8 @@
                         @else
                             0 уд
                         @endif
-                        @if(count($orohniitmin2) >0)
-                            @foreach($orohniitmin2 as $n)
-                                {{$n->too}} мин
-                            @endforeach
+                        @if(count($orohachaamin2->ach+$orohachaamin2->suud) >0)
+                            {{$orohachaamin2->ach+$orohachaamin2->suud}} мин
                         @else
                             0 мин
                         @endif</td>
@@ -1443,10 +1427,8 @@
                         @else
                             0 уд
                         @endif
-                        @if(count($orohniitmin3) >0)
-                            @foreach($orohniitmin3 as $n)
-                                {{$n->too}} мин
-                            @endforeach
+                        @if(count($orohachaamin3->ach+$orohachaamin3->suud) >0)
+                            {{$orohachaamin3->ach+$orohachaamin3->suud}} мин
                         @else
                             0 мин
                         @endif</td>

@@ -110,6 +110,7 @@
                                                         <th> # </th>
                                                         <th>Огноо</th>
                                                          <th> Марш</th>
+                                                        <th> Цуваа </th>
                                                         <th> Машинч </th>                                        
                                                           <th>И/т №</th>
                                                            <th>Галт тэрэг  №</th>
@@ -128,6 +129,7 @@
                                 <td>{{$no}}</td>
                                 <td>{{date('Y-m-d', strtotime($achaas->arrtime))}}</td>
                                 <td>{{$achaas->route_id}}</td>
+                                                        <td>{{$achaas->brigcode}}</td>
                                 <td>{{$achaas->mashname}}</td>
                                 <td>{{$achaas->seriname}}-{{$achaas->zutnumber}}</td>
                                   <td>{{$achaas->train_no}}</td>
@@ -163,6 +165,7 @@
              <th> # </th>
              <th>Огноо</th>
              <th> Марш</th>
+             <th> Цуваа </th>
              <th> Машинч </th>
              <th>И/т №</th>
              <th>Галт тэрэг  №</th>
@@ -181,6 +184,7 @@
                  <td>{{$no}}</td>
                  <td>{{$achaas->arrtime}}</td>
                  <td>{{$achaas->route_id}}</td>
+                 <td>{{$achaas->brigcode}}</td>
                  <td>{{$achaas->mashname}}</td>
                  <td>{{$achaas->seriname}}-{{$achaas->zutnumber}}</td>
                  <td>{{$achaas->train_no}}</td>

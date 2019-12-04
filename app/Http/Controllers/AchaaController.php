@@ -2173,5 +2173,64 @@ FROM
           activity()->log('busad updated');
        
     }
+    public function refresh()
+    {
 
+
+        if(Request::input('tuuzmarsh') != NULL){
+
+            $department = DB::table('Ribbon')
+                ->where('route_id', Request::input('tuuzmarsh'))->get();
+
+            $stat = DB::table('V_MARSHBUREL')->where('marshid', '=',Request::input('tuuzmarsh'))->where('depocode', '=', Auth::user()->depo_id)->get();
+            $zut = DB::table('ZUTGUUR.MARSHZUT')->where('marshid', '=',Request::input('tuuzmarsh'))->where('depocode', '=', Auth::user()->depo_id)->get();
+            $brig = DB::table('ZUTGUUR.MARSHBRIG')->where('marshid', '=',Request::input('tuuzmarsh'))->where('depocode', '=', Auth::user()->depo_id)->get();
+            foreach ($stat as $row) {
+                $gol =$row->sgolnum + $row->achgol + $row->empgol;
+                $ribbon = new Ribbon;
+                $ribbon->route_id = Request::input('tuuzmarsh');
+                $ribbon->depo_id = Auth::user()->depo_id;
+                $ribbon->speedcontrollerno =  $department[0]->speedcontrollerno;
+                $ribbon->zutnumber = $zut[0]->zutnumber;
+                $ribbon->locserial=  $zut[0]->seriname;
+                $ribbon->locno=  $zut[0]->sericode;
+                $ribbon->is_ribbon= 1;
+                $ribbon->starttime= $brig[0]->arrtime;
+                $ribbon->endtime= $brig[0]->deptime;
+                $ribbon->fromstation = $row->stat1code;
+                $ribbon->tostation = $row->stat2code;
+                $ribbon->train_no= $row->trainid;
+                $ribbon->split_id= $row->splitid;
+                $ribbon->train_cleanweight= $row->cleanwght;
+                $ribbon->train_dirtyweight=$row->dirtywght;
+                $ribbon->train_gol= $gol;
+                $ribbon->workid= $row->workid;
+                $ribbon->patchmin =  $department[0]->patchmin;
+
+                $ribbon->translator_id= Auth::user()->id;
+                $ribbon->create_who= Auth::user()->id;
+                $ribbon->translate_date= Carbon::now()->toDateTimeString();
+
+                $ribbon->save();
+                activity()->performedOn($ribbon)->log('Ribbon added');
+
+            }
+            DB::table('Ribbon')->where('ribbon_id', '=',  $department[0]->ribbon_id)->delete();
+            $achaa = DB::select("SELECT
+   DISTINCT q1.MARSHYEAR,q1.MARSHMONTH,q1.DEPOCODE,q1.MARSHID,q1.MASHCODE,UNISTR(REPLACE(REPLACE(REPLACE(ASCIISTR(q1.MASHNAME),'\04E9','\0435'),'\04AF','v'),'\04E8','\0415')) as MASHNAME ,q1.TUSLCODE , UNISTR(REPLACE(REPLACE(REPLACE(ASCIISTR(q1.TUSLNAME),'\04E9','\0435'),'\04AF','v'),'\04E8','\0415')) as TUSLNAME,q1.ARRTIME,q1.DEPTIME, q3.seriname, q3.sericode, r.speedcontrollerno, r.patchmin, r.translator_id,v.name,  r.translate_date, r.train_no, q1.brigcode, f.fault_count, q3.zutnumber, r.train_dirtyweight, r.train_gol, r.train_cleanweight, SUBSTR(r.workid,1,1) as workid, r.fromstation, r.tostation, r.tostat, r.fromstat
+FROM
+    (select  * from ZUTGUUR.MARSHBRIG t where t.marshid=".Request::input('tuuzmarsh')." order by arrtime desc) q1
+   INNER JOIN
+    (select seriname,sericode, marshid, marshyear, marshmonth,zutnumber from ZUTGUUR.MARSHZUT t ) q3 on q3.marshid = q1.marshid and q3.marshyear=q1.marshyear and q3.marshmonth = q1.marshmonth
+        LEFT JOIN V_Ribbon r on r.route_id=q1.marshid 
+        LEFT JOIN Users v on v.id=r.translator_id
+        LEFT JOIN (select ribbon_id, count(ribbon_id) as fault_count from fault k, fault_detail i  where i.fault_detail_id=k.fault_no and i.fault_type=2 group by ribbon_id) f on f.ribbon_id= r.ribbon_id 
+      order by q1.arrtime desc");
+        }
+
+       else{
+           $achaa = [];
+       }
+        return view('devter.refresh')->with(['achaa'=>$achaa]);
+    }
 }

@@ -11,7 +11,7 @@
                         <i class="icon-settings font-green">
                         </i>
                         <span class="caption-subject font-green sbold uppercase">
-                            20,5 км/цагаас доош орсон хурдны
+                           Тооцоот хурднаас доош орсон хурдны
                         </span>
                     </div>
                
@@ -78,7 +78,7 @@
                    <div class="table-container">
                     <button class="btn btn-info" id="buttonprint" onclick="printDiv()"><i class="fa fa-print" aria-hidden="true"></i>Хэвлэх</button>
                         <button class="btn btn-info" id="btnExport" onclick="tablesToExcel(array1, array2, 'myfile.xls')" value="Export to Excel"><i class="fa fa-table" aria-hidden="true"></i> Excel </button>
-                      <p><center><b> {{$startdate}} -аас {{$enddate}} -ны 20,5 км/цагаас доош орсон хурдны судалгаа</b></center> </p>
+                      <p><center><b> {{$startdate}} -аас {{$enddate}} -ны тооцоот хурднаас доош орсон хурдны судалгаа</b></center> </p>
           <div class="table-responsive">
       <table class="table table-striped table-bordered table-hover"  id="example">
                                                   <thead style="background-color: #81b5d5; color: #fff">
@@ -179,7 +179,7 @@
                
                 </div> 
                                                    <div id="printarea"  style=" display:none;" >
-         <p><center><b> {{$startdate}} -аас {{$enddate}} -ны 20,5 км/цагаас доош орсон хурдны судалгаа</b></center> </p>
+         <p><center><b> {{$startdate}} -аас {{$enddate}} -ны тооцоот хурднаас доош орсон хурдны судалгаа</b></center> </p>
    <h5>Тайлан хэвлэсэн огноо: {{Carbon\Carbon::now()->format('Y-m-d H:i')}}</h5>
      <table class="table table-bordered "  id="1"  border="1" cellspacing="0">
                                                         <thead style="background-color: #81b5d5; color: #fff">
@@ -355,7 +355,7 @@ var tablesToExcel=null;
         var uri = 'data:application/vnd.ms-excel;base64,'
         , template = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40"><head><!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets>'
         , templateend = '</x:ExcelWorksheets></x:ExcelWorkbook></xml><![endif]--></head>'
-        , body = '<body> <p><center><b> {{$startdate}} -аас {{$enddate}} -ны 20,5 км/цагаас доош орсон хурдны судалгаа</b></center> </p>'
+        , body = '<body> <p><center><b> {{$startdate}} -аас {{$enddate}} -ны тооцоот хурднаас доош орсон хурдны судалгаа</b></center> </p>'
         , tablevar = '<table border="1">{table'
         , tablevarend = '}</table><br><br>'
         , bodyend = '<span> ТАЙЛАН ГАРГАСАН: Тууз орчуулагч:</span><span style="margin-left: 180px"> {{ Auth::user()->name }}</span></body></html>'
