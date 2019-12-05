@@ -1862,12 +1862,13 @@ group by q2.depo_id,q2.marshyear, q2.marshmonth");
             $query.=  " and t.depo_id in (1,5) ";
         }
 
-        $zurchil=DB::select("select * from
+        $zurchil=DB::select("
+select * from
                 (select t.translator_id, t.depo_id, u.name, substr(c.workcode,1,1) as wk, 
-                sum(c.runkm) as runkm, to_char(t.translate_date, 'YYYY/MM/DD') as depdatetime from
+                  case when substr(c.workcode,1,1) in ('5') then (sum(c.worktime))*5 else sum(c.runkm) end as runkm, to_char(t.translate_date, 'YYYY/MM/DD') as depdatetime from
                 (select distinct r.route_id, r.translator_id, r.depo_id,r.translate_date from Ribbon r) t, 
                 ZUTGUUR.Calcaddition c, USeRS u
-                where t.route_id=c.marshid and u.id=t.translator_id and u.grand_type !=1 ".$query." 
+                where t.route_id=c.marshid and u.id=t.translator_id and u.grand_type !=1   ".$query."
                 group by t.translator_id, t.depo_id, u.name,substr(c.workcode,1,1),to_char(t.translate_date, 'YYYY/MM/DD') 
                 order by to_char(t.translate_date, 'YYYY/MM/DD'))
                 PIVOT
