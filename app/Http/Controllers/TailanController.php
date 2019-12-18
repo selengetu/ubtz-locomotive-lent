@@ -1450,7 +1450,7 @@ group by q2.depo_id,q2.marshyear, q2.marshmonth");
   
         }
 
-         $zurchil=DB::select('select  * from V_ATTENTION_TAILAN t where t.depo_id = '.Auth::user()->depo_id. '  '.$query.' ');
+         $zurchil=DB::select('select  * from V_ATTENTION_TAILAN t where t.depo_id = '.Auth::user()->depo_id. '  '.$query.' order by t.ARRTIME');
          $z=DB::select("select
                         r.DEPO_ID, p.speed as speedname, count(p.speed) as count
                         from Attention a, ribbon t, attention_speed p, ribbon r, zutguur.marshbrig b
