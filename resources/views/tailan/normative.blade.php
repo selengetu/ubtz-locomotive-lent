@@ -60,7 +60,17 @@
                                         </div>
                                     </div>
 
-
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="name">Тууз орчуулагч</label>
+                                            <select class="select2 form-control" id="user_id" name="user_id">
+                                                <option value="0">Бүгд</option>
+                                                @foreach($user as $users)
+                                                    <option value= "{{$users->id}}">{{$users->name}}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
                                     <div class="col-md-2">
                                         <div class="form-group form-md-line-input has-success">
                                             <input type="hidden" name="_token" value="{{ csrf_token() }}" />

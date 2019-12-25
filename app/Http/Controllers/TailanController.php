@@ -1833,15 +1833,18 @@ group by q2.depo_id,q2.marshyear, q2.marshmonth");
     }
     public function norm()
     {
+        $query1 = "";
         $query = "";
+        $date = "";
+        $us= Input::get('user_id');
         $startdate= Input::get('norm_start');
         $enddate= Input::get('norm_end');
         if ($startdate !=0 && $startdate && $enddate !=0 && $enddate !=NULL) {
-            $query.=  "and t.translate_date between '".$startdate." 00:00:00' and '".$enddate." 23:59:59'";
+            $date.=  "and t.translate_date between '".$startdate." 00:00:00' and '".$enddate." 23:59:59'";
         }
         else
         {
-            $query.=" and t.translate_date between sysdate-10 and sysdate";
+            $date.=" and t.translate_date between sysdate-10 and sysdate";
             $startdate= Carbon::today()->subDays(10)->toDateString();
             $enddate=  Carbon::today()->toDateString();
 
@@ -1861,14 +1864,16 @@ group by q2.depo_id,q2.marshyear, q2.marshmonth");
         if (Auth::user()->depo_id == 5) {
             $query.=  " and t.depo_id in (1,5) ";
         }
-
+        if ($us!=NULL && $us !=0) {
+            $query1.=" and t.translator_id = ".$us."";
+        }
         $zurchil=DB::select("
 select * from
                 (select t.translator_id, t.depo_id, u.name, substr(c.workcode,1,1) as wk, 
                   case when substr(c.workcode,1,1) in ('5') then (sum(c.worktime))*5 else sum(c.runkm) end as runkm, to_char(t.translate_date, 'YYYY/MM/DD') as depdatetime from
                 (select distinct r.route_id, r.translator_id, r.depo_id,r.translate_date from Ribbon r) t, 
                 ZUTGUUR.Calcaddition c, USeRS u
-                where t.route_id=c.marshid and u.id=t.translator_id and u.grand_type !=1   ".$query."
+                where t.route_id=c.marshid and u.id=t.translator_id and u.grand_type !=1   ".$query." ".$query1."   ".$date."
                 group by t.translator_id, t.depo_id, u.name,substr(c.workcode,1,1),to_char(t.translate_date, 'YYYY/MM/DD') 
                 order by to_char(t.translate_date, 'YYYY/MM/DD'))
                 PIVOT
@@ -1878,7 +1883,8 @@ select * from
                 )
                 order by depdatetime desc
                               ");
+        $user=DB::select("select * from Users t where 1=1 ".$query." and t.grand_type !=1 order by name");
 
-        return view('tailan.normative')->with(['zurchil'=>$zurchil,'startdate'=>$startdate,'enddate'=>$enddate]);
+        return view('tailan.normative')->with(['zurchil'=>$zurchil,'startdate'=>$startdate,'enddate'=>$enddate,'user'=>$user]);
     }
 }
