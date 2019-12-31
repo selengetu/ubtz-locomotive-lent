@@ -964,7 +964,7 @@ sum(sel) as sel , sum(uz) as uz , sum(tur) as tur , sum(oros) as oros ,  sum(tso
                                     inner join V_MARSHBRIG g on g.marshid=t.route_id
                                     inner join ZUTGUUR.MARSHZUT e on e.marshid=t.route_id
                                     inner join fault f on f.ribbon_id = t.ribbon_id
-                                    left join fault_det d on d.fault_id=f.fault_id
+                                    inner join fault_det d on d.fault_id=f.fault_id
                                     
                                     LEFT JOIN V_broketype b on b.broketype_id= d.broketype
                                     where t.depo_id=g.depocode and e.depocode=t.depo_id and e.marshyear=g.marshyear and e.marshmonth=g.marshmonth and f.fault_no=8  and e.marshyear=".$year." and e.marshmonth=".$month." and e.depocode=".Auth::user()->depo_id. "
@@ -975,7 +975,7 @@ sum(sel) as sel , sum(uz) as uz , sum(tur) as tur , sum(oros) as oros ,  sum(tso
                                     inner join V_MARSHBRIG g on g.marshid=t.route_id
                                     inner join ZUTGUUR.MARSHZUT e on e.marshid=t.route_id
                                     inner join fault f on f.ribbon_id = t.ribbon_id
-                                    left join fault_det d on d.fault_id=f.fault_id
+                                    inner join fault_det d on d.fault_id=f.fault_id
                                     
                                     LEFT JOIN V_broketype b on b.broketype_id= d.broketype
                                     where t.depo_id=g.depocode and e.depocode=t.depo_id and e.marshyear=g.marshyear and e.marshmonth=g.marshmonth and f.fault_no=8  and e.marshyear=2019 and e.marshmonth between 1 and ".$month." and e.depocode=".Auth::user()->depo_id. "
@@ -986,7 +986,7 @@ sum(sel) as sel , sum(uz) as uz , sum(tur) as tur , sum(oros) as oros ,  sum(tso
                                     inner join V_MARSHBRIG g on g.marshid=t.route_id
                                     inner join ZUTGUUR.MARSHZUT e on e.marshid=t.route_id
                                     inner join fault f on f.ribbon_id = t.ribbon_id
-                                    left join fault_det d on d.fault_id=f.fault_id
+                                    inner join fault_det d on d.fault_id=f.fault_id
                                     
                                     LEFT JOIN V_broketype b on b.broketype_id= d.broketype
                                     where t.depo_id=g.depocode and e.depocode=t.depo_id and e.marshyear=g.marshyear and e.marshmonth=g.marshmonth and f.fault_no=8  and e.marshyear=2019 and e.marshmonth  between 1 and ".$month." and e.depocode=".Auth::user()->depo_id. "
@@ -997,7 +997,7 @@ sum(sel) as sel , sum(uz) as uz , sum(tur) as tur , sum(oros) as oros ,  sum(tso
                                     inner join V_MARSHBRIG g on g.marshid=t.route_id
                                     inner join ZUTGUUR.MARSHZUT e on e.marshid=t.route_id
                                     inner join fault f on f.ribbon_id = t.ribbon_id
-                                    left join fault_det d on d.fault_id=f.fault_id
+                                   inner join fault_det d on d.fault_id=f.fault_id
                                     
                                     LEFT JOIN V_broketype b on b.broketype_id= d.broketype
                                     where t.depo_id=g.depocode and e.depocode=t.depo_id and e.marshyear=g.marshyear and e.marshmonth=g.marshmonth and f.fault_no=8   and  e.marshyear=".$year." and e.marshmonth=".$month." and e.depocode=".Auth::user()->depo_id. "
@@ -1008,7 +1008,7 @@ sum(sel) as sel , sum(uz) as uz , sum(tur) as tur , sum(oros) as oros ,  sum(tso
                                     inner join V_MARSHBRIG g on g.marshid=t.route_id
                                     inner join ZUTGUUR.MARSHZUT e on e.marshid=t.route_id
                                     inner join fault f on f.ribbon_id = t.ribbon_id
-                                    left join fault_det d on d.fault_id=f.fault_id
+                                    inner join fault_det d on d.fault_id=f.fault_id
                                     
                                     LEFT JOIN V_broketype b on b.broketype_id= d.broketype
                                     where t.depo_id=g.depocode and e.depocode=t.depo_id and e.marshyear=g.marshyear and e.marshmonth=g.marshmonth and f.fault_no=8 and e.marshyear=2019 and e.marshmonth between 1 and ".$month." and e.depocode=".Auth::user()->depo_id. "
@@ -1019,7 +1019,7 @@ sum(sel) as sel , sum(uz) as uz , sum(tur) as tur , sum(oros) as oros ,  sum(tso
                                     inner join V_MARSHBRIG g on g.marshid=t.route_id
                                     inner join ZUTGUUR.MARSHZUT e on e.marshid=t.route_id
                                     inner join fault f on f.ribbon_id = t.ribbon_id
-                                    left join fault_det d on d.fault_id=f.fault_id
+                                    inner join fault_det d on d.fault_id=f.fault_id
                                     
                                     LEFT JOIN V_broketype b on b.broketype_id= d.broketype
                                     where t.depo_id=g.depocode and e.depocode=t.depo_id and e.marshyear=g.marshyear and e.marshmonth=g.marshmonth and f.fault_no=8 and e.marshyear=2019 and e.marshmonth between 1 and ".$month." and e.depocode=".Auth::user()->depo_id. "
