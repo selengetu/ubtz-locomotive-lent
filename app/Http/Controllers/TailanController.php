@@ -1067,7 +1067,7 @@ sum(sel) as sel , sum(uz) as uz , sum(tur) as tur , sum(oros) as oros ,  sum(tso
                                 inner join ZUTGUUR.MARSHZUT e on e.marshid=t.route_id
                                 inner join fault f on f.ribbon_id = t.ribbon_id
                                 left join fault_det d on d.fault_id=f.fault_id
-                                where t.depo_id=g.depocode and e.depocode=t.depo_id and e.marshyear=g.marshyear and e.marshmonth=g.marshmonth and f.fault_no=12 and substr(d.stoptime,4,2)+((substr(d.stoptime,1,2))*60)>120 and e.marshyear=".$year." and e.marshmonth=".$month." and e.depocode=".Auth::user()->depo_id. "
+                                where t.depo_id=g.depocode and e.depocode=t.depo_id and e.marshyear=g.marshyear and e.marshmonth=g.marshmonth and f.fault_no=12 and substr(d.stoptime,4,2)+((substr(d.stoptime,1,2))*60)>119 and e.marshyear=".$year." and e.marshmonth=".$month." and e.depocode=".Auth::user()->depo_id. "
                                     ");
     $iluumin =DB::select("select
                                 sum(substr(d.stoptime,4,2)+((substr(d.stoptime,1,2))*60)) as too
@@ -1076,7 +1076,7 @@ sum(sel) as sel , sum(uz) as uz , sum(tur) as tur , sum(oros) as oros ,  sum(tso
                                 inner join ZUTGUUR.MARSHZUT e on e.marshid=t.route_id
                                 inner join fault f on f.ribbon_id = t.ribbon_id
                                 left join fault_det d on d.fault_id=f.fault_id
-                                where t.depo_id=g.depocode and e.depocode=t.depo_id and e.marshyear=g.marshyear and e.marshmonth=g.marshmonth and f.fault_no=12 and substr(d.stoptime,4,2)+((substr(d.stoptime,1,2))*60)>120 and e.marshyear=".$year." and e.marshmonth=".$month." and e.depocode=".Auth::user()->depo_id. "
+                                where t.depo_id=g.depocode and e.depocode=t.depo_id and e.marshyear=g.marshyear and e.marshmonth=g.marshmonth and f.fault_no=12 and substr(d.stoptime,4,2)+((substr(d.stoptime,1,2))*60)>119  and e.marshyear=".$year." and e.marshmonth=".$month." and e.depocode=".Auth::user()->depo_id. "
                                     ");
     $tuslamjzammin =DB::select("select
                              sum(substr(k.stoptime,4,2)+((substr(k.stoptime,1,2))*60)) as too
@@ -1172,7 +1172,7 @@ group by q2.depo_id,q2.marshyear, q2.marshmonth");
                                 inner join ZUTGUUR.MARSHZUT e on e.marshid=t.route_id
                                 inner join fault f on f.ribbon_id = t.ribbon_id
                                 left join fault_det d on d.fault_id=f.fault_id
-                                where t.depo_id=g.depocode and e.depocode=t.depo_id and  e.marshyear=g.marshyear and e.marshmonth=g.marshmonth and substr(d.stoptime,4,2)+((substr(d.stoptime,1,2))*60)>120 and f.fault_no=12 and e.marshyear=2019 and e.marshmonth between 1 and ".$month." and e.depocode=".Auth::user()->depo_id. "
+                                where t.depo_id=g.depocode and e.depocode=t.depo_id and  e.marshyear=g.marshyear and e.marshmonth=g.marshmonth and substr(d.stoptime,4,2)+((substr(d.stoptime,1,2))*60)>119  and f.fault_no=12 and e.marshyear=2019 and e.marshmonth between 1 and ".$month." and e.depocode=".Auth::user()->depo_id. "
                                     ");
     $iluumin2 =DB::select("select
                                 sum(substr(d.stoptime,4,2)+((substr(d.stoptime,1,2))*60)) as too
@@ -1181,7 +1181,7 @@ group by q2.depo_id,q2.marshyear, q2.marshmonth");
                                 inner join ZUTGUUR.MARSHZUT e on e.marshid=t.route_id
                                 inner join fault f on f.ribbon_id = t.ribbon_id
                                 left join fault_det d on d.fault_id=f.fault_id
-                                where t.depo_id=g.depocode and e.depocode=t.depo_id and e.marshyear=g.marshyear and e.marshmonth=g.marshmonth and substr(d.stoptime,4,2)+((substr(d.stoptime,1,2))*60)>120 and f.fault_no=12 and e.marshyear=2019 and e.marshmonth between 1 and ".$month." and e.depocode=".Auth::user()->depo_id. "
+                                where t.depo_id=g.depocode and e.depocode=t.depo_id and e.marshyear=g.marshyear and e.marshmonth=g.marshmonth and substr(d.stoptime,4,2)+((substr(d.stoptime,1,2))*60)>119  and f.fault_no=12 and e.marshyear=2019 and e.marshmonth between 1 and ".$month." and e.depocode=".Auth::user()->depo_id. "
                                     ");
     $tuslamjzammin2 =DB::select("select
                              sum(substr(k.stoptime,4,2)+((substr(k.stoptime,1,2))*60)) as too
@@ -1268,7 +1268,7 @@ group by q2.depo_id,q2.marshyear, q2.marshmonth");
                                 inner join ZUTGUUR.MARSHZUT e on e.marshid=t.route_id
                                 inner join fault f on f.ribbon_id = t.ribbon_id
                                 left join fault_det d on d.fault_id=f.fault_id
-                                where t.depo_id=g.depocode and e.depocode=t.depo_id and e.marshyear=g.marshyear and e.marshmonth=g.marshmonth and substr(d.stoptime,4,2)+((substr(d.stoptime,1,2))*60)>120 and  e.marshyear=2019 and e.marshmonth in ".$m." and f.fault_no=12 and e.marshyear=2019 and e.marshmonth in ".$m." and e.depocode=".Auth::user()->depo_id. "
+                                where t.depo_id=g.depocode and e.depocode=t.depo_id and e.marshyear=g.marshyear and e.marshmonth=g.marshmonth and substr(d.stoptime,4,2)+((substr(d.stoptime,1,2))*60)>119  and  e.marshyear=2019 and e.marshmonth in ".$m." and f.fault_no=12 and e.marshyear=2019 and e.marshmonth in ".$m." and e.depocode=".Auth::user()->depo_id. "
                                     ");
     $technomin3 =DB::select("select
                                 sum(substr(d.stoptime,4,2)+((substr(d.stoptime,1,2))*60)) as too
@@ -1286,7 +1286,7 @@ group by q2.depo_id,q2.marshyear, q2.marshmonth");
                                 inner join ZUTGUUR.MARSHZUT e on e.marshid=t.route_id
                                 inner join fault f on f.ribbon_id = t.ribbon_id
                                 left join fault_det d on d.fault_id=f.fault_id
-                                where t.depo_id=g.depocode and e.depocode=t.depo_id and e.marshyear=g.marshyear and e.marshmonth=g.marshmonth and f.fault_no=12 and substr(d.stoptime,4,2)+((substr(d.stoptime,1,2))*60)>120 and  e.marshyear=2019 and e.marshmonth in ".$m." and e.depocode=".Auth::user()->depo_id. "
+                                where t.depo_id=g.depocode and e.depocode=t.depo_id and e.marshyear=g.marshyear and e.marshmonth=g.marshmonth and f.fault_no=12 and substr(d.stoptime,4,2)+((substr(d.stoptime,1,2))*60)>119  and  e.marshyear=2019 and e.marshmonth in ".$m." and e.depocode=".Auth::user()->depo_id. "
                                     ");
     $tuslamjzammin3 =DB::select("select
                              sum(substr(k.stoptime,4,2)+((substr(k.stoptime,1,2))*60)) as too
