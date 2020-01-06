@@ -703,7 +703,7 @@ PIVOT
                                 inner join ZUTGUUR.MARSHBRIG g on g.marshid=t.route_id
                                 inner join fault f on f.ribbon_id = t.ribbon_id
                                 left join fault_det d on d.fault_id=f.fault_id
-                                where  f.fault_no=35 and d.broketype=38 and g.depocode=t.depo_id and g.marshyear=2019 and g.marshmonth between 1 and ".$month." and g.depocode=".Auth::user()->depo_id. "
+                                where  f.fault_no=35 and d.broketype=38 and g.depocode=t.depo_id and g.marshyear=2019 and g.marshmonth  in ".$m."  and g.depocode=".Auth::user()->depo_id. "
                                 group by d.is_stop, g.depocode,d.broketype, d.stoptime ) q
                                 right join stop_det s
                                 on s.stop_id=q.is_stop
