@@ -90,7 +90,7 @@
           $('.phone_us').mask('(000) 000-0000');
           $('.mixed').mask('AAA 000-S0S');
           $('.weight').mask('00.00');
-           $('.kilo').mask('000');
+           $('.kilo').mask('0000');
             $('.speed').mask('000');
                   $('.cpf').mask('000.000.000-00', {reverse: true});
           $('.cnpj').mask('00.000.000/0000-00', {reverse: true});
