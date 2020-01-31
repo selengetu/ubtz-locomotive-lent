@@ -101,52 +101,57 @@
                   <tr>
                   <td rowspan="4" >1</td>
                   <td> 1.Суудал </td>
-                  <td>0</td>
+                  <td> {{$achaa2019->suud}}</td>
                   <td>
                       {{$achaa->suud}}
                   </td>
-                      <td>0</td>
+                      <td> {{$achaa22019->suud}}</td>
                       <td> {{$achaa2->suud}}</td>
-                      <td>0</td>
+                      <td>{{$achaa32019->suud}}</td>
                       <td>  {{$achaa3->suud}}</td>
                 </tr>
                 <tr>
 
                   <td> 2.Ачаа </td>
-                  <td>0</td>
+                  <td> {{$achaa2019->ach + $achaa2019->aj + $achaa2019->bteg  + $achaa2019->uz + $achaa2019->tur +$achaa2019->oros +$achaa2019->tsonh}}</td>
                   <td> {{$achaa->ach + $achaa->aj + $achaa->bteg  + $achaa->uz + $achaa->tur +$achaa->oros +$achaa->tsonh}}</td>
-                    <td>0</td>
+                    <td>{{$achaa22019->ach + $achaa2->aj + $achaa22019->bteg  + $achaa22019->uz + $achaa2->tur +$achaa22019->oros +$achaa22019->tsonh}}</td>
                     <td>{{$achaa2->ach + $achaa2->aj + $achaa2->bteg  + $achaa2->uz + $achaa2->tur +$achaa2->oros +$achaa2->tsonh}}</td>
-                    <td>0</td>
+                    <td>{{$achaa32019->ach + $achaa32019->aj + $achaa32019->bteg  + $achaa32019->uz + $achaa32019->tur +$achaa32019->oros +$achaa32019->tsonh}}</td>
                     <td>{{$achaa3->ach + $achaa3->aj + $achaa3->bteg  + $achaa3->uz + $achaa3->tur +$achaa3->oros +$achaa3->tsonh}}</td>
                 </tr>
                 <tr>
 
                   <td> 3.Сэлгээ </td>
-                  <td>0</td>
+                  <td> {{$achaa2019->sel}}</td>
                     <td>
                         {{$achaa->sel}}
                     </td>
-                    <td>0</td>
+                    <td> {{$achaa22019->sel}}</td>
                     <td> {{$achaa2->sel}}</td>
-                    <td>0</td>
+                    <td> {{$achaa32019->sel}}</td>
                     <td>{{$achaa3->sel}}</td>
                 </tr>
                 <tr>
 
                   <td>I.Нийт тууз </td>
-                  <td>0</td>
+                  <td> {{$achaa->ach + $achaa->aj + $achaa->bteg + $achaa->uz + $achaa->tur +$achaa->oros +$achaa->tsonh +$achaa->sel+$achaa->suud }}</td>
                     <td> {{$achaa->ach + $achaa->aj + $achaa->bteg + $achaa->uz + $achaa->tur +$achaa->oros +$achaa->tsonh +$achaa->sel+$achaa->suud }}</td>
-                    <td>0</td>
+                    <td>{{$achaa22019->ach + $achaa22019->aj + $achaa22019->bteg  + $achaa22019->uz + $achaa22019->tur +$achaa22019->oros +$achaa22019->tsonh +$achaa22019->sel+$achaa22019->suud}}</td>
                     <td>{{$achaa2->ach + $achaa2->aj + $achaa2->bteg  + $achaa2->uz + $achaa2->tur +$achaa2->oros +$achaa2->tsonh +$achaa2->sel+$achaa2->suud}}</td>
-                    <td>0</td>
+                    <td>{{$achaa32019->ach + $achaa32019->aj + $achaa32019->bteg  + $achaa32019->uz + $achaa32019->tur +$achaa32019->oros +$achaa32019->tsonh +$achaa32019->sel+$achaa32019->suud}}</td>
                     <td>{{$achaa3->ach + $achaa3->aj + $achaa3->bteg  + $achaa3->uz + $achaa3->tur +$achaa3->oros +$achaa3->tsonh +$achaa3->sel+$achaa3->suud}}</td>
                 </tr>
             
                 <tr>          
                   <td rowspan="26" >2</td>
                   <td> 1.Хурд хэтрүүлсэн </td>
-                  <td>0</td>
+                  <td>    @foreach($zurchil2019 as $n)
+                          @if($n->fault_detail_id == 32 )
+                              {{$n->cnt}}
+
+                          @endif
+                      @endforeach</td>
                   <td>
                       @foreach($zurchil as $n)
                           @if($n->fault_detail_id == 32 )
@@ -155,14 +160,24 @@
                           @endif
                       @endforeach
                   </td>
-                    <td>0</td>
+                  <td> @foreach($zurchil22019 as $n)
+                            @if($n->fault_detail_id == 32 )
+                                {{$n->cnt}}
+
+                            @endif
+                        @endforeach</td>
                     <td> @foreach($zurchil2 as $n)
                             @if($n->fault_detail_id == 32 )
                                 {{$n->cnt}}
 
                             @endif
                         @endforeach</td>
-                    <td>0</td>
+                        <td> @foreach($zurchil32019 as $n)
+                            @if($n->fault_detail_id == 32 )
+                                {{$n->cnt}}
+
+                            @endif
+                        @endforeach</td>
                     <td> @foreach($zurchil3 as $n)
                             @if($n->fault_detail_id == 32 )
                                 {{$n->cnt}}
@@ -173,7 +188,14 @@
                 <tr>          
                   
                   <td> 2.Тууз зассан </td>
-                  <td>0</td>
+                  <td>
+                      @foreach($zurchil2019 as $n)
+                          @if($n->fault_detail_id == 17 )
+                              {{$n->cnt}}
+
+                          @endif
+                      @endforeach
+                  </td>
                   <td>
                       @foreach($zurchil as $n)
                           @if($n->fault_detail_id == 17 )
@@ -182,14 +204,24 @@
                           @endif
                       @endforeach
                   </td>
-                    <td>0</td>
+                  <td>@foreach($zurchil22019 as $n)
+                            @if($n->fault_detail_id == 17 )
+                                {{$n->cnt}}
+
+                            @endif
+                        @endforeach</td>
                     <td>@foreach($zurchil2 as $n)
                             @if($n->fault_detail_id == 17 )
                                 {{$n->cnt}}
 
                             @endif
                         @endforeach</td>
-                    <td>0</td>
+                        <td>@foreach($zurchil32019 as $n)
+                            @if($n->fault_detail_id == 17 )
+                                {{$n->cnt}}
+
+                            @endif
+                        @endforeach</td>
                     <td>@foreach($zurchil3 as $n)
                             @if($n->fault_detail_id == 17 )
                                 {{$n->cnt}}
@@ -199,7 +231,14 @@
                 </tr>
                 <tr>          
                   <td> 3.Эффэкт зөрчсөн </td>
-                  <td>0</td>
+                  <td>
+                      @foreach($zurchil2019 as $n)
+                          @if($n->fault_detail_id == 33 )
+                              {{$n->cnt}}
+
+                          @endif
+                      @endforeach
+                  </td>
                   <td>
                       @foreach($zurchil as $n)
                           @if($n->fault_detail_id == 33 )
@@ -208,14 +247,24 @@
                           @endif
                       @endforeach
                   </td>
-                    <td>0</td>
+                  <td>@foreach($zurchil22019 as $n)
+                            @if($n->fault_detail_id == 33 )
+                                {{$n->cnt}}
+
+                            @endif
+                        @endforeach</td>
                     <td>@foreach($zurchil2 as $n)
                             @if($n->fault_detail_id == 33 )
                                 {{$n->cnt}}
 
                             @endif
                         @endforeach</td>
-                    <td>0</td>
+                        <td>@foreach($zurchil32019 as $n)
+                            @if($n->fault_detail_id == 33 )
+                                {{$n->cnt}}
+
+                            @endif
+                        @endforeach</td>
                     <td>@foreach($zurchil3 as $n)
                             @if($n->fault_detail_id == 33 )
                                 {{$n->cnt}}
@@ -225,7 +274,14 @@
                 </tr>
                 <tr>          
                   <td> 4.Тоормос буруу удирдсан </td>
-                  <td>0</td>
+                  <td>
+                      @foreach($zurchil2019 as $n)
+                          @if($n->fault_detail_id == 37 )
+                              {{$n->cnt}}
+
+                          @endif
+                      @endforeach
+                  </td>
                   <td>
                       @foreach($zurchil as $n)
                           @if($n->fault_detail_id == 37 )
@@ -234,6 +290,12 @@
                           @endif
                       @endforeach
                   </td>
+                  <td> @foreach($zurchil22019 as $n)
+                            @if($n->fault_detail_id == 37 )
+                                {{$n->cnt}}
+
+                            @endif
+                        @endforeach</td>
                     <td>0</td>
                     <td> @foreach($zurchil2 as $n)
                             @if($n->fault_detail_id == 37 )
@@ -241,7 +303,12 @@
 
                             @endif
                         @endforeach</td>
-                    <td>0</td>
+                        <td> @foreach($zurchil32019 as $n)
+                            @if($n->fault_detail_id == 37 )
+                                {{$n->cnt}}
+
+                            @endif
+                        @endforeach</td>
                     <td> @foreach($zurchil3 as $n)
                             @if($n->fault_detail_id == 37 )
                                 {{$n->cnt}}
@@ -253,7 +320,14 @@
 
                   <tr>
                       <td> 4.1 Хэт цэнэг хийсэн</td>
-                      <td>0</td>
+                      <td>
+                          @foreach($tormoz2019 as $n)
+                              @if($n->broketype_id == 31 )
+                                  {{$n->cnt}}
+
+                              @endif
+                          @endforeach
+                      </td>
                       <td>
                           @foreach($tormoz as $n)
                               @if($n->broketype_id == 31 )
@@ -262,14 +336,24 @@
                               @endif
                           @endforeach
                       </td>
-                      <td>0</td>
+                      <td>@foreach($tormoz22019 as $n)
+                              @if($n->broketype_id == 31 )
+                                  {{$n->cnt}}
+
+                              @endif
+                          @endforeach</td>
                       <td>@foreach($tormoz2 as $n)
                               @if($n->broketype_id == 31 )
                                   {{$n->cnt}}
 
                               @endif
                           @endforeach</td>
-                      <td>0</td>
+                          <td>@foreach($tormoz32019 as $n)
+                              @if($n->broketype_id == 31 )
+                                  {{$n->cnt}}
+
+                              @endif
+                          @endforeach</td>
                       <td>@foreach($tormoz3 as $n)
                               @if($n->broketype_id == 31 )
                                   {{$n->cnt}}
@@ -279,7 +363,14 @@
                   </tr>
                   <tr>
                       <td> 4.2 Гол хоолой унагасан</td>
-                      <td>0</td>
+                      <td>
+                          @foreach($tormoz2019 as $n)
+                              @if($n->broketype_id == 32 )
+                                  {{$n->cnt}}
+
+                              @endif
+                          @endforeach
+                      </td>
                       <td>
                           @foreach($tormoz as $n)
                               @if($n->broketype_id == 32 )
@@ -288,14 +379,24 @@
                               @endif
                           @endforeach
                       </td>
-                      <td>0</td>
+                      <td> @foreach($tormoz22019 as $n)
+                              @if($n->broketype_id == 32 )
+                                  {{$n->cnt}}
+
+                              @endif
+                          @endforeach</td>
                       <td> @foreach($tormoz2 as $n)
                               @if($n->broketype_id == 32 )
                                   {{$n->cnt}}
 
                               @endif
                           @endforeach</td>
-                      <td>0</td>
+                          <td> @foreach($tormoz32019 as $n)
+                              @if($n->broketype_id == 32 )
+                                  {{$n->cnt}}
+
+                              @endif
+                          @endforeach</td>
                       <td> @foreach($tormoz3 as $n)
                               @if($n->broketype_id == 32 )
                                   {{$n->cnt}}
@@ -305,7 +406,14 @@
                   </tr>
                   <tr>
                       <td> 4.3 Хоорондын хугацаа бариагүй </td>
-                      <td>0</td>
+                      <td>
+                          @foreach($tormoz2019 as $n)
+                              @if($n->broketype_id == 33 )
+                                  {{$n->cnt}}
+
+                              @endif
+                          @endforeach
+                      </td>
                       <td>
                           @foreach($tormoz as $n)
                               @if($n->broketype_id == 33 )
@@ -314,14 +422,24 @@
                               @endif
                           @endforeach
                       </td>
-                      <td>0</td>
+                      <td> @foreach($tormoz22019 as $n)
+                              @if($n->broketype_id == 33 )
+                                  {{$n->cnt}}
+
+                              @endif
+                          @endforeach</td>
                       <td> @foreach($tormoz2 as $n)
                               @if($n->broketype_id == 33 )
                                   {{$n->cnt}}
 
                               @endif
                           @endforeach</td>
-                      <td>0</td>
+                          <td> @foreach($tormoz32019 as $n)
+                              @if($n->broketype_id == 33 )
+                                  {{$n->cnt}}
+
+                              @endif
+                          @endforeach</td>
                       <td> @foreach($tormoz3 as $n)
                               @if($n->broketype_id == 33 )
                                   {{$n->cnt}}
@@ -331,7 +449,6 @@
                   </tr>
                   <tr>
                       <td> 4.4 Тоормос бариатай хугацаа хэтрүүлсэн </td>
-                      <td>0</td>
                       <td>
                           @foreach($tormoz as $n)
                               @if($n->broketype_id == 10 )
@@ -340,14 +457,32 @@
                               @endif
                           @endforeach
                       </td>
-                      <td>0</td>
+                      <td>
+                          @foreach($tormoz2019 as $n)
+                              @if($n->broketype_id == 10 )
+                                  {{$n->cnt}}
+
+                              @endif
+                          @endforeach
+                      </td>
+                      <td> @foreach($tormoz22019 as $n)
+                              @if($n->broketype_id == 10)
+                                  {{$n->cnt}}
+
+                              @endif
+                          @endforeach</td>
                       <td> @foreach($tormoz2 as $n)
                               @if($n->broketype_id == 10)
                                   {{$n->cnt}}
 
                               @endif
                           @endforeach</td>
-                      <td>0</td>
+                          <td> @foreach($tormoz32019 as $n)
+                              @if($n->broketype_id == 10 )
+                                  {{$n->cnt}}
+
+                              @endif
+                          @endforeach</td>
                       <td> @foreach($tormoz3 as $n)
                               @if($n->broketype_id == 10 )
                                   {{$n->cnt}}
@@ -357,7 +492,14 @@
                   </tr>
                   <tr>
                       <td> 4.5 Тоормос  сулалтын хугацаа бариагүй </td>
-                      <td>0</td>
+                      <td>
+                          @foreach($tormoz2019 as $n)
+                              @if($n->broketype_id == 11 )
+                                  {{$n->cnt}}
+
+                              @endif
+                          @endforeach
+                      </td>
                       <td>
                           @foreach($tormoz as $n)
                               @if($n->broketype_id == 11 )
@@ -366,14 +508,24 @@
                               @endif
                           @endforeach
                       </td>
-                      <td>0</td>
+                      <td> @foreach($tormoz22019 as $n)
+                              @if($n->broketype_id == 11 )
+                                  {{$n->cnt}}
+
+                              @endif
+                          @endforeach</td>
                       <td> @foreach($tormoz2 as $n)
                               @if($n->broketype_id == 11 )
                                   {{$n->cnt}}
 
                               @endif
                           @endforeach</td>
-                      <td>0</td>
+                          <td> @foreach($tormoz32019 as $n)
+                              @if($n->broketype_id == 11 )
+                                  {{$n->cnt}}
+
+                              @endif
+                          @endforeach</td>
                       <td> @foreach($tormoz3 as $n)
                               @if($n->broketype_id == 11 )
                                   {{$n->cnt}}
@@ -383,7 +535,14 @@
                   </tr>
                 <tr>          
                   <td> 5.ЭПК хаасан </td>
-                  <td>0</td>
+                  <td>
+                      @foreach($zurchil2019 as $n)
+                          @if($n->fault_detail_id == 26 )
+                              {{$n->cnt}}
+
+                          @endif
+                      @endforeach
+                  </td>
                   <td>
                       @foreach($zurchil as $n)
                           @if($n->fault_detail_id == 26 )
@@ -392,14 +551,24 @@
                           @endif
                       @endforeach
                   </td>
-                    <td>0</td>
+                  <td>@foreach($zurchil22019 as $n)
+                            @if($n->fault_detail_id == 26 )
+                                {{$n->cnt}}
+
+                            @endif
+                        @endforeach</td>
                     <td>@foreach($zurchil2 as $n)
                             @if($n->fault_detail_id == 26 )
                                 {{$n->cnt}}
 
                             @endif
                         @endforeach</td>
-                    <td>0</td>
+                        <td>@foreach($zurchil32019 as $n)
+                            @if($n->fault_detail_id == 26 )
+                                {{$n->cnt}}
+
+                            @endif
+                        @endforeach</td>
                     <td>@foreach($zurchil3 as $n)
                             @if($n->fault_detail_id == 26 )
                                 {{$n->cnt}}
@@ -409,7 +578,14 @@
                 </tr>
                 <tr>          
                   <td> 6.ЭПК ажиллуулсан </td>
-                  <td>0</td>
+                  <td>
+                      @foreach($zurchil2019 as $n)
+                          @if($n->fault_detail_id == 25 )
+                              {{$n->cnt}}
+
+                          @endif
+                      @endforeach
+                  </td>
                   <td>
                       @foreach($zurchil as $n)
                           @if($n->fault_detail_id == 25 )
@@ -418,14 +594,24 @@
                           @endif
                       @endforeach
                   </td>
-                    <td>0</td>
+                  <td>   @foreach($zurchil22019 as $n)
+                            @if($n->fault_detail_id == 25 )
+                                {{$n->cnt}}
+
+                            @endif
+                        @endforeach</td>
                     <td>   @foreach($zurchil2 as $n)
                             @if($n->fault_detail_id == 25 )
                                 {{$n->cnt}}
 
                             @endif
                         @endforeach</td>
-                    <td>0</td>
+                        <td>   @foreach($zurchil32019 as $n)
+                            @if($n->fault_detail_id == 25 )
+                                {{$n->cnt}}
+
+                            @endif
+                        @endforeach</td>
                     <td>   @foreach($zurchil3 as $n)
                             @if($n->fault_detail_id == 25 )
                                 {{$n->cnt}}
@@ -435,7 +621,14 @@
                 </tr>
                 <tr>          
                   <td> 7.Цаг зогссон</td>
-                  <td>0</td>
+                  <td>
+                      @foreach($zurchil2019 as $n)
+                          @if($n->fault_detail_id == 31 )
+                              {{$n->cnt}}
+
+                          @endif
+                      @endforeach
+                  </td>
                   <td>
                       @foreach($zurchil as $n)
                           @if($n->fault_detail_id == 31 )
@@ -444,14 +637,24 @@
                           @endif
                       @endforeach
                   </td>
-                    <td>0</td>
+                  <td> @foreach($zurchil22019 as $n)
+                            @if($n->fault_detail_id == 31 )
+                                {{$n->cnt}}
+
+                            @endif
+                        @endforeach</td>
                     <td> @foreach($zurchil2 as $n)
                             @if($n->fault_detail_id == 31 )
                                 {{$n->cnt}}
 
                             @endif
                         @endforeach</td>
-                    <td>0</td>
+                        <td> @foreach($zurchil32019 as $n)
+                            @if($n->fault_detail_id == 31 )
+                                {{$n->cnt}}
+
+                            @endif
+                        @endforeach</td>
                     <td> @foreach($zurchil3 as $n)
                             @if($n->fault_detail_id == 31 )
                                 {{$n->cnt}}
@@ -461,7 +664,14 @@
                 </tr>
                 <tr>          
                   <td> 8.ВУ45 зөрчсөн </td>
-                  <td>0</td>
+                  <td>
+                      @foreach($zurchil2019 as $n)
+                          @if($n->fault_detail_id == 22 )
+                              {{$n->cnt}}
+
+                          @endif
+                      @endforeach
+                  </td>
                   <td>
                       @foreach($zurchil as $n)
                           @if($n->fault_detail_id == 22 )
@@ -470,14 +680,24 @@
                           @endif
                       @endforeach
                   </td>
-                    <td>0</td>
+                  <td>@foreach($zurchil22019 as $n)
+                            @if($n->fault_detail_id == 22 )
+                                {{$n->cnt}}
+
+                            @endif
+                        @endforeach</td>
                     <td>@foreach($zurchil2 as $n)
                             @if($n->fault_detail_id == 22 )
                                 {{$n->cnt}}
 
                             @endif
                         @endforeach</td>
-                    <td>0</td>
+                        <td>@foreach($zurchil32019 as $n)
+                            @if($n->fault_detail_id == 22 )
+                                {{$n->cnt}}
+
+                            @endif
+                        @endforeach</td>
                     <td>@foreach($zurchil3 as $n)
                             @if($n->fault_detail_id == 22 )
                                 {{$n->cnt}}
@@ -487,7 +707,14 @@
                 </tr>
                 <tr>          
                   <td> 9.Гол хоолой тохируулаагүй </td>
-                  <td>0</td>
+                  <td>
+                      @foreach($zurchil2019 as $n)
+                          @if($n->fault_detail_id == 16 )
+                              {{$n->cnt}}
+
+                          @endif
+                      @endforeach
+                  </td>
                   <td>
                       @foreach($zurchil as $n)
                           @if($n->fault_detail_id == 16 )
@@ -496,14 +723,24 @@
                           @endif
                       @endforeach
                   </td>
-                    <td>0</td>
+                  <td>  @foreach($zurchil22019 as $n)
+                            @if($n->fault_detail_id == 16 )
+                                {{$n->cnt}}
+
+                            @endif
+                        @endforeach</td>
                     <td>  @foreach($zurchil2 as $n)
                             @if($n->fault_detail_id == 16 )
                                 {{$n->cnt}}
 
                             @endif
                         @endforeach</td>
-                    <td>0</td>
+                        <td>  @foreach($zurchil32019 as $n)
+                            @if($n->fault_detail_id == 16 )
+                                {{$n->cnt}}
+
+                            @endif
+                        @endforeach</td>
                     <td>  @foreach($zurchil3 as $n)
                             @if($n->fault_detail_id == 16 )
                                 {{$n->cnt}}
@@ -513,7 +750,14 @@
                 </tr>
                 <tr>          
                   <td> 10.Кран шалгаагүй </td>
-                  <td>0</td>
+                  <td>
+                      @foreach($zurchil2019 as $n)
+                          @if($n->fault_detail_id == 13 )
+                              {{$n->cnt}}
+
+                          @endif
+                      @endforeach
+                  </td>
                   <td>
                       @foreach($zurchil as $n)
                           @if($n->fault_detail_id == 13 )
@@ -522,14 +766,24 @@
                           @endif
                       @endforeach
                   </td>
-                    <td>0</td>
+                  <td>@foreach($zurchil22019 as $n)
+                            @if($n->fault_detail_id == 13 )
+                                {{$n->cnt}}
+
+                            @endif
+                        @endforeach</td>
                     <td>@foreach($zurchil2 as $n)
                             @if($n->fault_detail_id == 13 )
                                 {{$n->cnt}}
 
                             @endif
                         @endforeach</td>
-                    <td>0</td>
+                        <td>@foreach($zurchil32019 as $n)
+                            @if($n->fault_detail_id == 13 )
+                                {{$n->cnt}}
+
+                            @endif
+                        @endforeach</td>
                     <td>@foreach($zurchil3 as $n)
                             @if($n->fault_detail_id == 13 )
                                 {{$n->cnt}}
@@ -539,7 +793,14 @@
                 </tr>
                 <tr>          
                   <td> 11.Тормоз туршаагүй</td>
-                  <td>0</td>
+                  <td>
+                      @foreach($zurchil2019 as $n)
+                          @if($n->fault_detail_id == 23 )
+                              {{$n->cnt}}
+
+                          @endif
+                      @endforeach
+                  </td>
                   <td>
                       @foreach($zurchil as $n)
                           @if($n->fault_detail_id == 23 )
@@ -548,14 +809,24 @@
                           @endif
                       @endforeach
                   </td>
-                    <td>0</td>
+                  <td> @foreach($zurchil22019 as $n)
+                            @if($n->fault_detail_id == 23 )
+                                {{$n->cnt}}
+
+                            @endif
+                        @endforeach</td>
                     <td> @foreach($zurchil2 as $n)
                             @if($n->fault_detail_id == 23 )
                                 {{$n->cnt}}
 
                             @endif
                         @endforeach</td>
-                    <td>0</td>
+                        <td> @foreach($zurchil32019 as $n)
+                            @if($n->fault_detail_id == 23 )
+                                {{$n->cnt}}
+
+                            @endif
+                        @endforeach</td>
                     <td> @foreach($zurchil3 as $n)
                             @if($n->fault_detail_id == 23 )
                                 {{$n->cnt}}
@@ -565,7 +836,14 @@
                 </tr>
                 <tr>          
                   <td> 12.ЭПК шилжүүлээгүй </td>
-                  <td>0</td>
+                  <td>
+                      @foreach($zurchil2019 as $n)
+                          @if($n->fault_detail_id == 14 )
+                              {{$n->cnt}}
+
+                          @endif
+                      @endforeach
+                  </td>
                   <td>
                       @foreach($zurchil as $n)
                           @if($n->fault_detail_id == 14 )
@@ -574,14 +852,24 @@
                           @endif
                       @endforeach
                   </td>
-                    <td>0</td>
+                  <td> @foreach($zurchil22019 as $n)
+                            @if($n->fault_detail_id == 14 )
+                                {{$n->cnt}}
+
+                            @endif
+                        @endforeach</td>
                     <td> @foreach($zurchil2 as $n)
                             @if($n->fault_detail_id == 14 )
                                 {{$n->cnt}}
 
                             @endif
                         @endforeach</td>
-                    <td>0</td>
+                        <td> @foreach($zurchil32019 as $n)
+                            @if($n->fault_detail_id == 14 )
+                                {{$n->cnt}}
+
+                            @endif
+                        @endforeach</td>
                     <td> @foreach($zurchil3 as $n)
                             @if($n->fault_detail_id == 14 )
                                 {{$n->cnt}}
@@ -591,7 +879,14 @@
                 </tr>
                 <tr>          
                   <td> 13.Бичлэг дутуу </td>
-                  <td>0</td>
+                  <td>
+                      @foreach($zurchil2019 as $n)
+                          @if($n->fault_detail_id == 20 )
+                              {{$n->cnt}}
+
+                          @endif
+                      @endforeach
+                  </td>
                   <td>
                       @foreach($zurchil as $n)
                           @if($n->fault_detail_id == 20 )
@@ -600,14 +895,24 @@
                           @endif
                       @endforeach
                   </td>
-                    <td>0</td>
+                  <td>  @foreach($zurchil22019 as $n)
+                            @if($n->fault_detail_id == 20 )
+                                {{$n->cnt}}
+
+                            @endif
+                        @endforeach</td>
                     <td>  @foreach($zurchil2 as $n)
                             @if($n->fault_detail_id == 20 )
                                 {{$n->cnt}}
 
                             @endif
                         @endforeach</td>
-                    <td>0</td>
+                        <td>  @foreach($zurchil32019 as $n)
+                            @if($n->fault_detail_id == 20 )
+                                {{$n->cnt}}
+
+                            @endif
+                        @endforeach</td>
                     <td>  @foreach($zurchil3 as $n)
                             @if($n->fault_detail_id == 20 )
                                 {{$n->cnt}}
@@ -617,7 +922,6 @@
                 </tr>
                 <tr>          
                   <td> 14.Тууз урагдуулсан </td>
-                  <td>0</td>
                   <td>
                       @foreach($zurchil as $n)
                           @if($n->fault_detail_id == 18 )
@@ -626,14 +930,32 @@
                           @endif
                       @endforeach
                   </td>
-                    <td>0</td>
+                  <td>
+                      @foreach($zurchil as $n)
+                          @if($n->fault_detail_id == 18 )
+                              {{$n->cnt}}
+
+                          @endif
+                      @endforeach
+                  </td>
+                  <td> @foreach($zurchil2 as $n)
+                            @if($n->fault_detail_id == 18 )
+                                {{$n->cnt}}
+
+                            @endif
+                        @endforeach</td>
                     <td> @foreach($zurchil2 as $n)
                             @if($n->fault_detail_id == 18 )
                                 {{$n->cnt}}
 
                             @endif
                         @endforeach</td>
-                    <td>0</td>
+                        <td> @foreach($zurchil3 as $n)
+                            @if($n->fault_detail_id == 18 )
+                                {{$n->cnt}}
+
+                            @endif
+                        @endforeach</td>
                     <td> @foreach($zurchil3 as $n)
                             @if($n->fault_detail_id == 18 )
                                 {{$n->cnt}}
@@ -643,7 +965,14 @@
                 </tr>
                   <tr>
                       <td> 15.Бичлэг бүдэг </td>
-                      <td>0</td>
+                      <td>
+                          @foreach($zurchil2019 as $n)
+                              @if($n->fault_detail_id == 19 )
+                                  {{$n->cnt}}
+
+                              @endif
+                          @endforeach
+                      </td>
                       <td>
                           @foreach($zurchil as $n)
                               @if($n->fault_detail_id == 19 )
@@ -652,14 +981,24 @@
                               @endif
                           @endforeach
                       </td>
-                      <td>0</td>
+                      <td>  @foreach($zurchil22019 as $n)
+                              @if($n->fault_detail_id == 19 )
+                                  {{$n->cnt}}
+
+                              @endif
+                          @endforeach</td>
                       <td>  @foreach($zurchil2 as $n)
                               @if($n->fault_detail_id == 19 )
                                   {{$n->cnt}}
 
                               @endif
                           @endforeach</td>
-                      <td>0</td>
+                          <td>  @foreach($zurchil32019 as $n)
+                              @if($n->fault_detail_id == 19 )
+                                  {{$n->cnt}}
+
+                              @endif
+                          @endforeach</td>
                       <td>  @foreach($zurchil3 as $n)
                               @if($n->fault_detail_id == 19 )
                                   {{$n->cnt}}
@@ -669,7 +1008,14 @@
                   </tr>
                 <tr>          
                   <td> 16.Километр буруу </td>
-                  <td>0</td>
+                  <td>
+                      @foreach($zurchil2019 as $n)
+                          @if($n->fault_detail_id == 30 )
+                              {{$n->cnt}}
+
+                          @endif
+                      @endforeach
+                  </td>
                   <td>
                       @foreach($zurchil as $n)
                           @if($n->fault_detail_id == 30 )
@@ -678,14 +1024,24 @@
                           @endif
                       @endforeach
                   </td>
-                    <td>0</td>
+                  <td>   @foreach($zurchil22019 as $n)
+                            @if($n->fault_detail_id == 30 )
+                                {{$n->cnt}}
+
+                            @endif
+                        @endforeach</td>
                     <td>   @foreach($zurchil2 as $n)
                             @if($n->fault_detail_id == 30 )
                                 {{$n->cnt}}
 
                             @endif
                         @endforeach</td>
-                    <td>0</td>
+                        <td>   @foreach($zurchil32019 as $n)
+                            @if($n->fault_detail_id == 30 )
+                                {{$n->cnt}}
+
+                            @endif
+                        @endforeach</td>
                     <td>   @foreach($zurchil3 as $n)
                             @if($n->fault_detail_id == 30 )
                                 {{$n->cnt}}
@@ -696,7 +1052,14 @@
 
                   <tr>
                       <td> 17.Жолоодлогын бариул хугацаа бариагүй татсан</td>
-                      <td>0</td>
+                      <td>
+                          @foreach($zurchil2019 as $n)
+                              @if($n->fault_detail_id == 161 )
+                                  {{$n->cnt}}
+
+                              @endif
+                          @endforeach
+                      </td>
                       <td>
                           @foreach($zurchil as $n)
                               @if($n->fault_detail_id == 161 )
@@ -705,14 +1068,24 @@
                               @endif
                           @endforeach
                       </td>
-                      <td>0</td>
+                      <td> @foreach($zurchil22019 as $n)
+                              @if($n->fault_detail_id ==161 )
+                                  {{$n->cnt}}
+
+                              @endif
+                          @endforeach</td>
                       <td> @foreach($zurchil2 as $n)
                               @if($n->fault_detail_id ==161 )
                                   {{$n->cnt}}
 
                               @endif
                           @endforeach</td>
-                      <td>0</td>
+                          <td> @foreach($zurchil32019 as $n)
+                              @if($n->fault_detail_id == 161 )
+                                  {{$n->cnt}}
+
+                              @endif
+                          @endforeach</td>
                       <td> @foreach($zurchil3 as $n)
                               @if($n->fault_detail_id == 161 )
                                   {{$n->cnt}}
@@ -722,7 +1095,14 @@
                   </tr>
                   <tr>
                       <td> 18. Жолоодлогын бариулыг татлагатай үед тоормос хийсэн</td>
-                      <td>0</td>
+                      <td>
+                          @foreach($zurchil2019 as $n)
+                              @if($n->fault_detail_id == 34 )
+                                  {{$n->cnt}}
+
+                              @endif
+                          @endforeach
+                      </td>
                       <td>
                           @foreach($zurchil as $n)
                               @if($n->fault_detail_id == 34 )
@@ -731,14 +1111,24 @@
                               @endif
                           @endforeach
                       </td>
-                      <td>0</td>
+                      <td> @foreach($zurchil22019 as $n)
+                              @if($n->fault_detail_id == 34 )
+                                  {{$n->cnt}}
+
+                              @endif
+                          @endforeach</td>
                       <td> @foreach($zurchil2 as $n)
                               @if($n->fault_detail_id == 34 )
                                   {{$n->cnt}}
 
                               @endif
                           @endforeach</td>
-                      <td>0</td>
+                          <td> @foreach($zurchil32019 as $n)
+                              @if($n->fault_detail_id == 34 )
+                                  {{$n->cnt}}
+
+                              @endif
+                          @endforeach</td>
                       <td> @foreach($zurchil3 as $n)
                               @if($n->fault_detail_id == 34 )
                                   {{$n->cnt}}
@@ -748,7 +1138,14 @@
                   </tr>
                     <tr>
                       <td> 19.Дуут дохио өгөөгүй </td>
-                      <td>0</td>
+                      <td>
+                          @foreach($zurchil2019 as $n)
+                              @if($n->fault_detail_id == 15 )
+                                  {{$n->cnt}}
+
+                              @endif
+                          @endforeach
+                      </td>
                       <td>
                           @foreach($zurchil as $n)
                               @if($n->fault_detail_id == 15 )
@@ -757,14 +1154,28 @@
                               @endif
                           @endforeach
                       </td>
-                      <td>0</td>
+                      <td>
+                          @foreach($zurchil22019 as $n)
+                              @if($n->fault_detail_id == 15 )
+                                  {{$n->cnt}}
+
+                              @endif
+                          @endforeach
+                      </td>>
                       <td>  @foreach($zurchil2 as $n)
                               @if($n->fault_detail_id == 15 )
                                   {{$n->cnt}}
 
                               @endif
                           @endforeach</td>
-                      <td>0</td>
+                          <td>
+                          @foreach($zurchil32019 as $n)
+                              @if($n->fault_detail_id == 15 )
+                                  {{$n->cnt}}
+
+                              @endif
+                          @endforeach
+                      </td>
                       <td>  @foreach($zurchil3 as $n)
                               @if($n->fault_detail_id == 15 )
                                   {{$n->cnt}}
@@ -775,7 +1186,14 @@
 
                   <tr>
                       <td> 20.Бусад </td>
-                      <td>0</td>
+                      <td>
+                          @foreach($zurchil2019 as $n)
+                              @if($n->fault_detail_id == 41 )
+                                  {{$n->cnt}}
+
+                              @endif
+                          @endforeach
+                      </td>
                       <td>
                           @foreach($zurchil as $n)
                               @if($n->fault_detail_id == 41 )
@@ -784,14 +1202,24 @@
                               @endif
                           @endforeach
                       </td>
-                      <td>0</td>
+                      <td>@foreach($zurchil22019 as $n)
+                              @if($n->fault_detail_id == 41 )
+                                  {{$n->cnt}}
+
+                              @endif
+                          @endforeach</td>
                       <td>@foreach($zurchil2 as $n)
                               @if($n->fault_detail_id == 41 )
                                   {{$n->cnt}}
 
                               @endif
                           @endforeach</td>
-                      <td>0</td>
+                          <td>@foreach($zurchil32019 as $n)
+                              @if($n->fault_detail_id == 41 )
+                                  {{$n->cnt}}
+
+                              @endif
+                          @endforeach</td>
                       <td>@foreach($zurchil3 as $n)
                               @if($n->fault_detail_id == 41 )
                                   {{$n->cnt}}
@@ -803,7 +1231,14 @@
                 <tr>          
                   
                   <td>II.Нийт дутагдалтай туузны тоо </td>
-                  <td>0</td>
+                  <td> @if(count($niitzurchil2019) >0)
+                          @foreach($niitzurchil2019 as $n)
+                              {{$n->too}}
+                          @endforeach
+                      @else
+                          0
+                      @endif
+                  </td>
                   <td> @if(count($niitzurchil) >0)
                           @foreach($niitzurchil as $n)
                               {{$n->too}}
@@ -812,7 +1247,13 @@
                           0
                       @endif
                   </td>
-                    <td>0</td>
+                  <td>@if(count($niitzurchil22019) >0)
+                            @foreach($niitzurchil22019 as $n)
+                                {{$n->too}}
+                            @endforeach
+                        @else
+                            0
+                        @endif</td>
                     <td>@if(count($niitzurchil2) >0)
                             @foreach($niitzurchil2 as $n)
                                 {{$n->too}}
@@ -820,7 +1261,13 @@
                         @else
                             0
                         @endif</td>
-                    <td>0</td>
+                        <td>@if(count($niitzurchil32019) >0)
+                            @foreach($niitzurchil32019 as $n)
+                                {{$n->too}}
+                            @endforeach
+                        @else
+                            0
+                        @endif</td>
                     <td>@if(count($niitzurchil3) >0)
                             @foreach($niitzurchil3 as $n)
                                 {{$n->too}}
@@ -834,7 +1281,13 @@
             <tr>          
               <td>3</td>
               <td>III.Суудлын хоцрол нөхсөн </td>
-              <td>0</td>
+              <td> @if(count($hotsrolt2019) >0)
+                      @foreach($hotsrolt2019 as $n)
+                          {{$n->sum}} мин
+                      @endforeach
+                  @else
+                      0
+                  @endif</td>
               <td> @if(count($hotsrolt) >0)
                       @foreach($hotsrolt as $n)
                           {{$n->sum}} мин
@@ -842,7 +1295,13 @@
                   @else
                       0
                   @endif</td>
-                <td>0</td>
+                  <td>@if(count($hotsrolt22019) >0)
+                        @foreach($hotsrolt22019 as $n)
+                            {{$n->sum}} мин
+                        @endforeach
+                    @else
+                        0
+                    @endif</td>
                 <td>@if(count($hotsrolt2) >0)
                         @foreach($hotsrolt2 as $n)
                             {{$n->sum}} мин
@@ -850,7 +1309,13 @@
                     @else
                         0
                     @endif</td>
-                <td>0</td>
+                    <td>@if(count($hotsrolt32019) >0)
+                        @foreach($hotsrolt3 as $n)
+                            {{$n->sum}} мин
+                        @endforeach
+                    @else
+                        0
+                    @endif</td>
                 <td>@if(count($hotsrolt3) >0)
                         @foreach($hotsrolt3 as $n)
                             {{$n->sum}} мин
@@ -862,7 +1327,14 @@
                 <tr>          
                   <th rowspan="7" >4</th>
                   <td>Анхаарамж 5км цаг </td>
-                  <td>0</td>
+                  <td>
+                      @foreach($speed2019 as $n)
+                          @if($n->attentionspeed_id == 1 )
+                              {{$n->cnt}}
+
+                          @endif
+                        @endforeach
+                  </td>
                   <td>
                       @foreach($speed as $n)
                           @if($n->attentionspeed_id == 1 )
@@ -871,14 +1343,24 @@
                           @endif
                         @endforeach
                   </td>
-                    <td>0</td>
+                  <td>@foreach($speed22019 as $n)
+                            @if($n->attentionspeed_id == 1 )
+                                {{$n->cnt}}
+
+                            @endif
+                        @endforeach</td>
                     <td>@foreach($speed2 as $n)
                             @if($n->attentionspeed_id == 1 )
                                 {{$n->cnt}}
 
                             @endif
                         @endforeach</td>
-                    <td>0</td>
+                        <td>@foreach($speed32019 as $n)
+                            @if($n->attentionspeed_id == 1 )
+                                {{$n->cnt}}
+
+                            @endif
+                        @endforeach</td>
                     <td>@foreach($speed3 as $n)
                             @if($n->attentionspeed_id == 1 )
                                 {{$n->cnt}}
@@ -889,7 +1371,14 @@
                 <tr>
 
                   <td> Анхаарамж 15км цаг </td>
-                  <td>0</td>
+                  <td>
+                      @foreach($speed2019 as $n)
+                          @if($n->attentionspeed_id == 3 )
+                              {{$n->cnt}}
+
+                          @endif
+                          @endforeach
+                  </td>
                   <td>
                       @foreach($speed as $n)
                           @if($n->attentionspeed_id == 3 )
@@ -898,14 +1387,24 @@
                           @endif
                           @endforeach
                   </td>
-                    <td>0</td>
+                  <td> @foreach($speed22019 as $n)
+                            @if($n->attentionspeed_id == 3 )
+                                {{$n->cnt}}
+
+                            @endif
+                        @endforeach</td>
                     <td> @foreach($speed2 as $n)
                             @if($n->attentionspeed_id == 3 )
                                 {{$n->cnt}}
 
                             @endif
                         @endforeach</td>
-                    <td>0</td>
+                        <td> @foreach($speed32019 as $n)
+                            @if($n->attentionspeed_id == 3 )
+                                {{$n->cnt}}
+
+                            @endif
+                        @endforeach</td>
                     <td> @foreach($speed3 as $n)
                             @if($n->attentionspeed_id == 3 )
                                 {{$n->cnt}}
@@ -916,7 +1415,13 @@
                 <tr>          
                   
                   <td> Анхаарамж 25км цаг </td>
-                  <td>0</td>
+                  <td>
+                      @foreach($speed2019 as $n)
+                          @if($n->attentionspeed_id == 4 )
+                              {{$n->cnt}}
+
+                          @endif
+                      @endforeach</td>
                   <td>
                       @foreach($speed as $n)
                           @if($n->attentionspeed_id == 4 )
@@ -924,14 +1429,24 @@
 
                           @endif
                       @endforeach</td>
-                    <td>0</td>
+                      <td> @foreach($speed22019 as $n)
+                            @if($n->attentionspeed_id == 4 )
+                                {{$n->cnt}}
+
+                            @endif
+                        @endforeach</td>
                     <td> @foreach($speed2 as $n)
                             @if($n->attentionspeed_id == 4 )
                                 {{$n->cnt}}
 
                             @endif
                         @endforeach</td>
-                    <td>0</td>
+                        <td> @foreach($speed32019 as $n)
+                            @if($n->attentionspeed_id == 4 )
+                                {{$n->cnt}}
+
+                            @endif
+                        @endforeach</td>
                     <td> @foreach($speed3 as $n)
                             @if($n->attentionspeed_id == 4 )
                                 {{$n->cnt}}
@@ -941,7 +1456,16 @@
                 </tr>
                 <tr>          
                   <td> Анхаарамж 40 км цаг </td>
-                  <td>0</td>
+                  <td>
+
+@foreach($speed2019 as $n)
+
+    @if($n->attentionspeed_id == 5 )
+        {{$n->cnt}}
+
+    @endif
+    @endforeach
+</td>
                   <td>
 
                       @foreach($speed as $n)
@@ -952,7 +1476,13 @@
                           @endif
                           @endforeach
                   </td>
-                    <td>0</td>
+                  <td> @foreach($speed22019 as $n)
+
+@if($n->attentionspeed_id == 5 )
+    {{$n->cnt}}
+
+@endif
+@endforeach</td>
                     <td> @foreach($speed2 as $n)
 
                             @if($n->attentionspeed_id == 5 )
@@ -960,7 +1490,13 @@
 
                             @endif
                         @endforeach</td>
-                    <td>0</td>
+                        <td> @foreach($speed32019 as $n)
+
+@if($n->attentionspeed_id == 5 )
+    {{$n->cnt}}
+
+@endif
+@endforeach</td>
                     <td> @foreach($speed3 as $n)
 
                             @if($n->attentionspeed_id == 5 )
@@ -972,7 +1508,14 @@
                   <tr>
 
                       <td> Анхаарамж 50км цаг </td>
-                      <td>0</td>
+                      <td>
+                          @foreach($speed2019 as $n)
+                              @if($n->attentionspeed_id == 6 )
+                                  {{$n->cnt}}
+
+                              @endif
+                          @endforeach
+                      </td>
                       <td>
                           @foreach($speed as $n)
                               @if($n->attentionspeed_id == 6 )
@@ -981,14 +1524,24 @@
                               @endif
                           @endforeach
                       </td>
-                      <td>0</td>
+                      <td> @foreach($speed22019 as $n)
+                              @if($n->attentionspeed_id == 6 )
+                                  {{$n->cnt}}
+
+                              @endif
+                          @endforeach</td>
                       <td> @foreach($speed2 as $n)
                               @if($n->attentionspeed_id == 6 )
                                   {{$n->cnt}}
 
                               @endif
                           @endforeach</td>
-                      <td>0</td>
+                          <td> @foreach($speed32019 as $n)
+                              @if($n->attentionspeed_id == 6 )
+                                  {{$n->cnt}}
+
+                              @endif
+                          @endforeach</td>
                       <td> @foreach($speed3 as $n)
                               @if($n->attentionspeed_id == 6 )
                                   {{$n->cnt}}
@@ -999,7 +1552,14 @@
                   <tr>
 
                       <td> Анхаарамж 60км цаг </td>
-                      <td>0</td>
+                      <td>
+                          @foreach($speed2019 as $n)
+                              @if($n->attentionspeed_id == 7 )
+                                  {{$n->cnt}}
+
+                              @endif
+                              @endforeach
+                      </td>
                       <td>
                           @foreach($speed as $n)
                               @if($n->attentionspeed_id == 7 )
@@ -1008,14 +1568,24 @@
                               @endif
                               @endforeach
                       </td>
-                      <td>0</td>
+                      <td> @foreach($speed22019 as $n)
+                              @if($n->attentionspeed_id == 7 )
+                                  {{$n->cnt}}
+
+                              @endif
+                          @endforeach</td>
                       <td> @foreach($speed2 as $n)
                               @if($n->attentionspeed_id == 7 )
                                   {{$n->cnt}}
 
                               @endif
                           @endforeach</td>
-                      <td>0</td>
+                          <td> @foreach($speed32019 as $n)
+                              @if($n->attentionspeed_id == 7 )
+                                  {{$n->cnt}}
+
+                              @endif
+                          @endforeach</td>
                       <td> @foreach($speed3 as $n)
                               @if($n->attentionspeed_id == 7 )
                                   {{$n->cnt}}
@@ -1025,7 +1595,14 @@
                   </tr>
                   <tr>
                       <td> Анхаарамж 70 км цаг </td>
-                      <td>0</td>
+                      <td>
+                          @foreach($speed2019 as $n)
+                              @if($n->attentionspeed_id == 8 )
+                                  {{$n->cnt}}
+
+                              @endif
+                              @endforeach
+                      </td>
                       <td>
                           @foreach($speed as $n)
                               @if($n->attentionspeed_id == 8 )
@@ -1034,14 +1611,24 @@
                               @endif
                               @endforeach
                       </td>
-                      <td>0</td>
+                      <td> @foreach($speed22019 as $n)
+                              @if($n->attentionspeed_id == 8 )
+                                  {{$n->cnt}}
+
+                              @endif
+                          @endforeach</td>
                       <td> @foreach($speed2 as $n)
                               @if($n->attentionspeed_id == 8 )
                                   {{$n->cnt}}
 
                               @endif
                           @endforeach</td>
-                      <td>0</td>
+                          <td> @foreach($speed32019 as $n)
+                              @if($n->attentionspeed_id == 8 )
+                                  {{$n->cnt}}
+
+                              @endif
+                          @endforeach</td>
                       <td> @foreach($speed3 as $n)
                               @if($n->attentionspeed_id == 8 )
                                   {{$n->cnt}}
@@ -1052,7 +1639,14 @@
                 <tr>          
                   <td rowspan="10" >5</td>
                   <td> 1.Цаг гэмтэлтэй </td>
-                  <td>0</td>
+                  <td>
+                      @foreach($hurd2019 as $n)
+                          @if($n->broketype_id == 1 )
+                              {{$n->cnt}}
+
+                          @endif
+                      @endforeach
+                  </td>
                   <td>
                       @foreach($hurd as $n)
                           @if($n->broketype_id == 1 )
@@ -1061,14 +1655,24 @@
                           @endif
                       @endforeach
                   </td>
-                    <td>0</td>
+                  <td>@foreach($hurd22019 as $n)
+                            @if($n->broketype_id == 1 )
+                                {{$n->cnt}}
+
+                            @endif
+                        @endforeach</td>
                     <td>@foreach($hurd2 as $n)
                             @if($n->broketype_id == 1 )
                                 {{$n->cnt}}
 
                             @endif
                         @endforeach</td>
-                    <td>0</td>
+                        <td>@foreach($hurd32019 as $n)
+                            @if($n->broketype_id == 1 )
+                                {{$n->cnt}}
+
+                            @endif
+                        @endforeach</td>
                     <td>@foreach($hurd3 as $n)
                             @if($n->broketype_id == 1 )
                                 {{$n->cnt}}
@@ -1079,7 +1683,14 @@
                 <tr>          
                   
                   <td> 2.Зүү савалдаг </td>
-                  <td>0</td>
+                  <td>
+                    @foreach($hurd2019 as $n)
+                        @if($n->broketype_id == 2 )
+                            {{$n->cnt}}
+
+                        @endif
+                    @endforeach
+                  </td>
                   <td>
                     @foreach($hurd as $n)
                         @if($n->broketype_id == 2 )
@@ -1088,14 +1699,24 @@
                         @endif
                     @endforeach
                   </td>
-                    <td>0</td>
+                  <td> @foreach($hurd22019 as $n)
+                            @if($n->broketype_id == 2 )
+                                {{$n->cnt}}
+
+                            @endif
+                        @endforeach</td>
                     <td> @foreach($hurd2 as $n)
                             @if($n->broketype_id == 2 )
                                 {{$n->cnt}}
 
                             @endif
                         @endforeach</td>
-                    <td>0</td>
+                        <td> @foreach($hurd32019 as $n)
+                            @if($n->broketype_id == 2 )
+                                {{$n->cnt}}
+
+                            @endif
+                        @endforeach</td>
                     <td> @foreach($hurd3 as $n)
                             @if($n->broketype_id == 2 )
                                 {{$n->cnt}}
@@ -1105,7 +1726,14 @@
                 </tr>
                 <tr>          
                   <td> 3.Тууз уртассан</td>
-                  <td>0</td>
+                  <td>
+                      @foreach($hurd2019 as $n)
+                          @if($n->broketype_id == 3 )
+                              {{$n->cnt}}
+
+                          @endif
+                      @endforeach
+                  </td>>
                   <td>
                       @foreach($hurd as $n)
                           @if($n->broketype_id == 3 )
@@ -1114,14 +1742,24 @@
                           @endif
                       @endforeach
                   </td>
-                    <td>0</td>
+                  <td> @foreach($hurd22019 as $n)
+                            @if($n->broketype_id == 3 )
+                                {{$n->cnt}}
+
+                            @endif
+                        @endforeach</td>
                     <td> @foreach($hurd2 as $n)
                             @if($n->broketype_id == 3 )
                                 {{$n->cnt}}
 
                             @endif
                         @endforeach</td>
-                    <td>0</td>
+                        <td> @foreach($hurd32019 as $n)
+                            @if($n->broketype_id == 3 )
+                                {{$n->cnt}}
+
+                            @endif
+                        @endforeach</td>
                     <td> @foreach($hurd3 as $n)
                             @if($n->broketype_id == 3 )
                                 {{$n->cnt}}
@@ -1131,7 +1769,14 @@
                 </tr>
                 <tr>          
                   <td> 4.Тууз хөвөөгүй </td>
-                  <td>0</td>
+                  <td>
+                      @foreach($hurd2019 as $n)
+                          @if($n->broketype_id == 4 )
+                              {{$n->cnt}}
+
+                          @endif
+                      @endforeach
+                  </td>
                   <td>
                       @foreach($hurd as $n)
                           @if($n->broketype_id == 4 )
@@ -1140,14 +1785,24 @@
                           @endif
                       @endforeach
                   </td>
-                    <td>0</td>
+                  <td>  @foreach($hurd22019 as $n)
+                            @if($n->broketype_id == 4 )
+                                {{$n->cnt}}
+
+                            @endif
+                        @endforeach</td>
                     <td>  @foreach($hurd2 as $n)
                             @if($n->broketype_id == 4 )
                                 {{$n->cnt}}
 
                             @endif
                         @endforeach</td>
-                    <td>0</td>
+                        <td>  @foreach($hurd32019 as $n)
+                            @if($n->broketype_id == 4 )
+                                {{$n->cnt}}
+
+                            @endif
+                        @endforeach</td>
                     <td>  @foreach($hurd3 as $n)
                             @if($n->broketype_id == 4 )
                                 {{$n->cnt}}
@@ -1157,7 +1812,14 @@
                 </tr>
                 <tr>          
                   <td> 5.Хурд хэмжигч ажилгүй </td>
-                  <td>0</td>
+                  <td>
+                      @foreach($hurd2019 as $n)
+                          @if($n->broketype_id == 8 )
+                              {{$n->cnt}}
+
+                          @endif
+                      @endforeach
+                  </td>
                   <td>
                       @foreach($hurd as $n)
                           @if($n->broketype_id == 8 )
@@ -1166,14 +1828,24 @@
                           @endif
                       @endforeach
                   </td>
-                    <td>0</td>
+                  <td>  @foreach($hurd22019 as $n)
+                            @if($n->broketype_id == 8 )
+                                {{$n->cnt}}
+
+                            @endif
+                        @endforeach</td>
                     <td>  @foreach($hurd2 as $n)
                             @if($n->broketype_id == 8 )
                                 {{$n->cnt}}
 
                             @endif
                         @endforeach</td>
-                    <td>0</td>
+                        <td>  @foreach($hurd32019 as $n)
+                            @if($n->broketype_id == 8 )
+                                {{$n->cnt}}
+
+                            @endif
+                        @endforeach</td>
                     <td>  @foreach($hurd3 as $n)
                             @if($n->broketype_id == 8 )
                                 {{$n->cnt}}
@@ -1184,7 +1856,14 @@
                 </tr>
                 <tr>          
                   <td> 6.ЭПК гэмтэлтэй </td>
-                  <td>0</td>
+                  <td>
+                      @foreach($hurd2019 as $n)
+                          @if($n->broketype_id == 9 )
+                              {{$n->cnt}}
+
+                          @endif
+                      @endforeach
+                  </td>
                   <td>
                       @foreach($hurd as $n)
                           @if($n->broketype_id == 9 )
@@ -1193,14 +1872,24 @@
                           @endif
                       @endforeach
                   </td>
-                    <td>0</td>
+                  <td> @foreach($hurd22019 as $n)
+                            @if($n->broketype_id == 9 )
+                                {{$n->cnt}}
+
+                            @endif
+                        @endforeach</td>
                     <td> @foreach($hurd2 as $n)
                             @if($n->broketype_id == 9 )
                                 {{$n->cnt}}
 
                             @endif
                         @endforeach</td>
-                    <td>0</td>
+                        <td> @foreach($hurd32019 as $n)
+                            @if($n->broketype_id == 9 )
+                                {{$n->cnt}}
+
+                            @endif
+                        @endforeach</td>
                     <td> @foreach($hurd3 as $n)
                             @if($n->broketype_id == 9 )
                                 {{$n->cnt}}
@@ -1210,7 +1899,14 @@
                 </tr>
                 <tr>          
                   <td> 7.Сильфон гэмтэлтэй</td>
-                  <td>0</td>
+                  <td>
+                      @foreach($hurd2019 as $n)
+                          @if($n->broketype_id == 5 )
+                              {{$n->cnt}}
+
+                          @endif
+                      @endforeach
+                  </td>
                   <td>
                       @foreach($hurd as $n)
                           @if($n->broketype_id == 5 )
@@ -1219,14 +1915,24 @@
                           @endif
                       @endforeach
                   </td>
-                    <td>0</td>
+                  <td> @foreach($hurd22019 as $n)
+                            @if($n->broketype_id == 5 )
+                                {{$n->cnt}}
+
+                            @endif
+                        @endforeach</td>
                     <td> @foreach($hurd2 as $n)
                             @if($n->broketype_id == 5 )
                                 {{$n->cnt}}
 
                             @endif
                         @endforeach</td>
-                    <td>0</td>
+                        <td> @foreach($hurd32019 as $n)
+                            @if($n->broketype_id == 5 )
+                                {{$n->cnt}}
+
+                            @endif
+                        @endforeach</td>
                     <td> @foreach($hurd3 as $n)
                             @if($n->broketype_id == 5 )
                                 {{$n->cnt}}
@@ -1236,7 +1942,14 @@
                 </tr>
                 <tr>          
                   <td> 8.Хурд багаар бичдэг </td>
-                  <td>0</td>
+                  <td>
+                      @foreach($hurd2019 as $n)
+                          @if($n->broketype_id == 6 )
+                              {{$n->cnt}}
+
+                          @endif
+                      @endforeach
+                  </td>
                   <td>
                       @foreach($hurd as $n)
                           @if($n->broketype_id == 6 )
@@ -1245,14 +1958,24 @@
                           @endif
                       @endforeach
                   </td>
-                    <td>0</td>
+                  <td>@foreach($hurd22019 as $n)
+                            @if($n->broketype_id == 6 )
+                                {{$n->cnt}}
+
+                            @endif
+                        @endforeach</td>
                     <td>@foreach($hurd2 as $n)
                             @if($n->broketype_id == 6 )
                                 {{$n->cnt}}
 
                             @endif
                         @endforeach</td>
-                    <td>0</td>
+                        <td>@foreach($hurd32019 as $n)
+                            @if($n->broketype_id == 6 )
+                                {{$n->cnt}}
+
+                            @endif
+                        @endforeach</td>
                     <td>@foreach($hurd3 as $n)
                             @if($n->broketype_id == 6 )
                                 {{$n->cnt}}
@@ -1262,7 +1985,14 @@
                 </tr>
                 <tr>          
                   <td> 9.X/X дамжлагын гэмтэл </td>
-                  <td>0</td>
+                  <td>
+                      @foreach($hurd2019 as $n)
+                          @if($n->broketype_id == 7 )
+                              {{$n->cnt}}
+
+                          @endif
+                      @endforeach
+                  </td>
                   <td>
                       @foreach($hurd as $n)
                           @if($n->broketype_id == 7 )
@@ -1271,14 +2001,24 @@
                           @endif
                       @endforeach
                   </td>
-                    <td>0</td>
+                  <td> @foreach($hurd22019 as $n)
+                            @if($n->broketype_id == 7 )
+                                {{$n->cnt}}
+
+                            @endif
+                        @endforeach</td>
                     <td> @foreach($hurd2 as $n)
                             @if($n->broketype_id == 7 )
                                 {{$n->cnt}}
 
                             @endif
                         @endforeach</td>
-                    <td>0</td>
+                        <td> @foreach($hurd32019 as $n)
+                            @if($n->broketype_id == 7 )
+                                {{$n->cnt}}
+
+                            @endif
+                        @endforeach</td>
                     <td> @foreach($hurd3 as $n)
                             @if($n->broketype_id == 7 )
                                 {{$n->cnt}}
@@ -1288,7 +2028,16 @@
                 </tr>
                 <tr>          
                   <td> Нийт хурд хэмжигчийн гэмтэл </td>
-                  <td>0</td>
+                  <td>
+                      @if(count($hurdniit2019) >0)
+                          @foreach($hurdniit2019 as $n)
+                              {{$n->too}}
+                          @endforeach
+                      @else
+                          0
+                      @endif
+
+                  </td>
                   <td>
                       @if(count($hurdniit) >0)
                           @foreach($hurdniit as $n)
@@ -1299,7 +2048,13 @@
                       @endif
 
                   </td>
-                    <td>0</td>
+                  <td>  @if(count($hurdniit22019) >0)
+                            @foreach($hurdniit22019 as $n)
+                                {{$n->too}}
+                            @endforeach
+                        @else
+                            0
+                        @endif</td>
                     <td>  @if(count($hurdniit2) >0)
                             @foreach($hurdniit2 as $n)
                                 {{$n->too}}
@@ -1307,7 +2062,13 @@
                         @else
                             0
                         @endif</td>
-                    <td>0</td>
+                        <td>  @if(count($hurdniit32019) >0)
+                            @foreach($hurdniit32019 as $n)
+                                {{$n->too}}
+                            @endforeach
+                        @else
+                            0
+                        @endif</td>
                     <td>  @if(count($hurdniit3) >0)
                             @foreach($hurdniit3 as $n)
                                 {{$n->too}}
@@ -1320,7 +2081,18 @@
                 <tr>          
                   <td rowspan="3" >6</td>
                   <td> 1. Орох дохионы зогсолт. Суудал </td>
-                  <td>0</td>
+                  <td>
+                      @if(count($orohachaa2019->suud) >0)
+                              {{$orohachaa2019->suud}} уд
+                      @else
+                          0 уд
+                      @endif
+                          @if(count($orohachaamin2019->suud) >0)
+                              {{$orohachaamin2019->suud}} мин
+                          @else
+                          0 мин
+                      @endif
+                  </td>
                   <td>
                       @if(count($orohachaa->suud) >0)
                               {{$orohachaa->suud}} уд
@@ -1333,7 +2105,16 @@
                           0 мин
                       @endif
                   </td>
-                    <td>0</td>
+                  <td> @if(count($orohachaa22019->suud) >0)
+                            {{$orohachaa22019->suud}} уд
+                        @else
+                            0 уд
+                        @endif
+                        @if(count($orohachaamin22019->suud) >0)
+                            {{$orohachaamin22019->suud}} мин
+                        @else
+                            0 мин
+                        @endif</td>
                     <td> @if(count($orohachaa2->suud) >0)
                             {{$orohachaa2->suud}} уд
                         @else
@@ -1344,7 +2125,16 @@
                         @else
                             0 мин
                         @endif</td>
-                    <td>0</td>
+                        <td> @if(count($orohachaa32019->suud) >0)
+                            {{$orohachaa32019->suud}} уд
+                        @else
+                            0 уд
+                        @endif
+                        @if(count($orohachaamin32019->suud) >0)
+                            {{$orohachaamin3->suud}} мин
+                        @else
+                            0 мин
+                        @endif</td>
                     <td> @if(count($orohachaa3->suud) >0)
                             {{$orohachaa3->suud}} уд
                         @else
@@ -1359,7 +2149,18 @@
                 <tr>          
                   
                   <td> 2. Орох дохионы зогсолт. Ачаа </td>
-                  <td>0</td>
+                  <td>
+                      @if(count($orohachaa2019->ach) >0)
+                          {{$orohachaa2019->ach}} уд
+                      @else
+                          0 уд
+                      @endif
+                          @if(count($orohachaamin2019->ach) >0)
+                              {{$orohachaamin2019->ach}} мин
+                          @else
+                          0мин
+                      @endif
+                  </td>
                   <td>
                       @if(count($orohachaa->ach) >0)
                           {{$orohachaa->ach}} уд
@@ -1372,7 +2173,16 @@
                           0мин
                       @endif
                   </td>
-                    <td>0</td>
+                  <td>  @if(count($orohachaa22019->ach) >0)
+                            {{$orohachaa22019->ach}} уд
+                        @else
+                            0 уд
+                        @endif
+                        @if(count($orohachaamin22019->ach) >0)
+                            {{$orohachaamin22019->ach}} мин
+                        @else
+                            0мин
+                        @endif</td>
                     <td>  @if(count($orohachaa2->ach) >0)
                             {{$orohachaa2->ach}} уд
                         @else
@@ -1383,7 +2193,16 @@
                         @else
                             0мин
                         @endif</td>
-                    <td>0</td>
+                        <td>   @if(count($orohachaa32019->ach) >0)
+                            {{$orohachaa32019->ach}} уд
+                        @else
+                            0 уд
+                        @endif
+                        @if(count($orohachaamin32019->ach) >0)
+                            {{$orohachaamin32019->ach}} мин
+                        @else
+                            0мин
+                        @endif</td>
                     <td>   @if(count($orohachaa3->ach) >0)
                             {{$orohachaa3->ach}} уд
                         @else
@@ -1397,7 +2216,18 @@
                 </tr>
                 <tr>          
                   <td> Нийт орох дохионы зогсолт </td>
-                  <td>0</td>
+                  <td>
+                      @if(count($orohachaa2019->ach+$orohachaa2019->suud) >0)
+                          {{$orohachaa2019->ach+$orohachaa2019->suud}} уд
+                      @else
+                          0 уд
+                      @endif
+                          @if(count($orohachaamin2019->ach+$orohachaamin2019->suud) >0)
+                              {{$orohachaamin2019->ach+$orohachaamin2019->suud}}мин
+                          @else
+                          0 мин
+                      @endif
+                      </td>
                   <td>
                       @if(count($orohachaa->ach+$orohachaa->suud) >0)
                           {{$orohachaa->ach+$orohachaa->suud}} уд
@@ -1410,7 +2240,16 @@
                           0 мин
                       @endif
                   </td>
-                    <td>0</td>
+                  <td> @if(count($orohachaa22019->ach+$orohachaa22019->suud) >0)
+                            {{$orohachaa22019->ach+$orohachaa22019->suud}} уд
+                        @else
+                            0 уд
+                        @endif
+                        @if(count($orohachaamin22019->ach+$orohachaamin2019->suud) >0)
+                            {{$orohachaamin22019->ach+$orohachaamin22019->suud}} мин
+                        @else
+                            0 мин
+                        @endif</td>
                     <td> @if(count($orohachaa2->ach+$orohachaa2->suud) >0)
                             {{$orohachaa2->ach+$orohachaa2->suud}} уд
                         @else
@@ -1421,7 +2260,16 @@
                         @else
                             0 мин
                         @endif</td>
-                    <td>0</td>
+                        <td>  @if(count($orohachaa32019->ach+$orohachaa32019->suud) >0)
+                            {{$orohachaa32019->ach+$orohachaa32019->suud}} уд
+                        @else
+                            0 уд
+                        @endif
+                        @if(count($orohachaamin32019->ach+$orohachaamin32019->suud) >0)
+                            {{$orohachaamin32019->ach+$orohachaamin32019->suud}} мин
+                        @else
+                            0 мин
+                        @endif</td>
                     <td>  @if(count($orohachaa3->ach+$orohachaa3->suud) >0)
                             {{$orohachaa3->ach+$orohachaa3->suud}} уд
                         @else
@@ -1436,7 +2284,20 @@
                   <tr>
                 <td rowspan="20" >7</td>
                   <td> 1. Хүн зам дээр байсан </td>
-                  <td>0</td>
+                  <td>
+                      @foreach($yaraltai2019 as $n)
+                          @if($n->broketype_id == 35 )
+                              {{$n->cnt}} уд
+
+                          @endif
+                      @endforeach
+                       @foreach($yaraltaimin2019 as $n)
+                          @if($n->broketype_id == 35 )
+                              {{$n->cnt}} мин
+
+                          @endif
+                      @endforeach
+                  </td>
                   <td>
                       @foreach($yaraltai as $n)
                           @if($n->broketype_id == 35 )
@@ -1451,7 +2312,18 @@
                           @endif
                       @endforeach
                   </td>
-                      <td>0</td>
+                  <td>   @foreach($yaraltai22019 as $n)
+                              @if($n->broketype_id == 35 )
+                                  {{$n->cnt}} уд
+
+                              @endif
+                          @endforeach
+                          @foreach($yaraltaimin22019 as $n)
+                              @if($n->broketype_id == 35 )
+                                  {{$n->cnt}} мин
+
+                              @endif
+                          @endforeach</td>
                       <td>   @foreach($yaraltai2 as $n)
                               @if($n->broketype_id == 35 )
                                   {{$n->cnt}} уд
@@ -1464,7 +2336,18 @@
 
                               @endif
                           @endforeach</td>
-                      <td>0</td>
+                          <td>   @foreach($yaraltai32019 as $n)
+                              @if($n->broketype_id == 35 )
+                                  {{$n->cnt}} уд
+
+                              @endif
+                          @endforeach
+                          @foreach($yaraltaimin32019 as $n)
+                              @if($n->broketype_id == 35 )
+                                  {{$n->cnt}} мин
+
+                              @endif
+                          @endforeach</td>
                       <td>   @foreach($yaraltai3 as $n)
                               @if($n->broketype_id == 35 )
                                   {{$n->cnt}} уд
@@ -1481,7 +2364,20 @@
                   <tr>
 
                       <td> 1.1 Дайрагдсан </td>
-                      <td>0</td>
+                      <td>
+                          @foreach($yaraltai352019 as $n)
+                              @if($n->stop_id == 5 )
+                                  {{$n->count}} уд
+
+                              @endif
+                          @endforeach
+                            @foreach($yaraltai35min2019 as $n)
+                              @if($n->stop_id == 5 )
+                                  {{$n->count}} мин
+
+                              @endif
+                          @endforeach
+                      </td>
                       <td>
                           @foreach($yaraltai35 as $n)
                               @if($n->stop_id == 5 )
@@ -1496,7 +2392,18 @@
                               @endif
                           @endforeach
                       </td>
-                      <td>0</td>
+                      <td> @foreach($yaraltai3522019 as $n)
+                              @if($n->stop_id == 5 )
+                                  {{$n->count}} уд
+
+                              @endif
+                          @endforeach
+                          @foreach($yaraltai35min22019 as $n)
+                              @if($n->stop_id == 5 )
+                                  {{$n->count}} мин
+
+                              @endif
+                          @endforeach</td>
                       <td> @foreach($yaraltai352 as $n)
                               @if($n->stop_id == 5 )
                                   {{$n->count}} уд
@@ -1509,7 +2416,18 @@
 
                               @endif
                           @endforeach</td>
-                      <td>0</td>
+                          <td> @foreach($yaraltai3532019 as $n)
+                              @if($n->stop_id == 5 )
+                                  {{$n->count}} уд
+
+                              @endif
+                          @endforeach
+                          @foreach($yaraltai35min32019 as $n)
+                              @if($n->stop_id == 5 )
+                                  {{$n->count}} мин
+
+                              @endif
+                          @endforeach</td>
                       <td> @foreach($yaraltai353 as $n)
                               @if($n->stop_id == 5 )
                                   {{$n->count}} уд
@@ -1526,7 +2444,20 @@
                   <tr>
 
                       <td> 1.2 Дайрагдахаас сэргийлсэн </td>
-                      <td>0</td>
+                      <td>
+                          @foreach($yaraltai352019 as $n)
+                              @if($n->stop_id == 6 )
+                                  {{$n->count}} уд
+
+                              @endif
+                          @endforeach
+                           @foreach($yaraltai35min2019 as $n)
+                              @if($n->stop_id == 6 )
+                                  {{$n->count}} мин
+
+                              @endif
+                          @endforeach
+                      </td>
                       <td>
                           @foreach($yaraltai35 as $n)
                               @if($n->stop_id == 6 )
@@ -1541,7 +2472,18 @@
                               @endif
                           @endforeach
                       </td>
-                      <td>0</td>
+                      <td>@foreach($yaraltai3522019 as $n)
+                              @if($n->stop_id == 6 )
+                                  {{$n->count}} уд
+
+                              @endif
+                          @endforeach
+                          @foreach($yaraltai35min22019 as $n)
+                              @if($n->stop_id == 6 )
+                                  {{$n->count}} мин
+
+                              @endif
+                          @endforeach</td>
                       <td>@foreach($yaraltai352 as $n)
                               @if($n->stop_id == 6 )
                                   {{$n->count}} уд
@@ -1554,7 +2496,18 @@
 
                               @endif
                           @endforeach</td>
-                      <td>0</td>
+                          <td>@foreach($yaraltai3532019 as $n)
+                              @if($n->stop_id == 6 )
+                                  {{$n->count}} уд
+
+                              @endif
+                          @endforeach
+                          @foreach($yaraltai35min32019 as $n)
+                              @if($n->stop_id == 6 )
+                                  {{$n->count}} мин
+
+                              @endif
+                          @endforeach</td>
                       <td>@foreach($yaraltai353 as $n)
                               @if($n->stop_id == 6 )
                                   {{$n->count}} уд
@@ -1571,7 +2524,20 @@
                   <tr>
 
                       <td> 1.3 Шүргэсэн </td>
-                      <td>0</td>
+                      <td>
+                          @foreach($yaraltai352019 as $n)
+                              @if($n->stop_id == 7 )
+                                  {{$n->count}} уд
+
+                              @endif
+                          @endforeach
+                            @foreach($yaraltai35min2019 as $n)
+                              @if($n->stop_id == 7 )
+                                  {{$n->count}} мин
+
+                              @endif
+                          @endforeach
+                      </td>
                       <td>
                           @foreach($yaraltai35 as $n)
                               @if($n->stop_id == 7 )
@@ -1586,7 +2552,18 @@
                               @endif
                           @endforeach
                       </td>
-                      <td>0</td>
+                      <td>@foreach($yaraltai3522019 as $n)
+                              @if($n->stop_id == 7 )
+                                  {{$n->count}} уд
+
+                              @endif
+                          @endforeach
+                          @foreach($yaraltai35min22019 as $n)
+                              @if($n->stop_id == 7 )
+                                  {{$n->count}} мин
+
+                              @endif
+                          @endforeach</td>
                       <td>@foreach($yaraltai352 as $n)
                               @if($n->stop_id == 7 )
                                   {{$n->count}} уд
@@ -1599,7 +2576,18 @@
 
                               @endif
                           @endforeach</td>
-                      <td>0</td>
+                          <td>@foreach($yaraltai3532019 as $n)
+                              @if($n->stop_id == 7 )
+                                  {{$n->count}} уд
+
+                              @endif
+                          @endforeach
+                          @foreach($yaraltai35min32019 as $n)
+                              @if($n->stop_id == 7 )
+                                  {{$n->count}} мин
+
+                              @endif
+                          @endforeach</td>
                       <td>@foreach($yaraltai353 as $n)
                               @if($n->stop_id == 7 )
                                   {{$n->count}} уд
@@ -1616,7 +2604,20 @@
                 <tr>          
                   
                   <td> 2. Мал зам дээр байсан </td>
-                  <td>0</td>
+                  <td>
+                      @foreach($yaraltai2019 as $n)
+                          @if($n->broketype_id == 36 )
+                              {{$n->cnt}} уд
+
+                          @endif
+                      @endforeach
+                       @foreach($yaraltaimin2019 as $n)
+                          @if($n->broketype_id == 36 )
+                              {{$n->cnt}} мин
+
+                          @endif
+                      @endforeach
+                  </td>>
                   <td>
                       @foreach($yaraltai as $n)
                           @if($n->broketype_id == 36 )
@@ -1631,7 +2632,18 @@
                           @endif
                       @endforeach
                   </td>
-                    <td>0</td>
+                  <td>@foreach($yaraltai22019 as $n)
+                            @if($n->broketype_id == 36 )
+                                {{$n->cnt}} уд
+
+                            @endif
+                        @endforeach
+                        @foreach($yaraltaimin22019 as $n)
+                            @if($n->broketype_id == 36 )
+                                {{$n->cnt}} мин
+
+                            @endif
+                        @endforeach</td>
                     <td>@foreach($yaraltai2 as $n)
                             @if($n->broketype_id == 36 )
                                 {{$n->cnt}} уд
@@ -1644,7 +2656,18 @@
 
                             @endif
                         @endforeach</td>
-                    <td>0</td>
+                        <td>@foreach($yaraltai32019 as $n)
+                            @if($n->broketype_id == 36 )
+                                {{$n->cnt}} уд
+
+                            @endif
+                        @endforeach
+                        @foreach($yaraltaimin32019 as $n)
+                            @if($n->broketype_id == 36 )
+                                {{$n->cnt}} мин
+
+                            @endif
+                        @endforeach</td>
                     <td>@foreach($yaraltai3 as $n)
                             @if($n->broketype_id == 36 )
                                 {{$n->cnt}} уд
@@ -1661,7 +2684,20 @@
                   <tr>
 
                       <td> 2.1 Дайрагдсан </td>
-                      <td>0</td>
+                      <td>
+                          @foreach($yaraltai362019 as $n)
+                              @if($n->stop_id == 5 )
+                                  {{$n->count}} уд
+
+                              @endif
+                          @endforeach
+                            @foreach($yaraltai36min2019 as $n)
+                              @if($n->stop_id == 5 )
+                                  {{$n->count}} мин
+
+                              @endif
+                          @endforeach
+                      </td>
                       <td>
                           @foreach($yaraltai36 as $n)
                               @if($n->stop_id == 5 )
@@ -1676,7 +2712,18 @@
                               @endif
                           @endforeach
                       </td>
-                      <td>0</td>
+                      <td>  @foreach($yaraltai3622019 as $n)
+                              @if($n->stop_id == 5 )
+                                  {{$n->count}} уд
+
+                              @endif
+                          @endforeach
+                          @foreach($yaraltai36min22019 as $n)
+                              @if($n->stop_id == 5 )
+                                  {{$n->count}} мин
+
+                              @endif
+                          @endforeach</td>
                       <td>  @foreach($yaraltai362 as $n)
                               @if($n->stop_id == 5 )
                                   {{$n->count}} уд
@@ -1689,7 +2736,18 @@
 
                               @endif
                           @endforeach</td>
-                      <td>0</td>
+                          <td>  @foreach($yaraltai3632019 as $n)
+                              @if($n->stop_id ==5 )
+                                  {{$n->count}} уд
+
+                              @endif
+                          @endforeach
+                          @foreach($yaraltai36min32019 as $n)
+                              @if($n->stop_id == 5 )
+                                  {{$n->count}} мин
+
+                              @endif
+                          @endforeach</td>
                       <td>  @foreach($yaraltai363 as $n)
                               @if($n->stop_id ==5 )
                                   {{$n->count}} уд
@@ -1706,7 +2764,20 @@
                   <tr>
 
                       <td> 2.2 Дайрагдахаас сэргийлсэн</td>
-                      <td>0</td>
+                      <td>
+                          @foreach($yaraltai362019 as $n)
+                              @if($n->stop_id == 6 )
+                                  {{$n->count}} уд
+
+                              @endif
+                          @endforeach
+                          @foreach($yaraltai36min2019 as $n)
+                              @if($n->stop_id == 6 )
+                                  {{$n->count}} мин
+
+                              @endif
+                          @endforeach
+                      </td>
                       <td>
                           @foreach($yaraltai36 as $n)
                               @if($n->stop_id == 6 )
@@ -1721,7 +2792,18 @@
                               @endif
                           @endforeach
                       </td>
-                      <td>0</td>
+                      <td> @foreach($yaraltai3622019 as $n)
+                              @if($n->stop_id == 6 )
+                                  {{$n->count}} уд
+
+                              @endif
+                          @endforeach
+                          @foreach($yaraltai36min22019 as $n)
+                              @if($n->stop_id == 6 )
+                                  {{$n->count}} мин
+
+                              @endif
+                          @endforeach</td>
                       <td> @foreach($yaraltai362 as $n)
                               @if($n->stop_id == 6 )
                                   {{$n->count}} уд
@@ -1734,7 +2816,18 @@
 
                               @endif
                           @endforeach</td>
-                      <td>0</td>
+                          <td> @foreach($yaraltai3632019 as $n)
+                              @if($n->stop_id == 6 )
+                                  {{$n->count}} уд
+
+                              @endif
+                          @endforeach
+                          @foreach($yaraltai36min32019 as $n)
+                              @if($n->stop_id == 6 )
+                                  {{$n->count}} мин
+
+                              @endif
+                          @endforeach</td>
                       <td> @foreach($yaraltai363 as $n)
                               @if($n->stop_id == 6 )
                                   {{$n->count}} уд
@@ -1751,7 +2844,20 @@
                   <tr>
 
                       <td> 2.3 Шүргэсэн </td>
-                      <td>0</td>
+                      <td>
+                          @foreach($yaraltai362019 as $n)
+                              @if($n->stop_id == 7 )
+                                  {{$n->count}} уд
+
+                              @endif
+                          @endforeach
+                           @foreach($yaraltai36min2019 as $n)
+                              @if($n->stop_id == 7 )
+                                  {{$n->count}} мин
+
+                              @endif
+                          @endforeach
+                      </td>
                       <td>
                           @foreach($yaraltai36 as $n)
                               @if($n->stop_id == 7 )
@@ -1766,7 +2872,18 @@
                               @endif
                           @endforeach
                       </td>
-                      <td>0</td>
+                      <td> @foreach($yaraltai3622019 as $n)
+                              @if($n->stop_id == 7 )
+                                  {{$n->count}} уд
+
+                              @endif
+                          @endforeach
+                          @foreach($yaraltai36min22019 as $n)
+                              @if($n->stop_id == 7 )
+                                  {{$n->count}} мин
+
+                              @endif
+                          @endforeach</td>
                       <td> @foreach($yaraltai362 as $n)
                               @if($n->stop_id == 7 )
                                   {{$n->count}} уд
@@ -1779,7 +2896,18 @@
 
                               @endif
                           @endforeach</td>
-                      <td>0</td>
+                          <td> @foreach($yaraltai3632019 as $n)
+                              @if($n->stop_id == 7 )
+                                  {{$n->count}} уд
+
+                              @endif
+                          @endforeach
+                          @foreach($yaraltai36min32019 as $n)
+                              @if($n->stop_id == 7 )
+                                  {{$n->count}} мин
+
+                              @endif
+                          @endforeach</td>
                       <td> @foreach($yaraltai363 as $n)
                               @if($n->stop_id == 7 )
                                   {{$n->count}} уд
@@ -1795,7 +2923,20 @@
                   </tr>
                 <tr>          
                   <td> 3.Гарманд автомашин байсан </td>
-                  <td>0</td>
+                  <td>
+                      @foreach($yaraltai2019 as $n)
+                          @if($n->broketype_id == 37 )
+                              {{$n->cnt}}  уд
+
+                          @endif
+                      @endforeach
+                        @foreach($yaraltaimin2019 as $n)
+                          @if($n->broketype_id == 37 ) 
+                              {{$n->cnt}} мин
+
+                          @endif
+                      @endforeach
+                  </td>
                   <td>
                       @foreach($yaraltai as $n)
                           @if($n->broketype_id == 37 )
@@ -1810,7 +2951,18 @@
                           @endif
                       @endforeach
                   </td>
-                    <td>0</td>
+                  <td>  @foreach($yaraltai22019 as $n)
+                            @if($n->broketype_id == 37 )
+                                {{$n->cnt}}  уд
+
+                            @endif
+                        @endforeach
+                        @foreach($yaraltaimin22019 as $n)
+                            @if($n->broketype_id == 37 )
+                                {{$n->cnt}} мин
+
+                            @endif
+                        @endforeach</td>
                     <td>  @foreach($yaraltai2 as $n)
                             @if($n->broketype_id == 37 )
                                 {{$n->cnt}}  уд
@@ -1823,7 +2975,18 @@
 
                             @endif
                         @endforeach</td>
-                    <td>0</td>
+                        <td>  @foreach($yaraltai32019 as $n)
+                            @if($n->broketype_id == 37 )
+                                {{$n->cnt}}  уд
+
+                            @endif
+                        @endforeach
+                        @foreach($yaraltaimin32019 as $n)
+                            @if($n->broketype_id == 37 )
+                                {{$n->cnt}} мин
+
+                            @endif
+                        @endforeach</td>
                     <td>  @foreach($yaraltai3 as $n)
                             @if($n->broketype_id == 37 )
                                 {{$n->cnt}}  уд
@@ -1840,7 +3003,20 @@
                   <tr>
 
                       <td> 3.1 Дайрагдсан </td>
-                      <td>0</td>
+                      <td>
+                          @foreach($yaraltai372019 as $n)
+                              @if($n->stop_id == 5 )
+                                  {{$n->count}} уд
+
+                              @endif
+                          @endforeach
+                          @foreach($yaraltai37min2019 as $n)
+                              @if($n->stop_id == 5 )
+                                  {{$n->count}} мин
+
+                              @endif
+                          @endforeach
+                      </td>
                       <td>
                           @foreach($yaraltai37 as $n)
                               @if($n->stop_id == 5 )
@@ -1855,7 +3031,18 @@
                               @endif
                           @endforeach
                       </td>
-                      <td>0</td>
+                      <td> @foreach($yaraltai3722019 as $n)
+                              @if($n->stop_id == 5 )
+                                  {{$n->count}} уд
+
+                              @endif
+                          @endforeach
+                          @foreach($yaraltai37min22019 as $n)
+                              @if($n->stop_id == 5 )
+                                  {{$n->count}} мин
+
+                              @endif
+                          @endforeach</td>
                       <td> @foreach($yaraltai372 as $n)
                               @if($n->stop_id == 5 )
                                   {{$n->count}} уд
@@ -1868,8 +3055,19 @@
 
                               @endif
                           @endforeach</td>
-                      <td>0</td>
-                      <td> @foreach($yaraltai373 as $n)
+                          <td> @foreach($yaraltai373 as $n)
+                              @if($n->stop_id == 5 )
+                                  {{$n->count}} уд
+
+                              @endif
+                          @endforeach
+                          @foreach($yaraltai37min32019 as $n)
+                              @if($n->stop_id == 5 )
+                                  {{$n->count}} мин
+
+                              @endif
+                          @endforeach</td>
+                      <td> @foreach($yaraltai3732019 as $n)
                               @if($n->stop_id == 5 )
                                   {{$n->count}} уд
 
@@ -1885,7 +3083,20 @@
                   <tr>
 
                       <td> 3.2 Дайрагдахаас сэргийлсэн </td>
-                      <td>0</td>
+                      <td>
+                          @foreach($yaraltai372019 as $n)
+                              @if($n->stop_id == 6 )
+                                  {{$n->count}} уд
+
+                              @endif
+                          @endforeach
+                           @foreach($yaraltai37min2019 as $n)
+                              @if($n->stop_id == 6 )
+                                  {{$n->count}} мин
+
+                              @endif
+                          @endforeach
+                      </td>
                       <td>
                           @foreach($yaraltai37 as $n)
                               @if($n->stop_id == 6 )
@@ -1900,7 +3111,18 @@
                               @endif
                           @endforeach
                       </td>
-                      <td>0</td>
+                      <td>  @foreach($yaraltai3722019 as $n)
+                              @if($n->stop_id == 6 )
+                                  {{$n->count}} уд
+
+                              @endif
+                          @endforeach
+                          @foreach($yaraltai37min22019 as $n)
+                              @if($n->stop_id == 6 )
+                                  {{$n->count}} мин
+
+                              @endif
+                          @endforeach</td>
                       <td>  @foreach($yaraltai372 as $n)
                               @if($n->stop_id == 6 )
                                   {{$n->count}} уд
@@ -1913,7 +3135,18 @@
 
                               @endif
                           @endforeach</td>
-                      <td>0</td>
+                          <td>  @foreach($yaraltai3732019 as $n)
+                              @if($n->stop_id == 6 )
+                                  {{$n->count}} уд
+
+                              @endif
+                          @endforeach
+                          @foreach($yaraltai37min32019 as $n)
+                              @if($n->stop_id == 6 )
+                                  {{$n->count}} мин
+
+                              @endif
+                          @endforeach</td>
                       <td>  @foreach($yaraltai373 as $n)
                               @if($n->stop_id == 6 )
                                   {{$n->count}} уд
@@ -1930,7 +3163,20 @@
                   <tr>
 
                       <td> 3.3 Шүргэсэн </td>
-                      <td>0</td>
+                      <td>
+                          @foreach($yaraltai3732019 as $n)
+                              @if($n->stop_id == 7 ) 
+                                  {{$n->count}} уд
+
+                              @endif
+                          @endforeach
+                            @foreach($yaraltai37min32019 as $n)
+                              @if($n->stop_id == 7 )
+                                  {{$n->count}} мин
+
+                              @endif
+                          @endforeach
+                      </td>
                       <td>
                           @foreach($yaraltai373 as $n)
                               @if($n->stop_id == 7 ) 
@@ -1945,7 +3191,18 @@
                               @endif
                           @endforeach
                       </td>
-                      <td>0</td>
+                      <td>  @foreach($yaraltai3722019 as $n)
+                              @if($n->stop_id == 7 )
+                                  {{$n->count}} уд
+
+                              @endif
+                          @endforeach
+                          @foreach($yaraltai37min22019 as $n)
+                              @if($n->stop_id == 7 )
+                                  {{$n->count}} мин
+
+                              @endif
+                          @endforeach</td>
                       <td>  @foreach($yaraltai372 as $n)
                               @if($n->stop_id == 7 )
                                   {{$n->count}} уд
@@ -1958,7 +3215,18 @@
 
                               @endif
                           @endforeach</td>
-                      <td>0</td>
+                          <td>  @foreach($yaraltai3732019 as $n)
+                              @if($n->stop_id == 7 )
+                                  {{$n->count}} уд
+
+                              @endif
+                          @endforeach
+                          @foreach($yaraltai37min32019 as $n)
+                              @if($n->stop_id == 7 )
+                                  {{$n->count}} мин
+
+                              @endif
+                          @endforeach</td>
                       <td>  @foreach($yaraltai373 as $n)
                               @if($n->stop_id == 7 )
                                   {{$n->count}} уд
@@ -1974,7 +3242,20 @@
                   </tr>
                 <tr>          
                   <td> 4. Нээлттэй дохио хаагдсан </td>
-                  <td>0</td>
+                  <td>
+                      @foreach($yaraltai2019 as $n)
+                          @if($n->broketype_id == 38 )
+                              {{$n->cnt}} уд
+
+                          @endif
+                      @endforeach
+                        @foreach($yaraltaimin2019 as $n)
+                          @if($n->broketype_id == 38 )
+                              {{$n->cnt}} мин
+
+                          @endif
+                      @endforeach
+                  </td>
                   <td>
                       @foreach($yaraltai as $n)
                           @if($n->broketype_id == 38 )
@@ -1989,7 +3270,18 @@
                           @endif
                       @endforeach
                   </td>
-                    <td>0</td>
+                  <td>  @foreach($yaraltai22019 as $n)
+                            @if($n->broketype_id == 38 )
+                                {{$n->cnt}} уд
+
+                            @endif
+                        @endforeach
+                        @foreach($yaraltaimin22019 as $n)
+                            @if($n->broketype_id == 38 )
+                                {{$n->cnt}} мин
+
+                            @endif
+                        @endforeach</td>
                     <td>  @foreach($yaraltai2 as $n)
                             @if($n->broketype_id == 38 )
                                 {{$n->cnt}} уд
@@ -2002,7 +3294,18 @@
 
                             @endif
                         @endforeach</td>
-                    <td>0</td>
+                        <td>  @foreach($yaraltai32019 as $n)
+                            @if($n->broketype_id == 38 )
+                                {{$n->cnt}} уд
+
+                            @endif
+                        @endforeach
+                        @foreach($yaraltaimin32019 as $n)
+                            @if($n->broketype_id == 38 )
+                                {{$n->cnt}} мин
+
+                            @endif
+                        @endforeach</td>
                     <td>  @foreach($yaraltai3 as $n)
                             @if($n->broketype_id == 38 )
                                 {{$n->cnt}} уд
@@ -2018,7 +3321,20 @@
                 </tr>
                   <tr>
                       <td> 4.1 Өнгөрсөн </td>
-                      <td>0</td>
+                      <td>
+                          @foreach($yaraltai382019 as $n)
+                              @if($n->stop_id == 12 )
+                                  {{$n->count}} уд
+
+                              @endif
+                          @endforeach
+                          @foreach($yaraltai38min2019 as $n)
+                              @if($n->stop_id == 12 )
+                                  {{$n->count}} мин
+
+                              @endif
+                          @endforeach
+                      </td>
                       <td>
                           @foreach($yaraltai38 as $n)
                               @if($n->stop_id == 12 )
@@ -2033,7 +3349,18 @@
                               @endif
                           @endforeach
                       </td>
-                      <td>0</td>
+                      <td> @foreach($yaraltai3822019 as $n)
+                              @if($n->stop_id == 12 )
+                                  {{$n->count}} уд
+
+                              @endif
+                          @endforeach
+                          @foreach($yaraltai38min22019 as $n)
+                              @if($n->stop_id == 12 )
+                                  {{$n->count}} мин
+
+                              @endif
+                          @endforeach</td>
                       <td> @foreach($yaraltai382 as $n)
                               @if($n->stop_id == 12 )
                                   {{$n->count}} уд
@@ -2046,7 +3373,18 @@
 
                               @endif
                           @endforeach</td>
-                      <td>0</td>
+                          <td> @foreach($yaraltai382019 as $n)
+                              @if($n->stop_id == 12 )
+                                  {{$n->count}} уд
+
+                              @endif
+                          @endforeach
+                          @foreach($yaraltai38min32019 as $n)
+                              @if($n->stop_id == 12 )
+                                  {{$n->count}} мин
+
+                              @endif
+                          @endforeach</td>
                       <td> @foreach($yaraltai383 as $n)
                               @if($n->stop_id == 12 )
                                   {{$n->count}} уд
@@ -2062,7 +3400,20 @@
                   </tr>
                   <tr>
                       <td> 4.2 Өнгөрөөгүй </td>
-                      <td>0</td>
+                      <td>
+                          @foreach($yaraltai382019 as $n)
+                              @if($n->stop_id == 13 )
+                                  {{$n->count}} уд
+
+                              @endif
+                          @endforeach
+                          @foreach($yaraltai38min2019 as $n)
+                              @if($n->stop_id == 13 )
+                                  {{$n->count}} мин
+
+                              @endif
+                          @endforeach
+                      </td>
                       <td>
                           @foreach($yaraltai38 as $n)
                               @if($n->stop_id == 13 )
@@ -2077,7 +3428,18 @@
                               @endif
                           @endforeach
                       </td>
-                      <td>0</td>
+                      <td> @foreach($yaraltai3822019 as $n)
+                              @if($n->stop_id == 13 )
+                                  {{$n->count}} уд
+
+                              @endif
+                          @endforeach
+                          @foreach($yaraltai38min22019 as $n)
+                              @if($n->stop_id == 13 )
+                                  {{$n->count}} мин
+
+                              @endif
+                          @endforeach</td>
                       <td> @foreach($yaraltai382 as $n)
                               @if($n->stop_id == 13 )
                                   {{$n->count}} уд
@@ -2090,7 +3452,18 @@
 
                               @endif
                           @endforeach</td>
-                      <td>0</td>
+                          <td> @foreach($yaraltai3832019 as $n)
+                              @if($n->stop_id == 13 )
+                                  {{$n->count}} уд
+
+                              @endif
+                          @endforeach
+                          @foreach($yaraltai38min32019 as $n)
+                              @if($n->stop_id == 13 )
+                                  {{$n->count}} мин
+
+                              @endif
+                          @endforeach</td>
                       <td> @foreach($yaraltai383 as $n)
                               @if($n->stop_id == 13 )
                                   {{$n->count}} уд
@@ -2106,7 +3479,20 @@
                   </tr>
                 <tr>          
                   <td> 5. Улаан дохионд</td>
-                  <td>0</td>
+                  <td>
+                      @foreach($yaraltai2019 as $n)
+                          @if($n->broketype_id == 39 )
+                              {{$n->cnt}} уд
+ 
+                          @endif
+                      @endforeach
+                       @foreach($yaraltaimin2019 as $n)
+                          @if($n->broketype_id == 39 )
+                              {{$n->cnt}} мин
+
+                          @endif
+                      @endforeach
+                  </td>
                   <td>
                       @foreach($yaraltai as $n)
                           @if($n->broketype_id == 39 )
@@ -2121,7 +3507,18 @@
                           @endif
                       @endforeach
                   </td>
-                    <td>0</td>
+                  <td>@foreach($yaraltai22019 as $n)
+                            @if($n->broketype_id == 39 )
+                                {{$n->cnt}} уд
+
+                            @endif
+                        @endforeach
+                        @foreach($yaraltaimin22019 as $n)
+                            @if($n->broketype_id == 39 )
+                                {{$n->cnt}} мин
+
+                            @endif
+                        @endforeach</td>
                     <td>@foreach($yaraltai2 as $n)
                             @if($n->broketype_id == 39 )
                                 {{$n->cnt}} уд
@@ -2134,7 +3531,18 @@
 
                             @endif
                         @endforeach</td>
-                    <td>0</td>
+                        <td>@foreach($yaraltai32019 as $n)
+                            @if($n->broketype_id == 39 )
+                                {{$n->cnt}} уд
+
+                            @endif
+                        @endforeach
+                        @foreach($yaraltaimin32019 as $n)
+                            @if($n->broketype_id == 39 )
+                                {{$n->cnt}} мин
+
+                            @endif
+                        @endforeach</td>
                     <td>@foreach($yaraltai3 as $n)
                             @if($n->broketype_id == 39 )
                                 {{$n->cnt}} уд
@@ -2150,7 +3558,20 @@
                 </tr>
                 <tr>          
                   <td> 6. Зам дээр эд байсан  </td>
-                  <td>0</td>
+                  <td>
+                      @foreach($yaraltai2019 as $n)
+                          @if($n->broketype_id == 40 )
+                              {{$n->cnt}} уд
+
+                          @endif
+                      @endforeach
+                       @foreach($yaraltaimin2019 as $n)
+                          @if($n->broketype_id == 40 )
+                              {{$n->cnt}} мин
+
+                          @endif
+                      @endforeach
+                  </td>
                   <td>
                       @foreach($yaraltai as $n)
                           @if($n->broketype_id == 40 )
@@ -2165,7 +3586,18 @@
                           @endif
                       @endforeach
                   </td>
-                    <td>0</td>
+                  <td>@foreach($yaraltai22019 as $n)
+                            @if($n->broketype_id == 40 )
+                                {{$n->cnt}} уд
+
+                            @endif
+                        @endforeach
+                        @foreach($yaraltaimin22019 as $n)
+                            @if($n->broketype_id == 40 )
+                                {{$n->cnt}} мин
+
+                            @endif
+                        @endforeach</td>
                     <td>@foreach($yaraltai2 as $n)
                             @if($n->broketype_id == 40 )
                                 {{$n->cnt}} уд
@@ -2178,7 +3610,18 @@
 
                             @endif
                         @endforeach</td>
-                    <td>0</td>
+                        <td>@foreach($yaraltai32019 as $n)
+                            @if($n->broketype_id == 40 )
+                                {{$n->cnt}} уд
+
+                            @endif
+                        @endforeach
+                        @foreach($yaraltaimin32019 as $n)
+                            @if($n->broketype_id == 40 )
+                                {{$n->cnt}} мин
+
+                            @endif
+                        @endforeach</td>
                     <td>@foreach($yaraltai3 as $n)
                             @if($n->broketype_id == 40 )
                                 {{$n->cnt}} уд
@@ -2194,7 +3637,20 @@
                 </tr>
                 <tr>          
                   <td> 7.Тормоз барилт муу үед </td>
-                  <td>0</td>
+                  <td>
+                      @foreach($yaraltai2019 as $n)
+                          @if($n->broketype_id == 41 )
+                              {{$n->cnt}} уд
+
+                          @endif
+                      @endforeach
+                      @foreach($yaraltaimin2019 as $n)
+                          @if($n->broketype_id == 41 )
+                              {{$n->cnt}} мин
+
+                          @endif
+                      @endforeach
+                  </td>
                   <td>
                       @foreach($yaraltai as $n)
                           @if($n->broketype_id == 41 )
@@ -2209,7 +3665,18 @@
                           @endif
                       @endforeach
                   </td>
-                    <td>0</td>
+                  <td>@foreach($yaraltai22019 as $n)
+                            @if($n->broketype_id == 41 )
+                                {{$n->cnt}} уд
+
+                            @endif
+                        @endforeach
+                        @foreach($yaraltaimin22019 as $n)
+                            @if($n->broketype_id == 41 )
+                                {{$n->cnt}} мин
+
+                            @endif
+                        @endforeach</td>
                     <td>@foreach($yaraltai2 as $n)
                             @if($n->broketype_id == 41 )
                                 {{$n->cnt}} уд
@@ -2222,7 +3689,18 @@
 
                             @endif
                         @endforeach</td>
-                    <td>0</td>
+                        <td>@foreach($yaraltai32019 as $n)
+                            @if($n->broketype_id == 41 )
+                                {{$n->cnt}} уд
+
+                            @endif
+                        @endforeach
+                        @foreach($yaraltaimin32019 as $n)
+                            @if($n->broketype_id == 41 )
+                                {{$n->cnt}} мин
+
+                            @endif
+                        @endforeach</td>
                     <td>@foreach($yaraltai3 as $n)
                             @if($n->broketype_id == 41 )
                                 {{$n->cnt}} уд
@@ -2238,7 +3716,20 @@
                 </tr>
                 <tr>          
                   <td> 8. Бусад </td>
-                  <td>0</td>
+                  <td>
+                      @foreach($yaraltai2019 as $n)
+                          @if($n->broketype_id == 42 )
+                              {{$n->cnt}} уд
+
+                          @endif
+                      @endforeach
+                      @foreach($yaraltaimin2019 as $n)
+                          @if($n->broketype_id == 42 )
+                              {{$n->cnt}} мин
+
+                          @endif
+                      @endforeach
+                  </td>
                   <td>
                       @foreach($yaraltai as $n)
                           @if($n->broketype_id == 42 )
@@ -2253,7 +3744,18 @@
                           @endif
                       @endforeach
                   </td>
-                    <td>0</td>
+                  <td> @foreach($yaraltai22019 as $n)
+                            @if($n->broketype_id == 42 )
+                                {{$n->cnt}} уд
+
+                            @endif
+                        @endforeach
+                        @foreach($yaraltaimin22019 as $n)
+                            @if($n->broketype_id == 42 )
+                                {{$n->cnt}} мин
+
+                            @endif
+                        @endforeach</td>
                     <td> @foreach($yaraltai2 as $n)
                             @if($n->broketype_id == 42 )
                                 {{$n->cnt}} уд
@@ -2266,7 +3768,18 @@
 
                             @endif
                         @endforeach</td>
-                    <td>0</td>
+                        <td> @foreach($yaraltai32019 as $n)
+                            @if($n->broketype_id == 42 )
+                                {{$n->cnt}} уд
+
+                            @endif
+                        @endforeach
+                        @foreach($yaraltaimin32019 as $n)
+                            @if($n->broketype_id == 42 )
+                                {{$n->cnt}} мин
+
+                            @endif
+                        @endforeach</td>
                     <td> @foreach($yaraltai3 as $n)
                             @if($n->broketype_id == 42 )
                                 {{$n->cnt}} уд
@@ -2283,7 +3796,22 @@
                 
                 <tr>          
                   <td> VII. Нийт яаралтай тормоз </td>
-                  <td>0</td>
+                  <td>
+                      @if(count($yaraltainiit2019) >0)
+                          @foreach($yaraltainiit2019 as $n)
+                              {{$n->too}} уд
+                          @endforeach
+                      @else
+                          0
+                      @endif
+                         @if(count($yaraltainiitmin2019) >0)
+                          @foreach($yaraltainiitmin2019 as $n)
+                              {{$n->min}} мин
+                          @endforeach
+                      @else
+                          0
+                      @endif
+                  </td>
                   <td>
                       @if(count($yaraltainiit) >0)
                           @foreach($yaraltainiit as $n)
@@ -2300,7 +3828,20 @@
                           0
                       @endif
                   </td>
-                    <td>0</td>
+                  <td> @if(count($yaraltainiit22019) >0)
+                            @foreach($yaraltainiit22019 as $n)
+                                {{$n->too}} уд
+                            @endforeach
+                        @else
+                            0
+                        @endif
+                        @if(count($yaraltainiitmin22019) >0)
+                            @foreach($yaraltainiitmin22019 as $n)
+                                {{$n->min}} мин
+                            @endforeach
+                        @else
+                            0
+                        @endif</td>
                     <td> @if(count($yaraltainiit2) >0)
                             @foreach($yaraltainiit2 as $n)
                                 {{$n->too}} уд
@@ -2315,7 +3856,20 @@
                         @else
                             0
                         @endif</td>
-                    <td>0</td>
+                        <td> @if(count($yaraltainiit32019) >0)
+                            @foreach($yaraltainiit32019 as $n)
+                                {{$n->too}} уд
+                            @endforeach
+                        @else
+                            0
+                        @endif
+                        @if(count($yaraltainiitmin32019) >0)
+                            @foreach($yaraltainiitmin32019 as $n)
+                                {{$n->min}} мин
+                            @endforeach
+                        @else
+                            0
+                        @endif</td>
                     <td> @if(count($yaraltainiit3) >0)
                             @foreach($yaraltainiit3 as $n)
                                 {{$n->too}} уд
@@ -2334,7 +3888,20 @@
             <tr>          
               <td> 8 </td>
               <td>Тусламж авсан /Х. замаас /</td>
-              <td>0</td>
+              <td> @if(count($tuslamjzam2019) >0)
+                      @foreach($tuslamjzam2019 as $n)
+                          {{$n->too}} уд
+                      @endforeach
+                  @else
+                      0 уд
+                  @endif
+                  @if(count($tuslamjzammin2019) >0)
+                      @foreach($tuslamjzammin2019 as $n)
+                          {{$n->too}} мин
+                      @endforeach
+                  @else
+                      0 мин
+                  @endif</td>
               <td> @if(count($tuslamjzam) >0)
                       @foreach($tuslamjzam as $n)
                           {{$n->too}} уд
@@ -2349,7 +3916,20 @@
                   @else
                       0 мин
                   @endif</td>
-                <td>0</td>
+                  <td> @if(count($tuslamjzam22019) >0)
+                        @foreach($tuslamjzam22019 as $n)
+                            {{$n->too}} уд
+                        @endforeach
+                    @else
+                        0 уд
+                    @endif
+                    @if(count($tuslamjzammin22019) >0)
+                        @foreach($tuslamjzammin22019 as $n)
+                            {{$n->too}} мин
+                        @endforeach
+                    @else
+                        0 мин
+                    @endif</td>
                 <td> @if(count($tuslamjzam2) >0)
                         @foreach($tuslamjzam2 as $n)
                             {{$n->too}} уд
@@ -2364,7 +3944,20 @@
                     @else
                         0 мин
                     @endif</td>
-                <td>0</td>
+                    <td> @if(count($tuslamjzam32019) >0)
+                        @foreach($tuslamjzam32019 as $n)
+                            {{$n->too}} уд
+                        @endforeach
+                    @else
+                        0 уд
+                    @endif
+                    @if(count($tuslamjzammin32019) >0)
+                        @foreach($tuslamjzammin32019 as $n)
+                            {{$n->too}} мин
+                        @endforeach
+                    @else
+                        0 мин
+                    @endif</td>
                 <td> @if(count($tuslamjzam3) >0)
                         @foreach($tuslamjzam3 as $n)
                             {{$n->too}} уд
@@ -2399,7 +3992,20 @@
                       0 мин
                   @endif
               </td>
-                <td>0</td>
+              <td>@if(count($tuslamjurtuu2019) >0)
+                        @foreach($tuslamjurtuu22019 as $n)
+                            {{$n->too}} уд
+                        @endforeach
+                    @else
+                        0 уд
+                    @endif
+                    @if(count($tuslamjurtuumin22019) >0)
+                        @foreach($tuslamjurtuumin22019 as $n)
+                            {{$n->too}} мин
+                        @endforeach
+                    @else
+                        0 мин
+                    @endif</td>
                 <td>@if(count($tuslamjurtuu2) >0)
                         @foreach($tuslamjurtuu2 as $n)
                             {{$n->too}} уд
@@ -2414,7 +4020,20 @@
                     @else
                         0 мин
                     @endif</td>
-                <td>0</td>
+                    <td>@if(count($tuslamjurtuu32019) >0)
+                        @foreach($tuslamjurtuu32019 as $n)
+                            {{$n->too}} уд
+                        @endforeach
+                    @else
+                        0 уд
+                    @endif
+                    @if(count($tuslamjurtuumin32019) >0)
+                        @foreach($tuslamjurtuumin32019 as $n)
+                            {{$n->too}} мин
+                        @endforeach
+                    @else
+                        0 мин
+                    @endif</td>
                 <td>@if(count($tuslamjurtuu3) >0)
                         @foreach($tuslamjurtuu3 as $n)
                             {{$n->too}} уд
@@ -2434,7 +4053,22 @@
             <tr>          
               <td> 10 </td>
               <td> Ухарсан</td>
-              <td>0</td>
+              <td>
+                  @if(count($uharsan2019) >0)
+                      @foreach($uharsan2019 as $n)
+                          {{$n->too}} уд
+                      @endforeach
+                  @else
+                      0 уд
+                  @endif
+                      @if(count($uharsanmin2019) >0)
+                          @foreach($uharsanmin2019 as $n)
+                              {{$n->too}} мин
+                          @endforeach
+                      @else
+                          0 мин
+                      @endif
+              </td>
               <td>
                   @if(count($uharsan) >0)
                       @foreach($uharsan as $n)
@@ -2451,7 +4085,20 @@
                           0 мин
                       @endif
               </td>
-                <td>0</td>
+              <td> @if(count($uharsan22019) >0)
+                        @foreach($uharsan22019 as $n)
+                            {{$n->too}} уд
+                        @endforeach
+                    @else
+                        0 уд
+                    @endif
+                    @if(count($uharsanmin22019) >0)
+                        @foreach($uharsanmin22019 as $n)
+                            {{$n->too}} мин
+                        @endforeach
+                    @else
+                        0 мин
+                    @endif</td>
                 <td> @if(count($uharsan2) >0)
                         @foreach($uharsan2 as $n)
                             {{$n->too}} уд
@@ -2466,7 +4113,20 @@
                     @else
                         0 мин
                     @endif</td>
-                <td>0</td>
+                    <td> @if(count($uharsan32019) >0)
+                        @foreach($uharsan32019 as $n)
+                            {{$n->too}} уд
+                        @endforeach
+                    @else
+                        0 уд
+                    @endif
+                    @if(count($uharsanmin32019) >0)
+                        @foreach($uharsanmin32019 as $n)
+                            {{$n->too}} мин
+                        @endforeach
+                    @else
+                        0 мин
+                    @endif</td>
                 <td> @if(count($uharsan3) >0)
                         @foreach($uharsan3 as $n)
                             {{$n->too}} уд
@@ -2485,7 +4145,22 @@
             <tr>          
               <td> 11 </td>
               <td> Хоорондын замд зогссон зогсолт</td>
-              <td>0</td>
+              <td>
+                  @if(count($hoorond2019) >0)
+                      @foreach($hoorond2019 as $n)
+                          {{$n->too}} уд
+                      @endforeach
+                  @else
+                      0 уд
+                  @endif
+                   @if(count($hoorondmin2019) >0)
+                      @foreach($hoorondmin2019 as $n)
+                          {{$n->too}} мин
+                      @endforeach
+                  @else
+                      0 мин
+                  @endif
+              </td>
               <td>
                   @if(count($hoorond) >0)
                       @foreach($hoorond as $n)
@@ -2502,7 +4177,20 @@
                       0 мин
                   @endif
               </td>
-                <td>0</td>
+              <td>@if(count($hoorond22019) >0)
+                        @foreach($hoorond22019 as $n)
+                            {{$n->too}} уд
+                        @endforeach
+                    @else
+                        0 уд
+                    @endif
+                    @if(count($hoorondmin22019) >0)
+                        @foreach($hoorondmin22019 as $n)
+                            {{$n->too}} мин
+                        @endforeach
+                    @else
+                        0 мин
+                    @endif</td>
                 <td>@if(count($hoorond2) >0)
                         @foreach($hoorond2 as $n)
                             {{$n->too}} уд
@@ -2517,7 +4205,20 @@
                     @else
                         0 мин
                     @endif</td>
-                <td>0</td>
+                    <td>@if(count($hoorond32019) >0)
+                        @foreach($hoorond32019 as $n)
+                            {{$n->too}} уд
+                        @endforeach
+                    @else
+                        0 уд
+                    @endif
+                    @if(count($hoorondmin32019) >0)
+                        @foreach($hoorondmin32019 as $n)
+                            {{$n->too}} мин
+                        @endforeach
+                    @else
+                        0 мин
+                    @endif</td>
                 <td>@if(count($hoorond3) >0)
                         @foreach($hoorond3 as $n)
                             {{$n->too}} уд
@@ -2537,7 +4238,22 @@
             <tr>          
               <td> 12 </td>
               <td> Өртөөнд 30 минутаас илүү зогссон</td>
-              <td>0</td>
+              <td>
+                  @if(count($techno2019) >0)
+                      @foreach($techno2019 as $n)
+                          {{$n->too}} уд
+                      @endforeach
+                  @else
+                      0 уд
+                  @endif
+                      @if(count($technomin2019) >0)
+                          @foreach($technomin2019 as $n)
+                              {{$n->too}} мин
+                          @endforeach
+                      @else
+                          0 мин
+                      @endif
+              </td>
               <td>
                   @if(count($techno) >0)
                       @foreach($techno as $n)
@@ -2554,7 +4270,21 @@
                           0 мин
                       @endif
               </td>
-                <td>0</td>
+              
+                    <td> @if(count($techno22019) >0)
+                        @foreach($techno22019 as $n)
+                            {{$n->too}} уд
+                        @endforeach
+                    @else
+                        0 уд
+                    @endif
+                    @if(count($technomin22019) >0)
+                        @foreach($technomin22019 as $n)
+                            {{$n->too}} мин
+                        @endforeach
+                    @else
+                        0 мин
+                    @endif</td>
                 <td> @if(count($techno2) >0)
                         @foreach($techno2 as $n)
                             {{$n->too}} уд
@@ -2569,7 +4299,20 @@
                     @else
                         0 мин
                     @endif</td>
-                <td>0</td>
+                    <td> @if(count($techno32019) >0)
+                        @foreach($techno32019 as $n)
+                            {{$n->too}} уд
+                        @endforeach
+                    @else
+                        0 уд
+                    @endif
+                    @if(count($technomin32019) >0)
+                        @foreach($technomin32019 as $n)
+                            {{$n->too}} мин
+                        @endforeach
+                    @else
+                        0 мин
+                    @endif</td>
                 <td> @if(count($techno3) >0)
                         @foreach($techno3 as $n)
                             {{$n->too}} уд
@@ -2589,7 +4332,22 @@
                   <tr>
                       <td> 13 </td>
                       <td> Өртөөнд 120 минутаас илүү зогссон</td>
-                      <td>0</td>
+                      <td>
+                          @if(count($iluu2019) >0)
+                              @foreach($iluu2019 as $n)
+                                  {{$n->too}} уд
+                              @endforeach
+                          @else
+                              0 уд
+                          @endif
+                          @if(count($iluumin2019) >0)
+                              @foreach($iluumin2019 as $n)
+                                  {{$n->too}} мин
+                              @endforeach
+                          @else
+                              0 мин
+                          @endif
+                      </td>
                       <td>
                           @if(count($iluu) >0)
                               @foreach($iluu as $n)
@@ -2606,7 +4364,20 @@
                               0 мин
                           @endif
                       </td>
-                      <td>0</td>
+                      <td> @if(count($iluu22019) >0)
+                              @foreach($iluu22019 as $n)
+                                  {{$n->too}} уд
+                              @endforeach
+                          @else
+                              0 уд
+                          @endif
+                          @if(count($iluumin22019) >0)
+                              @foreach($iluumin22019 as $n)
+                                  {{$n->too}} мин
+                              @endforeach
+                          @else
+                              0 мин
+                          @endif</td>
                       <td> @if(count($iluu2) >0)
                               @foreach($iluu2 as $n)
                                   {{$n->too}} уд
@@ -2621,7 +4392,20 @@
                           @else
                               0 мин
                           @endif</td>
-                      <td>0</td>
+                          <td> @if(count($iluu32019) >0)
+                              @foreach($iluu32019 as $n)
+                                  {{$n->too}} уд
+                              @endforeach
+                          @else
+                              0 уд
+                          @endif
+                          @if(count($iluumin32019) >0)
+                              @foreach($iluumin32019 as $n)
+                                  {{$n->too}} мин
+                              @endforeach
+                          @else
+                              0 мин
+                          @endif</td>
                       <td> @if(count($iluu3) >0)
                               @foreach($iluu3 as $n)
                                   {{$n->too}} уд
