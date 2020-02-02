@@ -135,7 +135,7 @@
                 <tr>
 
                   <td>I.Нийт тууз </td>
-                  <td> {{$achaa->ach + $achaa->aj + $achaa->bteg + $achaa->uz + $achaa->tur +$achaa->oros +$achaa->tsonh +$achaa->sel+$achaa->suud }}</td>
+                  <td> {{$achaa2019->ach + $achaa2019->aj + $achaa2019->bteg + $achaa2019->uz + $achaa2019->tur +$achaa2019->oros +$achaa2019->tsonh +$achaa2019->sel+$achaa2019->suud }}</td>
                     <td> {{$achaa->ach + $achaa->aj + $achaa->bteg + $achaa->uz + $achaa->tur +$achaa->oros +$achaa->tsonh +$achaa->sel+$achaa->suud }}</td>
                     <td>{{$achaa22019->ach + $achaa22019->aj + $achaa22019->bteg  + $achaa22019->uz + $achaa22019->tur +$achaa22019->oros +$achaa22019->tsonh +$achaa22019->sel+$achaa22019->suud}}</td>
                     <td>{{$achaa2->ach + $achaa2->aj + $achaa2->bteg  + $achaa2->uz + $achaa2->tur +$achaa2->oros +$achaa2->tsonh +$achaa2->sel+$achaa2->suud}}</td>
@@ -2131,7 +2131,7 @@
                             0 уд
                         @endif
                         @if(count($orohachaamin32019->suud) >0)
-                            {{$orohachaamin3->suud}} мин
+                            {{$orohachaamin32019->suud}} мин
                         @else
                             0 мин
                         @endif</td>
@@ -3055,7 +3055,7 @@
 
                               @endif
                           @endforeach</td>
-                          <td> @foreach($yaraltai373 as $n)
+                          <td> @foreach($yaraltai3732019 as $n)
                               @if($n->stop_id == 5 )
                                   {{$n->count}} уд
 
@@ -3067,7 +3067,7 @@
 
                               @endif
                           @endforeach</td>
-                      <td> @foreach($yaraltai3732019 as $n)
+                      <td> @foreach($yaraltai373 as $n)
                               @if($n->stop_id == 5 )
                                   {{$n->count}} уд
 
@@ -3976,7 +3976,21 @@
             <tr>          
               <td> 9 </td>
               <td>Тусламж авсан / Өртөөн дээрээс /</td>
-              <td>0</td>
+              <td> @if(count($tuslamjurtuu2019) >0)
+                      @foreach($tuslamjurtuu2019 as $n)
+                          {{$n->too}} уд
+                      @endforeach
+                  @else
+                      0 уд
+                  @endif
+                  @if(count($tuslamjurtuumin2019) >0)
+                      @foreach($tuslamjurtuumin2019 as $n)
+                          {{$n->too}} мин
+                      @endforeach
+                  @else
+                      0 мин
+                  @endif
+              </td>
               <td> @if(count($tuslamjurtuu) >0)
                       @foreach($tuslamjurtuu as $n)
                           {{$n->too}} уд
