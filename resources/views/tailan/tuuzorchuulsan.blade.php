@@ -2150,66 +2150,66 @@
                   
                   <td> 2. Орох дохионы зогсолт. Ачаа </td>
                   <td>
-                      @if(count($orohachaa2019->ach) >0)
-                          {{$orohachaa2019->ach}} уд
+                      @if(count($orohachaa2019->ach+$orohachaa2019->aj+$orohachaa2019->bteg+$orohachaa2019->uz) >0)
+                          {{$orohachaa2019->ach + $orohachaa2019->aj+$orohachaa2019->bteg+$orohachaa2019->uz}} уд
                       @else
                           0 уд
                       @endif
-                          @if(count($orohachaamin2019->ach) >0)
-                              {{$orohachaamin2019->ach}} мин
+                          @if(count($orohachaamin2019->ach+$orohachaamin2019->aj+$orohachaamin2019->bteg+$orohachaamin2019->uz) >0)
+                              {{$orohachaamin2019->ach+$orohachaamin2019->aj+$orohachaamin2019->bteg+$orohachaamin2019->uz}} мин
                           @else
                           0мин
                       @endif
                   </td>
                   <td>
-                      @if(count($orohachaa->ach) >0)
-                          {{$orohachaa->ach}} уд
+                      @if(count($orohachaa->ach+$orohachaa->aj+$orohachaa->bteg+$orohachaa->uz) >0)
+                          {{$orohachaa->ach+$orohachaa->aj+$orohachaa->bteg+$orohachaa->uz}} уд
                       @else
                           0 уд
                       @endif
-                          @if(count($orohachaamin->ach) >0)
-                              {{$orohachaamin->ach}} мин
+                          @if(count($orohachaamin->ach+$orohachaamin->aj+$orohachaamin->bteg+$orohachaamin->uz) >0)
+                              {{$orohachaamin->ach+$orohachaamin->aj+$orohachaamin->bteg+$orohachaamin->uz}} мин
                           @else
                           0мин
                       @endif
                   </td>
-                  <td>  @if(count($orohachaa22019->ach) >0)
-                            {{$orohachaa22019->ach}} уд
+                  <td>  @if(count($orohachaa22019->ach+$orohachaa22019->aj+$orohachaa22019->bteg+$orohachaa22019->uz) >0)
+                            {{$orohachaa22019->ach+$orohachaa22019->aj+$orohachaa22019->bteg+$orohachaa22019->uz}} уд
                         @else
                             0 уд
                         @endif
-                        @if(count($orohachaamin22019->ach) >0)
-                            {{$orohachaamin22019->ach}} мин
+                        @if(count($orohachaamin22019->ach+$orohachaamin22019->aj+$orohachaamin22019->bteg+$orohachaamin22019->uz) >0)
+                            {{$orohachaamin22019->ach+$orohachaamin22019->aj+$orohachaamin22019->bteg+$orohachaamin22019->uz}} мин
                         @else
                             0мин
                         @endif</td>
-                    <td>  @if(count($orohachaa2->ach) >0)
-                            {{$orohachaa2->ach}} уд
+                    <td>  @if(count($orohachaa2->ach+$orohachaa2->aj+$orohachaa2->bteg+$orohachaa2->uz) >0)
+                            {{$orohachaa2->ach+$orohachaa2->aj+$orohachaa2->bteg+$orohachaa2->uz}} уд
                         @else
                             0 уд
                         @endif
-                        @if(count($orohachaamin2->ach) >0)
-                            {{$orohachaamin2->ach}} мин
+                        @if(count($orohachaamin2->ach+$orohachaamin2->aj+$orohachaamin2->bteg+$orohachaamin2->uz) >0)
+                            {{$orohachaamin2->ach+$orohachaamin2->aj+$orohachaamin2->bteg+$orohachaamin2->uz}} мин
                         @else
                             0мин
                         @endif</td>
-                        <td>   @if(count($orohachaa32019->ach) >0)
-                            {{$orohachaa32019->ach}} уд
+                        <td>   @if(count($orohachaa32019->ach+$orohachaa32019->aj+$orohachaa32019->bteg+$orohachaa32019->uz) >0)
+                            {{$orohachaa32019->ach+$orohachaa32019->aj+$orohachaa32019->bteg+$orohachaa32019->uz}} уд
                         @else
                             0 уд
                         @endif
-                        @if(count($orohachaamin32019->ach) >0)
-                            {{$orohachaamin32019->ach}} мин
+                        @if(count($orohachaamin32019->ach+$orohachaamin32019->aj+$orohachaamin32019->bteg+$orohachaamin32019->uz) >0)
+                            {{$orohachaamin32019->ach+$orohachaamin32019->aj+$orohachaamin32019->bteg+$orohachaamin32019->uz}} мин
                         @else
                             0мин
                         @endif</td>
-                    <td>   @if(count($orohachaa3->ach) >0)
-                            {{$orohachaa3->ach}} уд
+                    <td>   @if(count($orohachaa3->ach+$orohachaa3->aj+$orohachaa3->bteg+$orohachaa3->uz) >0)
+                            {{$orohachaa3->ach+$orohachaa3->aj+$orohachaa3->bteg+$orohachaa3->uz}} уд
                         @else
                             0 уд
                         @endif
-                        @if(count($orohachaamin3->ach) >0)
-                            {{$orohachaamin3->ach}} мин
+                        @if(count($orohachaamin3->ach+$orohachaamin3->aj+$orohachaamin3->bteg+$orohachaamin3->uz) >0)
+                            {{$orohachaamin3->ach+$orohachaamin3->aj+$orohachaamin3->bteg+$orohachaamin3->uz}} мин
                         @else
                             0мин
                         @endif</td>
@@ -2217,66 +2217,66 @@
                 <tr>          
                   <td> Нийт орох дохионы зогсолт </td>
                   <td>
-                      @if(count($orohachaa2019->ach+$orohachaa2019->suud) >0)
-                          {{$orohachaa2019->ach+$orohachaa2019->suud}} уд
+                      @if(count($orohachaa2019->ach+$orohachaa2019->aj+$orohachaa2019->bteg+$orohachaa2019->uz+$orohachaa2019->suud) >0)
+                          {{$orohachaa2019->ach+$orohachaa2019->aj+$orohachaa2019->bteg+$orohachaa2019->uz+$orohachaa2019->suud}} уд
                       @else
                           0 уд
                       @endif
-                          @if(count($orohachaamin2019->ach+$orohachaamin2019->suud) >0)
+                          @if(count($orohachaamin->ach+$orohachaamin->aj+$orohachaamin->bteg+$orohachaamin->uz+$orohachaamin2019->suud) >0)
                               {{$orohachaamin2019->ach+$orohachaamin2019->suud}}мин
                           @else
                           0 мин
                       @endif
                       </td>
                   <td>
-                      @if(count($orohachaa->ach+$orohachaa->suud) >0)
-                          {{$orohachaa->ach+$orohachaa->suud}} уд
+                      @if(count($orohachaa->ach+$orohachaa->aj+$orohachaa->bteg+$orohachaa->uz+$orohachaa->suud) >0)
+                          {{$orohachaa->ach+$orohachaa->aj+$orohachaa->bteg+$orohachaa->uz+$orohachaa->suud}} уд
                       @else
                           0 уд
                       @endif
-                          @if(count($orohachaamin->ach+$orohachaamin->suud) >0)
-                              {{$orohachaamin->ach+$orohachaamin->suud}}мин
+                          @if(count($orohachaamin->ach+$orohachaamin->aj+$orohachaamin->bteg+$orohachaamin->uz+$orohachaamin->suud) >0)
+                              {{$orohachaamin->ach+$orohachaamin->aj+$orohachaamin->bteg+$orohachaamin->uz+$orohachaamin->suud}}мин
                           @else
                           0 мин
                       @endif
                   </td>
-                  <td> @if(count($orohachaa22019->ach+$orohachaa22019->suud) >0)
-                            {{$orohachaa22019->ach+$orohachaa22019->suud}} уд
+                  <td> @if(count($orohachaa22019->ach+$orohachaa22019->aj+$orohachaa22019->bteg+$orohachaa22019->uz+$orohachaa22019->suud) >0)
+                            {{$orohachaa22019->ach+$orohachaa22019->aj+$orohachaa22019->bteg+$orohachaa22019->uz+$orohachaa22019->suud}} уд
                         @else
                             0 уд
                         @endif
-                        @if(count($orohachaamin22019->ach+$orohachaamin2019->suud) >0)
-                            {{$orohachaamin22019->ach+$orohachaamin22019->suud}} мин
+                        @if(count($orohachaamin22019->ach+$orohachaamin22019->aj+$orohachaamin22019->bteg+$orohachaamin22019->uz+$orohachaamin2019->suud) >0)
+                            {{$orohachaamin22019->ach+$orohachaamin22019->aj+$orohachaamin22019->bteg+$orohachaamin22019->uz+$orohachaamin22019->suud}} мин
                         @else
                             0 мин
                         @endif</td>
-                    <td> @if(count($orohachaa2->ach+$orohachaa2->suud) >0)
-                            {{$orohachaa2->ach+$orohachaa2->suud}} уд
+                    <td> @if(count($orohachaa2->ach+$orohachaa2->aj+$orohachaa2->bteg+$orohachaa2->uz+$orohachaa2->suud) >0)
+                            {{$orohachaa2->ach+$orohachaa2->aj+$orohachaa2->bteg+$orohachaa2->uz+$orohachaa2->suud}} уд
                         @else
                             0 уд
                         @endif
-                        @if(count($orohachaamin2->ach+$orohachaamin2->suud) >0)
-                            {{$orohachaamin2->ach+$orohachaamin2->suud}} мин
+                        @if(count($orohachaamin2->ach+$orohachaamin2->aj+$orohachaamin2->bteg+$orohachaamin2->uz+$orohachaamin2->suud) >0)
+                            {{$orohachaamin2->ach+$orohachaamin2->aj+$orohachaamin2->bteg+$orohachaamin2->uz+$orohachaamin2->suud}} мин
                         @else
                             0 мин
                         @endif</td>
-                        <td>  @if(count($orohachaa32019->ach+$orohachaa32019->suud) >0)
-                            {{$orohachaa32019->ach+$orohachaa32019->suud}} уд
+                        <td>  @if(count($orohachaa32019->ach+$orohachaa32019->aj+$orohachaa32019->bteg+$orohachaa32019->uz+$orohachaa32019->suud) >0)
+                            {{$orohachaa32019->ach+$orohachaa32019->aj+$orohachaa32019->bteg+$orohachaa32019->uz+$orohachaa32019->suud}} уд
                         @else
                             0 уд
                         @endif
-                        @if(count($orohachaamin32019->ach+$orohachaamin32019->suud) >0)
-                            {{$orohachaamin32019->ach+$orohachaamin32019->suud}} мин
+                        @if(count($orohachaamin32019->ach+$orohachaamin32019->aj+$orohachaamin32019->bteg+$orohachaamin32019->uz+$orohachaamin32019->suud) >0)
+                            {{$orohachaamin32019->ach+$orohachaamin32019->aj+$orohachaamin32019->bteg+$orohachaamin32019->uz+$orohachaamin32019->suud}} мин
                         @else
                             0 мин
                         @endif</td>
-                    <td>  @if(count($orohachaa3->ach+$orohachaa3->suud) >0)
-                            {{$orohachaa3->ach+$orohachaa3->suud}} уд
+                    <td>  @if(count($orohachaa3->ach+$orohachaa3->aj+$orohachaa3->bteg+$orohachaa3->uz+$orohachaa3->suud) >0)
+                            {{$orohachaa3->ach+$orohachaa3->aj+$orohachaa3->bteg+$orohachaa3->uz+$orohachaa3->suud}} уд
                         @else
                             0 уд
                         @endif
-                        @if(count($orohachaamin3->ach+$orohachaamin3->suud) >0)
-                            {{$orohachaamin3->ach+$orohachaamin3->suud}} мин
+                        @if(count($orohachaamin3->ach+$orohachaamin3->aj+$orohachaamin3->bteg+$orohachaamin3->uz+$orohachaamin3->suud) >0)
+                            {{$orohachaamin3->ach+$orohachaamin3->aj+$orohachaamin3->bteg+$orohachaamin3->uz+$orohachaamin3->suud}} мин
                         @else
                             0 мин
                         @endif</td>
