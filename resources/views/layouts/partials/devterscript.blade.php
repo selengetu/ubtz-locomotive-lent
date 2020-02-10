@@ -391,7 +391,7 @@ $("#marshurtuu30").on('click','tr',function(e) {
                         "   <td class='m2'>" + qwe.mashname + "</td>" +
                         "   <td class='m3'>" + qwe.tuslname + "</td>" +
                         "   <td class='m3'>" + qwe.locserial + "</td>"+
-                        "   <td class='m3'>" + qwe.locno + "</td>"+
+                        "   <td class='m3'>" + qwe.zutnumber + "</td>"+
 
                         "   <td class='m3'>" + qwe.train_no + "</td>"+
                         "   <td class='m3'>" + qwe.speedcontrollerno + "</td>"+
@@ -421,7 +421,7 @@ $("#marshurtuu30").on('click','tr',function(e) {
                       "   <td class='m2'>" + qwe.mashname + "</td>" +
                       "   <td class='m3'>" + qwe.tuslname + "</td>" +
                       "   <td class='m3'>" + qwe.locserial + "</td>"+
-                      "   <td class='m3'>" + qwe.locno + "</td>"+
+                      "   <td class='m3'>" + qwe.zutnumber + "</td>"+
                       "   <td class='m3'>" + qwe.train_no + "</td>"+
                       "   <td class='m3'>" + qwe.speedcontrollerno + "</td>"+
 
