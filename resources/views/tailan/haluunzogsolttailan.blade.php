@@ -132,10 +132,6 @@
                                                   	@if($p!=$haluuns->station_id and $p>0 )
                                                       <tr>
                                                           <td colspan="2"><center>Дүн</center></td>
-
-
-
-
                                                           <td>{{number_format($i1)}}</td>
                                                           <td>{{$i5}}</td>
                                                           <td>{{$i6}}</td>
@@ -161,7 +157,7 @@
                                                           <td>{{$haluuns->niit}} </td>
                                                           <td> <?php echo str_pad(floor($haluuns->niitajil / 60),  2, "0", STR_PAD_LEFT)?>:<?php echo str_pad(floor($haluuns->niitajil % 60),  2, "0", STR_PAD_LEFT) ?>:00    <?php $d =(explode(':', $haluuns->niitajil))  ?></td>
                                                           <td><?php echo str_pad(floor($haluuns->yalgawar / 60),  2, "0", STR_PAD_LEFT)?>:<?php echo str_pad(floor($haluuns->yalgawar % 60),  2, "0", STR_PAD_LEFT) ?>:00 </td>
-                                                          <td><?php $i10= round(($haluuns->yalgawar/($haluuns->niit*720))*100, 2) ?>{{$i10}}%</td>
+                                                          <td><?php $i10= round(($haluuns->yalgawar/($haluuns->niitajil))*100, 2) ?>{{$i10}}%</td>
                                                           <td> <?php echo str_pad(floor($haluuns->haluun / 60),  2, "0", STR_PAD_LEFT)?>:<?php echo str_pad(floor($haluuns->haluun % 60),  2, "0", STR_PAD_LEFT) ?>:00</td>
                                                           <td><?php $i11= 100-$i10 ?>{{$i11}}%</td>
 
@@ -173,7 +169,7 @@
                                                           <td>{{$haluuns->niit}}</td>
                                                           <td> <?php echo str_pad(floor($haluuns->niitajil / 60),  2, "0", STR_PAD_LEFT)?>:<?php echo str_pad(floor($haluuns->niitajil % 60),  2, "0", STR_PAD_LEFT) ?>:00 <?php $d =(explode(':', $haluuns->niitajil))  ?></td>
                                                           <td> <?php echo str_pad(floor($haluuns->yalgawar / 60),  2, "0", STR_PAD_LEFT)?>:<?php echo str_pad(floor($haluuns->yalgawar % 60),  2, "0", STR_PAD_LEFT) ?>:00</td>
-                                                          <td><?php $i10= round(($haluuns->yalgawar/($haluuns->niit*720))*100, 2) ?>{{$i10}}%</td>
+                                                          <td><?php $i10= round(($haluuns->yalgawar/($haluuns->niitajil))*100, 2) ?>{{$i10}}%</td>
                                                           <td><?php echo str_pad(floor($haluuns->haluun / 60),  2, "0", STR_PAD_LEFT)?>:<?php echo str_pad(floor($haluuns->haluun % 60),  2, "0", STR_PAD_LEFT) ?>:00 </td>
                                                           <td><?php $i11= 100-$i10 ?>{{$i11}}%</td>
 
@@ -196,10 +192,6 @@
                                                   if(++$iall === $all) { ?>
                                                     <tr>
                                                         <td colspan="2"><center>Дүн</center></td>
-
-
-
-
                                                         <td>{{number_format($i1)}}</td>
                                                         <td> {{$i5}}</td>
                                                         <td> {{$i6}}</td>
