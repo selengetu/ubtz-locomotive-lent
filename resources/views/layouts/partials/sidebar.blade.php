@@ -75,6 +75,33 @@
                             </ul>
 
                         </li>
+     <li class="nav-item  ">
+         <a href="" class="nav-link nav-toggle">
+             <i class="icon-bar-chart"></i>
+             <span class="title">Суудлын нөхөлтийн тайлан</span>
+             <span class="arrow"></span>
+         </a>
+         <ul class="sub-menu">
+             <li class="nav-item  ">
+                 <a href="{{ route('nagon') }}" class="nav-link ">
+
+                     <span class="title">Суудлын нөхөлт</span>
+
+                 </a>
+
+             </li>
+
+             <li class="nav-item  ">
+                 <a href="{{ route('machinistnagon') }}" class="nav-link ">
+
+                     <span class="title">Машинчийн нөхөлт </span>
+
+                 </a>
+
+             </li>
+         </ul>
+
+     </li>
                              <li class="nav-item  ">
                             <a href="{{ route('attention') }}" class="nav-link nav-toggle">
                                <i class="icon-bar-chart"></i>
@@ -163,14 +190,7 @@
                                             </a>
 
                                         </li>
-                                        <li class="nav-item  ">
-                                            <a href="{{ route('nagon') }}" class="nav-link ">
 
-                                                <span class="title">Суудлын нөхөлт</span>
-
-                                            </a>
-
-                                        </li>
                                         <li class="nav-item  ">
                                             <a href="{{ route('hurdhureegui') }}" class="nav-link ">
 
