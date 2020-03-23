@@ -3246,4 +3246,33 @@ select * from
 
         return view('tailan.normative')->with(['zurchil'=>$zurchil,'startdate'=>$startdate,'enddate'=>$enddate,'user'=>$user]);
     }
+    public function machinistnagon()
+    {
+        $query = "";
+        $startdate= Input::get('mach_start');
+        $enddate= Input::get('mach_end');
+  ;       if ($startdate !=0 && $startdate && $enddate !=0 && $enddate !=NULL) {
+            $query.=" and arrtime between TO_DATE( '".$startdate." 00:00:00' , 'yyyy/mm/dd HH24:MI:SS') and TO_DATE( '".$enddate." 23:59:59', 'yyyy/mm/dd HH24:MI:SS')";
+        }
+        else
+        {
+            $query.=" and arrtime between sysdate-10 and sysdate";
+            $startdate= Carbon::today()->subDays(10)->toDateString();
+            $enddate=  Carbon::today()->toDateString();
+
+        }
+
+        $machinist = DB::select("select t.DEPOCODE,t.MASHCODE, t.MASHNAME, sum(SUBSTR(t.patchmin, 1, 2)*60 + SUBSTR(t.patchmin, 4, 2)) as NUHULT
+                              from v_nagon t 
+                              where t.patchmin !='00:00:00' and t.mashname is not null and t.DEPOCODE<14  ".$query."
+                               group by t.DEPOCODE,t.MASHCODE, t.MASHNAME
+                               order by t.MASHCODE");
+        $tuslah = DB::select("  select t.DEPOCODE,t.TUSLCODE, t.TUSLNAME, sum(SUBSTR(t.patchmin, 1, 2)*60 + SUBSTR(t.patchmin, 4, 2)) as NUHULT
+                              from v_nagon t 
+                              where t.patchmin !='00:00:00' and t.mashname is not null and t.DEPOCODE<14  ".$query."
+                               group by t.DEPOCODE,t.TUSLCODE, t.TUSLNAME
+                               order by t.TUSLCODE");
+
+        return view('tailan.machinistnagon')->with(['startdate' => $startdate, 'enddate' => $enddate, 'machinist' => $machinist, 'tuslah' => $tuslah]);
+    }
 }

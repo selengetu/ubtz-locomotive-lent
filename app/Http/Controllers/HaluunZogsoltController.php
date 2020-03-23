@@ -232,4 +232,7 @@ group by r.depo_id,
         activity()->log('Haluun zogsolt updated');
 
     }
+
+
+
 }
