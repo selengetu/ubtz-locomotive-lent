@@ -77,7 +77,7 @@
                  
                    <div class="table-container">
                    <button class="btn btn-info" id="buttonprint" onclick="printDiv()"><i class="fa fa-print" aria-hidden="true"></i>Хэвлэх</button>
-                        <button class="btn btn-info" id="btnExport" onclick="tableToExcel('testTable', 'Export HTML Table to Excel')"><i class="fa fa-table" aria-hidden="true"></i> Excel </button>
+                        <button class="btn btn-info" id="btnExport" onclick="tablesToExcel(array1, array2, 'myfile.xls')"><i class="fa fa-table" aria-hidden="true"></i> Excel </button>
                       <p><center><b> {{$startdate}} -аас {{$enddate}} -ны хажуугийн замын судалгаа</b></center> </p>
           <div class="table-responsive">
       <table class="table table-striped table-bordered table-hover"  id="example">
@@ -126,10 +126,49 @@
                                              <center><b>Нийт: {{$no-1}} удаа</b></center>
   </div>
 </div>
+<div class="table-container" style="width: 50%">
+          <div class="dataTables_wrapper form-inline dt-bootstrap no-footer ">
+      <table class="table table-striped table-bordered table-hover">
+      <thead style="background-color: #81b5d5; color: #fff">
+                                                    <tr>
+                                                      <?php $sum_count = 0 ?>
+                                                      <?php $sum_sum = 0 ?>
+                                                        <th> # </th>
+                                                        <th> Өртөө </th>
+                                                        <th> Удаа </th>
+                                                      </tr>
+                                                </thead>
+    
+                                              <tbody>
+                                                     <?php $no = 1; ?>
+                               @foreach($z as $too)
+                                                    <tr>
+                                <td>{{$no}}</td>
+                                <td>{{$too->fromstat}} - {{$too->tostat}}</td>
+                                <td>{{$too->niit}} </td>                       
+                              <?php $sum_count += ($too->niit) ?>     
+                          </tr>
+                             <?php $no++; ?>
+                         @endforeach    
+                            <tr>
+              <td colspan="2"><center>Нийт</center> </td>
+              <td>{{($sum_count)}} </td>
+
+            
+            </tr>
+                        
+            
+          </tbody>
+                                            </table>
+  </div>
+
+                
+               
+                </div>
           <div id="printarea"  style=" display:none;" >
                        <p><center><b> {{$startdate}} -аас {{$enddate}} -ны хажуугийн замын судалгаа</b></center> </p>
           <div class="table-responsive">
-      <table class="table table-striped table-bordered table-hover" id="testTable"  border="1" cellspacing="0">
+      <table class="table table-striped table-bordered table-hover" id="1"  border="1" cellspacing="0">
                                   <thead style="background-color: #81b5d5; color: #fff">
                                                     <tr>
                                                         <th> # </th>
@@ -175,6 +214,43 @@
                                              <center><b>Нийт: {{$no-1}} удаа</b></center>
                                                <br>
      <br>
+     <table class="table table-striped table-bordered table-hover"  id="2"  border="1" cellspacing="0">
+                                                     <thead style="background-color: #81b5d5; color: #fff">
+                                                    <tr>
+                                                      <?php $sum_count = 0 ?>
+                                                      <?php $sum_sum = 0 ?>
+                                                        <th> # </th>
+                                                        <th> Өртөө </th>
+                                                        <th> Удаа </th>
+                                                    
+                                                      </tr>
+                                                </thead>
+    
+                                              <tbody>
+                                                     <?php $no = 1; ?>
+                               @foreach($z as $too)
+                                                    <tr>
+                                <td>{{$no}}</td>
+                                <td>{{$too->fromstat}} - {{$too->tostat}}</td>
+                            
+                                <td>{{$too->niit}} </td>
+                        
+                              <?php $sum_count += ($too->niit) ?>
+                             
+                              
+                          </tr>
+                             <?php $no++; ?>
+                         @endforeach    
+                            <tr>
+              <td colspan="2"><center>Нийт</center> </td>
+              <td>{{($sum_count)}} </td>
+
+            
+            </tr>
+                        
+            
+          </tbody>
+                                            </table>
      <div class="row">
         <div class="col-md-6" style="padding: 10px 100px"><span> ТАЙЛАН ГАРГАСАН: Тууз орчуулагч:</span><span style="margin-left: 180px"> {{ Auth::user()->name }}</span>
       </div> 
@@ -244,36 +320,62 @@
 }
 
 </script>
- <script type="text/javascript">
-        var tableToExcel = (function () {
-            var uri = 'data:application/vnd.ms-excel;base64,'
-                , template = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40"><head><!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet><x:Name>{worksheet}</x:Name><x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions></x:ExcelWorksheet></x:ExcelWorksheets></x:ExcelWorkbook></xml><![endif]--></head><body>   <p><center><b> {{$startdate}} -аас {{$enddate}} -ны хажуугийн замын судалгаа</b></center> </p><table border="1">{table}</table>  <center><b>Нийт: {{$no-1}} удаа</b></center><span> ТАЙЛАН ГАРГАСАН: Тууз орчуулагч:</span><span style="margin-left: 180px"> {{ Auth::user()->name }}</span></body></html>'
-                , base64 = function (s) { return window.btoa(unescape(encodeURIComponent(s))) }
-                , format = function (s, c) { return s.replace(/{(\w+)}/g, function (m, p) { return c[p]; }) }
-            return function (table, name) {
-                if (!table.nodeType) table = document.getElementById(table)
-                var ctx = { worksheet: name || 'Worksheet', table: table.innerHTML }
-                var blob = new Blob([format(template, ctx)]);
-                var blobURL = window.URL.createObjectURL(blob);
- 
-                if (ifIE()) {
-                    csvData = table.innerHTML;
-                    if (window.navigator.msSaveBlob) {
-                        var blob = new Blob([format(template, ctx)], {
-                            type: "text/html"
-                        });
-                        navigator.msSaveBlob(blob, '' + name + '.xls');
-                    }
-                }
-                else
-                window.location.href = uri + base64(format(template, ctx))
+<script type="text/javascript">
+       var array1 = new Array();
+    var array2 = new Array();
+    var n = 2; //Total table
+    for ( var x=1; x<=n; x++ ) {
+        array1[x-1] = x;
+        array2[x-1] = x + 'th';
+    }
+
+    var tablesToExcel = (function () {
+        var uri = 'data:application/vnd.ms-excel;base64,'
+        , template = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40"><head><!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets>'
+        , templateend = '</x:ExcelWorksheets></x:ExcelWorkbook></xml><![endif]--></head>'
+        , body = '<body> <p><center><b> {{$startdate}} -аас {{$enddate}} -ны өртөөнд 30 -аас дээш минут зогссон судалгаа</b></center> </p>'
+        , tablevar = '<table border="1">{table'
+        , tablevarend = '}</table><br><br>'
+        , bodyend = '<span> ТАЙЛАН ГАРГАСАН: Тууз орчуулагч:</span><span style="margin-left: 180px"> {{ Auth::user()->name }}</span></body></html>'
+        , worksheet = '<x:ExcelWorksheet><x:Name>'
+        , worksheetend = '</x:Name><x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions></x:ExcelWorksheet>'
+        , worksheetvar = '{worksheet'
+        , worksheetvarend = '}'
+        , base64 = function (s) { return window.btoa(unescape(encodeURIComponent(s))) }
+        , format = function (s, c) { return s.replace(/{(\w+)}/g, function (m, p) { return c[p]; }) }
+        , wstemplate = ''
+        , tabletemplate = '';
+
+        return function (table, name, filename) {
+            var tables = table;
+
+            for (var i = 0; i < tables.length; ++i) {
+                wstemplate += worksheet + worksheetvar + i + worksheetvarend + worksheetend;
+                tabletemplate += tablevar + i + tablevarend;
             }
-        })()
- 
-        function ifIE() {
-            var isIE11 = navigator.userAgent.indexOf(".NET CLR") > -1;
-            var isIE11orLess = isIE11 || navigator.appVersion.indexOf("MSIE") != -1;
-            return isIE11orLess;
+
+            var allTemplate = template + wstemplate + templateend;
+            var allWorksheet = body + tabletemplate + bodyend;
+            var allOfIt = allTemplate + allWorksheet;
+
+            var ctx = {};
+            for (var j = 0; j < tables.length; ++j) {
+                ctx['worksheet' + j] = name[j];
+            }
+
+            for (var k = 0; k < tables.length; ++k) {
+                var exceltable;
+                if (!tables[k].nodeType) exceltable = document.getElementById(tables[k]);
+                ctx['table' + k] = exceltable.innerHTML;
+            }
+
+            //document.getElementById("dlink").href = uri + base64(format(template, ctx));
+            //document.getElementById("dlink").download = filename;
+            //document.getElementById("dlink").click();
+
+            window.location.href = uri + base64(format(allOfIt, ctx));
+
         }
+    })();
     </script>
 @endsection

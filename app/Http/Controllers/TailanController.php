@@ -3130,8 +3130,12 @@ group by q2.depo_id,q2.marshyear, q2.marshmonth");
                     $enddate=  Carbon::today()->toDateString();
         }
         $zurchil=DB::select('select  * from ZURCHIL_HAJUUGIINZAM t where t.depocode = '.Auth::user()->depo_id. ' '.$query.'');
+        $z=DB::select('select  fromst, fromstat, tost, tostat ,count(route_id) as niit from ZURCHIL_HAJUUGIINZAM t
+        where t.depocode = '.Auth::user()->depo_id. ' '.$query.'
+        group by fromst, fromstat, tost, tostat
+        order by fromstat, tostat');
            
-        return view('tailan.hajuugiinzam')->with(['zurchil'=>$zurchil,'startdate'=>$startdate,'enddate'=>$enddate]);
+        return view('tailan.hajuugiinzam')->with(['z'=>$z,'zurchil'=>$zurchil,'startdate'=>$startdate,'enddate'=>$enddate]);
     }
      public function buguiwch()
     {
