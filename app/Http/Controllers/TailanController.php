@@ -117,8 +117,10 @@ PIVOT
   COUNT( workcountid)
   FOR workcountid IN (1 as suud, 2 as ach ,3 as aj,4 as bteg, 5 as sel ,6 as uz ,7 as tur, 8 as oros, 9 as tsonh )
 )")[0];
+
 if($month ==3){
     $m = "(1,2,3)";
+
 }
     if($month==6){
         $m = "(4,5,6)";
@@ -129,10 +131,9 @@ if($month ==3){
     if($month ==12){
         $m = "(10,11,12)";
     }
-    else{
+    if($month ==1 or $month ==2 or $month ==4 or $month ==5 or $month ==7 or $month ==8 or $month ==10 or $month ==11){
         $m = "($month)";
     }
-
     $achaa22019=DB::select("SELECT sum(suud) as suud ,sum(ach) as ach ,sum(aj) as aj ,sum(bteg) as bteg , 
     sum(sel) as sel , sum(uz) as uz , sum(tur) as tur , sum(oros) as oros ,  sum(tsonh) as tsonh
     FROM
