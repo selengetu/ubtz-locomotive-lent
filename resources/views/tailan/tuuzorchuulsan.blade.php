@@ -144,7 +144,7 @@
                 </tr>
             
                 <tr>          
-                  <td rowspan="26" >2</td>
+                  <td rowspan="27" >2</td>
                   <td> 1.Хурд хэтрүүлсэн </td>
                   <td>    @foreach($zurchil2019 as $n)
                           @if($n->fault_detail_id == 32 )
