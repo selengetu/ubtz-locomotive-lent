@@ -1136,7 +1136,8 @@
                               @endif
                           @endforeach</td>
                   </tr>
-                    <tr>
+                
+                  <tr>
                       <td> 19.Дуут дохио өгөөгүй </td>
                       <td>
                           @foreach($zurchil2019 as $n)
@@ -1183,9 +1184,55 @@
                               @endif
                           @endforeach</td>
                   </tr>
-
                   <tr>
-                      <td> 20.Бусад </td>
+                      <td> 20.Кон төхөөрөмж</td>
+                      <td>
+                          @foreach($zurchil2019 as $n)
+                              @if($n->fault_detail_id == 121 )
+                                  {{$n->cnt}}
+
+                              @endif
+                          @endforeach
+                      </td>
+                      <td>
+                          @foreach($zurchil as $n)
+                              @if($n->fault_detail_id == 121 )
+                                  {{$n->cnt}}
+
+                              @endif
+                          @endforeach
+                      </td>
+                      <td>
+                          @foreach($zurchil22019 as $n)
+                              @if($n->fault_detail_id == 121 )
+                                  {{$n->cnt}}
+
+                              @endif
+                          @endforeach
+                      </td>>
+                      <td>  @foreach($zurchil2 as $n)
+                              @if($n->fault_detail_id == 121 )
+                                  {{$n->cnt}}
+
+                              @endif
+                          @endforeach</td>
+                          <td>
+                          @foreach($zurchil32019 as $n)
+                              @if($n->fault_detail_id == 121 )
+                                  {{$n->cnt}}
+
+                              @endif
+                          @endforeach
+                      </td>
+                      <td>  @foreach($zurchil3 as $n)
+                              @if($n->fault_detail_id == 121 )
+                                  {{$n->cnt}}
+
+                              @endif
+                          @endforeach</td>
+                  </tr>
+                  <tr>
+                      <td> 21.Бусад </td>
                       <td>
                           @foreach($zurchil2019 as $n)
                               @if($n->fault_detail_id == 41 )
