@@ -295,15 +295,7 @@ $("#marshurtuu30").on('click','tr',function(e) {
          });
 
           });
-                      $.get('getmarshselgee/'+itag,function(data){
-
-             $.each(data,function(i,qwe){
-                    $('#conzut').val(qwe.parent_id);
-                    $('#conzutseri').val(qwe.child_seri);       
-         });
-       
-  
-          });
+         
                 $.get('getmarshburel/'+itag,function(data){
                     $("#marshburel tbody").empty();    
              $.each(data,function(i,qwe1){
