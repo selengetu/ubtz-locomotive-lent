@@ -84,7 +84,7 @@ Route::get('/getmarshbrig/{id?}',function($id = 0){
 
 Route::get('/getmarshtuuz/{id?}',function($id = 0){
 				$dt=DB::table('V_RIBBON')
-                ->where('route_id','=',$id)->where('depocode', '=', Auth::user()->depo_id)->orderby('split_id')->get();
+                ->where('route_id','=',$id)->where('depo_id', '=', Auth::user()->depo_id)->orderby('split_id')->get();
 				return $dt;
 					});	
 Route::get('/getmarshattention/{id?}',function($id = 0){	

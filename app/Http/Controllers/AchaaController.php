@@ -489,7 +489,7 @@ FROM
          }
          else 
          {
-             $stat = DB::table('V_MARSHBUREL')->where('depocode', '=', 1)->where('marshid', '=',Request::input('tuuzmarsh'))->get();
+             $stat = DB::table('V_MARSHBUREL')->where('depocode', '=', Auth::user()->depo_id)->where('marshid', '=',Request::input('tuuzmarsh'))->get();
             
              foreach ($stat as $row) {
                  $gol =$row->sgolnum + $row->achgol + $row->empgol;
