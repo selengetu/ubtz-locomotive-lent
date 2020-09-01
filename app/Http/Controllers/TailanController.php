@@ -218,7 +218,7 @@ PIVOT
                             d.broketype
                             from  ribbon t
                           inner join ZUTGUUR.MARSHBRIG g on g.marshid=t.route_id and g.depocode=t.depo_id
-                            inner join ZUTGUUR.MARSHZUT e on e.marshid=t.route_id e.depocode=t.depo_id
+                            inner join ZUTGUUR.MARSHZUT e on e.marshid=t.route_id and e.depocode=t.depo_id
                             inner join fault f on f.ribbon_id = t.ribbon_id
                             left join fault_det d on d.fault_id=f.fault_id
                             where t.depo_id=g.depocode
@@ -242,7 +242,7 @@ PIVOT
                             d.broketype
                             from  ribbon t
                            inner join ZUTGUUR.MARSHBRIG g on g.marshid=t.route_id and g.depocode=t.depo_id
-                            inner join ZUTGUUR.MARSHZUT e on e.marshid=t.route_id e.depocode=t.depo_id
+                            inner join ZUTGUUR.MARSHZUT e on e.marshid=t.route_id and e.depocode=t.depo_id
                             inner join fault f on f.ribbon_id = t.ribbon_id
                             left join fault_det d on d.fault_id=f.fault_id
                             where t.depo_id=g.depocode
@@ -266,7 +266,7 @@ PIVOT
                             d.broketype
                             from  ribbon t
                           inner join ZUTGUUR.MARSHBRIG g on g.marshid=t.route_id and g.depocode=t.depo_id
-                            inner join ZUTGUUR.MARSHZUT e on e.marshid=t.route_id e.depocode=t.depo_id
+                            inner join ZUTGUUR.MARSHZUT e on e.marshid=t.route_id and e.depocode=t.depo_id
                             inner join fault f on f.ribbon_id = t.ribbon_id
                             left join fault_det d on d.fault_id=f.fault_id
                             where t.depo_id=g.depocode
@@ -290,7 +290,7 @@ PIVOT
                             d.broketype
                             from  ribbon t
                           inner join ZUTGUUR.MARSHBRIG g on g.marshid=t.route_id and g.depocode=t.depo_id
-                            inner join ZUTGUUR.MARSHZUT e on e.marshid=t.route_id e.depocode=t.depo_id
+                            inner join ZUTGUUR.MARSHZUT e on e.marshid=t.route_id and e.depocode=t.depo_id
                             inner join fault f on f.ribbon_id = t.ribbon_id
                             left join fault_det d on d.fault_id=f.fault_id
                             where t.depo_id=g.depocode
@@ -315,7 +315,7 @@ PIVOT
                             d.broketype
                             from  ribbon t
                           inner join ZUTGUUR.MARSHBRIG g on g.marshid=t.route_id and g.depocode=t.depo_id
-                            inner join ZUTGUUR.MARSHZUT e on e.marshid=t.route_id e.depocode=t.depo_id
+                            inner join ZUTGUUR.MARSHZUT e on e.marshid=t.route_id and e.depocode=t.depo_id
                             inner join fault f on f.ribbon_id = t.ribbon_id
                             left join fault_det d on d.fault_id=f.fault_id
                             where t.depo_id=g.depocode
@@ -339,7 +339,7 @@ PIVOT
                             d.broketype
                             from  ribbon t
                           inner join ZUTGUUR.MARSHBRIG g on g.marshid=t.route_id and g.depocode=t.depo_id
-                            inner join ZUTGUUR.MARSHZUT e on e.marshid=t.route_id e.depocode=t.depo_id
+                            inner join ZUTGUUR.MARSHZUT e on e.marshid=t.route_id and e.depocode=t.depo_id
                             inner join fault f on f.ribbon_id = t.ribbon_id
                             left join fault_det d on d.fault_id=f.fault_id
                             where t.depo_id=g.depocode
@@ -362,7 +362,7 @@ PIVOT
                             d.broketype
                             from  ribbon t
                           inner join ZUTGUUR.MARSHBRIG g on g.marshid=t.route_id and g.depocode=t.depo_id
-                            inner join ZUTGUUR.MARSHZUT e on e.marshid=t.route_id e.depocode=t.depo_id
+                            inner join ZUTGUUR.MARSHZUT e on e.marshid=t.route_id and e.depocode=t.depo_id
                             inner join fault f on f.ribbon_id = t.ribbon_id
                             left join fault_det d on d.fault_id=f.fault_id
                             where t.depo_id=g.depocode
@@ -386,7 +386,7 @@ PIVOT
                             d.stoptime
                             from  ribbon t
                           inner join ZUTGUUR.MARSHBRIG g on g.marshid=t.route_id and g.depocode=t.depo_id
-                            inner join ZUTGUUR.MARSHZUT e on e.marshid=t.route_id e.depocode=t.depo_id
+                            inner join ZUTGUUR.MARSHZUT e on e.marshid=t.route_id and e.depocode=t.depo_id
                             inner join fault f on f.ribbon_id = t.ribbon_id
                             left join fault_det d on d.fault_id=f.fault_id
                             where t.depo_id=g.depocode
@@ -410,7 +410,7 @@ PIVOT
                             d.stoptime
                             from  ribbon t
                           inner join ZUTGUUR.MARSHBRIG g on g.marshid=t.route_id and g.depocode=t.depo_id
-                            inner join ZUTGUUR.MARSHZUT e on e.marshid=t.route_id e.depocode=t.depo_id
+                            inner join ZUTGUUR.MARSHZUT e on e.marshid=t.route_id and e.depocode=t.depo_id
                             inner join fault f on f.ribbon_id = t.ribbon_id
                             left join fault_det d on d.fault_id=f.fault_id
                             where t.depo_id=g.depocode
@@ -434,7 +434,7 @@ PIVOT
                             d.stoptime
                             from  ribbon t
                           inner join ZUTGUUR.MARSHBRIG g on g.marshid=t.route_id and g.depocode=t.depo_id
-                            inner join ZUTGUUR.MARSHZUT e on e.marshid=t.route_id e.depocode=t.depo_id
+                            inner join ZUTGUUR.MARSHZUT e on e.marshid=t.route_id and e.depocode=t.depo_id
                             inner join fault f on f.ribbon_id = t.ribbon_id
                             left join fault_det d on d.fault_id=f.fault_id
                             where t.depo_id=g.depocode
@@ -1474,7 +1474,7 @@ $hurd22019 =DB::select("select b.broketype_id, b.broketype_name, count(o.brokety
                             d.broketype
                             from  ribbon t
                           inner join ZUTGUUR.MARSHBRIG g on g.marshid=t.route_id and g.depocode=t.depo_id
-                            inner join ZUTGUUR.MARSHZUT e on e.marshid=t.route_id e.depocode=t.depo_id
+                            inner join ZUTGUUR.MARSHZUT e on e.marshid=t.route_id and e.depocode=t.depo_id
                             inner join fault f on f.ribbon_id = t.ribbon_id
                             left join fault_det d on d.fault_id=f.fault_id
                             where t.depo_id=g.depocode
@@ -1498,7 +1498,7 @@ $hurd22019 =DB::select("select b.broketype_id, b.broketype_name, count(o.brokety
                             d.broketype
                             from  ribbon t
                           inner join ZUTGUUR.MARSHBRIG g on g.marshid=t.route_id and g.depocode=t.depo_id
-                            inner join ZUTGUUR.MARSHZUT e on e.marshid=t.route_id e.depocode=t.depo_id
+                            inner join ZUTGUUR.MARSHZUT e on e.marshid=t.route_id and e.depocode=t.depo_id
                             inner join fault f on f.ribbon_id = t.ribbon_id
                             left join fault_det d on d.fault_id=f.fault_id
                             where t.depo_id=g.depocode
@@ -1523,7 +1523,7 @@ $hurd22019 =DB::select("select b.broketype_id, b.broketype_name, count(o.brokety
                             d.broketype
                             from  ribbon t
                           inner join ZUTGUUR.MARSHBRIG g on g.marshid=t.route_id and g.depocode=t.depo_id
-                            inner join ZUTGUUR.MARSHZUT e on e.marshid=t.route_id e.depocode=t.depo_id
+                            inner join ZUTGUUR.MARSHZUT e on e.marshid=t.route_id and e.depocode=t.depo_id
                             inner join fault f on f.ribbon_id = t.ribbon_id
                             left join fault_det d on d.fault_id=f.fault_id
                             where t.depo_id=g.depocode
@@ -1547,7 +1547,7 @@ $hurd22019 =DB::select("select b.broketype_id, b.broketype_name, count(o.brokety
                             d.broketype
                             from  ribbon t
                           inner join ZUTGUUR.MARSHBRIG g on g.marshid=t.route_id and g.depocode=t.depo_id
-                            inner join ZUTGUUR.MARSHZUT e on e.marshid=t.route_id e.depocode=t.depo_id
+                            inner join ZUTGUUR.MARSHZUT e on e.marshid=t.route_id and e.depocode=t.depo_id
                             inner join fault f on f.ribbon_id = t.ribbon_id
                             left join fault_det d on d.fault_id=f.fault_id
                             where t.depo_id=g.depocode
@@ -1570,7 +1570,7 @@ $hurd22019 =DB::select("select b.broketype_id, b.broketype_name, count(o.brokety
                             d.broketype
                             from  ribbon t
                           inner join ZUTGUUR.MARSHBRIG g on g.marshid=t.route_id and g.depocode=t.depo_id
-                            inner join ZUTGUUR.MARSHZUT e on e.marshid=t.route_id e.depocode=t.depo_id
+                            inner join ZUTGUUR.MARSHZUT e on e.marshid=t.route_id and e.depocode=t.depo_id
                             inner join fault f on f.ribbon_id = t.ribbon_id
                             left join fault_det d on d.fault_id=f.fault_id
                             where t.depo_id=g.depocode
@@ -1594,7 +1594,7 @@ $hurd22019 =DB::select("select b.broketype_id, b.broketype_name, count(o.brokety
                             d.stoptime
                             from  ribbon t
                           inner join ZUTGUUR.MARSHBRIG g on g.marshid=t.route_id and g.depocode=t.depo_id
-                            inner join ZUTGUUR.MARSHZUT e on e.marshid=t.route_id e.depocode=t.depo_id
+                            inner join ZUTGUUR.MARSHZUT e on e.marshid=t.route_id and e.depocode=t.depo_id
                             inner join fault f on f.ribbon_id = t.ribbon_id
                             left join fault_det d on d.fault_id=f.fault_id
                             where t.depo_id=g.depocode
@@ -1618,7 +1618,7 @@ $hurd22019 =DB::select("select b.broketype_id, b.broketype_name, count(o.brokety
                             d.stoptime
                             from  ribbon t
                           inner join ZUTGUUR.MARSHBRIG g on g.marshid=t.route_id and g.depocode=t.depo_id
-                            inner join ZUTGUUR.MARSHZUT e on e.marshid=t.route_id e.depocode=t.depo_id
+                            inner join ZUTGUUR.MARSHZUT e on e.marshid=t.route_id and e.depocode=t.depo_id
                             inner join fault f on f.ribbon_id = t.ribbon_id
                             left join fault_det d on d.fault_id=f.fault_id
                             where t.depo_id=g.depocode
@@ -1642,7 +1642,7 @@ $hurd22019 =DB::select("select b.broketype_id, b.broketype_name, count(o.brokety
                             d.stoptime
                             from  ribbon t
                           inner join ZUTGUUR.MARSHBRIG g on g.marshid=t.route_id and g.depocode=t.depo_id
-                            inner join ZUTGUUR.MARSHZUT e on e.marshid=t.route_id e.depocode=t.depo_id
+                            inner join ZUTGUUR.MARSHZUT e on e.marshid=t.route_id and e.depocode=t.depo_id
                             inner join fault f on f.ribbon_id = t.ribbon_id
                             left join fault_det d on d.fault_id=f.fault_id
                             where t.depo_id=g.depocode
