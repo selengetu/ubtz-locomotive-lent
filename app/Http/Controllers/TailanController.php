@@ -1207,7 +1207,7 @@ sum(sel) as sel , sum(uz) as uz , sum(tur) as tur , sum(oros) as oros ,  sum(tso
                             from (select a.speed, a.fromstation, a.tostation
                             from Attention a, ribbon t, ZUTGUUR.Marshbrig g
                             where a.ribbon_id=t.ribbon_id 
-                            and g.marshid=t.route_id
+                            and g.marshid=t.route_id and t.depo_id=g.depocode
                             and g.marshyear=".$year." and g.marshmonth=".$month." and g.depocode=".Auth::user()->depo_id. ") a,
                             
                             attention_speed p
@@ -1312,7 +1312,7 @@ group by q2.depo_id,q2.marshyear, q2.marshmonth");
                             from (select a.speed, a.fromstation, a.tostation
                             from Attention a, ribbon t, ZUTGUUR.Marshbrig g
                             where a.ribbon_id=t.ribbon_id 
-                            and g.marshid=t.route_id
+                            and g.marshid=t.route_id and t.depo_id=g.depocode
                             and  g.marshyear=".$year." and g.marshmonth between 1 and ".$month." and g.depocode=".Auth::user()->depo_id. ") a,
                             
                             attention_speed p
@@ -1417,7 +1417,7 @@ group by q2.depo_id,q2.marshyear, q2.marshmonth");
                             from (select a.speed, a.fromstation, a.tostation
                             from Attention a, ribbon t, ZUTGUUR.Marshbrig g
                             where a.ribbon_id=t.ribbon_id 
-                            and g.marshid=t.route_id
+                            and g.marshid=t.route_id and t.depo_id=g.depocode
                             and  g.marshyear=".$year." and g.marshmonth in ".$m." and g.depocode=".Auth::user()->depo_id. ") a,
                             
                             attention_speed p
@@ -2445,7 +2445,7 @@ sum(sel) as sel , sum(uz) as uz , sum(tur) as tur , sum(oros) as oros ,  sum(tso
                             from (select a.speed, a.fromstation, a.tostation
                             from Attention a, ribbon t, ZUTGUUR.Marshbrig g
                             where a.ribbon_id=t.ribbon_id 
-                            and g.marshid=t.route_id
+                            and g.marshid=t.route_id and t.depo_id=g.depocode
                             and g.marshyear=".$year1." and g.marshmonth=".$month." and g.depocode=".Auth::user()->depo_id. ") a,
                             
                             attention_speed p
@@ -2562,7 +2562,7 @@ group by q2.depo_id,q2.marshyear, q2.marshmonth");
                             from (select a.speed, a.fromstation, a.tostation
                             from Attention a, ribbon t, ZUTGUUR.Marshbrig g
                             where a.ribbon_id=t.ribbon_id 
-                            and g.marshid=t.route_id
+                            and g.marshid=t.route_id and t.depo_id=g.depocode
                             and  g.marshyear=2019 and g.marshmonth between 1 and ".$month." and g.depocode=".Auth::user()->depo_id. ") a,
                             
                             attention_speed p
@@ -2667,7 +2667,7 @@ group by q2.depo_id,q2.marshyear, q2.marshmonth");
                             from (select a.speed, a.fromstation, a.tostation
                             from Attention a, ribbon t, ZUTGUUR.Marshbrig g
                             where a.ribbon_id=t.ribbon_id 
-                            and g.marshid=t.route_id
+                            and g.marshid=t.route_id and t.depo_id=g.depocode
                             and  g.marshyear=2019 and g.marshmonth in ".$m." and g.depocode=".Auth::user()->depo_id. ") a,
                             
                             attention_speed p
