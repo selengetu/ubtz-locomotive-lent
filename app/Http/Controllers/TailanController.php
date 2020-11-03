@@ -60,7 +60,7 @@ FROM
        t.is_fault,
        t.train_no,
        SUBSTR(t.workid, 1, 1) as workcountid from RIBBON t,
-        ZUTGUUR.Marshbrig b where b.marshyear=".$year." and b.marshmonth = ".$month." and b.marshid=t.route_id and b.depocode=".Auth::user()->depo_id. "
+        ZUTGUUR.Marshbrig b where b.marshyear=".$year." and b.marshmonth = ".$month." and b.marshid=t.route_id and b.depocode=".Auth::user()->depo_id. " and b.depocode=t.depo_id
 )
 PIVOT
 (
@@ -85,7 +85,7 @@ FROM
        t.is_fault,
        t.train_no,
        SUBSTR(t.workid, 1, 1) as workcountid from RIBBON t,
-        ZUTGUUR.Marshbrig b where b.marshyear=".$year1." and b.marshmonth = ".$month." and b.marshid=t.route_id and b.depocode=".Auth::user()->depo_id. "
+        ZUTGUUR.Marshbrig b where b.marshyear=".$year1." and b.marshmonth = ".$month." and b.marshid=t.route_id and b.depocode=".Auth::user()->depo_id. " and b.depocode=t.depo_id
 )
 PIVOT
 (
@@ -110,7 +110,7 @@ FROM
        t.is_fault,
        t.train_no,
        SUBSTR(t.workid, 1, 1) as workcountid from RIBBON t,
-        ZUTGUUR.Marshbrig b where b.marshyear=".$year." and b.marshmonth between 1 and ".$month."  and b.marshid=t.route_id and b.depocode=".Auth::user()->depo_id. "
+        ZUTGUUR.Marshbrig b where b.marshyear=".$year." and b.marshmonth between 1 and ".$month."  and b.marshid=t.route_id and b.depocode=".Auth::user()->depo_id. " and b.depocode=t.depo_id
 )
 PIVOT
 (
@@ -152,7 +152,7 @@ if($month ==3){
            t.is_fault,
            t.train_no,
            SUBSTR(t.workid, 1, 1) as workcountid from RIBBON t,
-            ZUTGUUR.Marshbrig b where b.marshyear=".$year1." and b.marshmonth between 1 and ".$month."  and b.marshid=t.route_id and b.depocode=".Auth::user()->depo_id. "
+            ZUTGUUR.Marshbrig b where b.marshyear=".$year1." and b.marshmonth between 1 and ".$month."  and b.marshid=t.route_id and b.depocode=".Auth::user()->depo_id. " and b.depocode=t.depo_id
     )
     PIVOT
     (
@@ -178,7 +178,7 @@ FROM
        t.is_fault,
        t.train_no,
        SUBSTR(t.workid, 1, 1) as workcountid from RIBBON t,
-        ZUTGUUR.Marshbrig b where b.marshyear=".$year." and b.marshmonth in ".$m."  and b.marshid=t.route_id and b.depocode=".Auth::user()->depo_id. "
+        ZUTGUUR.Marshbrig b where b.marshyear=".$year." and b.marshmonth in ".$m."  and b.marshid=t.route_id and b.depocode=".Auth::user()->depo_id. " and b.depocode=t.depo_id
 )
 PIVOT
 (
@@ -203,7 +203,7 @@ FROM
        t.is_fault,
        t.train_no,
        SUBSTR(t.workid, 1, 1) as workcountid from RIBBON t,
-        ZUTGUUR.Marshbrig b where b.marshyear=".$year1." and b.marshmonth in ".$m."  and b.marshid=t.route_id and b.depocode=".Auth::user()->depo_id. "
+        ZUTGUUR.Marshbrig b where b.marshyear=".$year1." and b.marshmonth in ".$m."  and b.marshid=t.route_id and b.depocode=".Auth::user()->depo_id. " and b.depocode=t.depo_id
 )
 PIVOT
 (
