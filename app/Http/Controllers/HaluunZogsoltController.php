@@ -52,7 +52,6 @@ class HaluunZogsoltController extends Controller
 
         }
 
-
         $haluun = DB::select("select q3.* ,   CONCAT(LPAD(TRUNC(q3.haluun/60), 2,0)|| ':' || LPAD((q3.haluun - TRUNC(q3.haluun/60)*60), 2,0), ':00') as HALUUNTSAG, CONCAT(LPAD(TRUNC(q3.niitajil/60), 2,0)|| ':' || LPAD((q3.niitajil - TRUNC(q3.niitajil/60)*60), 2,0), ':00') as NIITTSAG ,(q3.niitajil - q3.haluun) as YALGAWAR from
 (SELECT sum(q2.haluuntsag) as HALUUN , count(q2.RIBBON_ID) as niit,q2.DEPO_ID,q2.LOCSERIAL,q2.locno,q2.STATION_ID,q2.STATFULLNAME, q2.ZUTNUMBER, sum(q2.diff) as niitajil FROM (
 select

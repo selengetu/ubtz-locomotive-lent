@@ -62,7 +62,7 @@ Route::match(['get', 'post'],'/refresh', 'AchaaController@refresh')->name('refre
 Route::match(['get', 'post'],'/machinistnagon', 'TailanController@machinistnagon')->name('machinistnagon');
 Route::get('/getmarshzut/{id?}',function($id = 0){	
 				$dt=DB::table('MARSHZUTGUUR')
-                ->where('marshid','=',$id)->get();
+                ->where('marshid','=',$id)->where('depocode', '=', Auth::user()->depo_id)->get();
 				return $dt;
 		});	
 Route::get('/getmarshburel/{id?}',function($id = 0){	
@@ -70,11 +70,7 @@ Route::get('/getmarshburel/{id?}',function($id = 0){
                 ->where('marshid','=',$id)->where('depocode', '=', Auth::user()->depo_id)->get();
 				return $dt;
 		});	
-Route::get('/getmarshselgee/{id?}',function($id = 0){	
-				$dt=DB::table('SELGEE')
-                ->where('route_id','=',$id)->get();
-				return $dt;
-		});	
+
 Route::get('/getmarshstat/{id?}',function($id = 0){	
 				$dt=DB::table('V_MARSHSTAT')
                 ->where('marshid','=',$id)->where('depocode', '=', Auth::user()->depo_id)->get();
@@ -82,13 +78,13 @@ Route::get('/getmarshstat/{id?}',function($id = 0){
 		});	
 Route::get('/getmarshbrig/{id?}',function($id = 0){	
 				$dt=DB::table('V_MARSHBRIG')
-                ->where('marshid','=',$id)->get();
+                ->where('marshid','=',$id)->where('depocode', '=', Auth::user()->depo_id)->get();
 				return $dt;
 		});	
 
 Route::get('/getmarshtuuz/{id?}',function($id = 0){
 				$dt=DB::table('V_RIBBON')
-                ->where('route_id','=',$id)->where('depocode', '=', Auth::user()->depo_id)->orderby('split_id')->get();
+                ->where('route_id','=',$id)->where('depo_id', '=', Auth::user()->depo_id)->orderby('split_id')->get();
 				return $dt;
 					});	
 Route::get('/getmarshattention/{id?}',function($id = 0){	
@@ -394,13 +390,13 @@ Route::get('/getfeed/{id?}',function($id = 0){
 });
 Route::get('/getmarshfirststation/{id?}',function($id = 0){	
 				$dt=DB::select("SELECT t.statname,t.statcode FROM V_MARSHSTAT t 
-WHERE t.marshid=".$id." and t.gonetime = (SELECT MIN(t.gonetime) FROM V_MARSHSTAT t where t.marshid=".$id.")");
+WHERE t.marshid=".$id." and t.gonetime = (SELECT MIN(t.gonetime) FROM V_MARSHSTAT t where t.marshid=".$id." and t.depocode= ".Auth::user()->depo_id.")");
 				return $dt;			
 
 		});	
 Route::get('/getmarshlaststation/{id?}',function($id = 0){	
 				$dt=DB::select("SELECT t.statname,t.statcode FROM V_MARSHSTAT t 
-WHERE t.marshid=".$id." and t.arrivtime = (SELECT MAX(t.arrivtime) FROM V_MARSHSTAT t where t.marshid=".$id.")");
+WHERE t.marshid=".$id." and t.arrivtime = (SELECT MAX(t.arrivtime) FROM V_MARSHSTAT t where t.marshid=".$id." and t.depocode= ".Auth::user()->depo_id.")");
 				return $dt;			
 
 		});	

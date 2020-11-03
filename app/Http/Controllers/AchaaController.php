@@ -209,10 +209,10 @@ FROM
     (select  * from ZUTGUUR.MARSHBRIG t  ".$date."  order by arrtime desc) q1
    INNER JOIN
     (select seriname,sericode, marshid, marshyear, marshmonth,zutnumber from ZUTGUUR.MARSHZUT t ) q3 on q3.marshid = q1.marshid and q3.marshyear=q1.marshyear and q3.marshmonth = q1.marshmonth
-        LEFT JOIN V_Ribbon r on r.route_id=q1.marshid 
+        LEFT JOIN V_Ribbon r on r.route_id=q1.marshid and r.depo_id =".Auth::user()->depo_id. "
         LEFT JOIN Users v on v.id=r.translator_id
         LEFT JOIN (select ribbon_id, count(ribbon_id) as fault_count from fault k, fault_detail i  where i.fault_detail_id=k.fault_no and i.fault_type=2 group by ribbon_id) f on f.ribbon_id= r.ribbon_id 
-        where q1.depocode=".Auth::user()->depo_id. " " .$query. " order by q1.arrtime desc");
+        where q1.depocode=".Auth::user()->depo_id. "  " .$query. " order by q1.arrtime desc");
       
         return view('devter.achaa')->with(['speed'=>$speed,'locserial'=>$locserial,'stat'=>$stat,'tapetype'=>$tapetype,'reasontype'=>$reasontype,'broketype'=>$broketype,'taketype'=>$taketype,'achaa'=>$achaa, 'emertype' => $emertype, 'machinist' => $machinist, 'startdate' =>$startdate, 'enddate' => $enddate, 'tusmachinist' => $tusmachinist,'seri' => $seri, 'route' => $route, 'devter' => $devter, 'fromstat' => $fromstat, 'tostat' => $tostat]);
 
@@ -482,15 +482,15 @@ FROM
     {
 
            $department = DB::table('Ribbon')
-                ->where('route_id', Request::input('tuuzmarsh'))->exists();
+                ->where('route_id', Request::input('tuuzmarsh')) ->where('depo_id', Auth::user()->depo_id)->exists();
         if ($department == true) {
                 $department = DB::table('Ribbon')
                 ->where('route_id', Request::input('tuuzmarsh'))->update(['patchmin_speed' =>Request::input('patch_type') ,'speedcontrollerno' =>Request::input('speednumber') ,'patchmin' =>date("H:i:s", strtotime(Request::input('patchmin'))) ,  'update_who' => Auth::user()->id,'updated_at' => Carbon::now()]);
          }
          else 
          {
-             $stat = DB::table('V_MARSHBUREL')->where('marshid', '=',Request::input('tuuzmarsh'))->where('depocode', '=', Auth::user()->depo_id)->get();
-
+             $stat = DB::table('V_MARSHBUREL')->where('depocode', '=', Auth::user()->depo_id)->where('marshid', '=',Request::input('tuuzmarsh'))->get();
+            
              foreach ($stat as $row) {
                  $gol =$row->sgolnum + $row->achgol + $row->empgol;
                      $ribbon = new Ribbon;
