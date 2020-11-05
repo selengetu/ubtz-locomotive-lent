@@ -848,7 +848,7 @@ PIVOT
                                           and  b.marshyear=".$year."  and b.marshmonth  between 1 and ".$month." and b.depocode=".Auth::user()->depo_id. "
                                           ) q 
                                           left join fault_det de on de.fault_id=q.fault_id
-                                          where de.is_techact is null or de.is_techact=2) q1 right join
+                                        ) q1 right join
                                          fault_detail d on d.fault_detail_id=q1.fault_no
                                          where d.fault_type=2
                                          group by d.fault_detail_id, d.fault_detail_name
