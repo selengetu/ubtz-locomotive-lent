@@ -296,7 +296,7 @@
 
                             @endif
                         @endforeach</td>
-                    <td>0</td>
+                 
                     <td> @foreach($zurchil2 as $n)
                             @if($n->fault_detail_id == 37 )
                                 {{$n->cnt}}
