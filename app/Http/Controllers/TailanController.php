@@ -892,7 +892,6 @@ PIVOT
          and d.fault_id=f.fault_id 
          and f.fault_no=37
          and d.broketype is not null
-          and d.is_techact = 2
          and  b.marshyear=".$year." and b.marshmonth=".$month." and b.depocode=".Auth::user()->depo_id. "
         ) q,
               broke_type e
@@ -916,7 +915,6 @@ PIVOT
          and b.depocode=t.depo_id
          and f.fault_no=37
          and d.broketype is not null
-          and d.is_techact = 2
          and   b.marshyear=".$year."  and b.marshmonth between 1 and ".$month." and b.depocode=".Auth::user()->depo_id. "
         ) q,
               broke_type e
@@ -940,7 +938,6 @@ PIVOT
          and d.fault_id=f.fault_id 
          and f.fault_no=37
          and d.broketype is not null
-          and d.is_techact = 2
          and   b.marshyear=".$year."  and b.marshmonth in ".$m." and b.depocode=".Auth::user()->depo_id. "
         ) q,
               broke_type e
@@ -2120,7 +2117,7 @@ $hurd22019 =DB::select("select b.broketype_id, b.broketype_name, count(o.brokety
          and d.fault_id=f.fault_id 
          and f.fault_no=37
          and d.broketype is not null
-          and d.is_techact = 2
+       
          and  b.marshyear=".$year1." and b.marshmonth=".$month." and b.depocode=".Auth::user()->depo_id. "
         ) q,
               broke_type e
@@ -2144,7 +2141,7 @@ $hurd22019 =DB::select("select b.broketype_id, b.broketype_name, count(o.brokety
          and d.fault_id=f.fault_id 
          and f.fault_no=37
          and d.broketype is not null
-          and d.is_techact = 2
+      
          and   b.marshyear=2019 and b.marshmonth between 1 and ".$month." and b.depocode=".Auth::user()->depo_id. "
         ) q,
               broke_type e
