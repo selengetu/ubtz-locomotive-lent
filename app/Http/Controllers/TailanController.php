@@ -822,7 +822,8 @@ PIVOT
                                         ribbon t,  
                                          ZUTGUUR.Marshbrig b
                                          where t.ribbon_id=f.ribbon_id
-                                          and b.marshid=t.route_id  
+                                          and b.marshid=t.route_id
+                                          and b.depocode=t.depo_id  
                                           and  b.marshyear=".$year." and b.marshmonth=".$month." and b.depocode=".Auth::user()->depo_id. "
                                           ) q 
                                           left join fault_det de on de.fault_id=q.fault_id
@@ -843,6 +844,7 @@ PIVOT
                                          ZUTGUUR.Marshbrig b
                                          where t.ribbon_id=f.ribbon_id
                                           and b.marshid=t.route_id  
+                                          and b.depocode=t.depo_id
                                           and  b.marshyear=".$year."  and b.marshmonth  between 1 and ".$month." and b.depocode=".Auth::user()->depo_id. "
                                           ) q 
                                           left join fault_det de on de.fault_id=q.fault_id
@@ -863,7 +865,8 @@ PIVOT
                                         ribbon t,  
                                          ZUTGUUR.Marshbrig b
                                          where t.ribbon_id=f.ribbon_id
-                                          and b.marshid=t.route_id  
+                                          and b.marshid=t.route_id 
+                                          and b.depocode=t.depo_id 
                                           and  b.marshyear=".$year."  and b.marshmonth in ".$m." and b.depocode=".Auth::user()->depo_id. "
                                           ) q 
                                           left join fault_det de on de.fault_id=q.fault_id
@@ -884,7 +887,8 @@ PIVOT
        ZUTGUUR.Marshbrig b,
        fault_det d
          where t.ribbon_id=f.ribbon_id
-         and b.marshid=t.route_id  
+         and b.marshid=t.route_id 
+         and b.depocode=t.depo_id 
          and d.fault_id=f.fault_id 
          and f.fault_no=37
          and d.broketype is not null
@@ -909,6 +913,7 @@ PIVOT
          where t.ribbon_id=f.ribbon_id
          and b.marshid=t.route_id  
          and d.fault_id=f.fault_id 
+         and b.depocode=t.depo_id
          and f.fault_no=37
          and d.broketype is not null
           and d.is_techact = 2
@@ -930,7 +935,8 @@ PIVOT
        ZUTGUUR.Marshbrig b,
        fault_det d
          where t.ribbon_id=f.ribbon_id
-         and b.marshid=t.route_id  
+         and b.marshid=t.route_id
+         and b.depocode=t.depo_id 
          and d.fault_id=f.fault_id 
          and f.fault_no=37
          and d.broketype is not null
@@ -944,21 +950,21 @@ PIVOT
     $niitzurchil =DB::select("select count(route_id) as too from (select
    t.route_id, t.depo_id, t.zutnumber, t.locno, t.train_no, t.train_dirtyweight,f.*
    from FAULT f, ribbon t, fault_detail e, ZUTGUUR.Marshbrig b
-   where t.ribbon_id=f.ribbon_id and e.fault_detail_id=f.fault_no 
+   where t.ribbon_id=f.ribbon_id and e.fault_detail_id=f.fault_no and b.depocode=t.depo_id
    and b.marshid=t.route_id and f.fault_no in (32,17,33,37,26,25,31,22,16,13,23,14,20,18,19,15,30,34,41,161) and b.marshyear=".$year." and b.marshmonth=".$month." and b.depocode=".Auth::user()->depo_id. ") q
    left join fault_det d on d.fault_id=q.fault_id
    where d.is_techact = 2 or d.is_techact is null ");
     $niitzurchil2 =DB::select("select count(route_id) as too from (select
    t.route_id, t.depo_id, t.zutnumber, t.locno, t.train_no, t.train_dirtyweight,f.*
    from FAULT f, ribbon t, fault_detail e, ZUTGUUR.Marshbrig b
-   where t.ribbon_id=f.ribbon_id and e.fault_detail_id=f.fault_no 
+   where t.ribbon_id=f.ribbon_id and e.fault_detail_id=f.fault_no and b.depocode=t.depo_id
    and b.marshid=t.route_id and f.fault_no in (32,17,33,37,26,25,31,22,16,13,23,14,20,18,19,15,30,34,41,161) and b.marshyear=".$year."  and b.marshmonth between 1 and ".$month." and b.depocode=".Auth::user()->depo_id. ") q
    left join fault_det d on d.fault_id=q.fault_id
    where d.is_techact = 2 or d.is_techact is null ");
     $niitzurchil3=DB::select("select count(route_id) as too from (select
    t.route_id, t.depo_id, t.zutnumber, t.locno, t.train_no, t.train_dirtyweight,f.*
    from FAULT f, ribbon t, fault_detail e, ZUTGUUR.Marshbrig b
-   where t.ribbon_id=f.ribbon_id and e.fault_detail_id=f.fault_no 
+   where t.ribbon_id=f.ribbon_id and e.fault_detail_id=f.fault_no and b.depocode=t.depo_id
    and b.marshid=t.route_id and f.fault_no in (32,17,33,37,26,25,31,22,16,13,23,14,20,18,19,15,30,34,41,161) and b.marshyear=".$year."  and b.marshmonth in ".$m." and b.depocode=".Auth::user()->depo_id. ") q
    left join fault_det d on d.fault_id=q.fault_id
    where d.is_techact = 2 or d.is_techact is null ");
@@ -1184,25 +1190,25 @@ sum(sel) as sel , sum(uz) as uz , sum(tur) as tur , sum(oros) as oros ,  sum(tso
     $tuslamjzammin =DB::select("select
                              sum(substr(k.stoptime,4,2)+((substr(k.stoptime,1,2))*60)) as too
                                 from FAULT f, ribbon t, fault_detail e, V_Marshbrig b, fault_det k
-                                where t.ribbon_id=f.ribbon_id and e.fault_detail_id=f.fault_no and k.fault_id=f.fault_id and b.marshid=t.route_id and f.fault_no=3 and b.marshyear=".$year." and b.marshmonth=".$month." and b.depocode=".Auth::user()->depo_id. " ");
+                                where t.ribbon_id=f.ribbon_id and t.depo_id= b.depocode and e.fault_detail_id=f.fault_no and k.fault_id=f.fault_id and b.marshid=t.route_id and f.fault_no=3 and b.marshyear=".$year." and b.marshmonth=".$month." and b.depocode=".Auth::user()->depo_id. " ");
     $tuslamjzam2 =DB::select("select
                                 f.fault_no,
                                 e.fault_detail_name,
                                 count(f.fault_no) as too
                                 from FAULT f, ribbon t, fault_detail e, V_Marshbrig b
-                                where t.ribbon_id=f.ribbon_id and e.fault_detail_id=f.fault_no and b.marshid=t.route_id and f.fault_no=3 and b.marshyear=".$year." and b.marshmonth=".$month." and b.depocode=".Auth::user()->depo_id. "
+                                where t.ribbon_id=f.ribbon_id  and t.depo_id= b.depocode and e.fault_detail_id=f.fault_no and b.marshid=t.route_id and f.fault_no=3 and b.marshyear=".$year." and b.marshmonth=".$month." and b.depocode=".Auth::user()->depo_id. "
                                 group by f.fault_no, e.fault_detail_name");
     $tuslamjurtuu =DB::select("select
                                 f.fault_no,
                                 e.fault_detail_name,
                                 count(f.fault_no) as too
                                 from FAULT f, ribbon t, fault_detail e, V_Marshbrig b
-                                where t.ribbon_id=f.ribbon_id and e.fault_detail_id=f.fault_no and b.marshid=t.route_id and f.fault_no=4 and b.marshyear=".$year." and b.marshmonth=".$month." and b.depocode=".Auth::user()->depo_id. "
+                                where t.ribbon_id=f.ribbon_id and t.depo_id= b.depocode and e.fault_detail_id=f.fault_no and b.marshid=t.route_id and f.fault_no=4 and b.marshyear=".$year." and b.marshmonth=".$month." and b.depocode=".Auth::user()->depo_id. "
                                 group by f.fault_no, e.fault_detail_name");
     $tuslamjurtuumin =DB::select("select
                               sum(substr(k.stoptime,4,2)+((substr(k.stoptime,1,2))*60)) as too
                                 from FAULT f, ribbon t, fault_detail e, V_Marshbrig b, fault_det k
-                                where t.ribbon_id=f.ribbon_id and e.fault_detail_id=f.fault_no and k.fault_id=f.fault_id and b.marshid=t.route_id and f.fault_no=4 and b.marshyear=".$year." and b.marshmonth=".$month." and b.depocode=".Auth::user()->depo_id. " ");
+                                where t.ribbon_id=f.ribbon_id and t.depo_id= b.depocode and e.fault_detail_id=f.fault_no and k.fault_id=f.fault_id and b.marshid=t.route_id and f.fault_no=4 and b.marshyear=".$year." and b.marshmonth=".$month." and b.depocode=".Auth::user()->depo_id. " ");
     $speed=DB::select("select p.attentionspeed_id, nvl(a.speed,0) as niit, count(a.speed) as cnt
                             from (select a.speed, a.fromstation, a.tostation
                             from Attention a, ribbon t, ZUTGUUR.Marshbrig g
@@ -1230,7 +1236,7 @@ sum(sel) as sel , sum(uz) as uz , sum(tur) as tur , sum(oros) as oros ,  sum(tso
                                 where t.depo_id=g.depocode and e.depocode=t.depo_id and e.marshyear=g.marshyear and e.marshmonth=g.marshmonth and  e.marshyear=".$year." and e.marshmonth=".$month." and t.depo_id=".Auth::user()->depo_id. " and f.fault_no=35");
     $hotsrolt=DB::select("select q2.depo_id,q2.marshyear, q2.marshmonth,sum(substr(q2.patchmin,4,2)+((substr(q2.patchmin,1,2))*60)) as sum from
 (select distinct t.route_id, t.depo_id, g.marshyear, g.marshmonth ,t.locserial, t.zutnumber, t.patchmin from RIBBON t , ZUTGUUR.MARSHBRIG g
-where t.route_id = g.marshid and t.patchmin is not null and t.patchmin != '0' and t.patchmin != '00:00:00' and g.marshyear=".$year." and g.marshmonth=".$month." and g.depocode=".Auth::user()->depo_id. ") q2     
+where t.route_id = g.marshid and g.depocode=t.depo_id and t.patchmin is not null and t.patchmin != '0' and t.patchmin != '00:00:00' and g.marshyear=".$year." and g.marshmonth=".$month." and g.depocode=".Auth::user()->depo_id. ") q2     
 group by q2.depo_id,q2.marshyear, q2.marshmonth");
     $hoorond2 =DB::select("select
                                 count(f.fault_no) as too
@@ -1289,25 +1295,25 @@ group by q2.depo_id,q2.marshyear, q2.marshmonth");
     $tuslamjzammin2=DB::select("select
                              sum(substr(k.stoptime,4,2)+((substr(k.stoptime,1,2))*60)) as too
                                 from FAULT f, ribbon t, fault_detail e, V_Marshbrig b, fault_det k
-                                where t.ribbon_id=f.ribbon_id and e.fault_detail_id=f.fault_no and k.fault_id=f.fault_id and b.marshid=t.route_id and f.fault_no=3 and b.marshyear=".$year."  and b.marshmonth between 1 and ".$month." and b.depocode=".Auth::user()->depo_id. " ");
+                                where t.ribbon_id=f.ribbon_id and t.depo_id= b.depocode and e.fault_detail_id=f.fault_no and k.fault_id=f.fault_id and b.marshid=t.route_id and f.fault_no=3 and b.marshyear=".$year."  and b.marshmonth between 1 and ".$month." and b.depocode=".Auth::user()->depo_id. " ");
     $tuslamjzam2 =DB::select("select
                                 f.fault_no,
                                 e.fault_detail_name,
                                 count(f.fault_no) as too
                                 from FAULT f, ribbon t, fault_detail e, V_Marshbrig b
-                                where t.ribbon_id=f.ribbon_id and e.fault_detail_id=f.fault_no and b.marshid=t.route_id and f.fault_no=3 and  b.marshyear=".$year."  and b.marshmonth between 1 and ".$month." and b.depocode=".Auth::user()->depo_id. "
+                                where t.ribbon_id=f.ribbon_id and t.depo_id= b.depocode and e.fault_detail_id=f.fault_no and b.marshid=t.route_id and f.fault_no=3 and  b.marshyear=".$year."  and b.marshmonth between 1 and ".$month." and b.depocode=".Auth::user()->depo_id. "
                                 group by f.fault_no, e.fault_detail_name");
     $tuslamjurtuu2 =DB::select("select
                                 f.fault_no,
                                 e.fault_detail_name,
                                 count(f.fault_no) as too
                                 from FAULT f, ribbon t, fault_detail e, V_Marshbrig b
-                                where t.ribbon_id=f.ribbon_id and e.fault_detail_id=f.fault_no and b.marshid=t.route_id and f.fault_no=4 and  b.marshyear=".$year."  and b.marshmonth between 1 and ".$month." and b.depocode=".Auth::user()->depo_id. "
+                                where t.ribbon_id=f.ribbon_id and t.depo_id= b.depocode and e.fault_detail_id=f.fault_no and b.marshid=t.route_id and f.fault_no=4 and  b.marshyear=".$year."  and b.marshmonth between 1 and ".$month." and b.depocode=".Auth::user()->depo_id. "
                                 group by f.fault_no, e.fault_detail_name");
     $tuslamjurtuumin2 =DB::select("select
                               sum(substr(k.stoptime,4,2)+((substr(k.stoptime,1,2))*60)) as too
                                 from FAULT f, ribbon t, fault_detail e, V_Marshbrig b, fault_det k
-                                where t.ribbon_id=f.ribbon_id and e.fault_detail_id=f.fault_no and k.fault_id=f.fault_id and b.marshid=t.route_id and f.fault_no=4 and b.marshyear=".$year."  and b.marshmonth between 1 and ".$month." and b.depocode=".Auth::user()->depo_id. " ");
+                                where t.ribbon_id=f.ribbon_id and t.depo_id= b.depocode and e.fault_detail_id=f.fault_no and k.fault_id=f.fault_id and b.marshid=t.route_id and f.fault_no=4 and b.marshyear=".$year."  and b.marshmonth between 1 and ".$month." and b.depocode=".Auth::user()->depo_id. " ");
     $speed2 =DB::select("select p.attentionspeed_id, nvl(a.speed,0) as niit, count(a.speed) as cnt
                             from (select a.speed, a.fromstation, a.tostation
                             from Attention a, ribbon t, ZUTGUUR.Marshbrig g
@@ -1335,7 +1341,7 @@ group by q2.depo_id,q2.marshyear, q2.marshmonth");
                                 where t.depo_id=g.depocode and e.depocode=t.depo_id and e.marshyear=g.marshyear and e.marshmonth=g.marshmonth and   e.marshyear=".$year."  and e.marshmonth between 1 and ".$month." and t.depo_id=".Auth::user()->depo_id. " and f.fault_no=35");
     $hotsrolt2 =DB::select("select sum(sum(substr(q2.patchmin,4,2)+((substr(q2.patchmin,1,2))*60))) as sum from
 (select distinct t.route_id, t.depo_id, g.marshyear, g.marshmonth ,t.locserial, t.zutnumber, t.patchmin from RIBBON t , ZUTGUUR.MARSHBRIG g
-where t.route_id = g.marshid and t.patchmin is not null and t.patchmin != '0' and t.patchmin != '00:00:00' and  g.marshyear=".$year."  and g.marshmonth between 1 and ".$month." and g.depocode=".Auth::user()->depo_id. ") q2     
+where t.route_id = g.marshid and g.depocode=t.depo_id and t.patchmin is not null and t.patchmin != '0' and t.patchmin != '00:00:00' and  g.marshyear=".$year."  and g.marshmonth between 1 and ".$month." and g.depocode=".Auth::user()->depo_id. ") q2     
 group by q2.depo_id,q2.marshyear, q2.marshmonth");
     $hoorond3 =DB::select("select
                                 count(f.fault_no) as too
@@ -1440,7 +1446,7 @@ group by q2.depo_id,q2.marshyear, q2.marshmonth");
                                 where t.depo_id=g.depocode and e.depocode=t.depo_id and e.marshyear=g.marshyear and e.marshmonth=g.marshmonth and   e.marshyear=".$year."  and e.marshmonth in ".$m." and t.depo_id=".Auth::user()->depo_id. " and f.fault_no=35");
     $hotsrolt3 =DB::select("select sum(sum(substr(q2.patchmin,4,2)+((substr(q2.patchmin,1,2))*60))) as sum from
 (select distinct t.route_id, t.depo_id, g.marshyear, g.marshmonth ,t.locserial, t.zutnumber, t.patchmin from RIBBON t , ZUTGUUR.MARSHBRIG g
-where t.route_id = g.marshid and t.patchmin is not null and t.patchmin != '0' and t.patchmin != '00:00:00' and  g.marshyear=".$year."  and g.marshmonth in ".$m." and g.depocode=".Auth::user()->depo_id. ") q2     
+where t.route_id = g.marshid  and g.depocode=t.depo_id and t.patchmin is not null and t.patchmin != '0' and t.patchmin != '00:00:00' and  g.marshyear=".$year."  and g.marshmonth in ".$m." and g.depocode=".Auth::user()->depo_id. ") q2     
 group by q2.depo_id,q2.marshyear, q2.marshmonth");
 $hurd2019 =DB::select("select b.broketype_id, b.broketype_name, count(o.broketype) as cnt from    
 (select
@@ -2045,6 +2051,7 @@ $hurd22019 =DB::select("select b.broketype_id, b.broketype_name, count(o.brokety
                                          ZUTGUUR.Marshbrig b
                                          where t.ribbon_id=f.ribbon_id
                                           and b.marshid=t.route_id  
+                                          and b.depocode=t.depo_id
                                           and  b.marshyear=".$year1." and b.marshmonth=".$month." and b.depocode=".Auth::user()->depo_id. "
                                           ) q 
                                           left join fault_det de on de.fault_id=q.fault_id
@@ -2065,6 +2072,7 @@ $hurd22019 =DB::select("select b.broketype_id, b.broketype_name, count(o.brokety
                                          ZUTGUUR.Marshbrig b
                                          where t.ribbon_id=f.ribbon_id
                                           and b.marshid=t.route_id  
+                                          and b.depocode=t.depo_id
                                           and  b.marshyear=2019 and b.marshmonth  between 1 and ".$month." and b.depocode=".Auth::user()->depo_id. "
                                           ) q 
                                           left join fault_det de on de.fault_id=q.fault_id
@@ -2086,6 +2094,7 @@ $hurd22019 =DB::select("select b.broketype_id, b.broketype_name, count(o.brokety
                                          ZUTGUUR.Marshbrig b
                                          where t.ribbon_id=f.ribbon_id
                                           and b.marshid=t.route_id  
+                                          and b.depocode=t.depo_id
                                           and  b.marshyear=2019 and b.marshmonth in ".$m." and b.depocode=".Auth::user()->depo_id. "
                                           ) q 
                                           left join fault_det de on de.fault_id=q.fault_id
@@ -2106,7 +2115,8 @@ $hurd22019 =DB::select("select b.broketype_id, b.broketype_name, count(o.brokety
        ZUTGUUR.Marshbrig b,
        fault_det d
          where t.ribbon_id=f.ribbon_id
-         and b.marshid=t.route_id  
+         and b.marshid=t.route_id
+         and b.depocode=t.depo_id 
          and d.fault_id=f.fault_id 
          and f.fault_no=37
          and d.broketype is not null
@@ -2130,6 +2140,7 @@ $hurd22019 =DB::select("select b.broketype_id, b.broketype_name, count(o.brokety
        fault_det d
          where t.ribbon_id=f.ribbon_id
          and b.marshid=t.route_id  
+         and b.depocode=t.depo_id
          and d.fault_id=f.fault_id 
          and f.fault_no=37
          and d.broketype is not null
@@ -2153,6 +2164,7 @@ $hurd22019 =DB::select("select b.broketype_id, b.broketype_name, count(o.brokety
        fault_det d
          where t.ribbon_id=f.ribbon_id
          and b.marshid=t.route_id  
+         and b.depocode=t.depo_id
          and d.fault_id=f.fault_id 
          and f.fault_no=37
          and d.broketype is not null
@@ -2166,21 +2178,21 @@ $hurd22019 =DB::select("select b.broketype_id, b.broketype_name, count(o.brokety
     $niitzurchil2019 =DB::select("select count(route_id) as too from (select
    t.route_id, t.depo_id, t.zutnumber, t.locno, t.train_no, t.train_dirtyweight,f.*
    from FAULT f, ribbon t, fault_detail e, ZUTGUUR.Marshbrig b
-   where t.ribbon_id=f.ribbon_id and e.fault_detail_id=f.fault_no 
+   where t.ribbon_id=f.ribbon_id and e.fault_detail_id=f.fault_no and b.depocode=t.depo_id
    and b.marshid=t.route_id and f.fault_no in (32,17,33,37,26,25,31,22,16,13,23,14,20,18,19,15,30,34,41,161) and b.marshyear=".$year1." and b.marshmonth=".$month." and b.depocode=".Auth::user()->depo_id. ") q
    left join fault_det d on d.fault_id=q.fault_id
    where d.is_techact = 2 or d.is_techact is null ");
     $niitzurchil22019 =DB::select("select count(route_id) as too from (select
    t.route_id, t.depo_id, t.zutnumber, t.locno, t.train_no, t.train_dirtyweight,f.*
    from FAULT f, ribbon t, fault_detail e, ZUTGUUR.Marshbrig b
-   where t.ribbon_id=f.ribbon_id and e.fault_detail_id=f.fault_no 
+   where t.ribbon_id=f.ribbon_id and e.fault_detail_id=f.fault_no and b.depocode=t.depo_id
    and b.marshid=t.route_id and f.fault_no in (32,17,33,37,26,25,31,22,16,13,23,14,20,18,19,15,30,34,41,161) and b.marshyear=2019 and b.marshmonth between 1 and ".$month." and b.depocode=".Auth::user()->depo_id. ") q
    left join fault_det d on d.fault_id=q.fault_id
    where d.is_techact = 2 or d.is_techact is null ");
     $niitzurchil32019 =DB::select("select count(route_id) as too from (select
    t.route_id, t.depo_id, t.zutnumber, t.locno, t.train_no, t.train_dirtyweight,f.*
    from FAULT f, ribbon t, fault_detail e, ZUTGUUR.Marshbrig b
-   where t.ribbon_id=f.ribbon_id and e.fault_detail_id=f.fault_no 
+   where t.ribbon_id=f.ribbon_id and e.fault_detail_id=f.fault_no and b.depocode=t.depo_id
    and b.marshid=t.route_id and f.fault_no in (32,17,33,37,26,25,31,22,16,13,23,14,20,18,19,15,30,34,41,161) and b.marshyear=2019 and b.marshmonth in ".$m." and b.depocode=".Auth::user()->depo_id. ") q
    left join fault_det d on d.fault_id=q.fault_id
    where d.is_techact = 2 or d.is_techact is null ");
@@ -2415,32 +2427,32 @@ sum(sel) as sel , sum(uz) as uz , sum(tur) as tur , sum(oros) as oros ,  sum(tso
     $tuslamjzammin2019 =DB::select("select
                              sum(substr(k.stoptime,4,2)+((substr(k.stoptime,1,2))*60)) as too
                                 from FAULT f, ribbon t, fault_detail e, V_Marshbrig b, fault_det k
-                                where t.ribbon_id=f.ribbon_id and e.fault_detail_id=f.fault_no and k.fault_id=f.fault_id and b.marshid=t.route_id and f.fault_no=3 and b.marshyear=".$year1." and b.marshmonth=".$month." and b.depocode=".Auth::user()->depo_id. " ");
+                                where t.ribbon_id=f.ribbon_id and t.depo_id= b.depocode and e.fault_detail_id=f.fault_no and k.fault_id=f.fault_id and b.marshid=t.route_id and f.fault_no=3 and b.marshyear=".$year1." and b.marshmonth=".$month." and b.depocode=".Auth::user()->depo_id. " ");
     $tuslamjzam2019 =DB::select("select
                                 f.fault_no,
                                 e.fault_detail_name,
                                 count(f.fault_no) as too
                                 from FAULT f, ribbon t, fault_detail e, V_Marshbrig b
-                                where t.ribbon_id=f.ribbon_id and e.fault_detail_id=f.fault_no and b.marshid=t.route_id and f.fault_no=3 and b.marshyear=".$year1." and b.marshmonth=".$month." and b.depocode=".Auth::user()->depo_id. "
+                                where t.ribbon_id=f.ribbon_id and t.depo_id= b.depocode and e.fault_detail_id=f.fault_no and b.marshid=t.route_id and f.fault_no=3 and b.marshyear=".$year1." and b.marshmonth=".$month." and b.depocode=".Auth::user()->depo_id. "
                                 group by f.fault_no, e.fault_detail_name");
     $tuslamjzam =DB::select("select
                                 f.fault_no,
                                 e.fault_detail_name,
                                 count(f.fault_no) as too
                                 from FAULT f, ribbon t, fault_detail e, V_Marshbrig b
-                                where t.ribbon_id=f.ribbon_id and e.fault_detail_id=f.fault_no and b.marshid=t.route_id and f.fault_no=3 and b.marshyear=".$year." and b.marshmonth=".$month." and b.depocode=".Auth::user()->depo_id. "
+                                where t.ribbon_id=f.ribbon_id and t.depo_id= b.depocode and  e.fault_detail_id=f.fault_no and b.marshid=t.route_id and f.fault_no=3 and b.marshyear=".$year." and b.marshmonth=".$month." and b.depocode=".Auth::user()->depo_id. "
                                 group by f.fault_no, e.fault_detail_name");                           
     $tuslamjurtuu2019 =DB::select("select
                                 f.fault_no,
                                 e.fault_detail_name,
                                 count(f.fault_no) as too
                                 from FAULT f, ribbon t, fault_detail e, V_Marshbrig b
-                                where t.ribbon_id=f.ribbon_id and e.fault_detail_id=f.fault_no and b.marshid=t.route_id and f.fault_no=4 and b.marshyear=".$year1." and b.marshmonth=".$month." and b.depocode=".Auth::user()->depo_id. "
+                                where t.ribbon_id=f.ribbon_id and t.depo_id= b.depocode and e.fault_detail_id=f.fault_no and b.marshid=t.route_id and f.fault_no=4 and b.marshyear=".$year1." and b.marshmonth=".$month." and b.depocode=".Auth::user()->depo_id. "
                                 group by f.fault_no, e.fault_detail_name");
     $tuslamjurtuumin2019 =DB::select("select
                               sum(substr(k.stoptime,4,2)+((substr(k.stoptime,1,2))*60)) as too
                                 from FAULT f, ribbon t, fault_detail e, V_Marshbrig b, fault_det k
-                                where t.ribbon_id=f.ribbon_id and e.fault_detail_id=f.fault_no and k.fault_id=f.fault_id and b.marshid=t.route_id and f.fault_no=4 and b.marshyear=".$year1." and b.marshmonth=".$month." and b.depocode=".Auth::user()->depo_id. " ");
+                                where t.ribbon_id=f.ribbon_id and t.depo_id= b.depocode and e.fault_detail_id=f.fault_no and k.fault_id=f.fault_id and b.marshid=t.route_id and f.fault_no=4 and b.marshyear=".$year1." and b.marshmonth=".$month." and b.depocode=".Auth::user()->depo_id. " ");
     $speed2019 =DB::select("select p.attentionspeed_id, nvl(a.speed,0) as niit, count(a.speed) as cnt
                             from (select a.speed, a.fromstation, a.tostation
                             from Attention a, ribbon t, ZUTGUUR.Marshbrig g
@@ -2476,11 +2488,11 @@ sum(sel) as sel , sum(uz) as uz , sum(tur) as tur , sum(oros) as oros ,  sum(tso
                                 where t.depo_id=g.depocode and e.depocode=t.depo_id and e.marshyear=g.marshyear and e.marshmonth=g.marshmonth and  e.marshyear=".$year1." and e.marshmonth=".$month." and t.depo_id=".Auth::user()->depo_id. " and f.fault_no=35");
     $hotsrolt=DB::select("select q2.depo_id,q2.marshyear, q2.marshmonth,sum(substr(q2.patchmin,4,2)+((substr(q2.patchmin,1,2))*60)) as sum from
 (select distinct t.route_id, t.depo_id, g.marshyear, g.marshmonth ,t.locserial, t.zutnumber, t.patchmin from RIBBON t , ZUTGUUR.MARSHBRIG g
-where t.route_id = g.marshid and t.patchmin is not null and t.patchmin != '0' and t.patchmin != '00:00:00' and g.marshyear=".$year." and g.marshmonth=".$month." and g.depocode=".Auth::user()->depo_id. ") q2     
+where t.route_id = g.marshid  and g.depocode=t.depo_id and t.patchmin is not null and t.patchmin != '0' and t.patchmin != '00:00:00' and g.marshyear=".$year." and g.marshmonth=".$month." and g.depocode=".Auth::user()->depo_id. ") q2     
 group by q2.depo_id,q2.marshyear, q2.marshmonth");
 $hotsrolt2019=DB::select("select q2.depo_id,q2.marshyear, q2.marshmonth,sum(substr(q2.patchmin,4,2)+((substr(q2.patchmin,1,2))*60)) as sum from
 (select distinct t.route_id, t.depo_id, g.marshyear, g.marshmonth ,t.locserial, t.zutnumber, t.patchmin from RIBBON t , ZUTGUUR.MARSHBRIG g
-where t.route_id = g.marshid and t.patchmin is not null and t.patchmin != '0' and t.patchmin != '00:00:00' and g.marshyear=".$year1." and g.marshmonth=".$month." and g.depocode=".Auth::user()->depo_id. ") q2     
+where t.route_id = g.marshid and g.depocode=t.depo_id and t.patchmin is not null and t.patchmin != '0' and t.patchmin != '00:00:00' and g.marshyear=".$year1." and g.marshmonth=".$month." and g.depocode=".Auth::user()->depo_id. ") q2     
 group by q2.depo_id,q2.marshyear, q2.marshmonth");
     $hoorond22019 =DB::select("select
                                 count(f.fault_no) as too
@@ -2539,20 +2551,20 @@ group by q2.depo_id,q2.marshyear, q2.marshmonth");
     $tuslamjzammin22019 =DB::select("select
                              sum(substr(k.stoptime,4,2)+((substr(k.stoptime,1,2))*60)) as too
                                 from FAULT f, ribbon t, fault_detail e, V_Marshbrig b, fault_det k
-                                where t.ribbon_id=f.ribbon_id and e.fault_detail_id=f.fault_no and k.fault_id=f.fault_id and b.marshid=t.route_id and f.fault_no=3 and b.marshyear=2019 and b.marshmonth between 1 and ".$month." and b.depocode=".Auth::user()->depo_id. " ");
+                                where t.ribbon_id=f.ribbon_id and t.depo_id= b.depocode and e.fault_detail_id=f.fault_no and k.fault_id=f.fault_id and b.marshid=t.route_id and f.fault_no=3 and b.marshyear=2019 and b.marshmonth between 1 and ".$month." and b.depocode=".Auth::user()->depo_id. " ");
     $tuslamjzam22019 =DB::select("select
                                 f.fault_no,
                                 e.fault_detail_name,
                                 count(f.fault_no) as too
                                 from FAULT f, ribbon t, fault_detail e, V_Marshbrig b
-                                where t.ribbon_id=f.ribbon_id and e.fault_detail_id=f.fault_no and b.marshid=t.route_id and f.fault_no=3 and  b.marshyear=2019 and b.marshmonth between 1 and ".$month." and b.depocode=".Auth::user()->depo_id. "
+                                where t.ribbon_id=f.ribbon_id and t.depo_id= b.depocode and e.fault_detail_id=f.fault_no and b.marshid=t.route_id and f.fault_no=3 and  b.marshyear=2019 and b.marshmonth between 1 and ".$month." and b.depocode=".Auth::user()->depo_id. "
                                 group by f.fault_no, e.fault_detail_name");
     $tuslamjurtuu22019 =DB::select("select
                                 f.fault_no,
                                 e.fault_detail_name,
                                 count(f.fault_no) as too
                                 from FAULT f, ribbon t, fault_detail e, V_Marshbrig b
-                                where t.ribbon_id=f.ribbon_id and e.fault_detail_id=f.fault_no and b.marshid=t.route_id and f.fault_no=4 and  b.marshyear=2019 and b.marshmonth between 1 and ".$month." and b.depocode=".Auth::user()->depo_id. "
+                                where t.ribbon_id=f.ribbon_id and t.depo_id= b.depocode and e.fault_detail_id=f.fault_no and b.marshid=t.route_id and f.fault_no=4 and  b.marshyear=2019 and b.marshmonth between 1 and ".$month." and b.depocode=".Auth::user()->depo_id. "
                                 group by f.fault_no, e.fault_detail_name");
     $tuslamjurtuumin22019 =DB::select("select
                               sum(substr(k.stoptime,4,2)+((substr(k.stoptime,1,2))*60)) as too
@@ -2585,7 +2597,7 @@ group by q2.depo_id,q2.marshyear, q2.marshmonth");
                                 where t.depo_id=g.depocode and e.depocode=t.depo_id and e.marshyear=g.marshyear and e.marshmonth=g.marshmonth and   e.marshyear=2019 and e.marshmonth between 1 and ".$month." and t.depo_id=".Auth::user()->depo_id. " and f.fault_no=35");
     $hotsrolt22019 =DB::select("select sum(sum(substr(q2.patchmin,4,2)+((substr(q2.patchmin,1,2))*60))) as sum from
 (select distinct t.route_id, t.depo_id, g.marshyear, g.marshmonth ,t.locserial, t.zutnumber, t.patchmin from RIBBON t , ZUTGUUR.MARSHBRIG g
-where t.route_id = g.marshid and t.patchmin is not null and t.patchmin != '0' and t.patchmin != '00:00:00' and  g.marshyear=2019 and g.marshmonth between 1 and ".$month." and g.depocode=".Auth::user()->depo_id. ") q2     
+where t.route_id = g.marshid  and g.depocode=t.depo_id and t.patchmin is not null and t.patchmin != '0' and t.patchmin != '00:00:00' and  g.marshyear=2019 and g.marshmonth between 1 and ".$month." and g.depocode=".Auth::user()->depo_id. ") q2     
 group by q2.depo_id,q2.marshyear, q2.marshmonth");
     $hoorond32019 =DB::select("select
                                 count(f.fault_no) as too
@@ -2644,20 +2656,20 @@ group by q2.depo_id,q2.marshyear, q2.marshmonth");
     $tuslamjzammin32019 =DB::select("select
                              sum(substr(k.stoptime,4,2)+((substr(k.stoptime,1,2))*60)) as too
                                 from FAULT f, ribbon t, fault_detail e, V_Marshbrig b, fault_det k
-                                where t.ribbon_id=f.ribbon_id and e.fault_detail_id=f.fault_no and k.fault_id=f.fault_id and b.marshid=t.route_id and f.fault_no=3 and b.marshyear=2019 and b.marshmonth in ".$m." and b.depocode=".Auth::user()->depo_id. " ");
+                                where t.ribbon_id=f.ribbon_id and t.depo_id= b.depocode and e.fault_detail_id=f.fault_no and k.fault_id=f.fault_id and b.marshid=t.route_id and f.fault_no=3 and b.marshyear=2019 and b.marshmonth in ".$m." and b.depocode=".Auth::user()->depo_id. " ");
     $tuslamjzam32019 =DB::select("select
                                 f.fault_no,
                                 e.fault_detail_name,
                                 count(f.fault_no) as too
                                 from FAULT f, ribbon t, fault_detail e, V_Marshbrig b
-                                where t.ribbon_id=f.ribbon_id and e.fault_detail_id=f.fault_no and b.marshid=t.route_id and f.fault_no=3 and  b.marshyear=2019 and b.marshmonth in ".$m." and b.depocode=".Auth::user()->depo_id. "
+                                where t.ribbon_id=f.ribbon_id and t.depo_id= b.depocode and e.fault_detail_id=f.fault_no and b.marshid=t.route_id and f.fault_no=3 and  b.marshyear=2019 and b.marshmonth in ".$m." and b.depocode=".Auth::user()->depo_id. "
                                 group by f.fault_no, e.fault_detail_name");
     $tuslamjurtuu32019=DB::select("select
                                 f.fault_no,
                                 e.fault_detail_name,
                                 count(f.fault_no) as too
                                 from FAULT f, ribbon t, fault_detail e, V_Marshbrig b
-                                where t.ribbon_id=f.ribbon_id and e.fault_detail_id=f.fault_no and b.marshid=t.route_id and f.fault_no=4 and  b.marshyear=2019 and b.marshmonth in ".$m." and b.depocode=".Auth::user()->depo_id. "
+                                where t.ribbon_id=f.ribbon_id and t.depo_id= b.depocode and e.fault_detail_id=f.fault_no and b.marshid=t.route_id and f.fault_no=4 and  b.marshyear=2019 and b.marshmonth in ".$m." and b.depocode=".Auth::user()->depo_id. "
                                 group by f.fault_no, e.fault_detail_name");
     $tuslamjurtuumin32019 =DB::select("select
                               sum(substr(k.stoptime,4,2)+((substr(k.stoptime,1,2))*60)) as too
@@ -2690,7 +2702,7 @@ group by q2.depo_id,q2.marshyear, q2.marshmonth");
                                 where t.depo_id=g.depocode and e.depocode=t.depo_id and e.marshyear=g.marshyear and e.marshmonth=g.marshmonth and   e.marshyear=2019 and e.marshmonth in ".$m." and t.depo_id=".Auth::user()->depo_id. " and f.fault_no=35");
     $hotsrolt32019 =DB::select("select sum(sum(substr(q2.patchmin,4,2)+((substr(q2.patchmin,1,2))*60))) as sum from
 (select distinct t.route_id, t.depo_id, g.marshyear, g.marshmonth ,t.locserial, t.zutnumber, t.patchmin from RIBBON t , ZUTGUUR.MARSHBRIG g
-where t.route_id = g.marshid and t.patchmin is not null and t.patchmin != '0' and t.patchmin != '00:00:00' and  g.marshyear=2019 and g.marshmonth in ".$m." and g.depocode=".Auth::user()->depo_id. ") q2     
+where t.route_id = g.marshid  and g.depocode=t.depo_id and t.patchmin is not null and t.patchmin != '0' and t.patchmin != '00:00:00' and  g.marshyear=2019 and g.marshmonth in ".$m." and g.depocode=".Auth::user()->depo_id. ") q2     
 group by q2.depo_id,q2.marshyear, q2.marshmonth");
 
     return view('tailan.tuuzorchuulsan')->with(['year'=>$year,'startdate'=>$startdate,'month'=>$month,'hurd'=>$hurd,'yaraltai'=>$yaraltai,'yaraltai35'=>$yaraltai35,'yaraltai36'=>$yaraltai36,'yaraltai37'=>$yaraltai37,'yaraltai38'=>$yaraltai38,'yaraltaimin'=>$yaraltaimin,'yaraltai35min'=>$yaraltai35min,'yaraltai36min'=>$yaraltai36min,'yaraltai37min'=>$yaraltai37min,'yaraltai38min'=>$yaraltai38min,'zurchil'=>$zurchil,'niitzurchil'=>$niitzurchil,'orohachaa'=>$orohachaa,'orohachaamin'=>$orohachaamin,'uharsan'=>$uharsan ,'uharsanmin'=>$uharsanmin,'hoorond'=>$hoorond,'hoorondmin'=>$hoorondmin,'techno'=>$techno,'technomin'=>$technomin,'iluu'=>$iluu,'iluumin'=>$iluumin,'tuslamjzam'=>$tuslamjzam,'tuslamjurtuu'=>$tuslamjurtuu,'tuslamjzammin'=>$tuslamjzammin,'tuslamjurtuumin'=>$tuslamjurtuumin, 'speed'=>$speed,'hotsrolt'=>$hotsrolt,'tormoz'=>$tormoz,'hurdniit'=>$hurdniit,'yaraltainiit'=>$yaraltainiit,'yaraltainiitmin'=>$yaraltainiitmin
