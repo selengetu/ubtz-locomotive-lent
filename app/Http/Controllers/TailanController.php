@@ -3209,11 +3209,11 @@ group by q2.depo_id,q2.marshyear, q2.marshmonth");
         $startdate= Input::get('norm_start');
         $enddate= Input::get('norm_end');
         if ($startdate !=0 && $startdate && $enddate !=0 && $enddate !=NULL) {
-            $date.=  "and t.translate_date between '".$startdate." 00:00:00' and '".$enddate." 23:59:59'";
+            $date.=  "and TO_DATE( t.depdatetime, 'YYYY/MM/DD') between '".$startdate." 00:00:00' and '".$enddate." 23:59:59'";
         }
         else
         {
-            $date.=" and t.translate_date between sysdate-10 and sysdate";
+            $date.=" and TO_DATE( t.depdatetime, 'YYYY/MM/DD') between sysdate-10 and sysdate";
             $startdate= Carbon::today()->subDays(10)->toDateString();
             $enddate=  Carbon::today()->toDateString();
 
@@ -3236,22 +3236,29 @@ group by q2.depo_id,q2.marshyear, q2.marshmonth");
         if ($us!=NULL && $us !=0) {
             $query1.=" and t.translator_id = ".$us."";
         }
-        $zurchil=DB::select("
-select * from
-                (select t.translator_id, t.depo_id, u.name, substr(c.workcode,1,1) as wk, 
-                  case when substr(c.workcode,1,1) in ('5') then (sum(c.worktime))*5 else sum(c.runkm) end as runkm, to_char(t.translate_date, 'YYYY/MM/DD') as depdatetime from
-                (select distinct r.route_id, r.translator_id, r.depo_id,r.translate_date from Ribbon r) t, 
-                ZUTGUUR.Calcaddition c, USeRS u
-                where t.route_id=c.marshid and u.id=t.translator_id and u.grand_type !=1   ".$query." ".$query1."   ".$date."
-                group by t.translator_id, t.depo_id, u.name,substr(c.workcode,1,1),to_char(t.translate_date, 'YYYY/MM/DD') 
-                order by to_char(t.translate_date, 'YYYY/MM/DD'))
+        $zurchil = DB::select("
+        select * from
+                (select  depocode, translator_id, name, wk, runkm, depdatetime
+                   from
+                   (select v.depocode,
+                           v.marshid,
+                 
+                          substr(v.workcode,1,1 ) as wk,
+                          case when substr(v.workcode,1,1) in ('5') then (v.worktime)*5 else v.runkm end as runkm from ZUTGUUR.Calcaddition v )c,
+                   (select u.*, t.* from
+                (select distinct r.route_id, r.translator_id, r.depo_id, 
+                to_char(r.translate_date, 'YYYY/MM/DD') as depdatetime  from Ribbon r) t, 
+                (select id, name, grand_type from USeRS) u
+                where u.id=t.translator_id and u.grand_type !=1  ".$query." ".$query1."   ".$date." ) q1
+             where  q1.route_id=c.marshid and q1.depo_id=c.depocode)
                 PIVOT
                 (
                   sum(runkm)
                   FOR wk IN (1 as ach ,2 as a,4 as b ,3 as c,5 as sel ,6 as d,9 as e)
                 )
                 order by depdatetime desc
-                              ");
+ 
+              ");
         $user=DB::select("select * from Users t where 1=1 ".$query." and t.grand_type !=1 order by name");
 
         return view('tailan.normative')->with(['zurchil'=>$zurchil,'startdate'=>$startdate,'enddate'=>$enddate,'user'=>$user]);
