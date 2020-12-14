@@ -30,7 +30,7 @@
                 <div id="sear" class="panel-collapse collapse in">
                     <div class="panel-body">
                         <fieldset class="scheduler-border">
-                            <form method="post" action="urtuu30">
+                            <form method="post" action="machinistnagon">
                                 <div class="col-md-12">
                                     <div class="col-md-3">
                                         <div class="form-group form-md-line-input has-success">
