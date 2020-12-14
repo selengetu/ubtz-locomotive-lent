@@ -35,7 +35,7 @@
                                     <div class="col-md-3">
                                         <div class="form-group form-md-line-input has-success">
                                             <div class="input-icon">
-                                                <input class="form-control datepicker" id="urtuu30_start" name="urtuu30_start" type="text"  value="{{$startdate}}" />
+                                                <input class="form-control datepicker" id="mach_start" name="mach_start" type="text"  value="{{$startdate}}" />
                                                 <label for="form_control_1" style="font-size:12px;">
                                                     Эхлэх огноо
                                                 </label>
