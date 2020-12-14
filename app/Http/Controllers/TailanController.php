@@ -3279,14 +3279,14 @@ group by q2.depo_id,q2.marshyear, q2.marshmonth");
 
         }
 
-        dd("select t.DEPOCODE,t.MASHCODE, t.MASHNAME, sum(SUBSTR(t.patchmin, 1, 2)*60 + SUBSTR(t.patchmin, 4, 2)) as NUHULT
+        $machinist = DB::select("select t.DEPOCODE,t.MASHCODE, t.MASHNAME, sum(SUBSTR(t.patchmin, 1, 2)*60 + SUBSTR(t.patchmin, 4, 2)) as NUHULT
                               from v_nagon t 
-                              where t.patchmin !='00:00:00' and t.mashname is not null and t.depocode=".Auth::user()->id."  ".$query."
+                              where t.patchmin !='00:00:00' and t.mashname is not null and t.depocode=".Auth::user()->depo_id."  ".$query."
                                group by t.DEPOCODE,t.MASHCODE, t.MASHNAME
                                order by t.MASHCODE");
         $tuslah = DB::select("  select t.DEPOCODE,t.TUSLCODE, t.TUSLNAME, sum(SUBSTR(t.patchmin, 1, 2)*60 + SUBSTR(t.patchmin, 4, 2)) as NUHULT
                               from v_nagon t 
-                              where t.patchmin !='00:00:00' and t.mashname is not null and  t.depocode=".Auth::user()->id."  ".$query."
+                              where t.patchmin !='00:00:00' and t.mashname is not null and  t.depocode=".Auth::user()->depo_id."  ".$query."
                                group by t.DEPOCODE,t.TUSLCODE, t.TUSLNAME
                                order by t.TUSLCODE");
 
