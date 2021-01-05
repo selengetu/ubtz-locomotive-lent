@@ -30,12 +30,12 @@
                 <div id="sear" class="panel-collapse collapse in">
                     <div class="panel-body">
                         <fieldset class="scheduler-border">
-                            <form method="post" action="urtuu30">
+                            <form method="post" action="machinistnagon">
                                 <div class="col-md-12">
                                     <div class="col-md-3">
                                         <div class="form-group form-md-line-input has-success">
                                             <div class="input-icon">
-                                                <input class="form-control datepicker" id="urtuu30_start" name="urtuu30_start" type="text"  value="{{$startdate}}" />
+                                                <input class="form-control datepicker" id="mach_start" name="mach_start" type="text"  value="{{$startdate}}" />
                                                 <label for="form_control_1" style="font-size:12px;">
                                                     Эхлэх огноо
                                                 </label>
@@ -50,7 +50,7 @@
                                     <div class="col-md-3">
                                         <div class="form-group form-md-line-input has-success">
                                             <div class="input-icon">
-                                                <input class="form-control datepicker" id="urtuu30_end" name="urtuu30_end" type="text" value="{{$enddate}}"/>
+                                                <input class="form-control datepicker" id="mach_end" name="mach_end" type="text" value="{{$enddate}}"/>
                                                 <label for="form_control_1" style="font-size:12px;">
                                                     Дуусах огноо
                                                 </label>
@@ -241,7 +241,7 @@
     <script type="text/javascript">
         $(document).ready(function(){
 
-            $("#urtuu30_start").datepicker({
+            $("#mach_start").datepicker({
                 format: 'yyyy-mm-dd',
                 todayBtn:  1,
                 autoclose: true,
@@ -250,7 +250,7 @@
                 $('#urtuu30_end').datepicker('setStartDate', minDate);
             });
 
-            $("#urtuu30_end").datepicker({
+            $("#mach_end").datepicker({
                 format: 'yyyy-mm-dd',
             })
                 .on('changeDate', function (selected) {
