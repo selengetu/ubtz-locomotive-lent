@@ -3237,21 +3237,25 @@ group by q2.depo_id,q2.marshyear, q2.marshmonth");
             $query1.=" and t.translator_id = ".$us."";
         }
         $zurchil=DB::select("
-        select * from
-                        (select t.translator_id, t.depo_id, u.name, substr(c.workcode,1,1) as wk, 
-                          case when substr(c.workcode,1,1) in ('5') then (sum(c.worktime))*5 else sum(c.runkm) end as runkm, to_char(t.translate_date, 'YYYY/MM/DD') as depdatetime from
-                        (select distinct r.route_id, r.translator_id, r.depo_id,r.translate_date from Ribbon r) t, 
-                        ZUTGUUR.Calcaddition c, USeRS u
-                        where t.route_id=c.marshid and u.id=t.translator_id and u.grand_type !=1   ".$query." ".$query1."   ".$date."
-                        group by t.translator_id, t.depo_id, u.name,substr(c.workcode,1,1),to_char(t.translate_date, 'YYYY/MM/DD') 
-                        order by to_char(t.translate_date, 'YYYY/MM/DD'))
-                PIVOT
-                (
-                  sum(runkm)
-                  FOR wk IN (1 as ach ,2 as a,4 as b ,3 as c,5 as sel ,6 as d,9 as e)
-                )
-                order by depdatetime desc
- 
+                select * from
+                (select q.translator_id, q.depo_id, q.name, q.depdatetime, substr(wcode,1,1) as wk, 
+                                      case when substr(wcode,1,1) in ('5') then (sum(wcode))*5 else sum(q.runkm) end as runkm from
+                (select t.translator_id, t.depo_id, u.name,
+                                        case when workcode in ('377') then 500 else workcode end as wcode, runkm, 
+                                            to_char(t.translate_date, 'YYYY/MM/DD') as depdatetime from
+                                        (select distinct r.route_id, r.translator_id, r.depo_id,r.translate_date from Ribbon r
+                                        where r.translate_date between sysdate-10 and sysdate) t, 
+                                        ZUTGUUR.Calcaddition c, USeRS u
+                                        where t.route_id=c.marshid and u.id=t.translator_id and u.grand_type !=1  ".$query." ".$query1."   ".$date." ) q
+                                        group by q.translator_id, q.depo_id, q.name,substr(wcode,1,1),depdatetime
+                                      
+                                        order by depdatetime)
+                                         PIVOT
+                                (
+                                  sum(runkm)
+                                  FOR wk IN (1 as ach ,2 as a,4 as b ,3 as c,5 as sel ,6 as d,9 as e)
+                                )
+                                order by depdatetime desc
               ");
         $user=DB::select("select * from Users t where 1=1 ".$query." and t.grand_type !=1 order by name");
 
