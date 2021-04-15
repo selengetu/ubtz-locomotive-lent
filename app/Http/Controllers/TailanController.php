@@ -3239,9 +3239,9 @@ group by q2.depo_id,q2.marshyear, q2.marshmonth");
         $zurchil=DB::select("
                 select * from
                 (select q.translator_id, q.depo_id, q.name, q.depdatetime, substr(wcode,1,1) as wk, 
-                                      case when substr(wcode,1,1) in ('5') then (sum(wcode))*5 else sum(q.runkm) end as runkm from
+                                      case when substr(wcode,1,1) in ('5') then (sum(worktime))*5 else sum(q.runkm) end as runkm from
                 (select t.translator_id, t.depo_id, u.name,
-                                        case when workcode in ('377') then 500 else workcode end as wcode, runkm, 
+                                        case when workcode in ('377') then 500 else workcode end as wcode, runkm, worktime,
                                             to_char(t.translate_date, 'YYYY/MM/DD') as depdatetime from
                                         (select distinct r.route_id, r.translator_id, r.depo_id,r.translate_date from Ribbon r
                                         where r.translate_date between sysdate-10 and sysdate) t, 
