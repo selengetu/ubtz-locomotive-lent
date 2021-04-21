@@ -3244,7 +3244,7 @@ group by q2.depo_id,q2.marshyear, q2.marshmonth");
                                         case when workcode in ('377') then 500 else workcode end as wcode, runkm, worktime,
                                             to_char(t.translate_date, 'YYYY/MM/DD') as depdatetime from
                                         (select distinct r.route_id, r.translator_id, r.depo_id,r.translate_date from Ribbon r
-                                        where r.translate_date between sysdate-10 and sysdate) t, 
+                                        ) t, 
                                         ZUTGUUR.Calcaddition c, USeRS u
                                         where t.route_id=c.marshid and u.id=t.translator_id and u.grand_type !=1  ".$query." ".$query1."   ".$date." ) q
                                         group by q.translator_id, q.depo_id, q.name,substr(wcode,1,1),depdatetime
