@@ -1307,7 +1307,7 @@ group by q2.depo_id,q2.marshyear, q2.marshmonth");
                                 left join fault_det d on d.fault_id=f.fault_id
                                 where t.depo_id=g.depocode and e.depocode=t.depo_id and e.marshyear=g.marshyear and e.marshmonth=g.marshmonth and substr(d.stoptime,4,2)+((substr(d.stoptime,1,2))*60)>119  and f.fault_no=12 and e.marshyear=".$year."  and e.marshmonth between 1 and ".$month." and e.depocode=".Auth::user()->depo_id. "
                                     ");
-                                    $iluu2 =DB::select("select
+  $buuj2 =DB::select("select
                                     count(f.fault_no) as too
                                     from  ribbon t
                                   inner join V_MARSHBRIG g on g.marshid=t.route_id and g.depocode=t.depo_id
@@ -1316,7 +1316,7 @@ group by q2.depo_id,q2.marshyear, q2.marshmonth");
                                     left join fault_det d on d.fault_id=f.fault_id
                                     where t.depo_id=g.depocode and e.depocode=t.depo_id and  e.marshyear=g.marshyear and e.marshmonth=g.marshmonth and f.fault_no=9 and e.marshyear=".$year."  and e.marshmonth between 1 and ".$month." and e.depocode=".Auth::user()->depo_id. "
                                         ");
-        $iluumin2 =DB::select("select
+        $buujmin2 =DB::select("select
                                     sum(substr(d.stoptime,4,2)+((substr(d.stoptime,1,2))*60)) as too
                                     from  ribbon t
                                   inner join V_MARSHBRIG g on g.marshid=t.route_id and g.depocode=t.depo_id
