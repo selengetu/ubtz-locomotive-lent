@@ -4482,6 +4482,98 @@
                               0 мин
                           @endif</td>
                   </tr>
+                  <tr>
+                      <td> 14 </td>
+                      <td> Анхаарамжаар бууж суусан</td>
+                      <td>
+                          @if(count($buuj2019) >0)
+                              @foreach($buuj2019 as $n)
+                                  {{$n->too}} уд
+                              @endforeach
+                          @else
+                              0 уд
+                          @endif
+                          @if(count($buujmin2019) >0)
+                              @foreach($buujmin2019 as $n)
+                                  {{$n->too}} мин
+                              @endforeach
+                          @else
+                              0 мин
+                          @endif
+                      </td>
+                      <td>
+                          @if(count($buuj) >0)
+                              @foreach($buuj as $n)
+                                  {{$n->too}} уд
+                              @endforeach
+                          @else
+                              0 уд
+                          @endif
+                          @if(count($buujmin) >0)
+                              @foreach($buujmin as $n)
+                                  {{$n->too}} мин
+                              @endforeach
+                          @else
+                              0 мин
+                          @endif
+                      </td>
+                      <td> @if(count($buuj22019) >0)
+                              @foreach($buuj22019 as $n)
+                                  {{$n->too}} уд
+                              @endforeach
+                          @else
+                              0 уд
+                          @endif
+                          @if(count($buujmin22019) >0)
+                              @foreach($buujmin22019 as $n)
+                                  {{$n->too}} мин
+                              @endforeach
+                          @else
+                              0 мин
+                          @endif</td>
+                      <td> @if(count($buuj2) >0)
+                              @foreach($buuj2 as $n)
+                                  {{$n->too}} уд
+                              @endforeach
+                          @else
+                              0 уд
+                          @endif
+                          @if(count($buujmin2) >0)
+                              @foreach($buujmin2 as $n)
+                                  {{$n->too}} мин
+                              @endforeach
+                          @else
+                              0 мин
+                          @endif</td>
+                          <td> @if(count($buuj32019) >0)
+                              @foreach($buuj32019 as $n)
+                                  {{$n->too}} уд
+                              @endforeach
+                          @else
+                              0 уд
+                          @endif
+                          @if(count($buujmin32019) >0)
+                              @foreach($buujmin32019 as $n)
+                                  {{$n->too}} мин
+                              @endforeach
+                          @else
+                              0 мин
+                          @endif</td>
+                      <td> @if(count($buuj3) >0)
+                              @foreach($buuj3 as $n)
+                                  {{$n->too}} уд
+                              @endforeach
+                          @else
+                              0 уд
+                          @endif
+                          @if(count($buujmin3) >0)
+                              @foreach($buujmin3 as $n)
+                                  {{$n->too}} мин
+                              @endforeach
+                          @else
+                              0 мин
+                          @endif</td>
+                  </tr>
           
             
           </tbody>

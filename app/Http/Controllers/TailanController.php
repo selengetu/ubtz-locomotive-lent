@@ -1184,6 +1184,24 @@ sum(sel) as sel , sum(uz) as uz , sum(tur) as tur , sum(oros) as oros ,  sum(tso
                                 left join fault_det d on d.fault_id=f.fault_id
                                 where t.depo_id=g.depocode and e.depocode=t.depo_id and e.marshyear=g.marshyear and e.marshmonth=g.marshmonth and f.fault_no=12 and substr(d.stoptime,4,2)+((substr(d.stoptime,1,2))*60)>119  and e.marshyear=".$year." and e.marshmonth=".$month." and e.depocode=".Auth::user()->depo_id. "
                                     ");
+      $buuj=DB::select("select
+                                    count(f.fault_no) as too
+                                    from  ribbon t
+                                  inner join V_MARSHBRIG g on g.marshid=t.route_id and g.depocode=t.depo_id
+                                    inner join ZUTGUUR.MARSHZUT e on e.marshid=t.route_id
+                                    inner join fault f on f.ribbon_id = t.ribbon_id
+                                    left join fault_det d on d.fault_id=f.fault_id
+                                    where t.depo_id=g.depocode and e.depocode=t.depo_id and e.marshyear=g.marshyear and e.marshmonth=g.marshmonth and f.fault_no=9 and e.marshyear=".$year." and e.marshmonth=".$month." and e.depocode=".Auth::user()->depo_id. "
+                                        ");
+      $buujmin=DB::select("select
+                                    sum(substr(d.stoptime,4,2)+((substr(d.stoptime,1,2))*60)) as too
+                                    from  ribbon t
+                                  inner join V_MARSHBRIG g on g.marshid=t.route_id and g.depocode=t.depo_id
+                                    inner join ZUTGUUR.MARSHZUT e on e.marshid=t.route_id
+                                    inner join fault f on f.ribbon_id = t.ribbon_id
+                                    left join fault_det d on d.fault_id=f.fault_id
+                                    where t.depo_id=g.depocode and e.depocode=t.depo_id and e.marshyear=g.marshyear and e.marshmonth=g.marshmonth and f.fault_no=9 and e.marshyear=".$year." and e.marshmonth=".$month." and e.depocode=".Auth::user()->depo_id. "
+                                        ");                                
     $tuslamjzammin =DB::select("select
                              sum(substr(k.stoptime,4,2)+((substr(k.stoptime,1,2))*60)) as too
                                 from FAULT f, ribbon t, fault_detail e, V_Marshbrig b, fault_det k
@@ -1289,6 +1307,24 @@ group by q2.depo_id,q2.marshyear, q2.marshmonth");
                                 left join fault_det d on d.fault_id=f.fault_id
                                 where t.depo_id=g.depocode and e.depocode=t.depo_id and e.marshyear=g.marshyear and e.marshmonth=g.marshmonth and substr(d.stoptime,4,2)+((substr(d.stoptime,1,2))*60)>119  and f.fault_no=12 and e.marshyear=".$year."  and e.marshmonth between 1 and ".$month." and e.depocode=".Auth::user()->depo_id. "
                                     ");
+                                    $iluu2 =DB::select("select
+                                    count(f.fault_no) as too
+                                    from  ribbon t
+                                  inner join V_MARSHBRIG g on g.marshid=t.route_id and g.depocode=t.depo_id
+                                    inner join ZUTGUUR.MARSHZUT e on e.marshid=t.route_id
+                                    inner join fault f on f.ribbon_id = t.ribbon_id
+                                    left join fault_det d on d.fault_id=f.fault_id
+                                    where t.depo_id=g.depocode and e.depocode=t.depo_id and  e.marshyear=g.marshyear and e.marshmonth=g.marshmonth and f.fault_no=9 and e.marshyear=".$year."  and e.marshmonth between 1 and ".$month." and e.depocode=".Auth::user()->depo_id. "
+                                        ");
+        $iluumin2 =DB::select("select
+                                    sum(substr(d.stoptime,4,2)+((substr(d.stoptime,1,2))*60)) as too
+                                    from  ribbon t
+                                  inner join V_MARSHBRIG g on g.marshid=t.route_id and g.depocode=t.depo_id
+                                    inner join ZUTGUUR.MARSHZUT e on e.marshid=t.route_id
+                                    inner join fault f on f.ribbon_id = t.ribbon_id
+                                    left join fault_det d on d.fault_id=f.fault_id
+                                    where t.depo_id=g.depocode and e.depocode=t.depo_id and e.marshyear=g.marshyear and e.marshmonth=g.marshmonth and f.fault_no=9 and e.marshyear=".$year."  and e.marshmonth between 1 and ".$month." and e.depocode=".Auth::user()->depo_id. "
+                                        ");
     $tuslamjzammin2=DB::select("select
                              sum(substr(k.stoptime,4,2)+((substr(k.stoptime,1,2))*60)) as too
                                 from FAULT f, ribbon t, fault_detail e, V_Marshbrig b, fault_det k
@@ -1376,6 +1412,15 @@ group by q2.depo_id,q2.marshyear, q2.marshmonth");
                                 left join fault_det d on d.fault_id=f.fault_id
                                 where t.depo_id=g.depocode and e.depocode=t.depo_id and e.marshyear=g.marshyear and e.marshmonth=g.marshmonth and substr(d.stoptime,4,2)+((substr(d.stoptime,1,2))*60)>119  and  e.marshyear=".$year."  and e.marshmonth in ".$m." and f.fault_no=12 and e.marshyear=".$year."  and e.marshmonth in ".$m." and e.depocode=".Auth::user()->depo_id. "
                                     ");
+    $buuj3 =DB::select("select
+                                    count(f.fault_no) as too
+                                    from  ribbon t
+                                  inner join V_MARSHBRIG g on g.marshid=t.route_id and g.depocode=t.depo_id
+                                    inner join ZUTGUUR.MARSHZUT e on e.marshid=t.route_id
+                                    inner join fault f on f.ribbon_id = t.ribbon_id
+                                    left join fault_det d on d.fault_id=f.fault_id
+                                    where t.depo_id=g.depocode and e.depocode=t.depo_id and e.marshyear=g.marshyear and e.marshmonth=g.marshmonth and  e.marshyear=".$year."  and e.marshmonth in ".$m." and f.fault_no=9 and e.marshyear=".$year."  and e.marshmonth in ".$m." and e.depocode=".Auth::user()->depo_id. "
+                                    ");    
     $technomin3 =DB::select("select
                                 sum(substr(d.stoptime,4,2)+((substr(d.stoptime,1,2))*60)) as too
                                 from  ribbon t
@@ -1394,6 +1439,15 @@ group by q2.depo_id,q2.marshyear, q2.marshmonth");
                                 left join fault_det d on d.fault_id=f.fault_id
                                 where t.depo_id=g.depocode and e.depocode=t.depo_id and e.marshyear=g.marshyear and e.marshmonth=g.marshmonth and f.fault_no=12 and substr(d.stoptime,4,2)+((substr(d.stoptime,1,2))*60)>119  and  e.marshyear=".$year."  and e.marshmonth in ".$m." and e.depocode=".Auth::user()->depo_id. "
                                     ");
+    $buujmin3 =DB::select("select
+                                    sum(substr(d.stoptime,4,2)+((substr(d.stoptime,1,2))*60)) as too
+                                    from  ribbon t
+                                  inner join V_MARSHBRIG g on g.marshid=t.route_id and g.depocode=t.depo_id
+                                    inner join ZUTGUUR.MARSHZUT e on e.marshid=t.route_id
+                                    inner join fault f on f.ribbon_id = t.ribbon_id
+                                    left join fault_det d on d.fault_id=f.fault_id
+                                    where t.depo_id=g.depocode and e.depocode=t.depo_id and e.marshyear=g.marshyear and e.marshmonth=g.marshmonth and f.fault_no=9 and  e.marshyear=".$year."  and e.marshmonth in ".$m." and e.depocode=".Auth::user()->depo_id. "
+                                        ");
     $tuslamjzammin3=DB::select("select
                              sum(substr(k.stoptime,4,2)+((substr(k.stoptime,1,2))*60)) as too
                                 from FAULT f, ribbon t, fault_detail e, V_Marshbrig b, fault_det k
@@ -2421,6 +2475,24 @@ sum(sel) as sel , sum(uz) as uz , sum(tur) as tur , sum(oros) as oros ,  sum(tso
                                 left join fault_det d on d.fault_id=f.fault_id
                                 where t.depo_id=g.depocode and e.depocode=t.depo_id and e.marshyear=g.marshyear and e.marshmonth=g.marshmonth and f.fault_no=12 and substr(d.stoptime,4,2)+((substr(d.stoptime,1,2))*60)>119  and e.marshyear=".$year1." and e.marshmonth=".$month." and e.depocode=".Auth::user()->depo_id. "
                                     ");
+     $buuj2019 =DB::select("select
+                                    count(f.fault_no) as too
+                                    from  ribbon t
+                                  inner join V_MARSHBRIG g on g.marshid=t.route_id and g.depocode=t.depo_id
+                                    inner join ZUTGUUR.MARSHZUT e on e.marshid=t.route_id
+                                    inner join fault f on f.ribbon_id = t.ribbon_id
+                                    left join fault_det d on d.fault_id=f.fault_id
+                                    where t.depo_id=g.depocode and e.depocode=t.depo_id and e.marshyear=g.marshyear and e.marshmonth=g.marshmonth and f.fault_no=9 and e.marshyear=".$year1." and e.marshmonth=".$month." and e.depocode=".Auth::user()->depo_id. "
+                                        ");
+    $buujmin2019 =DB::select("select
+                                    sum(substr(d.stoptime,4,2)+((substr(d.stoptime,1,2))*60)) as too
+                                    from  ribbon t
+                                  inner join V_MARSHBRIG g on g.marshid=t.route_id and g.depocode=t.depo_id
+                                    inner join ZUTGUUR.MARSHZUT e on e.marshid=t.route_id
+                                    inner join fault f on f.ribbon_id = t.ribbon_id
+                                    left join fault_det d on d.fault_id=f.fault_id
+                                    where t.depo_id=g.depocode and e.depocode=t.depo_id and e.marshyear=g.marshyear and e.marshmonth=g.marshmonth and f.fault_no=9 and e.marshyear=".$year1." and e.marshmonth=".$month." and e.depocode=".Auth::user()->depo_id. "
+                                        ");
     $tuslamjzammin2019 =DB::select("select
                              sum(substr(k.stoptime,4,2)+((substr(k.stoptime,1,2))*60)) as too
                                 from FAULT f, ribbon t, fault_detail e, V_Marshbrig b, fault_det k
@@ -2543,8 +2615,26 @@ group by q2.depo_id,q2.marshyear, q2.marshmonth");
                                 inner join ZUTGUUR.MARSHZUT e on e.marshid=t.route_id
                                 inner join fault f on f.ribbon_id = t.ribbon_id
                                 left join fault_det d on d.fault_id=f.fault_id
-                                where t.depo_id=g.depocode and e.depocode=t.depo_id and e.marshyear=g.marshyear and e.marshmonth=g.marshmonth and substr(d.stoptime,4,2)+((substr(d.stoptime,1,2))*60)>119  and f.fault_no=12 and e.marshyear=".$year1." and e.marshmonth between 1 and ".$month." and e.depocode=".Auth::user()->depo_id. "
+                                where t.depo_id=g.depocode and e.depocode=t.depo_id and e.marshyear=g.marshyear and e.marshmonth=g.marshmonth and substr(d.stoptime,4,2)+((substr(d.stoptime,1,2))*60)>119  and f.fault_no=12  and e.marshyear=".$year1." and e.marshmonth between 1 and ".$month." and e.depocode=".Auth::user()->depo_id. "
                                     ");
+     $buuj22019 =DB::select("select
+                                    count(f.fault_no) as too
+                                    from  ribbon t
+                                  inner join V_MARSHBRIG g on g.marshid=t.route_id and g.depocode=t.depo_id
+                                    inner join ZUTGUUR.MARSHZUT e on e.marshid=t.route_id
+                                    inner join fault f on f.ribbon_id = t.ribbon_id
+                                    left join fault_det d on d.fault_id=f.fault_id
+                                    where t.depo_id=g.depocode and e.depocode=t.depo_id and  e.marshyear=g.marshyear and e.marshmonth=g.marshmonth  and f.fault_no=9 and e.marshyear=".$year1." and e.marshmonth between 1 and ".$month." and e.depocode=".Auth::user()->depo_id. "
+                                        ");
+        $buujmin22019 =DB::select("select
+                                    sum(substr(d.stoptime,4,2)+((substr(d.stoptime,1,2))*60)) as too
+                                    from  ribbon t
+                                  inner join V_MARSHBRIG g on g.marshid=t.route_id and g.depocode=t.depo_id
+                                    inner join ZUTGUUR.MARSHZUT e on e.marshid=t.route_id
+                                    inner join fault f on f.ribbon_id = t.ribbon_id
+                                    left join fault_det d on d.fault_id=f.fault_id
+                                    where t.depo_id=g.depocode and e.depocode=t.depo_id and e.marshyear=g.marshyear and e.marshmonth=g.marshmonth and f.fault_no=9 and e.marshyear=".$year1." and e.marshmonth between 1 and ".$month." and e.depocode=".Auth::user()->depo_id. "
+                                        ");
     $tuslamjzammin22019 =DB::select("select
                              sum(substr(k.stoptime,4,2)+((substr(k.stoptime,1,2))*60)) as too
                                 from FAULT f, ribbon t, fault_detail e, V_Marshbrig b, fault_det k
@@ -2632,6 +2722,15 @@ group by q2.depo_id,q2.marshyear, q2.marshmonth");
                                 left join fault_det d on d.fault_id=f.fault_id
                                 where t.depo_id=g.depocode and e.depocode=t.depo_id and e.marshyear=g.marshyear and e.marshmonth=g.marshmonth and substr(d.stoptime,4,2)+((substr(d.stoptime,1,2))*60)>119  and  e.marshyear=".$year1." and e.marshmonth in ".$m." and f.fault_no=12 and e.marshyear=".$year1." and e.marshmonth in ".$m." and e.depocode=".Auth::user()->depo_id. "
                                     ");
+    $buuj32019 =DB::select("select
+                                    count(f.fault_no) as too
+                                    from  ribbon t
+                                  inner join V_MARSHBRIG g on g.marshid=t.route_id and g.depocode=t.depo_id
+                                    inner join ZUTGUUR.MARSHZUT e on e.marshid=t.route_id
+                                    inner join fault f on f.ribbon_id = t.ribbon_id
+                                    left join fault_det d on d.fault_id=f.fault_id
+                                    where t.depo_id=g.depocode and e.depocode=t.depo_id and e.marshyear=g.marshyear and e.marshmonth=g.marshmonth and  e.marshyear=".$year1." and e.marshmonth in ".$m." and f.fault_no=9 and e.marshyear=".$year1." and e.marshmonth in ".$m." and e.depocode=".Auth::user()->depo_id. "
+                                        ");
     $technomin32019 =DB::select("select
                                 sum(substr(d.stoptime,4,2)+((substr(d.stoptime,1,2))*60)) as too
                                 from  ribbon t
@@ -2650,6 +2749,15 @@ group by q2.depo_id,q2.marshyear, q2.marshmonth");
                                 left join fault_det d on d.fault_id=f.fault_id
                                 where t.depo_id=g.depocode and e.depocode=t.depo_id and e.marshyear=g.marshyear and e.marshmonth=g.marshmonth and f.fault_no=12 and substr(d.stoptime,4,2)+((substr(d.stoptime,1,2))*60)>119  and  e.marshyear=".$year1." and e.marshmonth in ".$m." and e.depocode=".Auth::user()->depo_id. "
                                     ");
+    $buujmin32019 =DB::select("select
+                                    sum(substr(d.stoptime,4,2)+((substr(d.stoptime,1,2))*60)) as too
+                                    from  ribbon t
+                                  inner join V_MARSHBRIG g on g.marshid=t.route_id and g.depocode=t.depo_id
+                                    inner join ZUTGUUR.MARSHZUT e on e.marshid=t.route_id
+                                    inner join fault f on f.ribbon_id = t.ribbon_id
+                                    left join fault_det d on d.fault_id=f.fault_id
+                                    where t.depo_id=g.depocode and e.depocode=t.depo_id and e.marshyear=g.marshyear and e.marshmonth=g.marshmonth and f.fault_no=9 and  e.marshyear=".$year1." and e.marshmonth in ".$m." and e.depocode=".Auth::user()->depo_id. "
+                                        ");
     $tuslamjzammin32019 =DB::select("select
                              sum(substr(k.stoptime,4,2)+((substr(k.stoptime,1,2))*60)) as too
                                 from FAULT f, ribbon t, fault_detail e, V_Marshbrig b, fault_det k
@@ -2702,11 +2810,11 @@ group by q2.depo_id,q2.marshyear, q2.marshmonth");
 where t.route_id = g.marshid  and g.depocode=t.depo_id and t.patchmin is not null and t.patchmin != '0' and t.patchmin != '00:00:00' and  g.marshyear=".$year1." and g.marshmonth in ".$m." and g.depocode=".Auth::user()->depo_id. ") q2     
 group by q2.depo_id,q2.marshyear, q2.marshmonth");
 
-    return view('tailan.tuuzorchuulsan')->with(['year'=>$year,'startdate'=>$startdate,'month'=>$month,'hurd'=>$hurd,'yaraltai'=>$yaraltai,'yaraltai35'=>$yaraltai35,'yaraltai36'=>$yaraltai36,'yaraltai37'=>$yaraltai37,'yaraltai38'=>$yaraltai38,'yaraltaimin'=>$yaraltaimin,'yaraltai35min'=>$yaraltai35min,'yaraltai36min'=>$yaraltai36min,'yaraltai37min'=>$yaraltai37min,'yaraltai38min'=>$yaraltai38min,'zurchil'=>$zurchil,'niitzurchil'=>$niitzurchil,'orohachaa'=>$orohachaa,'orohachaamin'=>$orohachaamin,'uharsan'=>$uharsan ,'uharsanmin'=>$uharsanmin,'hoorond'=>$hoorond,'hoorondmin'=>$hoorondmin,'techno'=>$techno,'technomin'=>$technomin,'iluu'=>$iluu,'iluumin'=>$iluumin,'tuslamjzam'=>$tuslamjzam,'tuslamjurtuu'=>$tuslamjurtuu,'tuslamjzammin'=>$tuslamjzammin,'tuslamjurtuumin'=>$tuslamjurtuumin, 'speed'=>$speed,'hotsrolt'=>$hotsrolt,'tormoz'=>$tormoz,'hurdniit'=>$hurdniit,'yaraltainiit'=>$yaraltainiit,'yaraltainiitmin'=>$yaraltainiitmin
-        ,'achaa2'=>$achaa2 ,'achaa'=>$achaa,'hurd2'=>$hurd2,'yaraltai2'=>$yaraltai2,'yaraltai352'=>$yaraltai352,'yaraltai362'=>$yaraltai362,'yaraltai372'=>$yaraltai372,'yaraltai382'=>$yaraltai382,'yaraltaimin2'=>$yaraltaimin2,'yaraltai35min2'=>$yaraltai35min2,'yaraltai36min2'=>$yaraltai36min2,'yaraltai37min2'=>$yaraltai37min2,'yaraltai38min2'=>$yaraltai38min2,'zurchil2'=>$zurchil2,'niitzurchil2'=>$niitzurchil2,'orohachaa2'=>$orohachaa2,'orohachaamin2'=>$orohachaamin2,'uharsan2'=>$uharsan2 ,'uharsanmin2'=>$uharsanmin2,'hoorond2'=>$hoorond2,'hoorondmin2'=>$hoorondmin2,'techno2'=>$techno2,'technomin2'=>$technomin2,'iluu2'=>$iluu2,'iluumin2'=>$iluumin2,'tuslamjzam2'=>$tuslamjzam2,'tuslamjurtuu2'=>$tuslamjurtuu2,'tuslamjzammin2'=>$tuslamjzammin2,'tuslamjurtuumin2'=>$tuslamjurtuumin2, 'speed2'=>$speed2,'hotsrolt2'=>$hotsrolt2,'tormoz2'=>$tormoz2,'hurdniit2'=>$hurdniit2,'yaraltainiit2'=>$yaraltainiit2,'yaraltainiitmin2'=>$yaraltainiitmin2
-        ,'achaa3'=>$achaa3,'hurd3'=>$hurd3,'yaraltai3'=>$yaraltai3,'yaraltai353'=>$yaraltai353,'yaraltai363'=>$yaraltai363,'yaraltai373'=>$yaraltai373,'yaraltai383'=>$yaraltai383,'yaraltaimin3'=>$yaraltaimin3,'yaraltai35min3'=>$yaraltai35min3,'yaraltai36min3'=>$yaraltai36min3,'yaraltai37min3'=>$yaraltai37min3,'yaraltai38min3'=>$yaraltai38min3,'zurchil3'=>$zurchil3,'niitzurchil3'=>$niitzurchil3,'orohachaa3'=>$orohachaa3,'orohachaamin3'=>$orohachaamin3,'uharsan3'=>$uharsan3 ,'uharsanmin3'=>$uharsanmin3,'hoorond3'=>$hoorond3,'hoorondmin3'=>$hoorondmin3,'techno3'=>$techno3,'technomin3'=>$technomin3,'iluu3'=>$iluu3,'iluumin3'=>$iluumin3,'tuslamjzam3'=>$tuslamjzam3,'tuslamjurtuu3'=>$tuslamjurtuu3,'tuslamjzammin3'=>$tuslamjzammin3,'tuslamjurtuumin3'=>$tuslamjurtuumin3, 'speed3'=>$speed3,'hotsrolt3'=>$hotsrolt3,'tormoz3'=>$tormoz3,'hurdniit3'=>$hurdniit3,'yaraltainiit3'=>$yaraltainiit3,'yaraltainiitmin3'=>$yaraltainiitmin3,'hurd2019'=>$hurd2019,'yaraltai2019'=>$yaraltai2019,'yaraltai352019'=>$yaraltai352019,'yaraltai362019'=>$yaraltai362019,'yaraltai372019'=>$yaraltai372019,'yaraltai382019'=>$yaraltai382019,'yaraltaimin2019'=>$yaraltaimin2019,'yaraltai35min2019'=>$yaraltai35min2019,'yaraltai36min2019'=>$yaraltai36min2019,'yaraltai37min2019'=>$yaraltai37min2019,'yaraltai38min2019'=>$yaraltai38min2019,'zurchil2019'=>$zurchil2019,'niitzurchil2019'=>$niitzurchil2019,'orohachaa2019'=>$orohachaa2019,'orohachaamin2019'=>$orohachaamin2019,'uharsan2019'=>$uharsan2019 ,'uharsanmin2019'=>$uharsanmin2019,'hoorond2019'=>$hoorond2019,'hoorondmin2019'=>$hoorondmin2019,'techno2019'=>$techno2019,'technomin2019'=>$technomin2019,'iluu2019'=>$iluu2019,'iluumin2019'=>$iluumin2019,'tuslamjzam2019'=>$tuslamjzam2019,'tuslamjurtuu2019'=>$tuslamjurtuu2019,'tuslamjzammin2019'=>$tuslamjzammin2019,'tuslamjurtuumin2019'=>$tuslamjurtuumin2019, 'speed2019'=>$speed2019,'hotsrolt2019'=>$hotsrolt2019,'tormoz2019'=>$tormoz2019,'hurdniit2019'=>$hurdniit2019,'yaraltainiit2019'=>$yaraltainiit2019,'yaraltainiitmin2019'=>$yaraltainiitmin2019
-        ,'achaa22019'=>$achaa22019 ,'achaa2019'=>$achaa2019,'hurd22019'=>$hurd22019,'yaraltai22019'=>$yaraltai22019,'yaraltai3522019'=>$yaraltai3522019,'yaraltai3622019'=>$yaraltai3622019,'yaraltai3722019'=>$yaraltai3722019,'yaraltai3822019'=>$yaraltai3822019,'yaraltaimin22019'=>$yaraltaimin22019,'yaraltai35min22019'=>$yaraltai35min22019,'yaraltai36min22019'=>$yaraltai36min22019,'yaraltai37min22019'=>$yaraltai37min22019,'yaraltai38min22019'=>$yaraltai38min22019,'zurchil22019'=>$zurchil22019,'niitzurchil22019'=>$niitzurchil22019,'orohachaa22019'=>$orohachaa22019,'orohachaamin22019'=>$orohachaamin22019,'uharsan22019'=>$uharsan22019 ,'uharsanmin22019'=>$uharsanmin22019,'hoorond22019'=>$hoorond22019,'hoorondmin22019'=>$hoorondmin22019,'techno22019'=>$techno22019,'technomin22019'=>$technomin22019,'iluu22019'=>$iluu22019,'iluumin22019'=>$iluumin22019,'tuslamjzam22019'=>$tuslamjzam22019,'tuslamjurtuu22019'=>$tuslamjurtuu22019,'tuslamjzammin22019'=>$tuslamjzammin22019,'tuslamjurtuumin22019'=>$tuslamjurtuumin22019, 'speed22019'=>$speed22019,'hotsrolt22019'=>$hotsrolt22019,'tormoz22019'=>$tormoz22019,'hurdniit22019'=>$hurdniit22019,'yaraltainiit22019'=>$yaraltainiit22019,'yaraltainiitmin22019'=>$yaraltainiitmin22019
-        ,'achaa32019'=>$achaa32019,'hurd32019'=>$hurd32019,'yaraltai32019'=>$yaraltai32019,'yaraltai3532019'=>$yaraltai3532019,'yaraltai3632019'=>$yaraltai3632019,'yaraltai3732019'=>$yaraltai3732019,'yaraltai3832019'=>$yaraltai3832019,'yaraltaimin32019'=>$yaraltaimin32019,'yaraltai35min32019'=>$yaraltai35min32019,'yaraltai36min32019'=>$yaraltai36min32019,'yaraltai37min32019'=>$yaraltai37min32019,'yaraltai38min32019'=>$yaraltai38min32019,'zurchil32019'=>$zurchil32019,'niitzurchil32019'=>$niitzurchil32019,'orohachaa32019'=>$orohachaa32019,'orohachaamin32019'=>$orohachaamin32019,'uharsan32019'=>$uharsan32019 ,'uharsanmin32019'=>$uharsanmin32019,'hoorond32019'=>$hoorond32019,'hoorondmin32019'=>$hoorondmin32019,'techno32019'=>$techno32019,'technomin32019'=>$technomin32019,'iluu32019'=>$iluu32019,'iluumin32019'=>$iluumin32019,'tuslamjzam32019'=>$tuslamjzam32019,'tuslamjurtuu32019'=>$tuslamjurtuu32019,'tuslamjzammin32019'=>$tuslamjzammin32019,'tuslamjurtuumin32019'=>$tuslamjurtuumin32019, 'speed32019'=>$speed32019,'hotsrolt32019'=>$hotsrolt32019,'tormoz32019'=>$tormoz32019,'hurdniit32019'=>$hurdniit32019,'yaraltainiit32019'=>$yaraltainiit32019,'yaraltainiitmin32019'=>$yaraltainiitmin32019]);
+    return view('tailan.tuuzorchuulsan')->with(['year'=>$year,'startdate'=>$startdate,'month'=>$month,'hurd'=>$hurd,'yaraltai'=>$yaraltai,'yaraltai35'=>$yaraltai35,'yaraltai36'=>$yaraltai36,'yaraltai37'=>$yaraltai37,'yaraltai38'=>$yaraltai38,'yaraltaimin'=>$yaraltaimin,'yaraltai35min'=>$yaraltai35min,'yaraltai36min'=>$yaraltai36min,'yaraltai37min'=>$yaraltai37min,'yaraltai38min'=>$yaraltai38min,'zurchil'=>$zurchil,'niitzurchil'=>$niitzurchil,'orohachaa'=>$orohachaa,'orohachaamin'=>$orohachaamin,'uharsan'=>$uharsan ,'uharsanmin'=>$uharsanmin,'hoorond'=>$hoorond,'hoorondmin'=>$hoorondmin,'techno'=>$techno,'technomin'=>$technomin,'iluu'=>$iluu,'iluumin'=>$iluumin,'buuj'=>$buuj,'buujmin'=>$buujmin,'tuslamjzam'=>$tuslamjzam,'tuslamjurtuu'=>$tuslamjurtuu,'tuslamjzammin'=>$tuslamjzammin,'tuslamjurtuumin'=>$tuslamjurtuumin, 'speed'=>$speed,'hotsrolt'=>$hotsrolt,'tormoz'=>$tormoz,'hurdniit'=>$hurdniit,'yaraltainiit'=>$yaraltainiit,'yaraltainiitmin'=>$yaraltainiitmin
+        ,'achaa2'=>$achaa2 ,'achaa'=>$achaa,'hurd2'=>$hurd2,'yaraltai2'=>$yaraltai2,'yaraltai352'=>$yaraltai352,'yaraltai362'=>$yaraltai362,'yaraltai372'=>$yaraltai372,'yaraltai382'=>$yaraltai382,'yaraltaimin2'=>$yaraltaimin2,'yaraltai35min2'=>$yaraltai35min2,'yaraltai36min2'=>$yaraltai36min2,'yaraltai37min2'=>$yaraltai37min2,'yaraltai38min2'=>$yaraltai38min2,'zurchil2'=>$zurchil2,'niitzurchil2'=>$niitzurchil2,'orohachaa2'=>$orohachaa2,'orohachaamin2'=>$orohachaamin2,'uharsan2'=>$uharsan2 ,'uharsanmin2'=>$uharsanmin2,'hoorond2'=>$hoorond2,'hoorondmin2'=>$hoorondmin2,'techno2'=>$techno2,'technomin2'=>$technomin2,'iluu2'=>$iluu2,'iluumin2'=>$iluumin2,'buuj2'=>$buuj2,'buujmin2'=>$buujmin2,'tuslamjzam2'=>$tuslamjzam2,'tuslamjurtuu2'=>$tuslamjurtuu2,'tuslamjzammin2'=>$tuslamjzammin2,'tuslamjurtuumin2'=>$tuslamjurtuumin2, 'speed2'=>$speed2,'hotsrolt2'=>$hotsrolt2,'tormoz2'=>$tormoz2,'hurdniit2'=>$hurdniit2,'yaraltainiit2'=>$yaraltainiit2,'yaraltainiitmin2'=>$yaraltainiitmin2
+        ,'achaa3'=>$achaa3,'hurd3'=>$hurd3,'yaraltai3'=>$yaraltai3,'yaraltai353'=>$yaraltai353,'yaraltai363'=>$yaraltai363,'yaraltai373'=>$yaraltai373,'yaraltai383'=>$yaraltai383,'yaraltaimin3'=>$yaraltaimin3,'yaraltai35min3'=>$yaraltai35min3,'yaraltai36min3'=>$yaraltai36min3,'yaraltai37min3'=>$yaraltai37min3,'yaraltai38min3'=>$yaraltai38min3,'zurchil3'=>$zurchil3,'niitzurchil3'=>$niitzurchil3,'orohachaa3'=>$orohachaa3,'orohachaamin3'=>$orohachaamin3,'uharsan3'=>$uharsan3 ,'uharsanmin3'=>$uharsanmin3,'hoorond3'=>$hoorond3,'hoorondmin3'=>$hoorondmin3,'techno3'=>$techno3,'technomin3'=>$technomin3,'iluu3'=>$iluu3,'iluumin3'=>$iluumin3,'buuj3'=>$buuj3,'buujmin3'=>$buujmin3,'tuslamjzam3'=>$tuslamjzam3,'tuslamjurtuu3'=>$tuslamjurtuu3,'tuslamjzammin3'=>$tuslamjzammin3,'tuslamjurtuumin3'=>$tuslamjurtuumin3, 'speed3'=>$speed3,'hotsrolt3'=>$hotsrolt3,'tormoz3'=>$tormoz3,'hurdniit3'=>$hurdniit3,'yaraltainiit3'=>$yaraltainiit3,'yaraltainiitmin3'=>$yaraltainiitmin3,'hurd2019'=>$hurd2019,'yaraltai2019'=>$yaraltai2019,'yaraltai352019'=>$yaraltai352019,'yaraltai362019'=>$yaraltai362019,'yaraltai372019'=>$yaraltai372019,'yaraltai382019'=>$yaraltai382019,'yaraltaimin2019'=>$yaraltaimin2019,'yaraltai35min2019'=>$yaraltai35min2019,'yaraltai36min2019'=>$yaraltai36min2019,'yaraltai37min2019'=>$yaraltai37min2019,'yaraltai38min2019'=>$yaraltai38min2019,'zurchil2019'=>$zurchil2019,'niitzurchil2019'=>$niitzurchil2019,'orohachaa2019'=>$orohachaa2019,'orohachaamin2019'=>$orohachaamin2019,'uharsan2019'=>$uharsan2019 ,'uharsanmin2019'=>$uharsanmin2019,'hoorond2019'=>$hoorond2019,'hoorondmin2019'=>$hoorondmin2019,'techno2019'=>$techno2019,'technomin2019'=>$technomin2019,'iluu2019'=>$iluu2019,'iluumin2019'=>$iluumin2019,'buuj2019'=>$buuj2019,'buujmin2019'=>$buujmin2019,'tuslamjzam2019'=>$tuslamjzam2019,'tuslamjurtuu2019'=>$tuslamjurtuu2019,'tuslamjzammin2019'=>$tuslamjzammin2019,'tuslamjurtuumin2019'=>$tuslamjurtuumin2019, 'speed2019'=>$speed2019,'hotsrolt2019'=>$hotsrolt2019,'tormoz2019'=>$tormoz2019,'hurdniit2019'=>$hurdniit2019,'yaraltainiit2019'=>$yaraltainiit2019,'yaraltainiitmin2019'=>$yaraltainiitmin2019
+        ,'achaa22019'=>$achaa22019 ,'achaa2019'=>$achaa2019,'hurd22019'=>$hurd22019,'yaraltai22019'=>$yaraltai22019,'yaraltai3522019'=>$yaraltai3522019,'yaraltai3622019'=>$yaraltai3622019,'yaraltai3722019'=>$yaraltai3722019,'yaraltai3822019'=>$yaraltai3822019,'yaraltaimin22019'=>$yaraltaimin22019,'yaraltai35min22019'=>$yaraltai35min22019,'yaraltai36min22019'=>$yaraltai36min22019,'yaraltai37min22019'=>$yaraltai37min22019,'yaraltai38min22019'=>$yaraltai38min22019,'zurchil22019'=>$zurchil22019,'niitzurchil22019'=>$niitzurchil22019,'orohachaa22019'=>$orohachaa22019,'orohachaamin22019'=>$orohachaamin22019,'uharsan22019'=>$uharsan22019 ,'uharsanmin22019'=>$uharsanmin22019,'hoorond22019'=>$hoorond22019,'hoorondmin22019'=>$hoorondmin22019,'techno22019'=>$techno22019,'technomin22019'=>$technomin22019,'iluu22019'=>$iluu22019,'iluumin22019'=>$iluumin22019, 'buuj22019'=>$buuj22019,'buujmin22019'=>$buujmin22019,'tuslamjzam22019'=>$tuslamjzam22019,'tuslamjurtuu22019'=>$tuslamjurtuu22019,'tuslamjzammin22019'=>$tuslamjzammin22019,'tuslamjurtuumin22019'=>$tuslamjurtuumin22019, 'speed22019'=>$speed22019,'hotsrolt22019'=>$hotsrolt22019,'tormoz22019'=>$tormoz22019,'hurdniit22019'=>$hurdniit22019,'yaraltainiit22019'=>$yaraltainiit22019,'yaraltainiitmin22019'=>$yaraltainiitmin22019
+        ,'achaa32019'=>$achaa32019,'hurd32019'=>$hurd32019,'yaraltai32019'=>$yaraltai32019,'yaraltai3532019'=>$yaraltai3532019,'yaraltai3632019'=>$yaraltai3632019,'yaraltai3732019'=>$yaraltai3732019,'yaraltai3832019'=>$yaraltai3832019,'yaraltaimin32019'=>$yaraltaimin32019,'yaraltai35min32019'=>$yaraltai35min32019,'yaraltai36min32019'=>$yaraltai36min32019,'yaraltai37min32019'=>$yaraltai37min32019,'yaraltai38min32019'=>$yaraltai38min32019,'zurchil32019'=>$zurchil32019,'niitzurchil32019'=>$niitzurchil32019,'orohachaa32019'=>$orohachaa32019,'orohachaamin32019'=>$orohachaamin32019,'uharsan32019'=>$uharsan32019 ,'uharsanmin32019'=>$uharsanmin32019,'hoorond32019'=>$hoorond32019,'hoorondmin32019'=>$hoorondmin32019,'techno32019'=>$techno32019,'technomin32019'=>$technomin32019,'iluu32019'=>$iluu32019,'iluumin32019'=>$iluumin32019,'buuj32019'=>$buuj32019,'buujmin32019'=>$buujmin32019,'tuslamjzam32019'=>$tuslamjzam32019,'tuslamjurtuu32019'=>$tuslamjurtuu32019,'tuslamjzammin32019'=>$tuslamjzammin32019,'tuslamjurtuumin32019'=>$tuslamjurtuumin32019, 'speed32019'=>$speed32019,'hotsrolt32019'=>$hotsrolt32019,'tormoz32019'=>$tormoz32019,'hurdniit32019'=>$hurdniit32019,'yaraltainiit32019'=>$yaraltainiit32019,'yaraltainiitmin32019'=>$yaraltainiitmin32019]);
 }
    
     public function urtuu30()
