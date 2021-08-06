@@ -224,6 +224,7 @@ FROM
             $anhaaramj->ribbon_id = Request::input('ribbonanhaaramj_id');
             $anhaaramj->fromst = Request::input('anhaaramj_from');
             $anhaaramj->tost = Request::input('anhaaramj_to');
+            $anhaaramj->time = Request::input('anhaaramj_time');
             $anhaaramj->speed = Request::input('anhaaramj');
             $anhaaramj->save();
             activity()->performedOn($anhaaramj)->log('Anhaaramj added');
@@ -242,7 +243,7 @@ FROM
     {
 
         $department = DB::table('Attention')
-        ->where('attention_id', Request::input('anhaaramj_fault'))->update(['fromst' =>Request::input('anhaaramj_frommodal') ,'tost' =>Request::input('anhaaramj_tomodal'),'speed' =>Request::input('anhaaramjspeed'),'updated_at' => Carbon::now()]);
+        ->where('attention_id', Request::input('anhaaramj_fault'))->update(['fromst' =>Request::input('anhaaramj_frommodal') ,'tost' =>Request::input('anhaaramj_tomodal'),'time' =>Request::input('anhaaramj_timemodal'),'speed' =>Request::input('anhaaramjspeed'),'updated_at' => Carbon::now()]);
 
 
         return response()->json([

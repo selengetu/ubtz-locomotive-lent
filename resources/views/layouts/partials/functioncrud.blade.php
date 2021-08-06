@@ -1214,6 +1214,7 @@
                $('#anhaaramj_frommodal').val(qwe.fromst);
                $('#anhaaramjspeed_fault').val(qwe.attention_id);
                $('#anhaaramj_tomodal').val(qwe.fromst);
+               $('#anhaaramj_timemodal').val(qwe.time);
            $('#anhaaramjspeed').val(qwe.speed).trigger('change');
            });
 

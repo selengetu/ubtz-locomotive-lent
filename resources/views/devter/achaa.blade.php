@@ -670,6 +670,13 @@
                    </select>
                       </div>
                         </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                       <label for="name">Олгосон минут</label>
+                                <input type="number" class="form-control inputtext" id="anhaaramj_time" name="anhaaramj_time">
+ 
+                       </div>
+                         </div>
                             <div class="col-md-3 fault">
                            <div class="form-group">
                              <label for="name">.</label><br>
@@ -686,6 +693,7 @@
                                 <th>Хаанаас</th>
                                 <th> Хаана </th>
                                  <th> Анхаарамж </th>
+                                 <th> Олгосон минут </th>
                                    <th>  </th>
                                  </tr>
                                                 </thead>
@@ -693,6 +701,7 @@
                                                     <tr style="background-color: #ccc;">
                                                       <td></td>
                                                        <td></td>
+                                                        <td></td>
                                                         <td></td>
                                                     </tr>
 

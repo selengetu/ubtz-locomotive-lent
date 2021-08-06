@@ -19,6 +19,7 @@
         "   <td class='m1'>" + qwe.fromst + "</td>" +
         "   <td class='m2'>" + qwe.tost+ "</td>" +
         "   <td class='m3'>" + qwe.speedname+ "</td>" +
+        "   <td class='m3'>" + qwe.time+ "</td>" +
                   "   <td class='m1'> <a class='btn btn-xs btn-info' data-toggle='modal' data-target='#modalanhaaramj' data-id=" + qwe.attention_id + " tag=" + qwe.attention_id + " onclick='updateanhaaramj(" + qwe.attention_id + ")'><span class='glyphicon glyphicon-pencil'></span></a><a class='btn btn-xs btn-danger' tag=" + qwe.attention_id + " onclick='destroyanhaaramj(" + qwe.attention_id + ")' ><span class='glyphicon glyphicon-trash'></span></a> </td>" +
 
                   "</tr>";

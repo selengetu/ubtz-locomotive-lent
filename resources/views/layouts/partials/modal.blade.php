@@ -2437,6 +2437,12 @@
                                  </div>
                              </div>
                              <div class="col-md-3">
+                              <div class="form-group">
+                                  <label for="name">Олгосон минут</label>
+                                  <input type="text" class="form-control inputtext" id="anhaaramj_timemodal" name="anhaaramj_timemodal">
+                              </div>
+                          </div>
+                             <div class="col-md-3">
                                  <div class="form-group">
                                      <label for="name">Анхаарамж</label>
                                      <select class="select2 form-control" id="anhaaramjspeed" name="anhaaramjspeed">
