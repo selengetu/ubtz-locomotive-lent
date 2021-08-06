@@ -96,7 +96,7 @@
                                                          <th> Хаанаас </th>
                                                          <th> Хаана</th>
                                                         <th> Анхаарамж км/цаг</th>
-                                                       
+                                                        <th> Олгосон минут</th>
                                                       </tr>
                                                 </thead>
     
@@ -128,7 +128,8 @@
                                         {{$achaas->tostationname}}
                                     @endif</td>
                                 <td>{{$achaas->speedname}} км/цаг </td>
-                              
+                             
+                                <td>   @if($achaas->time) {{$achaas->time}} минут @endif</td>
                           </tr>
                              <?php $no++; ?>
                          @endforeach    
@@ -145,10 +146,11 @@
                                                     <tr>
                                                        <?php $sum_count = 0 ?>
                                                       <?php $sum_sum = 0 ?>
+                                                      <?php $sum_time = 0 ?>
                                                         <th> # </th>
                                                         <th> Анхаарамж </th>
                                                         <th> Удаа </th>
-                                                      
+                                                        <th> Минут</th>
                                                     
                                                       </tr>
                                                 </thead>
@@ -161,7 +163,8 @@
                                 <td>{{$too->speedname}}</td>
                                 <td>{{$too->count}}</td>
                                  <?php $sum_count += ($too->count) ?>
-                             
+                                 <td>{{$too->time}}</td>
+                                 <?php $sum_time += ($too->time) ?>
                           </tr>
                         
                              <?php $no++; ?>
@@ -178,10 +181,11 @@
           <tr>
               <?php $sum_count = 0 ?>
               <?php $sum_sum = 0 ?>
+              <?php $sum_time = 0 ?>
               <th> # </th>
               <th> Чиглэл</th>
               <th> Удаа </th>
-
+              <th> Минут</th>
 
           </tr>
           </thead>
@@ -194,7 +198,8 @@
                   <td>{{$too->fromstat}} - {{$too->tostat}}</td>
                   <td>{{$too->count}}</td>
                   <?php $sum_count += ($too->count) ?>
-
+                  <td>{{$too->time}}</td>
+                  <?php $sum_time += ($too->time) ?>
               </tr>
 
               <?php $no++; ?>
@@ -202,6 +207,7 @@
           <tr>
               <td colspan="2"><center>Нийт</center></td>
               <td>{{($sum_count)}}</td>
+              <td>{{($sum_time)}}</td>
           </tr>
 
           </tbody>
@@ -228,7 +234,7 @@
              <th> Хаанаас </th>
              <th> Хаана</th>
              <th> Анхаарамж км/цаг</th>
-
+             <th> Олгосон минут</th>
          </tr>
          </thead>
 
@@ -260,7 +266,7 @@
                          {{$achaas->tostationname}}
                      @endif</td>
                  <td>{{$achaas->speedname}} км/цаг </td>
-
+                 <td>   @if($achaas->time) {{$achaas->time}} минут @endif</td>
              </tr>
              <?php $no++; ?>
          @endforeach
@@ -274,10 +280,11 @@
                                                     <tr>
                                                        <?php $sum_count1 = 0 ?>
                                                       <?php $sum_sum1 = 0 ?>
+                                                      <?php $sum_time1 = 0 ?>
                                                         <th> # </th>
                                                         <th> Анхаарамж </th>
                                                         <th> Удаа </th>
-                                                      
+                                                        <th> Минут </th>
                                                     
                                                       </tr>
                                                 </thead>
@@ -290,7 +297,8 @@
                                 <td>{{$too->speedname}}</td>
                                 <td>{{$too->count}}</td>
                                  <?php $sum_count1 += ($too->count) ?>
-                             
+                                 <td>{{$too->time}}</td>
+                                 <?php $sum_time1 += ($too->time) ?>
                           </tr>
                         
                              <?php $no++; ?>
@@ -298,6 +306,7 @@
               <tr>
                             <td colspan="2"><center>Нийт</center></td>
                             <td>{{($sum_count1)}}</td>
+                            <td>{{($sum_time1)}}</td>
                           </tr>
             
           </tbody>
@@ -307,6 +316,7 @@
                                          <tr>
                                              <?php $sum_count = 0 ?>
                                              <?php $sum_sum = 0 ?>
+                                             <?php $sum_time = 0 ?>
                                              <th> # </th>
                                              <th> Чиглэл</th>
                                              <th> Удаа </th>
@@ -323,7 +333,8 @@
                                                  <td>{{$too->fromstat}} - {{$too->tostat}}</td>
                                                  <td>{{$too->count}}</td>
                                                  <?php $sum_count += ($too->count) ?>
-
+                                                 <td>{{$too->time}}</td>
+                                                 <?php $sum_time += ($too->time) ?>
                                              </tr>
 
                                              <?php $no++; ?>
@@ -331,6 +342,7 @@
                                          <tr>
                                              <td colspan="2"><center>Нийт</center></td>
                                              <td>{{($sum_count)}}</td>
+                                             <td>{{($sum_time)}}</td>
                                          </tr>
 
                                          </tbody>

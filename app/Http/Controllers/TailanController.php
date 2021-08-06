@@ -2924,13 +2924,13 @@ group by q2.depo_id,q2.marshyear, q2.marshmonth");
         }
 
          $zurchil=DB::select('select  * from V_ATTENTION_TAILAN t where t.depo_id = '.Auth::user()->depo_id. '  '.$query.' order by t.ARRTIME');
-         $z=DB::select("select
+         $z=DB::select("select  sum(a.time) as time,
                         r.DEPO_ID, p.speed as speedname, count(p.speed) as count
                         from Attention a, ribbon t, attention_speed p, ribbon r, zutguur.marshbrig b
                         where a.ribbon_id=t.ribbon_id and p.attentionspeed_id=a.speed and r.ribbon_id= a.ribbon_id and b.marshid= t.route_id and t.depo_id= b.depocode and t.depo_id =  ".Auth::user()->depo_id. " " .$query."
                         group by p.speed, r.depo_id
                         order by p.speed");
-        $z1=DB::select(" select
+        $z1=DB::select(" select  sum(a.time) as time,
                       t.DEPO_ID, s.statfullname as fromstat, s1.statfullname as tostat, count(a.attention_id) as count
                         from Attention a, ribbon t, V_STATION s, attention_speed p, V_STATION s1, zutguur.marshbrig b
                         where a.ribbon_id=t.ribbon_id and t.fromstation = s.statcode and p.attentionspeed_id=a.speed and t.tostation=s1.statcode and t.ribbon_id= a.ribbon_id and b.marshid= t.route_id and t.depo_id= b.depocode and t.depo_id = ".Auth::user()->depo_id. " " .$query."
