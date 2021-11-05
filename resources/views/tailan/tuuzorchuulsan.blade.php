@@ -64,7 +64,12 @@
                         <button class="btn btn-info" id="btnExport" onclick="tableToExcel('testTable', 'Export HTML Table to Excel')"><i class="fa fa-table" aria-hidden="true"></i> Excel </button>
                    <div class="table-container">
           <div class="dataTables_wrapper form-inline dt-bootstrap no-footer" id="printarea">
-        <center><h4><b>  УБТЗ-ын   @if( Auth::user()->depo_id  == 1)
+        <center><h4><b>  УБТЗ-ын 
+            
+            @if( Auth::user()->grant_id  == 1)
+                Зүтгүүрийн деподийн {{$year}} оны {{$month}}-р сарын тууз бүртгэлийн тайлан</b> </h4></center>
+            @else
+                 @if( Auth::user()->depo_id  == 1)
                         Сүхбаатар
                     @elseif( Auth::user()->depo_id == 2)
                         Улаанбаатар
@@ -75,6 +80,7 @@
                     @elseif( Auth::user()->depo_id == 13)
                         Замын-Үүд
                     @endif  Зүтгүүрийн депогийн {{$year}} оны {{$month}}-р сарын тууз бүртгэлийн тайлан</b> </h4></center>
+            @endif
       <table class="table table-striped table-bordered table-hover"  id="testTable" style="max-height:960px">
                               
                  
