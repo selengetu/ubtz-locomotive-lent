@@ -2565,11 +2565,11 @@ sum(sel) as sel , sum(uz) as uz , sum(tur) as tur , sum(oros) as oros ,  sum(tso
     $hotsrolt=DB::select("select q2.depo_id,q2.marshyear, q2.marshmonth,sum(substr(q2.patchmin,4,2)+((substr(q2.patchmin,1,2))*60)) as sum from
 (select distinct t.route_id, t.depo_id, g.marshyear, g.marshmonth ,t.locserial, t.zutnumber, t.patchmin from RIBBON t , ZUTGUUR.MARSHBRIG g
 where t.route_id = g.marshid  and g.depocode=t.depo_id and t.patchmin is not null and t.patchmin != '0' and t.patchmin != '00:00:00' and g.marshyear=".$year." and g.marshmonth=".$month." and g.depocode in (".$depoid. ")) q2     
-group by q2.depo_id,q2.marshyear, q2.marshmonth");
+group by q2.marshyear, q2.marshmonth");
 $hotsrolt2019=DB::select("select q2.depo_id,q2.marshyear, q2.marshmonth,sum(substr(q2.patchmin,4,2)+((substr(q2.patchmin,1,2))*60)) as sum from
 (select distinct t.route_id, t.depo_id, g.marshyear, g.marshmonth ,t.locserial, t.zutnumber, t.patchmin from RIBBON t , ZUTGUUR.MARSHBRIG g
 where t.route_id = g.marshid and g.depocode=t.depo_id and t.patchmin is not null and t.patchmin != '0' and t.patchmin != '00:00:00' and g.marshyear=".$year1." and g.marshmonth=".$month." and g.depocode in (".$depoid. ")) q2     
-group by q2.depo_id,q2.marshyear, q2.marshmonth");
+group by q2.marshyear, q2.marshmonth");
     $hoorond22019 =DB::select("select
                                 count(f.fault_no) as too
                                 from  ribbon t
