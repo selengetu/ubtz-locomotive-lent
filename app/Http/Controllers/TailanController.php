@@ -1901,6 +1901,7 @@ $hurd22019 =DB::select("select b.broketype_id, b.broketype_name, count(o.brokety
                                 right join stop_det s
                                 on s.stop_id=q.is_stop
                                 group by s.stop_name, q.depocode,s.stop_id");
+                                dd( $yaraltai35min22019);
 
     $yaraltai35min32019 =DB::select("select s.stop_id, s.stop_name ,sum(substr(q.stoptime,4,2)+((substr(q.stoptime,1,2))*60)) as COUNT from
                                 (select
