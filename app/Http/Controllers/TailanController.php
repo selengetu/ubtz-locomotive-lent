@@ -468,7 +468,7 @@ PIVOT
                                 group by d.is_stop, g.depocode,d.broketype,t.route_id ) q
                                 right join stop_det s
                                 on s.stop_id=q.is_stop
-                                group by s.stop_name, q.depocode,s.stop_id");
+                                group by s.stop_name,s.stop_id");
 
     $yaraltai362 =DB::select("select s.stop_id, s.stop_name ,count(q.broketype) as COUNT from
                                 (select
@@ -483,7 +483,7 @@ PIVOT
                                 group by d.is_stop, g.depocode,d.broketype,t.route_id ) q
                                 right join stop_det s
                                 on s.stop_id=q.is_stop
-                                group by s.stop_name, q.depocode,s.stop_id");
+                                group by s.stop_name,s.stop_id");
     $yaraltai363 =DB::select("select s.stop_id, s.stop_name ,count(q.broketype) as COUNT from
                                 (select
                                 g.depocode,
@@ -497,7 +497,7 @@ PIVOT
                                 group by d.is_stop, g.depocode,d.broketype,t.route_id ) q
                                 right join stop_det s
                                 on s.stop_id=q.is_stop
-                                group by s.stop_name, q.depocode,s.stop_id");
+                                group by s.stop_name,s.stop_id");
     $yaraltai36min =DB::select("select s.stop_id, s.stop_name ,sum(substr(q.stoptime,4,2)+((substr(q.stoptime,1,2))*60)) as COUNT from
                                 (select
                                 g.depocode,
@@ -512,7 +512,7 @@ PIVOT
                                 group by d.is_stop, g.depocode,d.broketype, d.stoptime ) q
                                 right join stop_det s
                                 on s.stop_id=q.is_stop
-                                group by s.stop_name, q.depocode,s.stop_id");
+                                group by s.stop_name, s.stop_id");
     $yaraltai36min2 =DB::select("select s.stop_id, s.stop_name ,sum(substr(q.stoptime,4,2)+((substr(q.stoptime,1,2))*60)) as COUNT from
                                 (select
                                 g.depocode,
@@ -527,7 +527,7 @@ PIVOT
                                 group by d.is_stop, g.depocode,d.broketype, d.stoptime ) q
                                 right join stop_det s
                                 on s.stop_id=q.is_stop
-                                group by s.stop_name, q.depocode,s.stop_id");
+                                group by s.stop_name, s.stop_id");
 
     $yaraltai36min3 =DB::select("select s.stop_id, s.stop_name ,sum(substr(q.stoptime,4,2)+((substr(q.stoptime,1,2))*60)) as COUNT from
                                 (select
@@ -543,7 +543,7 @@ PIVOT
                                 group by d.is_stop, g.depocode,d.broketype, d.stoptime ) q
                                 right join stop_det s
                                 on s.stop_id=q.is_stop
-                                group by s.stop_name, q.depocode,s.stop_id");
+                                group by s.stop_name, s.stop_id");
     $yaraltai35 =DB::select("select s.stop_id, s.stop_name ,count(q.broketype) as COUNT from
                                 (select
                                 g.depocode,
@@ -558,7 +558,7 @@ PIVOT
                                 group by d.is_stop, g.depocode,d.broketype,t.route_id ) q
                                 right join stop_det s
                                 on s.stop_id=q.is_stop
-                                group by s.stop_name, q.depocode,s.stop_id");
+                                group by s.stop_name, s.stop_id");
     $yaraltai352 =DB::select("select s.stop_id, s.stop_name ,count(q.broketype) as COUNT from
                                 (select
                                 g.depocode,
@@ -573,7 +573,7 @@ PIVOT
                                 group by d.is_stop, g.depocode,d.broketype,t.route_id ) q
                                 right join stop_det s
                                 on s.stop_id=q.is_stop
-                                group by s.stop_name, q.depocode,s.stop_id");
+                                group by s.stop_name,stop_id");
 
     $yaraltai353 =DB::select("select s.stop_id, s.stop_name ,count(q.broketype) as COUNT from
                                 (select
@@ -589,7 +589,7 @@ PIVOT
                                 group by d.is_stop, g.depocode,d.broketype,t.route_id ) q
                                 right join stop_det s
                                 on s.stop_id=q.is_stop
-                                group by s.stop_name, q.depocode,s.stop_id");
+                                group by s.stop_name, s.stop_id");
     $yaraltai35min =DB::select("select s.stop_id, s.stop_name ,sum(substr(q.stoptime,4,2)+((substr(q.stoptime,1,2))*60)) as COUNT from
                                 (select
                                 g.depocode,
@@ -605,7 +605,7 @@ PIVOT
                                 group by d.is_stop, g.depocode,d.broketype,d.stoptime,t.route_id ) q
                                 right join stop_det s
                                 on s.stop_id=q.is_stop
-                                group by s.stop_name, q.depocode,s.stop_id");
+                                group by s.stop_name, s.stop_id");
     $yaraltai35min2 =DB::select("select s.stop_id, s.stop_name ,sum(substr(q.stoptime,4,2)+((substr(q.stoptime,1,2))*60)) as COUNT from
                                 (select
                                 g.depocode,
@@ -621,7 +621,7 @@ PIVOT
                                 group by d.is_stop, g.depocode,d.broketype,d.stoptime,t.route_id ) q
                                 right join stop_det s
                                 on s.stop_id=q.is_stop
-                                group by s.stop_name, q.depocode,s.stop_id");
+                                group by s.stop_name,s.stop_id");
 
     $yaraltai35min3 =DB::select("select s.stop_id, s.stop_name ,sum(substr(q.stoptime,4,2)+((substr(q.stoptime,1,2))*60)) as COUNT from
                                 (select
@@ -638,7 +638,7 @@ PIVOT
                                 group by d.is_stop, g.depocode,d.broketype,d.stoptime,t.route_id ) q
                                 right join stop_det s
                                 on s.stop_id=q.is_stop
-                                group by s.stop_name, q.depocode,s.stop_id");
+                                group by s.stop_name,s.stop_id");
     $yaraltai37 =DB::select("select s.stop_id, s.stop_name ,count(q.broketype) as COUNT from
                                 (select
                                 g.depocode,
@@ -652,7 +652,7 @@ PIVOT
                                 group by d.is_stop, g.depocode,d.broketype,t.route_id ) q
                                 right join stop_det s
                                 on s.stop_id=q.is_stop
-                                group by s.stop_name, q.depocode,s.stop_id");
+                                group by s.stop_name,s.stop_id");
     $yaraltai372 =DB::select("select s.stop_id, s.stop_name ,count(q.broketype) as COUNT from
                                 (select
                                 g.depocode,
@@ -666,7 +666,7 @@ PIVOT
                                 group by d.is_stop, g.depocode,d.broketype,t.route_id ) q
                                 right join stop_det s
                                 on s.stop_id=q.is_stop
-                                group by s.stop_name, q.depocode,s.stop_id");
+                                group by s.stop_name, s.stop_id");
 
     $yaraltai373 =DB::select("select s.stop_id, s.stop_name ,count(q.broketype) as COUNT from
                                 (select
@@ -681,7 +681,7 @@ PIVOT
                                 group by d.is_stop, g.depocode,d.broketype,t.route_id ) q
                                 right join stop_det s
                                 on s.stop_id=q.is_stop
-                                group by s.stop_name, q.depocode,s.stop_id");
+                                group by s.stop_name,s.stop_id");
     $yaraltai37min =DB::select("select s.stop_id, s.stop_name ,sum(substr(q.stoptime,4,2)+((substr(q.stoptime,1,2))*60)) as COUNT from
                                 (select
                                 g.depocode,
@@ -696,7 +696,7 @@ PIVOT
                                 group by d.is_stop, g.depocode,d.broketype, d.stoptime ) q
                                 right join stop_det s
                                 on s.stop_id=q.is_stop
-                                group by s.stop_name, q.depocode,s.stop_id");
+                                group by s.stop_name, s.stop_id");
     $yaraltai37min2 =DB::select("select s.stop_id, s.stop_name ,sum(substr(q.stoptime,4,2)+((substr(q.stoptime,1,2))*60)) as COUNT from
                                 (select
                                 g.depocode,
@@ -711,7 +711,7 @@ PIVOT
                                 group by d.is_stop, g.depocode,d.broketype, d.stoptime ) q
                                 right join stop_det s
                                 on s.stop_id=q.is_stop
-                                group by s.stop_name, q.depocode,s.stop_id");
+                                group by s.stop_name,s.stop_id");
 
     $yaraltai37min3 =DB::select("select s.stop_id, s.stop_name ,sum(substr(q.stoptime,4,2)+((substr(q.stoptime,1,2))*60)) as COUNT from
                                 (select
@@ -727,7 +727,7 @@ PIVOT
                                 group by d.is_stop, g.depocode,d.broketype, d.stoptime ) q
                                 right join stop_det s
                                 on s.stop_id=q.is_stop
-                                group by s.stop_name, q.depocode,s.stop_id");
+                                group by s.stop_name, s.stop_id");
     $yaraltai38 =DB::select("select s.stop_id, s.stop_name ,count(q.broketype) as COUNT from
                                 (select
                                 g.depocode,
@@ -741,7 +741,7 @@ PIVOT
                                 group by d.is_stop, g.depocode,d.broketype,t.route_id ) q
                                 right join stop_det s
                                 on s.stop_id=q.is_stop
-                                group by s.stop_name, q.depocode,s.stop_id");
+                                group by s.stop_name,s.stop_id");
     $yaraltai382 =DB::select("select s.stop_id, s.stop_name ,count(q.broketype) as COUNT from
                                 (select
                                 g.depocode,
@@ -755,7 +755,7 @@ PIVOT
                                 group by d.is_stop, g.depocode,d.broketype,t.route_id ) q
                                 right join stop_det s
                                 on s.stop_id=q.is_stop
-                                group by s.stop_name, q.depocode,s.stop_id");
+                                group by s.stop_name, s.stop_id");
 
     $yaraltai383 =DB::select("select s.stop_id, s.stop_name ,count(q.broketype) as COUNT from
                                 (select
@@ -770,7 +770,7 @@ PIVOT
                                 group by d.is_stop, g.depocode,d.broketype,t.route_id ) q
                                 right join stop_det s
                                 on s.stop_id=q.is_stop
-                                group by s.stop_name, q.depocode,s.stop_id");
+                                group by s.stop_name, s.stop_id");
     $yaraltai38min =DB::select("select s.stop_id, s.stop_name ,sum(substr(q.stoptime,4,2)+((substr(q.stoptime,1,2))*60)) as COUNT from
                                 (select
                                 g.depocode,
@@ -785,7 +785,7 @@ PIVOT
                                 group by d.is_stop, g.depocode,d.broketype, d.stoptime ) q
                                 right join stop_det s
                                 on s.stop_id=q.is_stop
-                                group by s.stop_name, q.depocode,s.stop_id");
+                                group by s.stop_name, s.stop_id");
     $yaraltai38min2 =DB::select("select s.stop_id, s.stop_name ,sum(substr(q.stoptime,4,2)+((substr(q.stoptime,1,2))*60)) as COUNT from
                                 (select
                                 g.depocode,
@@ -800,7 +800,7 @@ PIVOT
                                 group by d.is_stop, g.depocode,d.broketype, d.stoptime ) q
                                 right join stop_det s
                                 on s.stop_id=q.is_stop
-                                group by s.stop_name, q.depocode,s.stop_id");
+                                group by s.stop_name, s.stop_id");
 
     $yaraltai38min3 =DB::select("select s.stop_id, s.stop_name ,sum(substr(q.stoptime,4,2)+((substr(q.stoptime,1,2))*60)) as COUNT from
                                 (select
@@ -816,7 +816,7 @@ PIVOT
                                 group by d.is_stop, g.depocode,d.broketype, d.stoptime ) q
                                 right join stop_det s
                                 on s.stop_id=q.is_stop
-                                group by s.stop_name, q.depocode,s.stop_id");
+                                group by s.stop_name, s.stop_id");
     $zurchil =DB::select("select
                                         d.fault_detail_id, d.fault_detail_name, count(q1.fault_id) as cnt
                                         from
@@ -1733,7 +1733,7 @@ $hurd22019 =DB::select("select b.broketype_id, b.broketype_name, count(o.brokety
                                 group by d.is_stop, g.depocode,d.broketype,t.route_id ) q
                                 right join stop_det s
                                 on s.stop_id=q.is_stop
-                                group by s.stop_name, q.depocode,s.stop_id");
+                                group by s.stop_name, s.stop_id");
 
     $yaraltai3622019 =DB::select("select s.stop_id, s.stop_name ,count(q.broketype) as COUNT from
                                 (select
@@ -1748,7 +1748,7 @@ $hurd22019 =DB::select("select b.broketype_id, b.broketype_name, count(o.brokety
                                 group by d.is_stop, g.depocode,d.broketype,t.route_id ) q
                                 right join stop_det s
                                 on s.stop_id=q.is_stop
-                                group by s.stop_name, q.depocode,s.stop_id");
+                                group by s.stop_name, s.stop_id");
     $yaraltai363 =DB::select("select s.stop_id, s.stop_name ,count(q.broketype) as COUNT from
                                 (select
                                 g.depocode,
@@ -1762,7 +1762,7 @@ $hurd22019 =DB::select("select b.broketype_id, b.broketype_name, count(o.brokety
                                 group by d.is_stop, g.depocode,d.broketype,t.route_id ) q
                                 right join stop_det s
                                 on s.stop_id=q.is_stop
-                                group by s.stop_name, q.depocode,s.stop_id");
+                                group by s.stop_name,s.stop_id");
                                 $yaraltai3632019 =DB::select("select s.stop_id, s.stop_name ,count(q.broketype) as COUNT from
                                 (select
                                 g.depocode,
@@ -1776,7 +1776,7 @@ $hurd22019 =DB::select("select b.broketype_id, b.broketype_name, count(o.brokety
                                 group by d.is_stop, g.depocode,d.broketype,t.route_id ) q
                                 right join stop_det s
                                 on s.stop_id=q.is_stop
-                                group by s.stop_name, q.depocode,s.stop_id");
+                                group by s.stop_name, s.stop_id");
     $yaraltai36min2019 =DB::select("select s.stop_id, s.stop_name ,sum(substr(q.stoptime,4,2)+((substr(q.stoptime,1,2))*60)) as COUNT from
                                 (select
                                 g.depocode,
@@ -1791,7 +1791,7 @@ $hurd22019 =DB::select("select b.broketype_id, b.broketype_name, count(o.brokety
                                 group by d.is_stop, g.depocode,d.broketype, d.stoptime ) q
                                 right join stop_det s
                                 on s.stop_id=q.is_stop
-                                group by s.stop_name, q.depocode,s.stop_id");
+                                group by s.stop_name, s.stop_id");
     $yaraltai36min22019 =DB::select("select s.stop_id, s.stop_name ,sum(substr(q.stoptime,4,2)+((substr(q.stoptime,1,2))*60)) as COUNT from
                                 (select
                                 g.depocode,
@@ -1806,7 +1806,7 @@ $hurd22019 =DB::select("select b.broketype_id, b.broketype_name, count(o.brokety
                                 group by d.is_stop, g.depocode,d.broketype, d.stoptime ) q
                                 right join stop_det s
                                 on s.stop_id=q.is_stop
-                                group by s.stop_name, q.depocode,s.stop_id");
+                                group by s.stop_name, s.stop_id");
 
     $yaraltai36min32019 =DB::select("select s.stop_id, s.stop_name ,sum(substr(q.stoptime,4,2)+((substr(q.stoptime,1,2))*60)) as COUNT from
                                 (select
@@ -1822,7 +1822,7 @@ $hurd22019 =DB::select("select b.broketype_id, b.broketype_name, count(o.brokety
                                 group by d.is_stop, g.depocode,d.broketype, d.stoptime ) q
                                 right join stop_det s
                                 on s.stop_id=q.is_stop
-                                group by s.stop_name, q.depocode,s.stop_id");
+                                group by s.stop_name, s.stop_id");
     $yaraltai352019 =DB::select("select s.stop_id, s.stop_name ,count(q.broketype) as COUNT from
                                 (select
                                 g.depocode,
@@ -1837,7 +1837,7 @@ $hurd22019 =DB::select("select b.broketype_id, b.broketype_name, count(o.brokety
                                 group by d.is_stop, g.depocode,d.broketype,t.route_id ) q
                                 right join stop_det s
                                 on s.stop_id=q.is_stop
-                                group by s.stop_name, q.depocode,s.stop_id");
+                                group by s.stop_name, s.stop_id");
     $yaraltai3522019 =DB::select("select s.stop_id, s.stop_name ,count(q.broketype) as COUNT from
                                 (select
                                 g.depocode,
@@ -1852,7 +1852,7 @@ $hurd22019 =DB::select("select b.broketype_id, b.broketype_name, count(o.brokety
                                 group by d.is_stop, g.depocode,d.broketype,t.route_id ) q
                                 right join stop_det s
                                 on s.stop_id=q.is_stop
-                                group by s.stop_name, q.depocode,s.stop_id");
+                                group by s.stop_name, s.stop_id");
 
     $yaraltai3532019 =DB::select("select s.stop_id, s.stop_name ,count(q.broketype) as COUNT from
                                 (select
@@ -1868,7 +1868,7 @@ $hurd22019 =DB::select("select b.broketype_id, b.broketype_name, count(o.brokety
                                 group by d.is_stop, g.depocode,d.broketype,t.route_id ) q
                                 right join stop_det s
                                 on s.stop_id=q.is_stop
-                                group by s.stop_name, q.depocode,s.stop_id");
+                                group by s.stop_name,s.stop_id");
     $yaraltai35min2019 =DB::select("select s.stop_id, s.stop_name ,sum(substr(q.stoptime,4,2)+((substr(q.stoptime,1,2))*60)) as COUNT from
                                 (select
                                 g.depocode,
@@ -1884,7 +1884,7 @@ $hurd22019 =DB::select("select b.broketype_id, b.broketype_name, count(o.brokety
                                 group by d.is_stop, g.depocode,d.broketype,d.stoptime,t.route_id ) q
                                 right join stop_det s
                                 on s.stop_id=q.is_stop
-                                group by s.stop_name, q.depocode,s.stop_id");
+                                group by s.stop_name,s.stop_id");
     $yaraltai35min22019 =DB::select("select s.stop_id, s.stop_name ,sum(substr(q.stoptime,4,2)+((substr(q.stoptime,1,2))*60)) as COUNT from
                                 (select
                                 g.depocode,
@@ -1900,8 +1900,8 @@ $hurd22019 =DB::select("select b.broketype_id, b.broketype_name, count(o.brokety
                                 group by d.is_stop, g.depocode,d.broketype,d.stoptime,t.route_id ) q
                                 right join stop_det s
                                 on s.stop_id=q.is_stop
-                                group by s.stop_name, q.depocode,s.stop_id");
-                                dd( $yaraltai35min22019);
+                                group by s.stop_name,s.stop_id");
+                               
 
     $yaraltai35min32019 =DB::select("select s.stop_id, s.stop_name ,sum(substr(q.stoptime,4,2)+((substr(q.stoptime,1,2))*60)) as COUNT from
                                 (select
@@ -1918,7 +1918,7 @@ $hurd22019 =DB::select("select b.broketype_id, b.broketype_name, count(o.brokety
                                 group by d.is_stop, g.depocode,d.broketype,d.stoptime,t.route_id ) q
                                 right join stop_det s
                                 on s.stop_id=q.is_stop
-                                group by s.stop_name, q.depocode,s.stop_id");
+                                group by s.stop_name,s.stop_id");
     $yaraltai372019 =DB::select("select s.stop_id, s.stop_name ,count(q.broketype) as COUNT from
                                 (select
                                 g.depocode,
@@ -1932,7 +1932,7 @@ $hurd22019 =DB::select("select b.broketype_id, b.broketype_name, count(o.brokety
                                 group by d.is_stop, g.depocode,d.broketype,t.route_id ) q
                                 right join stop_det s
                                 on s.stop_id=q.is_stop
-                                group by s.stop_name, q.depocode,s.stop_id");
+                                group by s.stop_name,s.stop_id");
     $yaraltai3722019 =DB::select("select s.stop_id, s.stop_name ,count(q.broketype) as COUNT from
                                 (select
                                 g.depocode,
@@ -1946,7 +1946,7 @@ $hurd22019 =DB::select("select b.broketype_id, b.broketype_name, count(o.brokety
                                 group by d.is_stop, g.depocode,d.broketype,t.route_id ) q
                                 right join stop_det s
                                 on s.stop_id=q.is_stop
-                                group by s.stop_name, q.depocode,s.stop_id");
+                                group by s.stop_name,s.stop_id");
 
     $yaraltai3732019 =DB::select("select s.stop_id, s.stop_name ,count(q.broketype) as COUNT from
                                 (select
@@ -1961,7 +1961,7 @@ $hurd22019 =DB::select("select b.broketype_id, b.broketype_name, count(o.brokety
                                 group by d.is_stop, g.depocode,d.broketype,t.route_id ) q
                                 right join stop_det s
                                 on s.stop_id=q.is_stop
-                                group by s.stop_name, q.depocode,s.stop_id");
+                                group by s.stop_name,s.stop_id");
     $yaraltai37min2019 =DB::select("select s.stop_id, s.stop_name ,sum(substr(q.stoptime,4,2)+((substr(q.stoptime,1,2))*60)) as COUNT from
                                 (select
                                 g.depocode,
@@ -1976,7 +1976,7 @@ $hurd22019 =DB::select("select b.broketype_id, b.broketype_name, count(o.brokety
                                 group by d.is_stop, g.depocode,d.broketype, d.stoptime ) q
                                 right join stop_det s
                                 on s.stop_id=q.is_stop
-                                group by s.stop_name, q.depocode,s.stop_id");
+                                group by s.stop_name,s.stop_id");
     $yaraltai37min22019 =DB::select("select s.stop_id, s.stop_name ,sum(substr(q.stoptime,4,2)+((substr(q.stoptime,1,2))*60)) as COUNT from
                                 (select
                                 g.depocode,
@@ -1991,7 +1991,7 @@ $hurd22019 =DB::select("select b.broketype_id, b.broketype_name, count(o.brokety
                                 group by d.is_stop, g.depocode,d.broketype, d.stoptime ) q
                                 right join stop_det s
                                 on s.stop_id=q.is_stop
-                                group by s.stop_name, q.depocode,s.stop_id");
+                                group by s.stop_name, s.stop_id");
 
     $yaraltai37min32019 =DB::select("select s.stop_id, s.stop_name ,sum(substr(q.stoptime,4,2)+((substr(q.stoptime,1,2))*60)) as COUNT from
                                 (select
@@ -2007,7 +2007,7 @@ $hurd22019 =DB::select("select b.broketype_id, b.broketype_name, count(o.brokety
                                 group by d.is_stop, g.depocode,d.broketype, d.stoptime ) q
                                 right join stop_det s
                                 on s.stop_id=q.is_stop
-                                group by s.stop_name, q.depocode,s.stop_id");
+                                group by s.stop_name, s.stop_id");
     $yaraltai382019 =DB::select("select s.stop_id, s.stop_name ,count(q.broketype) as COUNT from
                                 (select
                                 g.depocode,
@@ -2021,7 +2021,7 @@ $hurd22019 =DB::select("select b.broketype_id, b.broketype_name, count(o.brokety
                                 group by d.is_stop, g.depocode,d.broketype,t.route_id ) q
                                 right join stop_det s
                                 on s.stop_id=q.is_stop
-                                group by s.stop_name, q.depocode,s.stop_id");
+                                group by s.stop_name,s.stop_id");
     $yaraltai3822019 =DB::select("select s.stop_id, s.stop_name ,count(q.broketype) as COUNT from
                                 (select
                                 g.depocode,
@@ -2035,7 +2035,7 @@ $hurd22019 =DB::select("select b.broketype_id, b.broketype_name, count(o.brokety
                                 group by d.is_stop, g.depocode,d.broketype,t.route_id ) q
                                 right join stop_det s
                                 on s.stop_id=q.is_stop
-                                group by s.stop_name, q.depocode,s.stop_id");
+                                group by s.stop_name,s.stop_id");
 
     $yaraltai3832019 =DB::select("select s.stop_id, s.stop_name ,count(q.broketype) as COUNT from
                                 (select
@@ -2050,7 +2050,7 @@ $hurd22019 =DB::select("select b.broketype_id, b.broketype_name, count(o.brokety
                                 group by d.is_stop, g.depocode,d.broketype,t.route_id ) q
                                 right join stop_det s
                                 on s.stop_id=q.is_stop
-                                group by s.stop_name, q.depocode,s.stop_id");
+                                group by s.stop_name,s.stop_id");
     $yaraltai38min2019 =DB::select("select s.stop_id, s.stop_name ,sum(substr(q.stoptime,4,2)+((substr(q.stoptime,1,2))*60)) as COUNT from
                                 (select
                                 g.depocode,
@@ -2065,7 +2065,7 @@ $hurd22019 =DB::select("select b.broketype_id, b.broketype_name, count(o.brokety
                                 group by d.is_stop, g.depocode,d.broketype, d.stoptime ) q
                                 right join stop_det s
                                 on s.stop_id=q.is_stop
-                                group by s.stop_name, q.depocode,s.stop_id");
+                                group by s.stop_name,s.stop_id");
     $yaraltai38min22019 =DB::select("select s.stop_id, s.stop_name ,sum(substr(q.stoptime,4,2)+((substr(q.stoptime,1,2))*60)) as COUNT from
                                 (select
                                 g.depocode,
@@ -2080,7 +2080,7 @@ $hurd22019 =DB::select("select b.broketype_id, b.broketype_name, count(o.brokety
                                 group by d.is_stop, g.depocode,d.broketype, d.stoptime ) q
                                 right join stop_det s
                                 on s.stop_id=q.is_stop
-                                group by s.stop_name, q.depocode,s.stop_id");
+                                group by s.stop_name, s.stop_id");
 
     $yaraltai38min32019 =DB::select("select s.stop_id, s.stop_name ,sum(substr(q.stoptime,4,2)+((substr(q.stoptime,1,2))*60)) as COUNT from
                                 (select
@@ -2096,7 +2096,7 @@ $hurd22019 =DB::select("select b.broketype_id, b.broketype_name, count(o.brokety
                                 group by d.is_stop, g.depocode,d.broketype, d.stoptime ) q
                                 right join stop_det s
                                 on s.stop_id=q.is_stop
-                                group by s.stop_name, q.depocode,s.stop_id");
+                                group by s.stop_name,s.stop_id");
     $zurchil2019 =DB::select("select
                                         d.fault_detail_id, d.fault_detail_name, count(q1.fault_id) as cnt
                                         from
