@@ -4059,7 +4059,7 @@
                       0 мин
                   @endif
               </td>
-              <td>@if(count($tuslamjurtuu2019) >0)
+              <td>@if(count($tuslamjurtuu22019) >0)
                         @foreach($tuslamjurtuu22019 as $n)
                             {{$n->too}} уд
                         @endforeach
