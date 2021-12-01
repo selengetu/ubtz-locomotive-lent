@@ -2853,7 +2853,7 @@ group by q2.depo_id,q2.marshyear, q2.marshmonth");
                         inner join V_STATION s on f.fromstation=s.statcode
                         inner join V_STATION z on z.statcode=f.tostation
                         LEFT JOIN V_Broketype b on b.broketype_id= d.broketype
-                        where t.depo_id=g.depocode and e.depocode= t.depo_id and e.marshyear=g.marshyear and e.marshmonth=g.marshmonth and f.fault_no=12 and  t.depo_id =  ".Auth::user()->depo_id. " " .$query."
+                        where t.depo_id=g.depocode and e.depocode= t.depo_id and e.marshyear=g.marshyear and e.marshmonth=g.marshmonth and f.fault_no=12 and (SUBSTR(d.stoptime, 1, 2)*60 + SUBSTR(d.stoptime, 4, 2))>29 and  (SUBSTR(d.stoptime, 1, 2)*60 + SUBSTR(d.stoptime, 4, 2))<120 and  t.depo_id =  ".Auth::user()->depo_id. " " .$query."
                         group by s.statfullname, g.depocode");
         $zurchil=DB::select('select  * from ZURCHIL_30  t where t.depocode =  '.Auth::user()->depo_id. ' '.$query.'');
 
