@@ -1170,7 +1170,7 @@ sum(sel) as sel , sum(uz) as uz , sum(tur) as tur , sum(oros) as oros ,  sum(tso
                                 inner join ZUTGUUR.MARSHZUT e on e.marshid=t.route_id
                                 inner join fault f on f.ribbon_id = t.ribbon_id
                                 left join fault_det d on d.fault_id=f.fault_id
-                                where t.depo_id=g.depocode and e.depocode=t.depo_id and e.marshyear=g.marshyear and e.marshmonth=g.marshmonth and f.fault_no=12 and e.marshyear=".$year." and e.marshmonth=".$month." and g.depocode in (".$depoid. ")
+                                where t.depo_id=g.depocode and e.depocode=t.depo_id and e.marshyear=g.marshyear and e.marshmonth=g.marshmonth and f.fault_no=12 and substr(d.stoptime,4,2)+((substr(d.stoptime,1,2))*60)<120  and e.marshyear=".$year." and e.marshmonth=".$month." and g.depocode in (".$depoid. ")
                                     ");
     $iluu=DB::select("select
                                 count(f.fault_no) as too
