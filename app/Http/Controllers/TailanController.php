@@ -1275,7 +1275,7 @@ group by q2.depo_id,q2.marshyear, q2.marshmonth");
                                 inner join ZUTGUUR.MARSHZUT e on e.marshid=t.route_id
                                 inner join fault f on f.ribbon_id = t.ribbon_id
                                 left join fault_det d on d.fault_id=f.fault_id 
-                                where t.depo_id=g.depocode and e.depocode=t.depo_id and e.marshyear=g.marshyear and e.marshmonth=g.marshmonth and f.fault_no=2 and e.marshyear=".$year."  and e.marshmonth between 1 and ".$month." and g.depocode in (".$depoid. ")
+                                where t.depo_id=g.depocode and e.depocode=t.depo_id and e.marshyear=g.marshyear and e.marshmonth=g.marshmonth and f.fault_no=2  and e.marshyear=".$year."  and e.marshmonth between 1 and ".$month." and g.depocode in (".$depoid. ")
                                     ");
     $techno2 =DB::select("select
                                 count(f.fault_no) as too
@@ -1284,7 +1284,7 @@ group by q2.depo_id,q2.marshyear, q2.marshmonth");
                                 inner join ZUTGUUR.MARSHZUT e on e.marshid=t.route_id
                                 inner join fault f on f.ribbon_id = t.ribbon_id
                                 left join fault_det d on d.fault_id=f.fault_id
-                                where t.depo_id=g.depocode and e.depocode=t.depo_id and e.marshyear=g.marshyear and e.marshmonth=g.marshmonth and f.fault_no=12 and e.marshyear=".$year."  and e.marshmonth between 1 and ".$month." and g.depocode in (".$depoid. ")
+                                where t.depo_id=g.depocode and e.depocode=t.depo_id and e.marshyear=g.marshyear and e.marshmonth=g.marshmonth and f.fault_no=12 and substr(d.stoptime,4,2)+((substr(d.stoptime,1,2))*60)<120 and e.marshyear=".$year."  and e.marshmonth between 1 and ".$month." and g.depocode in (".$depoid. ")
                                     ");
     $technomin2=DB::select("select
                                 sum(substr(d.stoptime,4,2)+((substr(d.stoptime,1,2))*60)) as too
@@ -1293,7 +1293,7 @@ group by q2.depo_id,q2.marshyear, q2.marshmonth");
                                 inner join ZUTGUUR.MARSHZUT e on e.marshid=t.route_id
                                 inner join fault f on f.ribbon_id = t.ribbon_id
                                 left join fault_det d on d.fault_id=f.fault_id
-                                where t.depo_id=g.depocode and e.depocode=t.depo_id and e.marshyear=g.marshyear and e.marshmonth=g.marshmonth and f.fault_no=12 and e.marshyear=".$year."  and e.marshmonth between 1 and ".$month." and g.depocode in (".$depoid. ")
+                                where t.depo_id=g.depocode and e.depocode=t.depo_id and e.marshyear=g.marshyear and e.marshmonth=g.marshmonth and f.fault_no=12 and substr(d.stoptime,4,2)+((substr(d.stoptime,1,2))*60)<120 and e.marshyear=".$year."  and e.marshmonth between 1 and ".$month." and g.depocode in (".$depoid. ")
                                     ");
     $iluu2 =DB::select("select
                                 count(f.fault_no) as too
@@ -1407,7 +1407,7 @@ group by q2.depo_id,q2.marshyear, q2.marshmonth");
                                 inner join ZUTGUUR.MARSHZUT e on e.marshid=t.route_id
                                 inner join fault f on f.ribbon_id = t.ribbon_id
                                 left join fault_det d on d.fault_id=f.fault_id
-                                where t.depo_id=g.depocode and e.depocode=t.depo_id and e.marshyear=g.marshyear and e.marshmonth=g.marshmonth and f.fault_no=12 and e.marshyear=".$year."  and e.marshmonth in ".$m." and g.depocode in (".$depoid. ")
+                                where t.depo_id=g.depocode and e.depocode=t.depo_id and e.marshyear=g.marshyear and e.marshmonth=g.marshmonth and f.fault_no=12 and substr(d.stoptime,4,2)+((substr(d.stoptime,1,2))*60)<120 and e.marshyear=".$year."  and e.marshmonth in ".$m." and g.depocode in (".$depoid. ")
                                     ");
     $iluu3 =DB::select("select
                                 count(f.fault_no) as too
@@ -1434,7 +1434,7 @@ group by q2.depo_id,q2.marshyear, q2.marshmonth");
                                 inner join ZUTGUUR.MARSHZUT e on e.marshid=t.route_id
                                 inner join fault f on f.ribbon_id = t.ribbon_id
                                 left join fault_det d on d.fault_id=f.fault_id
-                                where t.depo_id=g.depocode and e.depocode=t.depo_id and e.marshyear=g.marshyear and e.marshmonth=g.marshmonth and f.fault_no=12 and e.marshyear=".$year."  and e.marshmonth in ".$m." and g.depocode in (".$depoid. ")
+                                where t.depo_id=g.depocode and e.depocode=t.depo_id and e.marshyear=g.marshyear and e.marshmonth=g.marshmonth and f.fault_no=12 and substr(d.stoptime,4,2)+((substr(d.stoptime,1,2))*60)<120 and  e.marshyear=".$year."  and e.marshmonth in ".$m." and g.depocode in (".$depoid. ")
                                     ");
     $iluumin3 =DB::select("select
                                 sum(substr(d.stoptime,4,2)+((substr(d.stoptime,1,2))*60)) as too
@@ -2444,16 +2444,16 @@ sum(sel) as sel , sum(uz) as uz , sum(tur) as tur , sum(oros) as oros ,  sum(tso
                                 inner join ZUTGUUR.MARSHZUT e on e.marshid=t.route_id
                                 inner join fault f on f.ribbon_id = t.ribbon_id
                                 left join fault_det d on d.fault_id=f.fault_id
-                                where t.depo_id=g.depocode and e.depocode=t.depo_id and e.marshyear=g.marshyear and e.marshmonth=g.marshmonth and f.fault_no=12 and e.marshyear=".$year." and e.marshmonth=".$month." and g.depocode in (".$depoid. ")
+                                where t.depo_id=g.depocode and e.depocode=t.depo_id and e.marshyear=g.marshyear and e.marshmonth=g.marshmonth and f.fault_no=12 and substr(d.stoptime,4,2)+((substr(d.stoptime,1,2))*60)<120 and e.marshyear=".$year." and e.marshmonth=".$month." and g.depocode in (".$depoid. ")
                                     ");
-                                    $techno2019 =DB::select("select
+    $techno2019 =DB::select("select
                                 count(f.fault_no) as too
                                 from  ribbon t
                               inner join V_MARSHBRIG g on g.marshid=t.route_id and g.depocode=t.depo_id
                                 inner join ZUTGUUR.MARSHZUT e on e.marshid=t.route_id
                                 inner join fault f on f.ribbon_id = t.ribbon_id
                                 left join fault_det d on d.fault_id=f.fault_id
-                                where t.depo_id=g.depocode and e.depocode=t.depo_id and e.marshyear=g.marshyear and e.marshmonth=g.marshmonth and f.fault_no=12 and e.marshyear=".$year1." and e.marshmonth=".$month." and g.depocode in (".$depoid. ")
+                                where t.depo_id=g.depocode and e.depocode=t.depo_id and e.marshyear=g.marshyear and e.marshmonth=g.marshmonth and f.fault_no=12 and substr(d.stoptime,4,2)+((substr(d.stoptime,1,2))*60)<120  and e.marshyear=".$year1." and e.marshmonth=".$month." and g.depocode in (".$depoid. ")
                                     ");
     $technomin2019 =DB::select("select
                                 sum(substr(d.stoptime,4,2)+((substr(d.stoptime,1,2))*60)) as too
@@ -2462,7 +2462,7 @@ sum(sel) as sel , sum(uz) as uz , sum(tur) as tur , sum(oros) as oros ,  sum(tso
                                 inner join ZUTGUUR.MARSHZUT e on e.marshid=t.route_id
                                 inner join fault f on f.ribbon_id = t.ribbon_id
                                 left join fault_det d on d.fault_id=f.fault_id
-                                where t.depo_id=g.depocode and e.depocode=t.depo_id and e.marshyear=g.marshyear and e.marshmonth=g.marshmonth and f.fault_no=12 and e.marshyear=".$year1." and e.marshmonth=".$month." and g.depocode in (".$depoid. ")
+                                where t.depo_id=g.depocode and e.depocode=t.depo_id and e.marshyear=g.marshyear and e.marshmonth=g.marshmonth and f.fault_no=12 and substr(d.stoptime,4,2)+((substr(d.stoptime,1,2))*60)<120 and e.marshyear=".$year1." and e.marshmonth=".$month." and g.depocode in (".$depoid. ")
                                     ");
     $iluu2019 =DB::select("select
                                 count(f.fault_no) as too
@@ -2595,7 +2595,7 @@ group by q2.marshyear, q2.marshmonth");
                                 inner join ZUTGUUR.MARSHZUT e on e.marshid=t.route_id
                                 inner join fault f on f.ribbon_id = t.ribbon_id
                                 left join fault_det d on d.fault_id=f.fault_id
-                                where t.depo_id=g.depocode and e.depocode=t.depo_id and e.marshyear=g.marshyear and e.marshmonth=g.marshmonth and f.fault_no=12 and e.marshyear=".$year1." and e.marshmonth between 1 and ".$month." and g.depocode in (".$depoid. ")
+                                where t.depo_id=g.depocode and e.depocode=t.depo_id and e.marshyear=g.marshyear and e.marshmonth=g.marshmonth and f.fault_no=12 and substr(d.stoptime,4,2)+((substr(d.stoptime,1,2))*60)<120 and e.marshyear=".$year1." and e.marshmonth between 1 and ".$month." and g.depocode in (".$depoid. ")
                                     ");
     $technomin22019 =DB::select("select
                                 sum(substr(d.stoptime,4,2)+((substr(d.stoptime,1,2))*60)) as too
@@ -2604,7 +2604,7 @@ group by q2.marshyear, q2.marshmonth");
                                 inner join ZUTGUUR.MARSHZUT e on e.marshid=t.route_id
                                 inner join fault f on f.ribbon_id = t.ribbon_id
                                 left join fault_det d on d.fault_id=f.fault_id
-                                where t.depo_id=g.depocode and e.depocode=t.depo_id and e.marshyear=g.marshyear and e.marshmonth=g.marshmonth and f.fault_no=12 and e.marshyear=".$year1." and e.marshmonth between 1 and ".$month." and g.depocode in (".$depoid. ")
+                                where t.depo_id=g.depocode and e.depocode=t.depo_id and e.marshyear=g.marshyear and e.marshmonth=g.marshmonth and f.fault_no=12 and substr(d.stoptime,4,2)+((substr(d.stoptime,1,2))*60)<120 and e.marshyear=".$year1." and e.marshmonth between 1 and ".$month." and g.depocode in (".$depoid. ")
                                     ");
     $iluu22019 =DB::select("select
                                 count(f.fault_no) as too
@@ -2718,7 +2718,7 @@ group by q2.depo_id,q2.marshyear, q2.marshmonth");
                                 inner join ZUTGUUR.MARSHZUT e on e.marshid=t.route_id
                                 inner join fault f on f.ribbon_id = t.ribbon_id
                                 left join fault_det d on d.fault_id=f.fault_id
-                                where t.depo_id=g.depocode and e.depocode=t.depo_id and e.marshyear=g.marshyear and e.marshmonth=g.marshmonth and f.fault_no=12 and e.marshyear=".$year1." and e.marshmonth in ".$m." and g.depocode in (".$depoid. ")
+                                where t.depo_id=g.depocode and e.depocode=t.depo_id and e.marshyear=g.marshyear and e.marshmonth=g.marshmonth and f.fault_no=12 and substr(d.stoptime,4,2)+((substr(d.stoptime,1,2))*60)<120 and e.marshyear=".$year1." and e.marshmonth in ".$m." and g.depocode in (".$depoid. ")
                                     ");
     $iluu32019 =DB::select("select
                                 count(f.fault_no) as too
@@ -2745,7 +2745,7 @@ group by q2.depo_id,q2.marshyear, q2.marshmonth");
                                 inner join ZUTGUUR.MARSHZUT e on e.marshid=t.route_id
                                 inner join fault f on f.ribbon_id = t.ribbon_id
                                 left join fault_det d on d.fault_id=f.fault_id
-                                where t.depo_id=g.depocode and e.depocode=t.depo_id and e.marshyear=g.marshyear and e.marshmonth=g.marshmonth and f.fault_no=12 and e.marshyear=".$year1." and e.marshmonth in ".$m." and g.depocode in (".$depoid. ")
+                                where t.depo_id=g.depocode and e.depocode=t.depo_id and e.marshyear=g.marshyear and e.marshmonth=g.marshmonth and f.fault_no=12 and substr(d.stoptime,4,2)+((substr(d.stoptime,1,2))*60)<120 and e.marshyear=".$year1." and e.marshmonth in ".$m." and g.depocode in (".$depoid. ")
                                     ");
     $iluumin32019 =DB::select("select
                                 sum(substr(d.stoptime,4,2)+((substr(d.stoptime,1,2))*60)) as too
