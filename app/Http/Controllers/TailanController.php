@@ -833,7 +833,7 @@ PIVOT
                                           and  b.marshyear=".$year." and b.marshmonth=".$month." and b.depocode in (".$depoid. ")
                                           ) q 
                                           left join fault_det de on de.fault_id=q.fault_id
-                                          where de.is_techact is null or de.is_techact=2) q1 right join
+                                        ) q1 right join
                                          fault_detail d on d.fault_detail_id=q1.fault_no
                                          where d.fault_type=2
                                          group by d.fault_detail_id, d.fault_detail_name
@@ -954,21 +954,21 @@ PIVOT
    t.route_id, t.depo_id, t.zutnumber, t.locno, t.train_no, t.train_dirtyweight,f.*
    from FAULT f, ribbon t, fault_detail e, ZUTGUUR.Marshbrig b
    where t.ribbon_id=f.ribbon_id and e.fault_detail_id=f.fault_no and b.depocode=t.depo_id
-   and b.marshid=t.route_id and f.fault_no in (32,17,33,37,26,25,31,22,16,13,23,14,20,18,19,15,30,34,41,161) and b.marshyear=".$year." and b.marshmonth=".$month." and b.depocode in (".$depoid. ")) q
+   and b.marshid=t.route_id and f.fault_no in (32,17,33,37,26,25,31,22,16,13,23,14,20,18,19,15,30,34,41,161,26) and b.marshyear=".$year." and b.marshmonth=".$month." and b.depocode in (".$depoid. ")) q
    left join fault_det d on d.fault_id=q.fault_id
    where d.is_techact = 2 or d.is_techact is null ");
     $niitzurchil2 =DB::select("select count(route_id) as too from (select
    t.route_id, t.depo_id, t.zutnumber, t.locno, t.train_no, t.train_dirtyweight,f.*
    from FAULT f, ribbon t, fault_detail e, ZUTGUUR.Marshbrig b
    where t.ribbon_id=f.ribbon_id and e.fault_detail_id=f.fault_no and b.depocode=t.depo_id
-   and b.marshid=t.route_id and f.fault_no in (32,17,33,37,26,25,31,22,16,13,23,14,20,18,19,15,30,34,41,161) and b.marshyear=".$year."  and b.marshmonth between 1 and ".$month." and b.depocode in (".$depoid. ")) q
+   and b.marshid=t.route_id and f.fault_no in (32,17,33,37,26,25,31,22,16,13,23,14,20,18,19,15,30,34,41,161,26) and b.marshyear=".$year."  and b.marshmonth between 1 and ".$month." and b.depocode in (".$depoid. ")) q
    left join fault_det d on d.fault_id=q.fault_id
    where d.is_techact = 2 or d.is_techact is null ");
     $niitzurchil3=DB::select("select count(route_id) as too from (select
    t.route_id, t.depo_id, t.zutnumber, t.locno, t.train_no, t.train_dirtyweight,f.*
    from FAULT f, ribbon t, fault_detail e, ZUTGUUR.Marshbrig b
    where t.ribbon_id=f.ribbon_id and e.fault_detail_id=f.fault_no and b.depocode=t.depo_id
-   and b.marshid=t.route_id and f.fault_no in (32,17,33,37,26,25,31,22,16,13,23,14,20,18,19,15,30,34,41,161) and b.marshyear=".$year."  and b.marshmonth in ".$m." and b.depocode in (".$depoid. ")) q
+   and b.marshid=t.route_id and f.fault_no in (32,17,33,37,26,25,31,22,16,13,23,14,20,18,19,15,30,34,41,161,26) and b.marshyear=".$year."  and b.marshmonth in ".$m." and b.depocode in (".$depoid. ")) q
    left join fault_det d on d.fault_id=q.fault_id
    where d.is_techact = 2 or d.is_techact is null ");
     $orohachaa =DB::select("select sum(suud) as suud ,sum(ach) as ach ,sum(aj) as aj ,sum(bteg) as bteg , 
@@ -2237,21 +2237,21 @@ $hurd22019 =DB::select("select b.broketype_id, b.broketype_name, count(o.brokety
    t.route_id, t.depo_id, t.zutnumber, t.locno, t.train_no, t.train_dirtyweight,f.*
    from FAULT f, ribbon t, fault_detail e, ZUTGUUR.Marshbrig b
    where t.ribbon_id=f.ribbon_id and e.fault_detail_id=f.fault_no and b.depocode=t.depo_id
-   and b.marshid=t.route_id and f.fault_no in (32,17,33,37,26,25,31,22,16,13,23,14,20,18,19,15,30,34,41,161) and b.marshyear=".$year1." and b.marshmonth=".$month." and b.depocode in (".$depoid. ")) q
+   and b.marshid=t.route_id and f.fault_no in (32,17,33,37,26,25,31,22,16,13,23,14,20,18,19,15,30,34,41,161,26) and b.marshyear=".$year1." and b.marshmonth=".$month." and b.depocode in (".$depoid. ")) q
    left join fault_det d on d.fault_id=q.fault_id
    where d.is_techact = 2 or d.is_techact is null ");
     $niitzurchil22019 =DB::select("select count(route_id) as too from (select
    t.route_id, t.depo_id, t.zutnumber, t.locno, t.train_no, t.train_dirtyweight,f.*
    from FAULT f, ribbon t, fault_detail e, ZUTGUUR.Marshbrig b
    where t.ribbon_id=f.ribbon_id and e.fault_detail_id=f.fault_no and b.depocode=t.depo_id
-   and b.marshid=t.route_id and f.fault_no in (32,17,33,37,26,25,31,22,16,13,23,14,20,18,19,15,30,34,41,161) and b.marshyear=".$year1." and b.marshmonth between 1 and ".$month." and b.depocode in (".$depoid. ")) q
+   and b.marshid=t.route_id and f.fault_no in (32,17,33,37,26,25,31,22,16,13,23,14,20,18,19,15,30,34,41,161,26) and b.marshyear=".$year1." and b.marshmonth between 1 and ".$month." and b.depocode in (".$depoid. ")) q
    left join fault_det d on d.fault_id=q.fault_id
    where d.is_techact = 2 or d.is_techact is null ");
     $niitzurchil32019 =DB::select("select count(route_id) as too from (select
    t.route_id, t.depo_id, t.zutnumber, t.locno, t.train_no, t.train_dirtyweight,f.*
    from FAULT f, ribbon t, fault_detail e, ZUTGUUR.Marshbrig b
    where t.ribbon_id=f.ribbon_id and e.fault_detail_id=f.fault_no and b.depocode=t.depo_id
-   and b.marshid=t.route_id and f.fault_no in (32,17,33,37,26,25,31,22,16,13,23,14,20,18,19,15,30,34,41,161) and b.marshyear=".$year1." and b.marshmonth in ".$m." and b.depocode in (".$depoid. ")) q
+   and b.marshid=t.route_id and f.fault_no in (32,17,33,37,26,25,31,22,16,13,23,14,20,18,19,15,30,34,41,161,26) and b.marshyear=".$year1." and b.marshmonth in ".$m." and b.depocode in (".$depoid. ")) q
    left join fault_det d on d.fault_id=q.fault_id
    where d.is_techact = 2 or d.is_techact is null ");
     $orohachaa2019 =DB::select("select sum(suud) as suud ,sum(ach) as ach ,sum(aj) as aj ,sum(bteg) as bteg , 
