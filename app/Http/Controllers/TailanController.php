@@ -47,7 +47,7 @@ class TailanController extends Controller
 
     $year = (substr($startdate, 0, 4));
     $month = (substr($startdate, 5, 2));
-    $year1 ='2021';
+    $year1 ='2022';
     $achaa=DB::select("SELECT sum(suud) as suud ,sum(ach) as ach ,sum(aj) as aj ,sum(bteg) as bteg , 
 sum(sel) as sel , sum(uz) as uz , sum(tur) as tur , sum(oros) as oros ,  sum(tsonh) as tsonh
 FROM
