@@ -2271,15 +2271,11 @@ sum(sel) as sel , sum(uz) as uz , sum(tur) as tur , sum(oros) as oros ,  sum(tso
 )")[0];
 
     $orohachaa22019 =DB::select("select sum(suud) as suud ,sum(ach) as ach ,sum(aj) as aj ,sum(bteg) as bteg , 
-sum(sel) as sel , sum(uz) as uz , sum(tur) as tur , sum(oros) as oros ,  sum(tsonh) as tsonh from (select
-                                        t.route_id,
-                                       SUBSTR(workid, 1, 1) as worktype
-                                        from  ribbon t
-                                        inner join ZUTGUUR.MARSHBRIG g on g.marshid=t.route_id and g.depocode=t.depo_id
-                                        inner join fault f on f.ribbon_id = t.ribbon_id
-                                        where g.marshyear=".$year1." and g.marshmonth  between 1 and ".$month." and g.depocode in (".$depoid. ") and f.fault_no=21
-                                        group by t.route_id, t.workid) q2
-                                        
+    sum(sel) as sel , sum(uz) as uz , sum(tur) as tur , sum(oros) as oros ,  sum(tsonh) as tsonh from (select t.route_id, SUBSTR(workid, 1, 1) as worktype
+    from  ribbon t inner join ZUTGUUR.MARSHBRIG g on g.marshid=t.route_id and g.depocode=t.depo_id
+    inner join fault f on f.ribbon_id = t.ribbon_id
+    where g.marshyear=".$year1." and g.marshmonth  between 1 and ".$month." and g.depocode in (".$depoid. ") and f.fault_no=21
+    group by t.route_id, t.workid) q2                                   
      PIVOT
 (
   COUNT( worktype)
@@ -2287,13 +2283,12 @@ sum(sel) as sel , sum(uz) as uz , sum(tur) as tur , sum(oros) as oros ,  sum(tso
 )")[0];
     $orohachaa32019 =DB::select("select sum(suud) as suud ,sum(ach) as ach ,sum(aj) as aj ,sum(bteg) as bteg , 
 sum(sel) as sel , sum(uz) as uz , sum(tur) as tur , sum(oros) as oros ,  sum(tsonh) as tsonh from (select
-                                        t.route_id,
-                                       SUBSTR(workid, 1, 1) as worktype
-                                        from  ribbon t
-                                        inner join ZUTGUUR.MARSHBRIG g on g.marshid=t.route_id and g.depocode=t.depo_id
-                                        inner join fault f on f.ribbon_id = t.ribbon_id
-                                        where g.marshyear=".$year1." and g.marshmonth  in ".$m."and g.depocode in (".$depoid. ") and f.fault_no=21
-                                        group by t.route_id, t.workid) q2
+    t.route_id, SUBSTR(workid, 1, 1) as worktype
+    from  ribbon t
+    inner join ZUTGUUR.MARSHBRIG g on g.marshid=t.route_id and g.depocode=t.depo_id
+    inner join fault f on f.ribbon_id = t.ribbon_id
+    where g.marshyear=".$year1." and g.marshmonth  in ".$m."and g.depocode in (".$depoid. ") and f.fault_no=21
+    group by t.route_id, t.workid) q2
                                         
      PIVOT
 (
