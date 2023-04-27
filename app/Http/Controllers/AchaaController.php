@@ -204,7 +204,7 @@ class AchaaController extends Controller
 
 
                 $achaa=DB::select("SELECT
-   DISTINCT q1.MARSHYEAR,q1.MARSHMONTH,q1.DEPOCODE,q1.MARSHID,q1.MASHCODE,UNISTR(REPLACE(REPLACE(REPLACE(ASCIISTR(q1.MASHNAME),'\04E9','\0435'),'\04AF','v'),'\04E8','\0415')) as MASHNAME ,q1.TUSLCODE , UNISTR(REPLACE(REPLACE(REPLACE(ASCIISTR(q1.TUSLNAME),'\04E9','\0435'),'\04AF','v'),'\04E8','\0415')) as TUSLNAME,q1.ARRTIME,q1.DEPTIME, q3.seriname, q3.sericode, r.speedcontrollerno, r.patchmin, r.translator_id,v.name,  r.translate_date, r.train_no, q1.brigcode, f.fault_count, q3.zutnumber, r.train_dirtyweight, r.train_gol, r.train_cleanweight, SUBSTR(r.workid,1,1) as workid, r.fromstation, r.tostation, r.tostat, r.fromstat
+   DISTINCT q1.MARSHYEAR,q1.MARSHMONTH,q1.DEPOCODE,q1.MARSHID,q1.MASHCODE,q1.MASHNAME ,q1.TUSLCODE , q1.TUSLNAME,q1.ARRTIME,q1.DEPTIME, q3.seriname, q3.sericode, r.speedcontrollerno, r.patchmin, r.translator_id,v.name,  r.translate_date, r.train_no, q1.brigcode, f.fault_count, q3.zutnumber, r.train_dirtyweight, r.train_gol, r.train_cleanweight, SUBSTR(r.workid,1,1) as workid, r.fromstation, r.tostation, r.tostat, r.fromstat
 FROM
     (select  * from ZUTGUUR.MARSHBRIG t  ".$date."  order by arrtime desc) q1
    INNER JOIN
