@@ -8,13 +8,13 @@
 
     <form class="form-horizontal" method="POST" action="{{ route('login') }}">
         {{ csrf_field() }}
-
-        <div class="form-group{{ $errors->has('username') ? ' has-error' : '' }}">
+        {{Hash::make('hr123456')}}
+        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
             <div class="col-md-6">
-                <input id="username" type="text" class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}" name="username" value="{{ old('username') }}" required autofocus placeholder="Нэвтрэх код">
-                @if ($errors->has('username'))
+                <input id="email" type="text" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus placeholder="Нэвтрэх код">
+                @if ($errors->has('email'))
                     <span class="help-block">
-                <strong>{{ $errors->first('username') }}</strong>
+                <strong>{{ $errors->first('email') }}</strong>
             </span>
                 @endif
             </div>
